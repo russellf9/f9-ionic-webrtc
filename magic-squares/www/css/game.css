@@ -1,0 +1,322 @@
+
+
+h6 { font-size: 18px; font-size: 1.8rem;  } /* =18px */
+
+
+.center-text {
+    width: 100%;
+    text-align: center;
+}
+
+.game-container {
+    /*position: absolute;*/
+    /*top: 0;*/
+    /*left: 0;*/
+    width: 600px;
+    height: 600px;
+
+    /*border: solid 1px #222;*/
+    background-color: rgba(254,254,255,0);
+
+    /*background-color: rgba(100,100,100,0.05);*/
+}
+
+.instructions {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    width: 600px;
+    height: 75px;
+
+    /*background-color: rgba(100,100,100,0.05);*/
+}
+
+.drag-drop {
+    position: absolute;
+    top: 75px;
+    left: 0;
+    width: 600px;
+    height: 480px;
+
+    /*border: solid 3px darkgreen;*/
+}
+
+.drop-zone {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 600px;
+    height: 290px;
+
+    /*border: solid 1px slategrey;*/
+    /*background-color: rgba(100,100,100,0.05);*/
+}
+
+.drop-zone-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 600px;
+    height: 290px;
+
+    /*border: solid 1px darkred;*/
+}
+
+.drop-zone-overlay-one {
+    z-index: -1;
+    /*border: solid 1px darkred;*/
+}
+
+.drop-zone-overlay-two {
+    z-index: -2;
+
+    /*border: solid 1px darkblue;*/
+}
+
+.drop-zone-overlay-three {
+    z-index: -3;
+
+    /*border: solid 1px darkblue;*/
+}
+
+
+
+.drag-home {
+    z-index: 99;
+    position: absolute;
+
+    top: 294px;
+    left: 0;
+
+    width: 600px;
+    height: 190px;
+    /* quick positioning hack */
+    padding-top: 8px;
+    padding-left: 35px;
+
+    /*border: solid 2px gold;*/
+}
+
+.drag-home-bgd {
+    z-index: -4;
+    position: absolute;
+
+    top: 294px;
+    left: 0;
+
+    width: 600px;
+    height: 190px;
+    /* quick positioning hack */
+    padding-top: 8px;
+    padding-left: 35px;
+}
+
+.game-controls {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 600px;
+    height: 45px;
+
+    /*border: solid 2px gold;*/
+
+    /*background-color: rgba(0,75,125,0.05);*/
+}
+
+
+.btn-droppable {
+    padding: 0;
+    /*z-index: -1;*/
+    /*hack so drag item fits over*/
+    margin-top: -2px;
+    margin-left: -2px;
+    cursor: default;
+}
+
+
+.btn-draggable {
+    z-index: 1;
+    padding: 0;
+    cursor: move;
+}
+
+.btn-info {
+    color: #fff;
+    background-color: #5bc0de;
+    border-color: #46b8da;
+    text-align: center;
+    font-weight: bold;
+}
+
+.square {
+    width: 75px;
+    min-height: 75px;
+}
+.drop-board {
+    /* hard-code for now */
+    width: 300px;
+    padding-top: 3px;
+    padding-left: 22px;
+    /*padding-right: 10px;*/
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+
+    /*border: solid 1px #999;*/
+}
+
+.drop-slot {
+    display: inline-block;
+    border: dotted 1px darkgreen;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    width: 75px !important;
+    height: 75px !important;
+}
+
+.slot-empty {
+    display: inline-block;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    width: 75px !important;
+    height: 75px !important;
+}
+
+.drag-slot {
+    /* bit hacky now */
+    margin-top: 3px;
+    margin-bottom: 3px;
+    padding: 0;
+
+    border:1px #d3d3d3 solid;
+}
+
+.drag-slot-empty {
+    padding: 0;
+    border:1px #d3d3d3 solid;
+}
+/*hack display for the totals*/
+.drop-display {
+    margin-top: 3px;
+    margin-bottom: 3px;
+
+    /*width: 75px !important;*/
+
+    /*border:1px #999 solid;*/
+}
+
+.row-indicator {
+    height: 100%;
+    /* bit hacky now */
+    padding-top: 20px;
+
+    /*border:1px #229 solid;*/
+}
+
+.row-indicator-left {
+    margin-left: -19px;
+}
+
+.column-indicator {
+    text-align: center;
+}
+.column-indicator p{
+    margin-top: -25px;
+
+    /*border:1px #229 solid;*/
+}
+.column-indicator-bottom {
+    margin-top: 190px;
+
+    /*border:1px #229 solid;*/
+}
+.column-indicator-bottom p {
+    margin-top: 25px;
+}
+.diagonal-left {
+    margin-left: -55px;
+}
+.diagonal-right {
+    margin-left: 158px;
+}
+
+
+.drag-text {
+    width: 75px;
+    height: 75px;
+    line-height: 75px;
+    display: flex;
+    justify-content: center; /* align horizontal */
+    align-items: center; /* align vertical */
+}
+
+.drag-text h1 {
+    margin: 0;
+    padding: 0;
+}
+
+
+.red {
+    background-color: red;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.green {
+    background-color: green;
+}
+
+.black {
+    background-color: black;
+    color: white;
+}
+
+.grey {
+    background-color: grey;
+}
+
+pre strong {
+    font-size:12pt;
+}
+
+
+
+/*------------------------------------*\
+    LISTS
+    See: http://csswizardry.com/2010/02/mutiple-column-lists-using-one-ul/
+\*------------------------------------*/
+ul{
+    width:inherit;
+    height: inherit;
+    margin-bottom:20px;
+    /*overflow:hidden;*/
+    /*border-left:1px solid #a32d00;*/
+    /*border-right:1px solid #a32d00;*/
+    /*border-bottom:1px solid #a32d00;*/
+}
+li{
+    padding: 0;
+    margin: 0;
+    line-height:1.5em;
+    height: 75px;
+    /*border-bottom:1px solid #ccc;*/
+    float:left;
+    display:inline;
+}
+#double li	{ width:50%;}
+#triple li	{ width:33.333%; }
+#quad li		{ width:25%; }
+#six li		{ width:16.666%; }
+
+#single li	{ width:100%;}
+
+
+.single li	{ width:100%;}
+.triple li { width:33.333%; }
+.double li { width:50%; }

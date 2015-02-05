@@ -4,6 +4,123 @@
         <h2 class="game-title">Magic Squares</h2>
         <p>From master? {{master.allCorrect}}</p>
         <span data-drag="true" jqyoui-draggable>So you think you can drag</span>
+
+
+        <div class="game-container center-block">
+            <!--THE INSTRUCTIONS-->
+            <div class="instructions" ng-controller="Instructions as instructions" style="padding-top:5px">
+                <h4 ng-if='!master.checked' class="center-text"><strong>Magic Square Puzzle</strong></h4>
+                <h6 ng-if='!master.checked' class="center-text">{{instructions.instructions}}</h6>
+                <h4 class="center-text" ng-if="master.checked && master.allCorrect" style="margin-top:5px">Well done
+                    all correct!</h4>
+                <h4 class="center-text" style="margin-top:20px"
+                    ng-if='master.checked && master.complete && !master.allCorrect'>Try again!</h4>
+            </div>
+
+            <!--THE WHOLE `DRAG DROP` AREA-->
+            <div class="drag-drop" ng-controller="DragDrop as dragDrop">
+                <!--DROP-->
+                <div ng-if="true" class="drop-zone">
+
+                    <ul id="triple" class="drop-board">
+                        <li class="square drop-slot" ng-repeat="drop in dragDrop.dropTargets track by $index">
+
+                            <div class="btn btn-droppable square" data-drop="true" ng-model='dragDrop.selectedItems'
+                                 jqyoui-droppable="{index: {{$index}}, onDrop:'dragDrop.dropCallback($index)',onOver: 'dragDrop.overCallback(data-drag)', onOut: 'dragDrop.outCallback($index)'}">
+                                <div class="btn btn-info square btn-draggable"
+                                     ng-show="dragDrop.selectedItems[$index].title"
+                                     data-drag="{{dragDrop.selectedItems[$index].drag}}"
+                                     data-jqyoui-options="{revert: 'invalid'}"
+                                     ng-model="dragDrop.selectedItems"
+                                     jqyoui-draggable="{index: {{$index}},placeholder:true,animate:false}">
+                                    <span class="drag-text"><h1>{{dragDrop.selectedItems[$index].title}}</h1></span>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!--ROW-INDICATOR-->
+                <div ng-if="master.hint" class="drop-zone-overlay drop-zone-overlay-one">
+                    <ul id="single" class="drop-board">
+                        <li class="drop-display" ng-repeat="drop in dragDrop.dropTargets | pick: master.mod3">
+                            <span class="pull-left row-indicator row-indicator-left"><p>
+                                {{dragDrop.getRowTotal(drop.value)}}</p></span>
+                            <span class="pull-right row-indicator"><p>{{dragDrop.getRowTotal(drop.value)}}</p></span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!--COLUMN-INDICATOR-->
+                <div ng-if="master.hint" class="drop-zone-overlay drop-zone-overlay-two">
+                    <ul class="drop-board triple">
+                        <li class="square drop-slot-empty" ng-repeat="drop in dragDrop.dropTargets | pick: master.mod3">
+                            <div class="square column-indicator"><p>{{dragDrop.getColumnTotal(drop.value)}}</p></div>
+                            <div class="square column-indicator column-indicator-bottom"><p>
+                                {{dragDrop.getColumnTotal(drop.value)}}</p></div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!--DIAGONAL-INDICATOR-->
+                <div ng-if="master.hint" class="drop-zone-overlay drop-zone-overlay-three">
+                    <ul class="drop-board">
+                        <li class="square drop-slot-empty" ng-repeat="drop in dragDrop.dropTargets | first: 2">
+
+                            <div class="square column-indicator"
+                                 ng-class="drop.value === 0 ? 'diagonal-left' : 'diagonal-right'"><p>
+                                {{dragDrop.getDiagonalTotal(drop.value)}}</p></div>
+
+                            <div class="square column-indicator column-indicator-bottom"
+                                 ng-class="drop.value === 0 ? 'diagonal-left' : 'diagonal-right'"><p>
+                                {{dragDrop.getDiagonalTotalReverse(drop.value)}}</p></div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!--DRAG-->
+                <div ng-if="true" class="drag-home">
+                    <div class="btn btn-droppable square" style='margin-left:10px; margin-bottom:18px;'
+                         ng-repeat="item in dragDrop.dragItems track by $index" data-drop="true"
+                         ng-model='dragDrop.dragItems' jqyoui-droppable="{index: {{$index}}}">
+                        <div class="btn btn-info btn-draggable square" data-drag="{{item.drag}}"
+                             data-jqyoui-options="{revert: 'invalid'}" ng-model="dragDrop.dragItems"
+                             jqyoui-draggable="{index: {{$index}},placeholder:true,animate:false, onStart:'dragDrop.startCallback(item, $index)', onStop: 'dragDrop.stopCallback', onDrag: 'dragDrop.dragCallback'}"
+                             ng-hide="!item.title"><span class="drag-text"><h1>{{item.title}}</h1></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!--DRAG OUTLINES-->
+                <div class="drag-home-bgd">
+                    <div class="btn btn-droppable square" style='margin-left:10px; margin-bottom:18px;'
+                         ng-repeat="item in dragDrop.dragItems track by $index">
+                        <div class="btn drag-slot-empty square"></div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!--CONTROLS-->
+            <div class="game-controls">
+                <form style="margin-top: 5px; margin-left: 10px; padding-right: 4px;">
+                    <span ng-if="false">complete {{master.complete}}, selected {{master.selected}}, checked {{master.checked}} hint {{master.hint}}</span>
+
+                    <button style="display: inline; margin-right: 10px;"
+                            class="btn btn-default btn-sm btn-info pull-right" type="submit" ng-click="master.check()"
+                            ng-disabled="!master.complete || master.checked">Check
+                    </button>
+                    <button style="display: inline; margin-right: 10px;"
+                            class="btn btn-default btn-sm btn-info pull-right" type="submit" ng-click="master.clear()"
+                            ng-disabled="!master.selected > 0">Clear
+                    </button>
+                    <button style="display: inline; margin-right: 10px;"
+                            class="btn btn-default btn-sm btn-info pull-right" type="submit"
+                            ng-click="master.hint =! master.hint">Hint
+                    </button>
+                </form>
+            </div>
+        </div>
     </section>
 </section>
 
