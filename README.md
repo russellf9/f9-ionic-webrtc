@@ -41,6 +41,13 @@ $ brew unlink ios-sim
 $ brew install ios-sim
 ```
 
+
+ios-deploy was not found.
+
+```
+$ npm install -g ios-deploy
+```
+
 ### Links
 
 * [ios-sim](https://github.com/phonegap/ios-sim)
