@@ -5,9 +5,9 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('magic-squares', ['ionic', 'magic-squares.controllers', 'magic-squares.services'])
+angular.module('magicsquares', ['ionic', 'ngDragDrop', 'angular.filter', 'magicsquares.controllers', 'magicsquares.services'])
 
-    .run(function($ionicPlatform) {
+    .run(function(_, $ionicPlatform) {
         $ionicPlatform.ready(function() {
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
             // for form inputs)
@@ -29,7 +29,8 @@ angular.module('magic-squares', ['ionic', 'magic-squares.controllers', 'magic-sq
 
         $stateProvider.state('menu', {
             url: '/',
-//            controller: 'MenuCtrl',
+            controller: 'Master',
+            controllerAs: 'master',
             templateUrl: './partials/game.html'
         });
 

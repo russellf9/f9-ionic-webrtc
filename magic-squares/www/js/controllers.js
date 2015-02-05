@@ -1,2 +1,2 @@
-angular.module('magic-squares.controllers', []);
+angular.module('magicsquares.controllers', []);
 
