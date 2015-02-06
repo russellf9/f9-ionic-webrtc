@@ -1,322 +1,184 @@
+/* font styles ----------- */
+h6 {
+    font-size: 14px;
+}
 
+/* positioning */
 
-h6 { font-size: 18px; font-size: 1.8rem;  } /* =18px */
-
+/* flex box centering ----------- */
+.parent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 .center-text {
+    position: relative;
     width: 100%;
     text-align: center;
+    border: solid 1px red;
 }
 
+/* UI - game containers ----------- */
+
+/* The main game container -----------
+    ( 600px x 600px was the original size )
+*/
 .game-container {
-    /*position: absolute;*/
-    /*top: 0;*/
-    /*left: 0;*/
+    position: relative;
+    margin-top: 5px;
     width: 600px;
     height: 600px;
-
-    /*border: solid 1px #222;*/
-    background-color: rgba(254,254,255,0);
-
-    /*background-color: rgba(100,100,100,0.05);*/
-}
-
-.instructions {
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin: 0;
-    width: 600px;
-    height: 75px;
-
-    /*background-color: rgba(100,100,100,0.05);*/
-}
-
-.drag-drop {
-    position: absolute;
-    top: 75px;
-    left: 0;
-    width: 600px;
-    height: 480px;
-
-    /*border: solid 3px darkgreen;*/
-}
-
-.drop-zone {
-    z-index: 1;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 600px;
-    height: 290px;
-
-    /*border: solid 1px slategrey;*/
-    /*background-color: rgba(100,100,100,0.05);*/
-}
-
-.drop-zone-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 600px;
-    height: 290px;
-
-    /*border: solid 1px darkred;*/
-}
-
-.drop-zone-overlay-one {
-    z-index: -1;
-    /*border: solid 1px darkred;*/
-}
-
-.drop-zone-overlay-two {
-    z-index: -2;
-
-    /*border: solid 1px darkblue;*/
-}
-
-.drop-zone-overlay-three {
-    z-index: -3;
-
-    /*border: solid 1px darkblue;*/
-}
-
-
-
-.drag-home {
-    z-index: 99;
-    position: absolute;
-
-    top: 294px;
-    left: 0;
-
-    width: 600px;
-    height: 190px;
-    /* quick positioning hack */
-    padding-top: 8px;
-    padding-left: 35px;
-
-    /*border: solid 2px gold;*/
-}
-
-.drag-home-bgd {
-    z-index: -4;
-    position: absolute;
-
-    top: 294px;
-    left: 0;
-
-    width: 600px;
-    height: 190px;
-    /* quick positioning hack */
-    padding-top: 8px;
-    padding-left: 35px;
-}
-
-.game-controls {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 600px;
-    height: 45px;
-
-    /*border: solid 2px gold;*/
-
-    /*background-color: rgba(0,75,125,0.05);*/
-}
-
-
-.btn-droppable {
-    padding: 0;
-    /*z-index: -1;*/
-    /*hack so drag item fits over*/
-    margin-top: -2px;
-    margin-left: -2px;
-    cursor: default;
-}
-
-
-.btn-draggable {
-    z-index: 1;
-    padding: 0;
-    cursor: move;
-}
-
-.btn-info {
-    color: #fff;
-    background-color: #5bc0de;
-    border-color: #46b8da;
-    text-align: center;
-    font-weight: bold;
-}
-
-.square {
-    width: 75px;
-    min-height: 75px;
-}
-.drop-board {
-    /* hard-code for now */
-    width: 300px;
-    padding-top: 3px;
-    padding-left: 22px;
-    /*padding-right: 10px;*/
-    margin-top: 30px;
     margin-left: auto;
     margin-right: auto;
 
-    /*border: solid 1px #999;*/
+    border: solid 1px darkblue;
+    background-color: rgba(254, 254, 255, 0.5);
+
+    /*background-color: rgba(100,100,100,0.05);*/
 }
 
-.drop-slot {
-    display: inline-block;
-    border: dotted 1px darkgreen;
-    margin-left: 5px;
-    margin-right: 5px;
-    margin-bottom: 5px;
-    width: 75px !important;
-    height: 75px !important;
+/* for smaller size
+
+.game-container{
+        width: 300px;
+        height: 300px;
+        background-color: rgba(50, 50, 50, 0.5)
+    }
+
+    .square {
+        width: 38px;
+        min-height: 38px;
+    }
+
+    .drop-slot {
+        width: 38px !important;
+        height: 38px !important;
+    }
+
+    */
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen
+and (min-device-width: 320px)
+and (max-device-width: 480px) {
+    /* Styles */
+    .game-container {
+        width: 300px;
+        height: 300px;
+    }
+
 }
 
-.slot-empty {
-    display: inline-block;
-    margin-left: 5px;
-    margin-right: 5px;
-    margin-bottom: 5px;
-    width: 75px !important;
-    height: 75px !important;
+/* Smartphones (landscape) ----------- */
+@media only screen
+and (min-width: 321px) {
+    /* Styles */
+    .game-container {
+        width: 300px;
+        height: 300px;
+    }
+
 }
 
-.drag-slot {
-    /* bit hacky now */
-    margin-top: 3px;
-    margin-bottom: 3px;
-    padding: 0;
-
-    border:1px #d3d3d3 solid;
+/* Smartphones (portrait) ----------- */
+@media only screen
+and (max-width: 320px) {
+    /* Styles */
+    .game-container {
+        width: 300px;
+        height: 300px;
+    }
 }
 
-.drag-slot-empty {
-    padding: 0;
-    border:1px #d3d3d3 solid;
-}
-/*hack display for the totals*/
-.drop-display {
-    margin-top: 3px;
-    margin-bottom: 3px;
-
-    /*width: 75px !important;*/
-
-    /*border:1px #999 solid;*/
+/* Desktops and laptops ----------- */
+@media only screen
+and (min-width: 1224px) {
+    /* Styles */
+    /* keep dimensions */
 }
 
-.row-indicator {
-    height: 100%;
-    /* bit hacky now */
-    padding-top: 20px;
-
-    /*border:1px #229 solid;*/
+/* Large screens ----------- */
+@media only screen
+and (min-width: 1824px) {
+    /* Styles */
+    /* keep dimensions */
 }
 
-.row-indicator-left {
-    margin-left: -19px;
+/* ----------- iOS ----------- */
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen
+and (min-device-width: 768px)
+and (max-device-width: 1024px) {
+    /* Styles */
+    /* re-size dimensions */
+    .game-container {
+        width: 600px;
+        height: 600px;
+    }
 }
 
-.column-indicator {
-    text-align: center;
-}
-.column-indicator p{
-    margin-top: -25px;
+/* iPads (landscape) ----------- */
+@media only screen
+and (min-device-width: 768px)
+and (max-device-width: 1024px)
+and (orientation: landscape) {
+    /* Styles */
+    .game-container {
 
-    /*border:1px #229 solid;*/
-}
-.column-indicator-bottom {
-    margin-top: 190px;
-
-    /*border:1px #229 solid;*/
-}
-.column-indicator-bottom p {
-    margin-top: 25px;
-}
-.diagonal-left {
-    margin-left: -55px;
-}
-.diagonal-right {
-    margin-left: 158px;
+        background-color: rgba(250, 50, 0, 0.5)
+    }
 }
 
+/* iPads (portrait) ----------- */
+@media only screen
+and (min-device-width: 768px)
+and (max-device-width: 1024px)
+and (orientation: portrait) {
+    /* Styles */
+    .game-container {
 
-.drag-text {
-    width: 75px;
-    height: 75px;
-    line-height: 75px;
-    display: flex;
-    justify-content: center; /* align horizontal */
-    align-items: center; /* align vertical */
+        background-color: rgba(50, 50, 250, 0.75)
+    }
 }
 
-.drag-text h1 {
-    margin: 0;
-    padding: 0;
+/* iPhone 3g -----------*/
+@media screen and (device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 1) {
+    /* Styles */
+    .game-container {
+        width: 300px;
+        height: 300px;
+
+        background-color: rgba(100, 200, 250, 1)
+    }
 }
 
-
-.red {
-    background-color: red;
+/* iPhone 4 ----------- */
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
+    /* Styles */
+    .game-container {
+        background-color: rgba(100, 175, 210, 0.5)
+    }
 }
 
-.blue {
-    background-color: blue;
+/* iPhone 5 ----------- */
+@media screen and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) {
+    .game-container {
+        background-color: rgba(100, 175, 25, 0.5)
+    }
 }
 
-.green {
-    background-color: green;
+/* iPhone 6 ---------- */
+@media screen and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) {
+    .game-container {
+        background-color: rgba(250, 150, 230, 0.5)
+    }
 }
 
-.black {
-    background-color: black;
-    color: white;
+/* iPhone 6 Plus ---------- */
+@media screen and (device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) {
+    .game-container {
+        background-color: rgba(250, 30, 250, 0.5)
+    }
 }
-
-.grey {
-    background-color: grey;
-}
-
-pre strong {
-    font-size:12pt;
-}
-
-
-
-/*------------------------------------*\
-    LISTS
-    See: http://csswizardry.com/2010/02/mutiple-column-lists-using-one-ul/
-\*------------------------------------*/
-ul{
-    width:inherit;
-    height: inherit;
-    margin-bottom:20px;
-    /*overflow:hidden;*/
-    /*border-left:1px solid #a32d00;*/
-    /*border-right:1px solid #a32d00;*/
-    /*border-bottom:1px solid #a32d00;*/
-}
-li{
-    padding: 0;
-    margin: 0;
-    line-height:1.5em;
-    height: 75px;
-    /*border-bottom:1px solid #ccc;*/
-    float:left;
-    display:inline;
-}
-#double li	{ width:50%;}
-#triple li	{ width:33.333%; }
-#quad li		{ width:25%; }
-#six li		{ width:16.666%; }
-
-#single li	{ width:100%;}
-
-
-.single li	{ width:100%;}
-.triple li { width:33.333%; }
-.double li { width:50%; }
