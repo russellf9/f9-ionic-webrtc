@@ -6,7 +6,7 @@ h6 {
 /* positioning */
 
 /* flex box centering ----------- */
-.parent-old {
+.parent {
     display: -webkit-box;
     display: -moz-box;
     display: -webkit-flexbox;
@@ -24,9 +24,6 @@ h6 {
     align-items: center;
 }
 
-.parent {
-    position: relative;
-}
 
 .child {
     /*position: absolute;*/
@@ -99,7 +96,7 @@ h6 {
 }
 
 .drag-drop {
-    position: absolute;
+    position: relative;
     display: block;
     top: 75px;
     left: 0;
@@ -142,6 +139,8 @@ h6 {
 
     width: 300px;
     height: 100%;
+
+    margin: 0 auto;
 
     z-index: 3;
 
@@ -212,9 +211,13 @@ and (min-width: 321px) {
         width: 300px;
         height: 300px;
     }
+    .instructions {
+        height: 38px;
+    }
     .drop-board {
         width: 150px;
     }
+
 
 }
 
@@ -306,12 +309,16 @@ and (orientation: portrait) {
         height: 300px;
         margin-top: 38px;
 
-        background-color: rgba(100, 200, 250, 1)
+        background-color: rgba(10, 10, 250, 1)
+    }
+    .instructions {
+         height: 38px;
     }
 }
 
 /* iPhone 4 ----------- */
-/*@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) */
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
+}
 
 
 /* iphone 4 (landscape) -----------  */
@@ -323,10 +330,10 @@ and (orientation : landscape)
     /* Styles */
     .game-container {
         margin-top: 38px;
-        background-color: rgba(100, 175, 210, 1)
+        background-color: rgba(250, 175, 210, 1)
     }
     .instructions {
-        height: 76px;
+        height: 38px;
     }
 }
 

@@ -16,11 +16,11 @@
 
 
             <!--THE WHOLE `DRAG DROP` AREA-->
-            <div ng-if="true" class="drag-drop" ng-controller="DragDrop as dragDrop">
+            <div ng-if="true" class="drag-drop parent" ng-controller="DragDrop as dragDrop">
                 <!--DROP-->
-                <div ng-if="true" class="drop-zone">
+                <div ng-if="true" class="drop-zone parent">
 
-                    <div class="drop-board">
+                    <div ng-if="true" class="drop-board">
                         <p class="center-text">OK</p>
                     </div>
 
