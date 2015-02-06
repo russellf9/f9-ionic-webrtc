@@ -1,16 +1,19 @@
 <section class="full">
     <!-- content layer placed over background -->
     <section class="full content parent">
-        <div class="game-container center-block">
-            <!--THE INSTRUCTIONS-->
-            <div class="instructions" ng-controller="Instructions as instructions" style="padding-top:5px">
-                <h4 ng-if='!master.checked' class="center-text"><strong>Magic Square Puzzle</strong></h4>
-                <h6 ng-if='!master.checked' class="center-text">{{instructions.instructions}}</h6>
-                <h4 class="center-text" ng-if="master.checked && master.allCorrect" style="margin-top:5px">Well done
-                    all correct!</h4>
-                <h4 class="center-text" style="margin-top:20px"
-                    ng-if='master.checked && master.complete && !master.allCorrect'>Try again!</h4>
-            </div>
+        <!--THE INSTRUCTIONS-->
+        <div class="instructions" ng-controller="Instructions as instructions">
+            <!--<h4 ng-if='!master.checked' class="center-text"><strong>Magic Square Puzzle</strong></h4>-->
+            <!--<h6 ng-if='!master.checked' class="center-text">{{instructions.instructions}}</h6>-->
+            <!--<h4 class="center-text" ng-if="master.checked && master.allCorrect" style="margin-top:5px">Well done-->
+            <!--all correct!</h4>-->
+            <!--<h4 class="center-text" style="margin-top:20px"-->
+            <!--ng-if='master.checked && master.complete && !master.allCorrect'>Try again!</h4>-->
+        </div>
+
+
+        <div class="game-container">
+
 
             <!--THE WHOLE `DRAG DROP` AREA-->
             <div class="drag-drop" ng-controller="DragDrop as dragDrop">
@@ -96,25 +99,28 @@
 
             </div>
 
-            <!--CONTROLS-->
-            <div class="game-controls">
-                <form style="margin-top: 5px; margin-left: 10px; padding-right: 4px;">
-                    <span ng-if="false">complete {{master.complete}}, selected {{master.selected}}, checked {{master.checked}} hint {{master.hint}}</span>
 
-                    <button style="display: inline; margin-right: 10px;"
-                            class="btn btn-default btn-sm btn-info pull-right" type="submit" ng-click="master.check()"
-                            ng-disabled="!master.complete || master.checked">Check
-                    </button>
-                    <button style="display: inline; margin-right: 10px;"
-                            class="btn btn-default btn-sm btn-info pull-right" type="submit" ng-click="master.clear()"
-                            ng-disabled="!master.selected > 0">Clear
-                    </button>
-                    <button style="display: inline; margin-right: 10px;"
-                            class="btn btn-default btn-sm btn-info pull-right" type="submit"
-                            ng-click="master.hint =! master.hint">Hint
-                    </button>
-                </form>
-            </div>
+        </div>
+
+
+        <!--CONTROLS-->
+        <div class="game-controls parent">
+            <form style="border: solid black 2px; width: 100%">
+                <span ng-if="false">complete {{master.complete}}, selected {{master.selected}}, checked {{master.checked}} hint {{master.hint}}</span>
+
+                <button style="display: inline; margin-right: 10px;"
+                        class="btn btn-default btn-sm btn-info pull-right" type="submit" ng-click="master.check()"
+                        ng-disabled="!master.complete || master.checked">Check
+                </button>
+                <button style="display: inline; margin-right: 10px;"
+                        class="btn btn-default btn-sm btn-info pull-right" type="submit" ng-click="master.clear()"
+                        ng-disabled="!master.selected > 0">Clear
+                </button>
+                <button style="display: inline; margin-right: 10px;"
+                        class="btn btn-default btn-sm btn-info pull-right" type="submit"
+                        ng-click="master.hint =! master.hint">Hint
+                </button>
+            </form>
         </div>
     </section>
 </section>
