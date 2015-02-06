@@ -1,6 +1,6 @@
 <section class="full">
     <!-- content layer placed over background -->
-    <section class="full content parent">
+    <section class="full content">
         <!--THE INSTRUCTIONS-->
         <div class="instructions" ng-controller="Instructions as instructions">
             <!--<h4 ng-if='!master.checked' class="center-text"><strong>Magic Square Puzzle</strong></h4>-->
@@ -16,11 +16,16 @@
 
 
             <!--THE WHOLE `DRAG DROP` AREA-->
-            <div class="drag-drop" ng-controller="DragDrop as dragDrop">
+            <div ng-if="true" class="drag-drop" ng-controller="DragDrop as dragDrop">
                 <!--DROP-->
                 <div ng-if="true" class="drop-zone">
 
-                    <!--<ul id="triple" class="drop-board">-->
+                    <div class="drop-board">
+                        <p class="center-text">OK</p>
+                    </div>
+
+                    <ul ng-if="false" id="triple" class="drop-board">
+
                         <!--<li class="square drop-slot" ng-repeat="drop in dragDrop.dropTargets track by $index">-->
 
                             <!--<div class="btn btn-droppable square" data-drop="true" ng-model='dragDrop.selectedItems'-->
@@ -35,7 +40,7 @@
                                 <!--</div>-->
                             <!--</div>-->
                         <!--</li>-->
-                    <!--</ul>-->
+                    </ul>
                 </div>
 
                 <!--ROW-INDICATOR-->
@@ -104,7 +109,7 @@
 
 
         <!--CONTROLS-->
-        <div class="game-controls parent">
+        <div ng-if="true" class="game-controls parent">
             <form style="border: solid black 2px; width: 100%">
                 <span ng-if="false">complete {{master.complete}}, selected {{master.selected}}, checked {{master.checked}} hint {{master.hint}}</span>
 
