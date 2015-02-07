@@ -36,7 +36,7 @@
                                 data-jqyoui-options="{revert: 'invalid'}"
                                 ng-model="dragDrop.selectedItems"
                                 jqyoui-draggable="{index: {{$index}},placeholder:true,animate:false}">
-                                <span class="drag-text"><h1>{{dragDrop.selectedItems[$index].title}}</h1></span>
+                                <span class="drag-text"><h1 class="outline">{{dragDrop.selectedItems[$index].title}}</h1></span>
                                 </div>
                                 </div>
                             </li>
@@ -84,20 +84,20 @@
 
                 <!--DRAG-->
                 <div ng-if="true" class="drag-home">
-                    <!--<div class="btn btn-droppable square" style='margin-left:10px; margin-bottom:18px;'-->
-                         <!--ng-repeat="item in dragDrop.dragItems track by $index" data-drop="true"-->
-                         <!--ng-model='dragDrop.dragItems' jqyoui-droppable="{index: {{$index}}}">-->
-                        <!--<div class="btn btn-info btn-draggable square" data-drag="{{item.drag}}"-->
-                             <!--data-jqyoui-options="{revert: 'invalid'}" ng-model="dragDrop.dragItems"-->
-                             <!--jqyoui-draggable="{index: {{$index}},placeholder:true,animate:false, onStart:'dragDrop.startCallback(item, $index)', onStop: 'dragDrop.stopCallback', onDrag: 'dragDrop.dragCallback'}"-->
-                             <!--ng-hide="!item.title"><span class="drag-text"><h1>{{item.title}}</h1></span>-->
-                        <!--</div>-->
-                    <!--</div>-->
+                    <div class="button btn-droppable square" style='margin-left:10px; margin-bottom:18px;'
+                         ng-repeat="item in dragDrop.dragItems track by $index" data-drop="true"
+                         ng-model='dragDrop.dragItems' jqyoui-droppable="{index: {{$index}}}">
+                        <div class="button btn-info btn-draggable square" data-drag="{{item.drag}}"
+                             data-jqyoui-options="{revert: 'invalid'}" ng-model="dragDrop.dragItems"
+                             jqyoui-draggable="{index: {{$index}},placeholder:true,animate:false, onStart:'dragDrop.startCallback(item, $index)', onStop: 'dragDrop.stopCallback', onDrag: 'dragDrop.dragCallback'}"
+                             ng-hide="!item.title"><span class="drag-text"><h1 class="outline">{{item.title}}</h1></span>
+                        </div>
+                    </div>
                 </div>
 
                 <!--DRAG OUTLINES-->
                 <div class="drag-home-bgd">
-                    <div class="btn btn-droppable square" style='margin-left:10px; margin-bottom:18px;'
+                    <div class="button btn-droppable square" style='margin-left:10px; margin-bottom:18px;'
                          ng-repeat="item in dragDrop.dragItems track by $index">
                         <div class="btn drag-slot-empty square"></div>
                     </div>

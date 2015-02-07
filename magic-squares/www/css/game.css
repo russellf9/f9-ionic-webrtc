@@ -1,6 +1,25 @@
 /* font styles ----------- */
+
+h1 {
+    font-size: 60px;
+}
+
 h6 {
     font-size: 14px;
+}
+
+/*see: http://stackoverflow.com/questions/4919076/outline-effect-to-text*/
+.outline {
+    color: #fff;
+    text-shadow: #000 0px 0px 1px;
+    text-shadow: #000 0px 0px 1px;
+    text-shadow: #000 0px 0px 1px;
+    text-shadow: #000 0px 0px 1px;
+    text-shadow: #000 0px 0px 1px;
+    text-shadow: #000 0px 0px 1px;
+    text-shadow: #000 0px 0px 1px;
+
+    -webkit-font-smoothing: antialiased;
 }
 
 /* positioning */
@@ -133,6 +152,21 @@ h6 {
     background-color: rgba(255, 69, 0, 0.1);
 }
 
+.drag-home-bgd {
+    z-index: -4;
+    position: absolute;
+
+    top: 294px;
+    left: 0;
+
+    width: 600px;
+    height: 190px;
+    /* quick positioning hack */
+    padding-top: 8px;
+    padding-left: 35px;
+}
+
+
 .drop-board {
     display: block;
     position: relative;
@@ -198,6 +232,19 @@ h6 {
     text-align: center;
     font-weight: bold;
 }
+
+
+.drag-text {
+    width: 75px;
+    height: 75px;
+    line-height: 75px;
+    display: flex;
+    justify-content: center; /* align horizontal */
+    align-items: center; /* align vertical */
+
+    border: solid red 1px;
+}
+
 
 /*------------------------------------*\
     LISTS
