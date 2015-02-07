@@ -23,10 +23,10 @@
                     <!--<div ng-if="true" class="drop-board">-->
                         <!--<p class="center-text">OK</p>-->
                     <!--</div>-->
-                    <div class="drop-board">
+                    <div ng-if="true" class="drop-board">
                         <ul ng-if="true" class="triple drop-container">
 
-                            <li class="square drop-slot" ng-repeat="drop in dragDrop.dropTargets track by $index">
+                            <li ng-if="false" class="square drop-slot" ng-repeat="drop in dragDrop.dropTargets track by $index">
 
                                 <div class="button btn-droppable square" data-drop="true" ng-model='dragDrop.selectedItems'
                                 jqyoui-droppable="{index: {{$index}}, onDrop:'dragDrop.dropCallback($index)',onOver: 'dragDrop.overCallback(data-drag)', onOut: 'dragDrop.outCallback($index)'}">
@@ -83,7 +83,7 @@
                 </div>
 
                 <!--DRAG-->
-                <div ng-if="true" class="drag-container drag-home">
+                <div ng-if="false" class="drag-container drag-home">
                     <div class="button btn-droppable btn-drag square"
                          ng-repeat="item in dragDrop.dragItems track by $index" data-drop="true"
                          ng-model='dragDrop.dragItems' jqyoui-droppable="{index: {{$index}}}">
@@ -96,7 +96,7 @@
                 </div>
 
                 <!--DRAG OUTLINES-->
-                <div ng-if="true" class="drag-container drag-home-bgd">
+                <div ng-if="false" class="drag-container drag-home-bgd">
                     <div class="button btn-droppable btn-drag square"
                          ng-repeat="item in dragDrop.dragItems track by $index">
                         <div class="button drag-slot-empty square"></div>

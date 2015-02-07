@@ -306,6 +306,11 @@ and (max-device-width: 480px) {
     .drop-board {
         width: 150px;
     }
+    .drop-container {
+        width: 138px;
+        height: 138px;
+        margin: 0 auto;
+    }
 
 }
 
@@ -324,8 +329,11 @@ and (min-width: 321px) {
     .drop-board {
         width: 150px;
     }
-
-
+    .drop-container {
+        width: 148px;
+        height: 148px;
+        margin: 3px auto;
+    }
 }
 
 /* Smartphones (portrait) ----------- */
@@ -380,6 +388,11 @@ and (max-device-width: 1024px) {
     }
     .drop-board {
          width: 300px;
+    }
+    .drop-container {
+         width: 259px;
+         height: 259px;
+         margin: 9px auto;
     }
 }
 
@@ -496,6 +509,11 @@ and (orientation : landscape)
     .game-container {
         background-color: rgba(250, 150, 230, 0.5)
     }
+    .drop-container {
+        width: 138px;
+        height: 138px;
+        margin: 0 auto;
+    }
 }
 
 /*iPhone 6 (landscape) ---------- */
@@ -514,6 +532,11 @@ and (orientation : landscape)
     .drag-home {
         height: 95px;
     }
+    .drop-container {
+         width: 138px;
+         height: 138px;
+         margin: 0 auto;
+    }
 }
 
 /* iPhone 6 Plus ---------- */
@@ -523,6 +546,11 @@ and (orientation : landscape)
     }
     .game-controls {
         height: 90px;
+    }
+    .drop-container {
+        width: 138px;
+        height: 138px;
+        margin: 0 auto;
     }
 
 }
@@ -545,5 +573,10 @@ and (orientation : landscape)
     }
     .drag-home {
         height: 95px;
+    }
+    .drop-container {
+        width: 138px;
+        height: 138px;
+        margin: 0 auto;
     }
 }
