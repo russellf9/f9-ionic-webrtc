@@ -26,9 +26,9 @@
                     <div ng-if="true" class="drop-board">
                         <ul ng-if="true" class="triple drop-container">
 
-                            <li ng-if="false" class="square drop-slot" ng-repeat="drop in dragDrop.dropTargets track by $index">
+                            <li ng-if="true" class="square drop-slot" ng-repeat="drop in dragDrop.dropTargets track by $index">
 
-                                <div class="button btn-droppable square" data-drop="true" ng-model='dragDrop.selectedItems'
+                                <div ng-if="false" class="button btn-droppable square" data-drop="true" ng-model='dragDrop.selectedItems'
                                 jqyoui-droppable="{index: {{$index}}, onDrop:'dragDrop.dropCallback($index)',onOver: 'dragDrop.overCallback(data-drag)', onOut: 'dragDrop.outCallback($index)'}">
                                 <div class="btn btn-info square btn-draggable"
                                 ng-show="dragDrop.selectedItems[$index].title"

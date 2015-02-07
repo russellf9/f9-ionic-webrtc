@@ -190,6 +190,7 @@ h6 {
 .drop-slot {
     display: inline-block;
     border: dotted 1px darkgreen;
+
     margin: 5px;
     width: 75px !important;
     height: 75px !important;
@@ -311,6 +312,15 @@ and (max-device-width: 480px) {
         height: 138px;
         margin: 0 auto;
     }
+    /*.square {*/
+        /*width: 37px;*/
+        /*min-height: 37px;*/
+    /*}*/
+    /*.drop-slot {*/
+        /*margin: 2px;*/
+        /*width: 37px !important;*/
+        /*height: 37px !important;*/
+    /*}*/
 
 }
 
@@ -334,6 +344,15 @@ and (min-width: 321px) {
         height: 148px;
         margin: 3px auto;
     }
+    .square {
+        width: 40px;
+        min-height: 40px;
+    }
+    .drop-slot {
+        margin: 2px;
+        width: 40px !important;
+        height: 40px !important;
+    }
 }
 
 /* Smartphones (portrait) ----------- */
@@ -347,6 +366,15 @@ and (max-width: 320px) {
     }
     .drop-board {
         width: 150px;
+    }
+    .square {
+        width: 40px;
+        min-height: 40px;
+    }
+    .drop-slot {
+        margin: 2px;
+        width: 40px !important;
+        height: 40px !important;
     }
 }
 
@@ -394,6 +422,15 @@ and (max-device-width: 1024px) {
          height: 259px;
          margin: 9px auto;
     }
+    .square {
+        width: 75px;
+        min-height: 75px;
+    }
+    .drop-slot {
+        margin: 5px;
+        width: 75px !important;
+        height: 75px !important;
+    }
 }
 
 /* iPads (landscape) ----------- */
@@ -407,6 +444,7 @@ and (orientation: landscape) {
 
         background-color: rgba(250, 50, 0, 0.5)
     }
+
 }
 
 /* iPads (portrait) ----------- */
@@ -416,7 +454,6 @@ and (max-device-width: 1024px)
 and (orientation: portrait) {
     /* Styles */
     .game-container {
-
         background-color: rgba(50, 50, 250, 0.75)
     }
 }
@@ -438,6 +475,7 @@ and (orientation: portrait) {
 
 /* iPhone 4 ----------- */
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
+    /* can`t put sizing here as it interferes with the iPad!*/
 }
 
 
@@ -455,6 +493,7 @@ and (orientation : landscape)
     .instructions {
         height: 38px;
     }
+
 }
 
 /* iphone 4 (portrait) ( and iPhone portrait 5 too )----------- */
@@ -514,6 +553,7 @@ and (orientation : landscape)
         height: 138px;
         margin: 0 auto;
     }
+
 }
 
 /*iPhone 6 (landscape) ---------- */
@@ -552,7 +592,6 @@ and (orientation : landscape)
         height: 138px;
         margin: 0 auto;
     }
-
 }
 
 /*iPhone 6 Plus (landscape) ---------- */
