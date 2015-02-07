@@ -83,8 +83,8 @@
                 </div>
 
                 <!--DRAG-->
-                <div ng-if="true" class="drag-home">
-                    <div class="button btn-droppable square" style='margin-left:10px; margin-bottom:18px;'
+                <div ng-if="true" class="drag-container drag-home">
+                    <div class="button btn-droppable btn-drag square"
                          ng-repeat="item in dragDrop.dragItems track by $index" data-drop="true"
                          ng-model='dragDrop.dragItems' jqyoui-droppable="{index: {{$index}}}">
                         <div class="button btn-info btn-draggable square" data-drag="{{item.drag}}"
@@ -96,10 +96,10 @@
                 </div>
 
                 <!--DRAG OUTLINES-->
-                <div class="drag-home-bgd">
-                    <div class="button btn-droppable square" style='margin-left:10px; margin-bottom:18px;'
+                <div ng-if="true" class="drag-container drag-home-bgd">
+                    <div class="button btn-droppable btn-drag square"
                          ng-repeat="item in dragDrop.dragItems track by $index">
-                        <div class="btn drag-slot-empty square"></div>
+                        <div class="button drag-slot-empty square"></div>
                     </div>
                 </div>
 

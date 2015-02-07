@@ -138,32 +138,29 @@ h6 {
     opacity: 0.5;
 }
 
-.drag-home {
+/* Shared container */
+.drag-container {
     display: block;
-    position: relative;
+    position: absolute;
 
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
     height: 190px;
 
-    z-index: 2;
+    /* hackey positioning */
+    padding: 2px 32px;
+}
+
+.drag-home {
+    z-index: 5;
 
     border: solid 4px slategrey;
     background-color: rgba(255, 69, 0, 0.1);
 }
 
 .drag-home-bgd {
-    z-index: -4;
-    position: absolute;
-
-    top: 294px;
-    left: 0;
-
-    width: 600px;
-    height: 190px;
-    /* quick positioning hack */
-    padding-top: 8px;
-    padding-left: 35px;
+    z-index: 4;
+    border: solid 4px goldenrod;
 }
 
 
@@ -206,6 +203,9 @@ h6 {
     height: 259px;
 
     margin: 9px auto;
+
+    /*  TODO work out z-index! */
+    z-index: 4;
 }
 
 
@@ -219,10 +219,21 @@ h6 {
 }
 
 
+.button-draggable {
+    margin-left:10px;
+    margin-bottom:18px;
+}
+
+
 .btn-draggable {
     z-index: 1;
     padding: 0;
     cursor: move;
+}
+
+/* a confusing style for the margin only? */
+.btn-drag {
+    margin: 5px;
 }
 
 .btn-info {
