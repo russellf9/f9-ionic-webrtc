@@ -142,6 +142,7 @@ h6 {
 
     margin: 0 auto;
 
+
     z-index: 3;
 
     border: solid 2px #111;
@@ -149,28 +150,76 @@ h6 {
     background-color: rgba(218, 112, 214, 0.75);
 }
 
+/* game elements*/
+.square {
+    width: 75px;
+    min-height: 75px;
+}
+
+.drop-slot {
+    display: inline-block;
+    border: dotted 1px darkgreen;
+    margin: 5px;
+    width: 75px !important;
+    height: 75px !important;
+}
+
+.drop-container {
+    display: block;
+    position: relative;
+
+    width: 259px;
+    height: 259px;
+
+    margin: 9px auto;
+}
+
+
+.btn-droppable {
+    padding: 0;
+    /*z-index: -1;*/
+    /*hack so drag item fits over*/
+    margin-top: -2px;
+    margin-left: -2px;
+    cursor: default;
+}
+
+
+.btn-draggable {
+    z-index: 1;
+    padding: 0;
+    cursor: move;
+}
+
+.btn-info {
+    color: #fff;
+    background-color: #5bc0de;
+    border-color: #46b8da;
+    text-align: center;
+    font-weight: bold;
+}
+
 /*------------------------------------*\
     LISTS
     See: http://csswizardry.com/2010/02/mutiple-column-lists-using-one-ul/
 \*------------------------------------*/
-/*ul{*/
-    /*width:inherit;*/
-    /*height: inherit;*/
-    /*margin-bottom:20px;*/
-    /*overflow:hidden;*/
-    /*border-left:1px solid #a32d00;*/
-    /*border-right:1px solid #a32d00;*/
-    /*border-bottom:1px solid #a32d00;*/
-/*}*/
-/*li{*/
-    /*padding: 0;*/
-    /*margin: 0;*/
-    /*line-height:1.5em;*/
-    /*height: 75px;*/
-    /*border-bottom:1px solid #ccc;*/
-    /*float:left;*/
-    /*display:inline;*/
-/*}*/
+ul{
+    overflow:hidden;
+    border:2px solid #a32d00;
+
+    background-color: rgba(118, 210, 114, 0.75);
+}
+li{
+    padding: 0;
+    margin: 0;
+    line-height:1.5em;
+    height: 75px;
+    border-bottom:1px solid #ccc;
+    float:left;
+    display:inline;
+}
+
+.triple li	{ width:33.333%; }
 
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen
