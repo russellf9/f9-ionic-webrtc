@@ -269,6 +269,9 @@ pre strong {
 
     margin: 9px auto;
 
+    border: solid 1px #111;
+
+
     /*  TODO work out z-index! */
     z-index: 4;
 }
