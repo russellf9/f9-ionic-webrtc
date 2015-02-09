@@ -47,7 +47,7 @@
                             <div class="row-indicator row-indicator-left">
                                 <h3>{{dragDrop.getRowTotal(drop.value)}}</h3>
                             </div>
-                            <div class="row-indicator row-indicator-right">
+                            <div class="row-indicator row-indicator-right row-indicator-bottom">
                                 <h3>{{dragDrop.getRowTotal(drop.value)}}</h3>
                             </div>
                         </li>
@@ -58,7 +58,7 @@
                 <div ng-if="master.hint" class="drop-zone-overlay drop-zone-overlay-two">
                     <ul class="drop-board triple column-dropboard">
                         <li class="square drop-slot-empty" ng-repeat="drop in dragDrop.dropTargets | pick: master.mod3">
-                            <div class="column-indicator">
+                            <div class="column-indicator column-indicator-top">
                                 <h3>{{dragDrop.getColumnTotal(drop.value)}}</h3>
                             </div>
                             <div class="column-indicator column-indicator-bottom">

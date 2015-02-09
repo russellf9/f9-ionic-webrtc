@@ -336,11 +336,19 @@ pre strong {
 
 .row-indicator {
     position: absolute;
-    width: 20px;
+    width: 30px;
     height: 75px;
     /* really hacky now */
     padding-top: 20px;
     margin-top: 20px;
+}
+
+.row-indicator-bottom {
+   border: solid 1px darkred;
+}
+
+.row-indicator h3 {
+    width: 40px;
 }
 
 
@@ -349,14 +357,14 @@ pre strong {
  }
 .row-indicator-right {
     margin-top: 30px;
-    right: 0;
+    right: 10px;
 }
 .column-dropboard {
   margin-left: 140px;
 }
 
 .column-indicator {
-    margin-top: -8px;
+    margin-top: -12px;
     width: 100px;
     margin-left: 0;
     margin-right: 0;
@@ -370,15 +378,17 @@ pre strong {
     margin-top: -28px;
 }
 .column-indicator-bottom {
-    margin-top: 190px;
+    margin-top: 203px;
+    border: solid 1px darkred;
 }
+
 .column-indicator-bottom h3 {
     margin-top: 58px;
 }
 
 
 .diagonal-left {
-    margin-left: 0;
+    margin-left: -10px;
 }
 
 .diagonal-right {
@@ -395,10 +405,11 @@ pre strong {
 
 .column-diagonal-bottom h3 {
     /*margin-top: 190px;*/
-    margin-top: 235px;
+    margin-top: 245px;
 }
 .diagonal-left h3 {
-    margin-left: 120px;
+    margin-left: 104px;
+    /*margin-left: 120px;*/
 }
 .diagonal-right h3 {
     margin-left: 320px;
@@ -489,13 +500,14 @@ and (max-device-width: 480px) {
     }
     .row-indicator-left {
         margin-top: 0;
+        margin-left: -10px;
     }
     .row-indicator-right {
         margin-top: 0;
-        right: 0;
+        right: 10px;
     }
     .column-indicator {
-        margin-top: -8px;
+        margin-top: -12px;
         width: 30px;
         margin-left: -65px;
         margin-right: 0;
@@ -506,20 +518,24 @@ and (max-device-width: 480px) {
     .column-indicator-bottom {
         margin-top: 80px;
     }
+    .column-indicator-top h3 {
+        margin-top: -15px;
+    }
     .column-indicator-bottom h3 {
-        margin-top: 45px;
+        margin-left: -15px;
+        margin-top: 48px;
     }
     .column-indicator-diagonal {
         margin-left: 100px;
     }
     .diagonal-left h3 {
-        margin-left: -75px;
+        margin-left: -65px;
     }
     .diagonal-right h3 {
         margin-left: 40px;
     }
     .column-diagonal-bottom h3 {
-        margin-top: 114px;
+        margin-top: 130px;
     }
 }
 
@@ -713,14 +729,14 @@ and (max-device-width: 1024px) {
         width: 20px;
         height: 75px;
         padding-top: 20px;
-        margin-top: 20px;
+        margin-top: 14px;
     }
     .row-indicator-left {
         margin-top: 30px;
     }
     .row-indicator-right {
         margin-top: 30px;
-        right: 0;
+        right: -10px;
     }
     .column-indicator {
         margin-top: -8px;
@@ -736,6 +752,14 @@ and (max-device-width: 1024px) {
     }
     .column-indicator-bottom h3 {
         margin-top: 58px;
+    }
+    .diagonal-left h3 {
+        margin-left: 104px;
+        /*margin-left: 120px;*/
+    }
+    .column-diagonal-bottom h3 {
+        /*margin-top: 190px;*/
+        margin-top: 250px;
     }
 }
 
