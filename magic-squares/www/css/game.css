@@ -1,3 +1,5 @@
+/*special font*/
+
 @font-face {
     font-family: 'fredoka_oneregular';
     src: url('../fonts/fredokaone-regular-webfont.eot');
@@ -11,20 +13,15 @@
 
 }
 
-
 /* font styles ----------- */
-
 h1 {
     font-size: 60px;
 }
-
-
 h4 {
     font-size: 22px;
     font-family: 'fredoka_oneregular';
     color: #1c160d;
 }
-
 h6 {
     font-size: 14px;
     font-family: 'fredoka_oneregular';
@@ -120,7 +117,7 @@ pre strong {
     padding: 0;
     margin: 0 auto;
 
-    border: solid 2px darkblue;
+    border: solid 4px darkblue;
     background-color: rgba(254, 254, 255, 0.25);
 
     z-index: 1;
@@ -596,6 +593,7 @@ and (max-device-width: 1024px)
 and (orientation: portrait) {
     /* Styles */
     .game-container {
+        margin-top: 170px;
         background-color: rgba(50, 50, 250, 0.1)
     }
 }
@@ -703,7 +701,7 @@ and (orientation: landscape) {
     }
     .game-container {
         background-color: rgba(250, 150, 230, 0.1);
-        margin-top: 60px;
+        margin-top: 100px;
     }
     .instructions {
         height: 38px;
@@ -761,6 +759,7 @@ and (orientation: landscape) {
     }
     .game-container {
         background-color: rgba(250, 30, 250, 0.1);
+        margin-top: 100px;
     }
     .instructions {
         height: 38px;
@@ -781,7 +780,11 @@ and (orientation: landscape) {
 /*iPhone 6 Plus (landscape) ---------- */
 @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: landscape) {
     .game-container {
-        background-color: rgba(190, 200, 250, 0.1)
+        margin-top: 50px;
+
+        background-color: rgba(190, 200, 250, 0.1);
+
+
     }
     .instructions {
         height: 38px;
