@@ -55,28 +55,33 @@
                 </div>
 
                 <!--COLUMN-INDICATOR-->
-                <div ng-if="1>2 && master.hint" class="drop-zone-overlay drop-zone-overlay-two">
-                    <ul class="drop-board triple">
+                <div ng-if="master.hint" class="drop-zone-overlay drop-zone-overlay-two">
+                    <ul class="drop-board triple column-dropboard">
                         <li class="square drop-slot-empty" ng-repeat="drop in dragDrop.dropTargets | pick: master.mod3">
-                            <div class="square column-indicator"><p>{{dragDrop.getColumnTotal(drop.value)}}</p></div>
-                            <div class="square column-indicator column-indicator-bottom"><p>
-                                {{dragDrop.getColumnTotal(drop.value)}}</p></div>
+                            <div class="column-indicator">
+                                <h3>{{dragDrop.getColumnTotal(drop.value)}}</h3>
+                            </div>
+                            <div class="column-indicator column-indicator-bottom">
+                                <h3>{{dragDrop.getColumnTotal(drop.value)}}</h3>
+                            </div>
                         </li>
                     </ul>
                 </div>
 
                 <!--DIAGONAL-INDICATOR-->
-                <div ng-if="1>2 &&  master.hint" class="drop-zone-overlay drop-zone-overlay-three">
+                <div ng-if="master.hint" class="drop-zone-overlay drop-zone-overlay-three">
                     <ul class="drop-board">
                         <li class="square drop-slot-empty" ng-repeat="drop in dragDrop.dropTargets | first: 2">
 
-                            <div class="square column-indicator"
-                                 ng-class="drop.value === 0 ? 'diagonal-left' : 'diagonal-right'"><p>
-                                {{dragDrop.getDiagonalTotal(drop.value)}}</p></div>
+                            <div class="column-indicator column-indicator-diagonal"
+                                 ng-class="drop.value === 0 ? 'diagonal-left' : 'diagonal-right'">
+                                <h3>{{dragDrop.getDiagonalTotal(drop.value)}}</h3>
+                            </div>
 
-                            <div class="square column-indicator column-indicator-bottom"
-                                 ng-class="drop.value === 0 ? 'diagonal-left' : 'diagonal-right'"><p>
-                                {{dragDrop.getDiagonalTotalReverse(drop.value)}}</p></div>
+                            <div class="column-indicator column-indicator-diagonal column-diagonal-bottom"
+                                 ng-class="drop.value === 0 ? 'diagonal-left' : 'diagonal-right'">
+                                <h3>{{dragDrop.getDiagonalTotalReverse(drop.value)}}</h3>
+                            </div>
                         </li>
                     </ul>
                 </div>

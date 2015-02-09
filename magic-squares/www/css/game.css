@@ -360,28 +360,57 @@ pre strong {
     margin-top: 30px;
     right: 0;
 }
+.column-dropboard {
+  margin-left: 140px;
+}
 
 .column-indicator {
+    margin-top: -8px;
+    width: 50px;
+    margin-left: 0;
+    margin-right: 0;
     text-align: center;
 }
 .column-indicator p{
-    margin-top: -25px;
+    margin-top: -28px;
 
-    /*border:1px #229 solid;*/
+    border:1px #229 solid;
 }
 .column-indicator-bottom {
     margin-top: 190px;
 
-    /*border:1px #229 solid;*/
+    border:1px #229 solid;
 }
-.column-indicator-bottom p {
-    margin-top: 25px;
+.column-indicator-bottom h3 {
+    margin-top: 58px;
 }
 .diagonal-left {
-    margin-left: -55px;
+    margin-left: 0;
+/*//-55px;*/
 }
 .diagonal-right {
-    margin-left: 158px;
+    border:1px #A29 solid;
+}
+
+
+.column-indicator-diagonal {
+    margin-left: 100px;
+}
+
+.column-diagonal-bottom {
+    /*margin-top: 190px;*/
+    border:1px #D29 solid;
+}
+
+.column-diagonal-bottom h3 {
+    /*margin-top: 190px;*/
+    margin-top: 235px;
+}
+.diagonal-right h3 {
+    margin-left: 220px;
+    /*margin-top: 58px;*/
+
+    border:1px #A29 solid;
 }
 
 /*------------------------------------*\
