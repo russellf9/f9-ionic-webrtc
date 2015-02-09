@@ -22,6 +22,31 @@ h6 {
     -webkit-font-smoothing: antialiased;
 }
 
+.red {
+    background-color: red;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.green {
+    background-color: green;
+}
+
+.black {
+    background-color: black;
+    color: white;
+}
+
+.grey {
+    background-color: grey;
+}
+
+pre strong {
+    font-size: 12pt;
+}
+
 /* positioning */
 
 /* flex box centering ----------- */
@@ -42,7 +67,6 @@ h6 {
     justify-content: center;
     align-items: center;
 }
-
 
 .child {
     /*position: absolute;*/
@@ -97,7 +121,7 @@ h6 {
     z-index: 2;
 
     border: dashed 2px darkred;
-    background-color: rgba(100,100,200,0.75);
+    background-color: rgba(100, 100, 200, 0.75);
 }
 
 .game-controls {
@@ -111,7 +135,7 @@ h6 {
 
     border: solid 2px gold;
 
-    background-color: rgba(0,75,125,0.05);
+    background-color: rgba(0, 75, 125, 0.05);
 }
 
 .drag-drop {
@@ -149,12 +173,14 @@ h6 {
 
     /* hackey positioning */
     padding: 2px 32px;
+
+    border: solid 1px white;
 }
 
 .drag-home {
     z-index: 5;
 
-    border: solid 4px slategrey;
+    border: solid 4px white;
     background-color: rgba(255, 69, 0, 0.1);
 }
 
@@ -162,7 +188,6 @@ h6 {
     z-index: 4;
     border: solid 4px goldenrod;
 }
-
 
 .drop-board {
     display: block;
@@ -172,7 +197,6 @@ h6 {
     height: 100%;
 
     margin: 0 auto;
-
 
     z-index: 3;
 
@@ -192,8 +216,8 @@ h6 {
     border: dotted 1px darkgreen;
 
     margin: 5px;
-    width: 75px !important;
-    height: 75px !important;
+    width: 75px;
+    height: 75px;
 }
 
 .drop-container {
@@ -209,22 +233,19 @@ h6 {
     z-index: 4;
 }
 
-
 .btn-droppable {
     padding: 0;
-    /*z-index: -1;*/
+    z-index: -1;
     /*hack so drag item fits over*/
     margin-top: -2px;
     margin-left: -2px;
     cursor: default;
 }
 
-
 .button-draggable {
-    margin-left:10px;
-    margin-bottom:18px;
+    margin-left: 10px;
+    margin-bottom: 18px;
 }
-
 
 .btn-draggable {
     z-index: 1;
@@ -245,7 +266,6 @@ h6 {
     font-weight: bold;
 }
 
-
 .drag-text {
     width: 75px;
     height: 75px;
@@ -257,69 +277,89 @@ h6 {
     border: solid red 1px;
 }
 
-
 /*------------------------------------*\
     LISTS
     See: http://csswizardry.com/2010/02/mutiple-column-lists-using-one-ul/
 \*------------------------------------*/
-ul{
-    overflow:hidden;
-    border:2px solid #a32d00;
+ul {
+    overflow: visible;
+    border: 2px solid #a32d00;
 
     background-color: rgba(118, 210, 114, 0.75);
 }
-li{
+
+li {
     padding: 0;
     margin: 0;
-    line-height:1.5em;
+    line-height: 1.5em;
     height: 75px;
-    border-bottom:1px solid #ccc;
-    float:left;
-    display:inline;
+    border-bottom: 1px solid #ccc;
+    float: left;
+    display: inline;
 }
 
-.triple li	{ width:33.333%; }
+.triple li {
+    width: 33.333%;
+}
 
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen
 and (min-device-width: 320px)
 and (max-device-width: 480px) {
     /* Styles */
+    h1 {
+        font-size: 30px;
+    }
     .game-container {
         margin-top: 38px;
         width: 300px;
         height: 300px;
     }
+
     .instructions {
         height: 38px;
     }
+
     .drag-drop {
         top: 35px;
         width: 300px;
         height: 240px;
     }
+
     .drop-zone {
         height: 145px;
     }
+
     .drag-home {
         height: 95px;
     }
+
     .drop-board {
         width: 150px;
     }
+
     .drop-container {
         width: 138px;
         height: 138px;
         margin: 0 auto;
     }
+
+    .button {
+        min-width: 40px;
+    }
+
+    .btn-drag {
+        margin: 0;
+    }
+
     /*.square {*/
-        /*width: 37px;*/
-        /*min-height: 37px;*/
+    /*width: 37px;*/
+    /*min-height: 37px;*/
     /*}*/
     /*.drop-slot {*/
-        /*margin: 2px;*/
-        /*width: 37px !important;*/
-        /*height: 37px !important;*/
+    /*margin: 2px;*/
+    /*width: 37px !important;*/
+    /*height: 37px !important;*/
     /*}*/
 
 }
@@ -328,30 +368,50 @@ and (max-device-width: 480px) {
 @media only screen
 and (min-width: 321px) {
     /* Styles */
+    h1 {
+        font-size: 30px;
+    }
     .game-container {
         margin-top: 38px;
         width: 300px;
         height: 300px;
     }
+
     .instructions {
         height: 38px;
     }
+
     .drop-board {
         width: 150px;
     }
+
     .drop-container {
         width: 148px;
         height: 148px;
         margin: 3px auto;
     }
+
     .square {
         width: 40px;
         min-height: 40px;
     }
+    .button {
+        min-width: 40px;
+    }
+
     .drop-slot {
         margin: 2px;
-        width: 40px !important;
-        height: 40px !important;
+        width: 40px;
+        max-width: 40px;
+        height: 40px;
+    }
+    .drag-text {
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+    }
+    .btn-drag {
+        margin: 0;
     }
 }
 
@@ -364,17 +424,33 @@ and (max-width: 320px) {
         width: 300px;
         height: 300px;
     }
+
     .drop-board {
         width: 150px;
     }
+
     .square {
         width: 40px;
         min-height: 40px;
     }
     .drop-slot {
         margin: 2px;
-        width: 40px !important;
-        height: 40px !important;
+        width: 40px;
+        max-width: 40px;
+        height: 40px;
+    }
+    .drag-text {
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+    }
+
+    .button {
+        min-width: 40px;
+
+    }
+    .btn-drag {
+         margin: 0;
     }
 }
 
@@ -400,6 +476,9 @@ and (min-device-width: 768px)
 and (max-device-width: 1024px) {
     /* Styles */
     /* need to re-size dimensions!! */
+    h1 {
+        font-size: 60px;
+    }
     .game-container {
         margin-top: 76px;
 
@@ -408,28 +487,46 @@ and (max-device-width: 1024px) {
 
         background-color: rgba(222, 222, 222, 0.5)
     }
+
     .instructions {
         height: 76px;
     }
+
     .game-controls {
         height: 90px;
     }
+
     .drop-board {
-         width: 300px;
+        width: 300px;
     }
+
     .drop-container {
-         width: 259px;
-         height: 259px;
-         margin: 9px auto;
+        width: 259px;
+        height: 259px;
+        margin: 9px auto;
     }
+
     .square {
         width: 75px;
         min-height: 75px;
     }
+
     .drop-slot {
         margin: 5px;
-        width: 75px !important;
-        height: 75px !important;
+        width: 75px;
+        max-width: 75px;
+        height: 75px;
+    }
+    .drag-text {
+        width: 75px;
+        height: 75px;
+        line-height: 75px;
+    }
+    .button {
+        min-width: 52px;
+    }
+    .btn-drag {
+        margin: 5px;
     }
 }
 
@@ -468,8 +565,9 @@ and (orientation: portrait) {
 
         background-color: rgba(10, 10, 250, 1)
     }
+
     .instructions {
-         height: 38px;
+        height: 38px;
     }
 }
 
@@ -478,18 +576,17 @@ and (orientation: portrait) {
     /* can`t put sizing here as it interferes with the iPad!*/
 }
 
-
 /* iphone 4 (landscape) -----------  */
 @media only screen
-and (min-device-width : 320px)
-and (max-device-width : 480px)
-and (orientation : landscape)
-{
+and (min-device-width: 320px)
+and (max-device-width: 480px)
+and (orientation: landscape) {
     /* Styles */
     .game-container {
         margin-top: 38px;
         background-color: rgba(250, 175, 210, 1)
     }
+
     .instructions {
         height: 38px;
     }
@@ -498,22 +595,22 @@ and (orientation : landscape)
 
 /* iphone 4 (portrait) ( and iPhone portrait 5 too )----------- */
 @media only screen
-and (min-device-width : 320px)
-and (max-device-width : 480px)
-and (orientation : portrait)  {
+and (min-device-width: 320px)
+and (max-device-width: 480px)
+and (orientation: portrait) {
     .game-container {
         margin-top: 76px;
         background-color: rgba(72, 209, 204, 1)
     }
+
     .instructions {
         height: 76px;
     }
+
     .game-controls {
         height: 90px;
     }
 }
-
-
 
 /* iPhone 5 ----------- */
 @media screen and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) {
@@ -521,23 +618,26 @@ and (orientation : portrait)  {
         background-color: rgba(100, 175, 25, 0.5)
     }
 }
+
 /* iPhone 5 (landscape) ----------- */
 @media only screen
-and (min-device-width : 320px)
-and (max-device-width : 568px)
-and (orientation : landscape)
-{
+and (min-device-width: 320px)
+and (max-device-width: 568px)
+and (orientation: landscape) {
     .game-container {
         background-color: rgba(100, 200, 25, 0.60)
     }
+
     .drag-drop {
         top: 35px;
         width: 300px;
         height: 240px;
     }
+
     .drop-zone {
-         height: 145px;
+        height: 145px;
     }
+
     .drag-home {
         height: 95px;
     }
@@ -548,6 +648,7 @@ and (orientation : landscape)
     .game-container {
         background-color: rgba(250, 150, 230, 0.5)
     }
+
     .drop-container {
         width: 138px;
         height: 138px;
@@ -557,25 +658,29 @@ and (orientation : landscape)
 }
 
 /*iPhone 6 (landscape) ---------- */
-@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (orientation : landscape) {
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (orientation: landscape) {
     .game-container {
         background-color: rgba(250, 150, 251, 0.75)
     }
+
     .drag-drop {
         top: 35px;
         width: 300px;
         height: 240px;
     }
+
     .drop-zone {
-         height: 145px;
+        height: 145px;
     }
+
     .drag-home {
         height: 95px;
     }
+
     .drop-container {
-         width: 138px;
-         height: 138px;
-         margin: 0 auto;
+        width: 138px;
+        height: 138px;
+        margin: 0 auto;
     }
 }
 
@@ -584,9 +689,11 @@ and (orientation : landscape)
     .game-container {
         background-color: rgba(250, 30, 250, 0.5)
     }
+
     .game-controls {
         height: 90px;
     }
+
     .drop-container {
         width: 138px;
         height: 138px;
@@ -595,24 +702,29 @@ and (orientation : landscape)
 }
 
 /*iPhone 6 Plus (landscape) ---------- */
-@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation : landscape) {
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: landscape) {
     .game-container {
         background-color: rgba(190, 200, 250, 0.5)
     }
+
     .drag-drop {
         top: 35px;
         width: 300px;
         height: 240px;
     }
+
     .instructions {
         height: 76px;
     }
+
     .drop-zone {
         height: 145px;
     }
+
     .drag-home {
         height: 95px;
     }
+
     .drop-container {
         width: 138px;
         height: 138px;
