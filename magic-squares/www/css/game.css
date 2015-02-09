@@ -18,7 +18,8 @@ h1 {
     font-size: 60px;
 }
 h3 {
-    font-size: 18px;
+    font-size: 11px;
+    word-break: keep-all;
     color: #1c160d;
 }
 h4 {
@@ -103,7 +104,7 @@ pre strong {
     position: relative;
     width: 100%;
     text-align: center;
-    border: solid 1px red;
+    /*border: solid 1px red;*/
 }
 
 /* UI - game containers ----------- */
@@ -120,7 +121,7 @@ pre strong {
     padding: 0;
     margin: 0 auto;
 
-    border: solid 4px darkblue;
+    /*border: solid 4px darkblue;*/
     background-color: rgba(254, 254, 255, 0.25);
 
     z-index: 1;
@@ -135,8 +136,8 @@ pre strong {
 
     z-index: 2;
 
-    border: dashed 1px darkred;
-    background-color: rgba(100, 100, 200, 0.75);
+    /*border: dashed 1px darkred;*/
+    background-color: rgba(100, 100, 200, 0.1);
 }
 
 .game-controls {
@@ -148,7 +149,7 @@ pre strong {
 
     z-index: 3;
 
-    border: solid 1px gold;
+    /*border: solid 1px gold;*/
 
     background-color: rgba(0, 75, 125, 0.05);
 }
@@ -333,11 +334,6 @@ pre strong {
 /*hack display for the totals*/
 .drop-display {
     display: block;
-    /*margin-top: 3px;*/
-    /*margin-bottom: 3px;*/
-
-    /*width: 75px !important;*/
-
     border:1px #999 solid;
 }
 
@@ -353,6 +349,7 @@ pre strong {
     background-color: rgba(218, 10, 114, 0.75);
 }
 
+
 .row-indicator-left {
      margin-top: 30px;
  }
@@ -366,10 +363,16 @@ pre strong {
 
 .column-indicator {
     margin-top: -8px;
-    width: 50px;
+    width: 100px;
     margin-left: 0;
     margin-right: 0;
     text-align: center;
+    border:2px #229 solid;
+}
+
+.column-indicator h3 {
+    width: 40px;
+    border:1px #229 solid;
 }
 .column-indicator p{
     margin-top: -28px;
@@ -384,14 +387,16 @@ pre strong {
 .column-indicator-bottom h3 {
     margin-top: 58px;
 }
+
+
+
 .diagonal-left {
     margin-left: 0;
-/*//-55px;*/
 }
+
 .diagonal-right {
     border:1px #A29 solid;
 }
-
 
 .column-indicator-diagonal {
     margin-left: 100px;
@@ -406,12 +411,19 @@ pre strong {
     /*margin-top: 190px;*/
     margin-top: 235px;
 }
+.diagonal-left h3 {
+    margin-left: 120px;
+}
 .diagonal-right h3 {
-    margin-left: 220px;
-    /*margin-top: 58px;*/
+    margin-left: 320px;
 
     border:1px #A29 solid;
 }
+
+
+/* --- */
+
+
 
 /*------------------------------------*\
     LISTS
@@ -448,12 +460,18 @@ and (max-device-width: 480px) {
     h1 {
         font-size: 30px;
     }
+    h3 {
+        font-size: 12px;
+    }
+    li {
+        line-height: 0.80em;
+        height: 48px;
+    }
     .game-container {
         margin-top: 38px;
         width: 300px;
         height: 300px;
     }
-
     .instructions {
         height: 38px;
         top: 0;
@@ -464,11 +482,9 @@ and (max-device-width: 480px) {
         width: 300px;
         height: 240px;
     }
-
     .drop-zone {
         height: 145px;
     }
-
     .drag-home {
         height: 95px;
     }
@@ -476,19 +492,56 @@ and (max-device-width: 480px) {
     .drop-board {
         width: 150px;
     }
-
     .drop-container {
         width: 138px;
         height: 138px;
         margin: 0 auto;
     }
-
     .button {
         min-width: 40px;
     }
-
     .btn-drag {
         margin: 0;
+    }
+    .row-indicator {
+        width: 10px;
+        height: 40px;
+        padding-top: 10px;
+        margin-top: 10px;
+    }
+    .row-indicator-left {
+        margin-top: 0;
+    }
+    .row-indicator-right {
+        margin-top: 0;
+        right: 0;
+    }
+    .column-indicator {
+        margin-top: -8px;
+        width: 30px;
+        margin-left: -65px;
+        margin-right: 0;
+    }
+    .column-indicator p{
+        margin-top: -20px;
+    }
+    .column-indicator-bottom {
+        margin-top: 80px;
+    }
+    .column-indicator-bottom h3 {
+        margin-top: 45px;
+    }
+    .column-indicator-diagonal {
+        margin-left: 100px;
+    }
+    .diagonal-left h3 {
+        margin-left: -75px;
+    }
+    .diagonal-right h3 {
+        margin-left: 40px;
+    }
+    .column-diagonal-bottom h3 {
+        margin-top: 114px;
     }
 }
 
@@ -631,12 +684,19 @@ and (max-device-width: 1024px) {
     h1 {
         font-size: 60px;
     }
+    h3 {
+        font-size: 18px;
+    }
     h4 {
         font-size: 56px;
     }
     h6 {
         font-size: 22px;
         margin: 10px auto;
+    }
+    li {
+        line-height: 1.5em;
+        height: 75px;
     }
     .game-container {
         margin-top: 76px;
@@ -686,6 +746,35 @@ and (max-device-width: 1024px) {
     }
     .btn-drag {
         margin: 5px;
+    }
+    .row-indicator {
+        width: 20px;
+        height: 75px;
+        padding-top: 20px;
+        margin-top: 20px;
+    }
+    .row-indicator-left {
+        margin-top: 30px;
+    }
+    .row-indicator-right {
+        margin-top: 30px;
+        right: 0;
+    }
+    .column-indicator {
+        margin-top: -8px;
+        width: 100px;
+        margin-left: 0;
+        margin-right: 0;
+        border:1px #A29 solid;
+    }
+    .column-indicator p{
+        margin-top: -28px;
+    }
+    .column-indicator-bottom {
+        margin-top: 190px;
+    }
+    .column-indicator-bottom h3 {
+        margin-top: 58px;
     }
 }
 

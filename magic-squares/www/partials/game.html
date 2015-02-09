@@ -24,7 +24,7 @@
 
                             <li ng-if="true" class="square drop-slot" ng-repeat="drop in dragDrop.dropTargets track by $index">
                                 <!--button-->
-                                <div ng-if="true" class="btn-droppable square red" data-drop="true" ng-model='dragDrop.selectedItems'
+                                <div ng-if="true" class="btn-droppable square" data-drop="true" ng-model='dragDrop.selectedItems'
                                 jqyoui-droppable="{index: {{$index}}, onDrop:'dragDrop.dropCallback($index)',onOver: 'dragDrop.overCallback(data-drag)', onOut: 'dragDrop.outCallback($index)'}">
                                     <div ng-if="true" class="btn btn-info square btn-draggable"
                                     ng-show="dragDrop.selectedItems[$index].title"
@@ -72,7 +72,6 @@
                 <div ng-if="master.hint" class="drop-zone-overlay drop-zone-overlay-three">
                     <ul class="drop-board">
                         <li class="square drop-slot-empty" ng-repeat="drop in dragDrop.dropTargets | first: 2">
-
                             <div class="column-indicator column-indicator-diagonal"
                                  ng-class="drop.value === 0 ? 'diagonal-left' : 'diagonal-right'">
                                 <h3>{{dragDrop.getDiagonalTotal(drop.value)}}</h3>
