@@ -17,6 +17,10 @@
 h1 {
     font-size: 60px;
 }
+h3 {
+    font-size: 18px;
+    color: #1c160d;
+}
 h4 {
     font-size: 22px;
     font-family: 'fredoka_oneregular';
@@ -108,7 +112,6 @@ pre strong {
     ( 600px x 600px was the original size )
 */
 .game-container {
-
     position: relative;
 
     width: 600px;
@@ -174,6 +177,35 @@ pre strong {
     opacity: 0.2;
 }
 
+.drop-zone-overlay {
+    position: absolute;
+    top: 0;
+    left: 5%;
+
+    border: solid 1px darkred;
+}
+
+.drop-zone-overlay-one {
+    z-index: -1;
+    /*border: solid 1px darkred;*/
+}
+
+.drop-zone-overlay-two {
+    z-index: -2;
+
+    /*border: solid 1px darkblue;*/
+}
+
+.single {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 600px;
+    height: 290px;
+
+    /*border: solid 1px darkred;*/
+}
+
 /* Shared container */
 .drag-container {
     display: block;
@@ -214,7 +246,7 @@ pre strong {
 
     border: solid 2px #111;
 
-    background-color: rgba(218, 112, 214, 0.1);
+    background-color: rgba(218, 112, 214, 1);
 }
 
 /* game elements*/
@@ -298,6 +330,60 @@ pre strong {
     margin-right: 5px;
 }
 
+/*hack display for the totals*/
+.drop-display {
+    display: block;
+    /*margin-top: 3px;*/
+    /*margin-bottom: 3px;*/
+
+    /*width: 75px !important;*/
+
+    border:1px #999 solid;
+}
+
+.row-indicator {
+    position: absolute;
+    width: 20px;
+    height: 75px;
+    /* really hacky now */
+    padding-top: 20px;
+    margin-top: 20px;
+
+    border:2px #229 solid;
+    background-color: rgba(218, 10, 114, 0.75);
+}
+
+.row-indicator-left {
+     margin-top: 30px;
+ }
+.row-indicator-right {
+    margin-top: 30px;
+    right: 0;
+}
+
+.column-indicator {
+    text-align: center;
+}
+.column-indicator p{
+    margin-top: -25px;
+
+    /*border:1px #229 solid;*/
+}
+.column-indicator-bottom {
+    margin-top: 190px;
+
+    /*border:1px #229 solid;*/
+}
+.column-indicator-bottom p {
+    margin-top: 25px;
+}
+.diagonal-left {
+    margin-left: -55px;
+}
+.diagonal-right {
+    margin-left: 158px;
+}
+
 /*------------------------------------*\
     LISTS
     See: http://csswizardry.com/2010/02/mutiple-column-lists-using-one-ul/
@@ -318,6 +404,8 @@ li {
     float: left;
     display: inline;
 }
+
+.single li	{ width:100%;}
 
 .triple li {
     width: 33.333%;
@@ -783,8 +871,6 @@ and (orientation: landscape) {
         margin-top: 50px;
 
         background-color: rgba(190, 200, 250, 0.1);
-
-
     }
     .instructions {
         height: 38px;

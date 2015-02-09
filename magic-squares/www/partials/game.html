@@ -19,10 +19,6 @@
             <div ng-if="true" class="drag-drop parent" ng-controller="DragDrop as dragDrop">
                 <!--DROP-->
                 <div ng-if="true" class="drop-zone parent">
-
-                    <!--<div ng-if="true" class="drop-board">-->
-                        <!--<p class="center-text">OK</p>-->
-                    <!--</div>-->
                     <div ng-if="true" class="drop-board">
                         <ul ng-if="true" class="triple drop-container">
 
@@ -45,18 +41,21 @@
                 </div>
 
                 <!--ROW-INDICATOR-->
-                <div ng-if="master.hint" class="drop-zone-overlay drop-zone-overlay-one">
-                    <ul id="single" class="drop-board">
+                <div ng-if="master.hint" class="drop-zone drop-zone-overlay drop-zone-overlay-one">
+                    <ul class="single drop-board">
                         <li class="drop-display" ng-repeat="drop in dragDrop.dropTargets | pick: master.mod3">
-                            <span class="pull-left row-indicator row-indicator-left"><p>
-                                {{dragDrop.getRowTotal(drop.value)}}</p></span>
-                            <span class="pull-right row-indicator"><p>{{dragDrop.getRowTotal(drop.value)}}</p></span>
+                            <div class="row-indicator row-indicator-left">
+                                <h3>{{dragDrop.getRowTotal(drop.value)}}</h3>
+                            </div>
+                            <div class="row-indicator row-indicator-right">
+                                <h3>{{dragDrop.getRowTotal(drop.value)}}</h3>
+                            </div>
                         </li>
                     </ul>
                 </div>
 
                 <!--COLUMN-INDICATOR-->
-                <div ng-if="master.hint" class="drop-zone-overlay drop-zone-overlay-two">
+                <div ng-if="1>2 && master.hint" class="drop-zone-overlay drop-zone-overlay-two">
                     <ul class="drop-board triple">
                         <li class="square drop-slot-empty" ng-repeat="drop in dragDrop.dropTargets | pick: master.mod3">
                             <div class="square column-indicator"><p>{{dragDrop.getColumnTotal(drop.value)}}</p></div>
@@ -67,7 +66,7 @@
                 </div>
 
                 <!--DIAGONAL-INDICATOR-->
-                <div ng-if="master.hint" class="drop-zone-overlay drop-zone-overlay-three">
+                <div ng-if="1>2 &&  master.hint" class="drop-zone-overlay drop-zone-overlay-three">
                     <ul class="drop-board">
                         <li class="square drop-slot-empty" ng-repeat="drop in dragDrop.dropTargets | first: 2">
 
