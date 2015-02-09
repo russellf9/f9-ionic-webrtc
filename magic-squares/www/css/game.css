@@ -344,7 +344,7 @@ pre strong {
 }
 
 .row-indicator-bottom {
-   border: solid 1px darkred;
+   /*border: solid 1px darkred;*/
 }
 
 .row-indicator h3 {
@@ -379,7 +379,8 @@ pre strong {
 }
 .column-indicator-bottom {
     margin-top: 203px;
-    border: solid 1px darkred;
+    /*  Weird! need this ???? */
+    border: solid 1px white;
 }
 
 .column-indicator-bottom h3 {
