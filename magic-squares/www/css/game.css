@@ -285,8 +285,11 @@ pre strong {
     width: 75px;
     height: 75px;
     line-height: 75px;
+    display: -webkit-flex;
     display: flex;
+    -webkit-justify-content: center;
     justify-content: center; /* align horizontal */
+    -webkit-align-items: center;
     align-items: center; /* align vertical */
 
     border: solid red 1px;
