@@ -222,14 +222,11 @@ pre strong {
 
 .drag-home {
     z-index: 5;
-
-    border: solid 4px white;
-    background-color: snow;
 }
 
 .drag-home-bgd {
-    z-index: -4;
-    /*border: solid 1px goldenrod;*/
+    z-index: -99;
+    background-color: snow;
 }
 
 .drop-board {
@@ -243,9 +240,9 @@ pre strong {
 
     z-index: 3;
 
-    border: solid 1px #111;
+    /*border: solid 1px #111;*/
 
-    /*background-color: rgba(218, 112, 214, 1);*/
+    /*background-color: snow;*/
 }
 
 /* game elements*/
@@ -382,7 +379,7 @@ pre strong {
 }
 
 .diagonal-right {
-    border:1px #A29 solid;
+    /*border:1px #A29 solid;*/
 }
 
 .column-indicator-diagonal {
