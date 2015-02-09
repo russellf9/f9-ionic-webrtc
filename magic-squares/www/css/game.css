@@ -1,11 +1,34 @@
+@font-face {
+    font-family: 'fredoka_oneregular';
+    src: url('../fonts/fredokaone-regular-webfont.eot');
+    src: url('../fonts/fredokaone-regular-webfont.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/fredokaone-regular-webfont.woff2') format('woff2'),
+    url('../fonts/fredokaone-regular-webfont.woff') format('woff'),
+    url('../fonts/fredokaone-regular-webfont.ttf') format('truetype'),
+    url('../fonts/fredokaone-regular-webfont.svg#fredoka_oneregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
 /* font styles ----------- */
 
 h1 {
     font-size: 60px;
 }
 
+
+h4 {
+    font-size: 22px;
+    font-family: 'fredoka_oneregular';
+    color: #1c160d;
+}
+
 h6 {
     font-size: 14px;
+    font-family: 'fredoka_oneregular';
+    color: #1c160d;
 }
 
 /*see: http://stackoverflow.com/questions/4919076/outline-effect-to-text*/
@@ -91,23 +114,15 @@ pre strong {
 
     position: relative;
 
-    /*top: 50%;*/
-
     width: 600px;
     height: 600px;
 
     padding: 0;
     margin: 0 auto;
 
-    /*margin: -70px 0 0 -170px;*/
-
-    /*margin: -300px 0 0 -170px;*/
-    /*margin-left: -150px;*/
-
     border: solid 2px darkblue;
-    background-color: rgba(254, 254, 255, 0.5);
+    background-color: rgba(254, 254, 255, 0.25);
 
-    /*background-color: rgba(100,100,100,0.05);*/
     z-index: 1;
 }
 
@@ -120,7 +135,7 @@ pre strong {
 
     z-index: 2;
 
-    border: dashed 2px darkred;
+    border: dashed 1px darkred;
     background-color: rgba(100, 100, 200, 0.75);
 }
 
@@ -133,7 +148,7 @@ pre strong {
 
     z-index: 3;
 
-    border: solid 2px gold;
+    border: solid 1px gold;
 
     background-color: rgba(0, 75, 125, 0.05);
 }
@@ -159,7 +174,7 @@ pre strong {
 
     border: solid 4px slategrey;
     background-color: olive;
-    opacity: 0.5;
+    opacity: 0.2;
 }
 
 /* Shared container */
@@ -185,7 +200,7 @@ pre strong {
 }
 
 .drag-home-bgd {
-    z-index: 4;
+    z-index: -4;
     border: solid 4px goldenrod;
 }
 
@@ -202,7 +217,7 @@ pre strong {
 
     border: solid 2px #111;
 
-    background-color: rgba(218, 112, 214, 0.75);
+    background-color: rgba(218, 112, 214, 0.1);
 }
 
 /* game elements*/
@@ -318,6 +333,7 @@ and (max-device-width: 480px) {
 
     .instructions {
         height: 38px;
+        top: 0;
     }
 
     .drag-drop {
@@ -351,17 +367,6 @@ and (max-device-width: 480px) {
     .btn-drag {
         margin: 0;
     }
-
-    /*.square {*/
-    /*width: 37px;*/
-    /*min-height: 37px;*/
-    /*}*/
-    /*.drop-slot {*/
-    /*margin: 2px;*/
-    /*width: 37px !important;*/
-    /*height: 37px !important;*/
-    /*}*/
-
 }
 
 /* Smartphones (landscape) ----------- */
@@ -371,14 +376,29 @@ and (min-width: 321px) {
     h1 {
         font-size: 30px;
     }
+    h4 {
+        margin: 0 auto;
+    }
+    h6 {
+       font-size: 14px;
+       margin: 0 auto;
+       /*padding-left: 10px;*/
+       /*padding-right: 10px;*/
+    }
+    .center-text {
+        width: 100%;
+        text-align: center;
+        /*border: solid 1px blue;*/
+    }
     .game-container {
-        margin-top: 38px;
+        margin-top: 0;
         width: 300px;
         height: 300px;
     }
 
     .instructions {
         height: 38px;
+        top: 0;
     }
 
     .drop-board {
@@ -424,7 +444,16 @@ and (max-width: 320px) {
         width: 300px;
         height: 300px;
     }
-
+    .center-text {
+        width: 100%;
+        padding: 0 25px;
+        text-align: center;
+        border: solid 1px gold;
+    }
+    .instructions {
+        height: 38px;
+        top: 0;
+    }
     .drop-board {
         width: 150px;
     }
@@ -479,17 +508,24 @@ and (max-device-width: 1024px) {
     h1 {
         font-size: 60px;
     }
+    h4 {
+        font-size: 56px;
+    }
+    h6 {
+        font-size: 22px;
+        margin: 10px auto;
+    }
     .game-container {
         margin-top: 76px;
 
         width: 600px;
         height: 600px;
 
-        background-color: rgba(222, 222, 222, 0.5)
+        background-color: rgba(222, 222, 222, 0.1)
     }
-
     .instructions {
-        height: 76px;
+        height: 125px;
+        top: 20px;
     }
 
     .game-controls {
@@ -539,7 +575,7 @@ and (orientation: landscape) {
     .game-container {
         margin-top: 76px;
 
-        background-color: rgba(250, 50, 0, 0.5)
+        background-color: rgba(250, 50, 0, 0.01)
     }
 
 }
@@ -551,7 +587,7 @@ and (max-device-width: 1024px)
 and (orientation: portrait) {
     /* Styles */
     .game-container {
-        background-color: rgba(50, 50, 250, 0.75)
+        background-color: rgba(50, 50, 250, 0.1)
     }
 }
 
@@ -563,11 +599,11 @@ and (orientation: portrait) {
         height: 300px;
         margin-top: 38px;
 
-        background-color: rgba(10, 10, 250, 1)
+        background-color: rgba(10, 10, 250, 0.1)
     }
-
     .instructions {
         height: 38px;
+        top: 0;
     }
 }
 
@@ -583,12 +619,12 @@ and (max-device-width: 480px)
 and (orientation: landscape) {
     /* Styles */
     .game-container {
-        margin-top: 38px;
-        background-color: rgba(250, 175, 210, 1)
+        margin-top: 0;
+        background-color: rgba(250, 175, 210, 0.1)
     }
-
     .instructions {
         height: 38px;
+        top: 0;
     }
 
 }
@@ -600,13 +636,12 @@ and (max-device-width: 480px)
 and (orientation: portrait) {
     .game-container {
         margin-top: 76px;
-        background-color: rgba(72, 209, 204, 1)
+        background-color: rgba(72, 209, 204, 0.1)
     }
-
     .instructions {
-        height: 76px;
+        height: 38px;
+        top: 0;
     }
-
     .game-controls {
         height: 90px;
     }
@@ -615,7 +650,7 @@ and (orientation: portrait) {
 /* iPhone 5 ----------- */
 @media screen and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) {
     .game-container {
-        background-color: rgba(100, 175, 25, 0.5)
+        background-color: rgba(100, 175, 25, 0.01)
     }
 }
 
@@ -625,7 +660,11 @@ and (min-device-width: 320px)
 and (max-device-width: 568px)
 and (orientation: landscape) {
     .game-container {
-        background-color: rgba(100, 200, 25, 0.60)
+        background-color: rgba(100, 200, 25, 0.1)
+    }
+    .instructions {
+        height: 38px;
+        top: 0;
     }
 
     .drag-drop {
@@ -645,8 +684,21 @@ and (orientation: landscape) {
 
 /* iPhone 6 ---------- */
 @media screen and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) {
+    h6 {
+        font-size: 18px;
+        margin: 10px auto;
+    }
+    .center-text {
+        width: 90%;
+        border: solid 1px gold;
+    }
     .game-container {
-        background-color: rgba(250, 150, 230, 0.5)
+        background-color: rgba(250, 150, 230, 0.1);
+        margin-top: 60px;
+    }
+    .instructions {
+        height: 38px;
+        top: 10px;
     }
 
     .drop-container {
@@ -660,11 +712,15 @@ and (orientation: landscape) {
 /*iPhone 6 (landscape) ---------- */
 @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (orientation: landscape) {
     .game-container {
-        background-color: rgba(250, 150, 251, 0.75)
+        background-color: rgba(250, 150, 251, 0.1)
+    }
+    .instructions {
+        height: 38px;
+        top: 0;
     }
 
     .drag-drop {
-        top: 35px;
+        top: 45px;
         width: 300px;
         height: 240px;
     }
@@ -686,8 +742,20 @@ and (orientation: landscape) {
 
 /* iPhone 6 Plus ---------- */
 @media screen and (device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) {
+    h6 {
+        font-size: 18px;
+        margin: 10px auto;
+    }
+    .center-text {
+        width: 90%;
+        border: solid 1px gold;
+    }
     .game-container {
-        background-color: rgba(250, 30, 250, 0.5)
+        background-color: rgba(250, 30, 250, 0.1);
+    }
+    .instructions {
+        height: 38px;
+        top: 20px;
     }
 
     .game-controls {
@@ -704,19 +772,17 @@ and (orientation: landscape) {
 /*iPhone 6 Plus (landscape) ---------- */
 @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: landscape) {
     .game-container {
-        background-color: rgba(190, 200, 250, 0.5)
+        background-color: rgba(190, 200, 250, 0.1)
     }
-
+    .instructions {
+        height: 38px;
+        top: 0;
+    }
     .drag-drop {
         top: 35px;
         width: 300px;
         height: 240px;
     }
-
-    .instructions {
-        height: 76px;
-    }
-
     .drop-zone {
         height: 145px;
     }
