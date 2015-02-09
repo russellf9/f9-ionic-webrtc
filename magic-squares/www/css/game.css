@@ -292,6 +292,12 @@ pre strong {
     border: solid red 1px;
 }
 
+.ctrl-btn {
+    display: inline-block;
+    float: right;
+    margin-right: 5px;
+}
+
 /*------------------------------------*\
     LISTS
     See: http://csswizardry.com/2010/02/mutiple-column-lists-using-one-ul/
