@@ -9,15 +9,16 @@ angular.module('magicsquares', ['ionic', 'ngDragDrop', 'angular.filter', 'magics
 
     .run(function(_, $ionicPlatform) {
         $ionicPlatform.ready(function() {
+            StatusBar.hide();
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
             // for form inputs)
-            if (window.cordova && window.cordova.plugins.Keyboard) {
-                cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-            }
-            if (window.StatusBar) {
-                // org.apache.cordova.statusbar required
-                StatusBar.styleDefault();
-            }
+//            if (window.cordova && window.cordova.plugins.Keyboard) {
+//                cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+//            }
+//            if (window.StatusBar) {
+//                // org.apache.cordova.statusbar required
+//                StatusBar.styleDefault();
+//            }
         });
     })
 
