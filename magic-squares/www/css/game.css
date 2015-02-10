@@ -43,6 +43,12 @@ h6 {
     text-shadow: #000 0px 0px 1px;
     text-shadow: #000 0px 0px 1px;
     text-shadow: #000 0px 0px 1px;
+    text-shadow: #000 0px 0px 1px;
+    text-shadow: #000 0px 0px 1px;
+    text-shadow: #000 0px 0px 1px;
+    text-shadow: #000 0px 0px 1px;
+    text-shadow: #000 0px 0px 1px;
+    text-shadow: #000 0px 0px 1px;
 
     -webkit-font-smoothing: antialiased;
 }
@@ -68,9 +74,14 @@ h6 {
     background-color: grey;
 }
 
+.whitesmoke {
+    background-color: whitesmoke;
+}
+
 pre strong {
     font-size: 12pt;
 }
+
 
 /* positioning */
 
@@ -137,7 +148,7 @@ pre strong {
     z-index: 2;
 
     /*border: dashed 1px darkred;*/
-    /*background-color: rgba(100, 100, 200, 0.1);*/
+    /*background-color: whitesmoke;*/
 }
 
 .game-controls {
@@ -149,7 +160,7 @@ pre strong {
 
     z-index: 3;
 
-    background-color: snow;
+    background-color: whitesmoke;
 }
 
 .drag-drop {
@@ -226,7 +237,7 @@ pre strong {
 
 .drag-home-bgd {
     z-index: -99;
-    background-color: snow;
+    background-color: whitesmoke;
 }
 
 .drop-board {
@@ -242,7 +253,7 @@ pre strong {
 
     /*border: solid 1px #111;*/
 
-    /*background-color: snow;*/
+    /*background-color: whitesmoke;*/
 }
 
 /* game elements*/
@@ -270,6 +281,7 @@ pre strong {
     margin: 9px auto;
 
     border: solid 1px #111;
+    /*background-color: whitesmoke;*/
 
 
     /*  TODO work out z-index! */
