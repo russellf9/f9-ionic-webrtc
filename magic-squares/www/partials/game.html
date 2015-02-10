@@ -44,7 +44,7 @@
                 <div ng-if="master.hint" class="drop-zone drop-zone-overlay drop-zone-overlay-one">
                     <ul class="single drop-board">
                         <li class="drop-display" ng-repeat="drop in dragDrop.dropTargets | pick: master.mod3">
-                            <div class="row-indicator row-indicator-left">
+                            <div ng-if="false" class="row-indicator row-indicator-left">
                                 <h3>{{dragDrop.getRowTotal(drop.value)}}</h3>
                             </div>
                             <div class="row-indicator row-indicator-right row-indicator-bottom">
@@ -61,7 +61,7 @@
                             <div class="column-indicator column-indicator-top">
                                 <h3>{{dragDrop.getColumnTotal(drop.value)}}</h3>
                             </div>
-                            <div class="column-indicator column-indicator-bottom">
+                            <div ng-if="false" class="column-indicator column-indicator-bottom">
                                 <h3>{{dragDrop.getColumnTotal(drop.value)}}</h3>
                             </div>
                         </li>
@@ -72,12 +72,12 @@
                 <div ng-if="master.hint" class="drop-zone-overlay drop-zone-overlay-three">
                     <ul class="drop-board">
                         <li class="square drop-slot-empty" ng-repeat="drop in dragDrop.dropTargets | first: 2">
-                            <div class="column-indicator column-indicator-diagonal"
+                            <div ng-if="drop.value !== 0" class="column-indicator column-indicator-diagonal"
                                  ng-class="drop.value === 0 ? 'diagonal-left' : 'diagonal-right'">
                                 <h3>{{dragDrop.getDiagonalTotal(drop.value)}}</h3>
                             </div>
 
-                            <div class="column-indicator column-indicator-diagonal column-diagonal-bottom"
+                            <div ng-if="drop.value !== 0" class="column-indicator column-indicator-diagonal column-diagonal-bottom"
                                  ng-class="drop.value === 0 ? 'diagonal-left' : 'diagonal-right'">
                                 <h3>{{dragDrop.getDiagonalTotalReverse(drop.value)}}</h3>
                             </div>
