@@ -5,16 +5,13 @@
         <div class="instructions" ng-controller="Instructions as instructions">
             <h4 ng-if='!master.checked' class="center-text"><strong>Magic Square Puzzle</strong></h4>
             <h6 ng-if='!master.checked' class="center-text">{{instructions.instructions}}</h6>
-            <h4 class="center-text" ng-if="master.checked && master.allCorrect" style="margin-top:5px">Well done
-            all correct!</h4>
+            <h4 class="center-text" ng-if="master.checked && master.allCorrect" style="margin-top:5px">Well done all correct!</h4>
             <h4 class="center-text" style="margin-top:20px"
             ng-if='master.checked && master.complete && !master.allCorrect'>Try again!</h4>
         </div>
 
 
         <div class="game-container">
-
-
             <!--THE WHOLE `DRAG DROP` AREA-->
             <div ng-if="true" class="drag-drop parent" ng-controller="DragDrop as dragDrop">
                 <!--DROP-->
@@ -106,10 +103,7 @@
                         <div class="button drag-slot-empty square"></div>
                     </div>
                 </div>
-
             </div>
-
-
         </div>
 
 
