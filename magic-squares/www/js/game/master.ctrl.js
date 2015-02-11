@@ -4,8 +4,6 @@
     // the `highest` controller the app
     angular.module('magicsquares').controller('Master', ['Model', '$scope', function(Model, $scope) {
 
-        console.log('Hi from the Master!');
-
         var self = this;
 
         // true when all rows, columns and diagonals add up to the `magic number`

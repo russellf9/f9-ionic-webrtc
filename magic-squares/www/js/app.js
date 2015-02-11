@@ -12,14 +12,11 @@ angular.module('magicsquares', ['ionic', 'ngDragDrop', 'angular.filter', 'magics
 
         $urlRouterProvider.otherwise('/');
 
-        console.log('hi');
-
         $stateProvider.state('menu', {
             url: '/',
             controller: 'Master',
             controllerAs: 'master',
             templateUrl: './partials/game.html'
         });
-
     });
 

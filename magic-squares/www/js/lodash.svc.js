@@ -7,7 +7,6 @@
      */
     angular.module('magicsquares').factory('_', ['$window', function($window) {
 
-        console.log('ok from lo dash!');
         // Get a local handle on the global lodash reference.
         var _ = $window._;
 
