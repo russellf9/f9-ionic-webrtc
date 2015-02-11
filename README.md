@@ -17,11 +17,11 @@ logic, puzzle, maths, game
 
 ### Icon
 
-![Icon](/design/ios/AppIcon.appiconset/icon-1024.png?raw=true "Magic Squares Icon")
+![Icon](/magic-squares/design/ios/AppIcon.appiconset/icon-1024.png?raw=true "Magic Squares Icon")
 
 ### Screenshot
 
-![Screenshot](/design/screenshot-640x1096.jpg?raw=true "Magic Squares Screenshot")
+![Screenshot](/magic-squares/design/screenshot-640x1096.jpg?raw=true "Magic Squares Screenshot")
 
 
 
