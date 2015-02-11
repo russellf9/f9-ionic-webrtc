@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <widget id="co.uk.factornine.magicsquares" version="0.0.1" xmlns="http://www.w3.org/ns/widgets"
         xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>magic-squares</name>
+    <name>Magic Squares</name>
     <description>
-        An Ionic Framework and Cordova project.
+        A logic puzzle where the objective is to solve a 3×3 magic square.
     </description>
-    <author email="hi@ionicframework" href="http://ionicframework.com/">
-        Ionic Framework Team
+    <author email="russell@factornine.co.uk" href="http://www.factornine.co.uk/">
+        Russell Wenban
     </author>
     <content src="index.html"/>
     <access origin="*"/>
@@ -47,6 +47,5 @@
         <!-- iPad Spotlight and Settings Icon -->
         <icon src="icons/ios/icon-50.png" width="50" height="50"/>
         <icon src="icons/ios/icon-50@2x.png" width="100" height="100"/>
-
     </platform>
 </widget>
