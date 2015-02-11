@@ -97,11 +97,14 @@
                 </div>
 
                 <!--DRAG OUTLINES-->
-                <div ng-if="true" class="drag-container drag-home-bgd">
+                <div ng-if="true" class="drag-container">
                     <div class="button btn-droppable btn-drag square"
                          ng-repeat="item in dragDrop.dragItems track by $index">
                         <div class="button drag-slot-empty square"></div>
                     </div>
+                </div>
+
+                <div ng-if="true" class="drag-home-bgd">
                 </div>
             </div>
         </div>

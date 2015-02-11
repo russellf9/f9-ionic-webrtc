@@ -161,6 +161,9 @@ pre strong {
     z-index: 3;
 
     background-color: whitesmoke;
+
+    /*border: solid 1px black;*/
+
 }
 
 .drag-drop {
@@ -227,8 +230,6 @@ pre strong {
 
     /* hackey positioning */
     padding: 2px 32px;
-
-    border: solid 1px white;
 }
 
 .drag-home {
@@ -236,7 +237,13 @@ pre strong {
 }
 
 .drag-home-bgd {
-    z-index: -99;
+    display: block;
+    position: absolute;
+
+    width: 100%;
+    margin: 0 auto;
+    height: 190px;
+
     background-color: whitesmoke;
 }
 
@@ -488,7 +495,13 @@ and (max-device-width: 480px) {
     .drop-zone {
         height: 145px;
     }
+    .drag-container {
+        height: 95px;
+    }
     .drag-home {
+        height: 95px;
+    }
+    .drag-home-bgd {
         height: 95px;
     }
     .drop-board {
@@ -702,6 +715,9 @@ and (max-device-width: 1024px) {
         margin-top: 76px;
         width: 600px;
         height: 600px;
+    }
+    .drag-home-bgd {
+        height: 190px;
     }
     .instructions {
         height: 125px;
