@@ -1,8 +1,19 @@
 # Magic Squares Mobile
 
-## Project Description
+## Project Introduction
 
 This project is a continuation of [Magic Squares](https://github.com/russellf9/magic-squares) focusing on creating the Magic Squares game for iOS using Ionic.
+
+## Description
+
+A logic puzzle where the objective is to solve a 3×3 magic square.
+
+## Keywords
+
+logic, puzzle, maths, game
+
+( The description and keywords are for [iTunes connect](itunesconnect.apple.com) )
+
 
 ## Original Cordova Installation
 
@@ -17,23 +28,14 @@ $ cd magic-squares
 
 ```
 
-(# Develop in the browser with live reload:
+# Develop in the browser with live reload:
 
-    ```
-    ionic serve
-    ```
+```
+$ ionic serve
+```
 
-    issue with this not working. Will re-visit with Gulp. )
+- issue with this not working. Will re-visit with Gulp.
 
-
-
-## Description ( These texts are for the [iTunes connect](itunesconnect.apple.com) descriptions etc )
-
-A logic puzzle where the objective is to solve a 3×3 magic square.
-
-## Keywords
-
-logic, puzzle, maths, game
 
 
 ## Issues:
