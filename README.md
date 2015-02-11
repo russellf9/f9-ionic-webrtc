@@ -16,6 +16,18 @@ $ ionic start magic-squares blank
 $ cd magic-squares
 
 # Develop in the browser with live reload:
+
+
+
+## Description ( These texts are for the [iTunes connect](itunesconnect.apple.com) descriptions etc )
+
+A logic puzzle where the objective is to solve a 3×3 magic square.
+
+## Keywords
+
+logic, puzzle, maths, game
+
+
 ionic serve
 
 ```
@@ -32,7 +44,7 @@ See: [dyld: Library not loaded: #70](https://github.com/phonegap/ios-sim/issues/
 
 ```
 
-\# using Homebrew
+# using Homebrew
 
 $ brew update
 
