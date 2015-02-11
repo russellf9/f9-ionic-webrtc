@@ -17,7 +17,8 @@ logic, puzzle, maths, game
 
 ### Icon
 
-![Icon](/magic-squares/design/ios/AppIcon.appiconset/Icon-72.png?raw=true "Magic Squares Icon")
+
+![Icon](/magic-squares/design/Icon-72@2x.jpg?raw=true "Magic Squares Icon")
 
 ### Screenshot
 
