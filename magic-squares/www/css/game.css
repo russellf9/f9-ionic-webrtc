@@ -93,14 +93,9 @@ pre strong {
     display: -ms-flexbox;
     display: -webkit-flex;
     display: flex;
-    /*-webkit-box-pack: start;*/
-    /*-moz-box-pack: start;*/
-    /*-webkit-flex-pack: start;*/
-    /*-ms-flex-pack: start;*/
-    /*-webkit-justify-content: flex-start;*/
-    /*justify-content: flex-start;*/
-
+    -webkit-justify-content: center;
     justify-content: center;
+    -webkit-align-items: center;
     align-items: center;
 }
 
