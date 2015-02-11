@@ -15,7 +15,15 @@ $ ionic start magic-squares blank
 
 $ cd magic-squares
 
-# Develop in the browser with live reload:
+```
+
+(# Develop in the browser with live reload:
+
+    ```
+    ionic serve
+    ```
+
+    issue with this not working. Will re-visit with Gulp. )
 
 
 
@@ -28,11 +36,7 @@ A logic puzzle where the objective is to solve a 3×3 magic square.
 logic, puzzle, maths, game
 
 
-ionic serve
-
-```
-
-Issues:
+## Issues:
 
 ```
 # ios-sim not present
