@@ -15,6 +15,18 @@ logic, puzzle, maths, game
 ( The description and keywords are for [iTunes connect](itunesconnect.apple.com) )
 
 
+### Icon
+
+![Icon](/design/ios/AppIcon.appiconset/icon-1024.png?raw=true "Magic Squares Icon")
+
+### Screenshot
+
+![Screenshot](/design/screenshot-640x1096.jpg?raw=true "Magic Squares Screenshot")
+
+
+
+
+
 ## Original Cordova Installation
 
 (Update to Xcode 6 first!)
@@ -28,15 +40,24 @@ $ cd magic-squares
 
 ```
 
-# Develop in the browser with live reload:
+### Develop in the browser with live reload:
 
 ```
 $ ionic serve
 ```
 
-- issue with this not working. Will re-visit with Gulp.
+- issue with cmd. Will re-visit with Gulp.
 
 
+
+### Ionic cmds
+
+```
+$ ionic build ios
+
+$ ionic emulate ios
+
+```
 
 ## Issues:
 
