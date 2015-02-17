@@ -21,3 +21,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 
+.portrait, .landscape, .retina-2x, .retina-3x {
+    display: none;
+}
+
