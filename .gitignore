@@ -6,3 +6,8 @@ www/css/
 .DS_Store
 .idea
 
+
+dist
+src
+www/old-css
+gulpfile-copy.js

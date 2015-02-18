@@ -1,5 +1,5 @@
 var gulp        = require('gulp'),
-    config = require('../../config');
+    config      = require('../../config');
 
 /**
  * Run all tasks needed for a build

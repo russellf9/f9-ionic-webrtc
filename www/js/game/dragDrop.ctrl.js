@@ -24,7 +24,7 @@
          * @param title
          */
         this.startCallback = function(event, ui, title) {
-            // console.log('DragDrop::startCallback  You started dragging: ' + title.title);
+            console.log('DragDrop::startCallback  You started dragging: ' + title.title);
             self.draggedTitle = title.title;
         };
         /**
