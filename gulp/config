@@ -1,0 +1,20 @@
+var src               = 'www';
+
+var build             = 'build';
+var development       = 'build/development';
+var production        = 'build/production';
+var srcAssets         = 'app/_assets';
+var developmentAssets = 'build/assets';
+var productionAssets  = 'build/production/assets';
+
+
+var paths = {
+  sass: ['./scss/**/*.scss']
+};
+
+
+module.exports = {
+    sass: {
+
+    }
+}
