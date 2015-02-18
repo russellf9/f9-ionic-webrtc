@@ -23,11 +23,11 @@ logic, puzzle, maths, game
 ### Icon
 
 
-![Icon](/magic-squares/design/Icon-72@2x.jpg?raw=true "Magic Squares Icon")
+![Icon](/design/Icon-72@2x.jpg?raw=true "Magic Squares Icon")
 
 ### Screenshot
 
-![Screenshot](/magic-squares/design/screenshot-640x1096.jpg?raw=true "Magic Squares Screenshot")
+![Screenshot](/design/screenshot-640x1096.jpg?raw=true "Magic Squares Screenshot")
 
 
 ### Further objectives.
