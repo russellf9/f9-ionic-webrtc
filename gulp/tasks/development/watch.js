@@ -9,5 +9,5 @@ gulp.task('watch', ['build'], function() {
 
     console.log('DEFAULT - WATCH val: ',config.sass.IS_WATCH);
 
-    //gulp.watch(config.sass.src, ['basic-sass']);
+    gulp.watch(config.sass.src, ['sass']);
 });

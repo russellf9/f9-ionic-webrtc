@@ -1,21 +1,24 @@
 /**
-  A simple SASS task
+  The SASS task, generates a CSS file and creates a minified version of that CSS file.
 **/
 
 var gulp        = require('gulp'),
     sass        = require('gulp-sass'),
     config      = require('../../config'),
-    autoprefixer = require('gulp-autoprefixer');
+    minifyCss   = require('gulp-minify-css'),
+    autoprefixer = require('gulp-autoprefixer'),
+    rename      = require('gulp-rename');
 
-gulp.task('sass', function() {
-    console.log('basic-sass src: ', config.sass.src);
-    console.log('basic-sass destination: ', config.sass.dest);
 
-    var sassConfig = config.sass.options;
-
-//    gulp.src(config.sass.src)
-//        .pipe(sass())
-//        .pipe(autoprefixer(config.autoprefixer))
-//        .pipe(gulp.dest(config.sass.dest));
-
+gulp.task('sass', function(done) {
+    gulp.src(config.sass.src)
+        .pipe(sass())
+        .pipe(autoprefixer(config.sass.autoprefixer))
+        .pipe(gulp.dest(config.sass.dest))
+        .pipe(minifyCss({
+            keepSpecialComments: 0
+        }))
+        .pipe(rename({ extname: '.min.css' }))
+        .pipe(gulp.dest(config.sass.dest))
+        .on('end', done);
 });
