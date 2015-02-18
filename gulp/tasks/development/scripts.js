@@ -32,7 +32,7 @@ gulp.task('scripts', function() {
         .pipe(gulp.dest(config.scripts.dist + '/js'));
 });
 
-// NOTE - this simple text works, bu not the `template` doesn't work above :-(
+// NOTE - this simple text works, but not the `template` doesn't work above :-(
 gulp.task('test-template', function() {
     return gulp.src('./src/greeting.html')
         .pipe(template({pkg: pkg}))

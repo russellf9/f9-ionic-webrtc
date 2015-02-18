@@ -4,7 +4,7 @@ var gulp        = require('gulp'),
 
 // cleans the distribution folder
 gulp.task('clean', function(cb) {
-    gulp.src(config.build.dist)
+    gulp.src(config.build.dist+'/*')
         .pipe(clean({force: true})).on('error', errorHandler);
     cb()
 });

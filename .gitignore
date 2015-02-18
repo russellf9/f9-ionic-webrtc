@@ -11,3 +11,4 @@ dist
 src
 www/old-css
 gulpfile-copy.js
+www/index-copy.not-html

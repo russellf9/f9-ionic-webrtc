@@ -69,7 +69,8 @@ module.exports = {
             ' */\n\n',
         closureStart: '(function() {\n',
         closureEnd: '\n})();',
-        dist: './dist/*'
+        dist: './dist',
+        html: src + '/index-copy.html'
     }
 };
 

@@ -31,7 +31,10 @@
     "gulp-uglify": "~1.1.0",
     "lodash": "^2.4.1",
     "lodash.template": "^2.4.1",
-    "gulp-clean": "~0.3.1"
+    "gulp-clean": "~0.3.1",
+    "gulp-usemin": "~0.3.11",
+    "gulp-minify-html": "~0.1.8",
+    "gulp-useref": "~1.1.1"
   },
   "cordovaPlugins": [
     "org.apache.cordova.statusbar"
