@@ -68,7 +68,8 @@ module.exports = {
             ' *\n' +
             ' */\n\n',
         closureStart: '(function() {\n',
-        closureEnd: '\n})();'
+        closureEnd: '\n})();',
+        dist: './dist/*'
     }
 };
 
