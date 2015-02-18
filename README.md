@@ -113,6 +113,15 @@ ios-deploy was not found.
 $ npm install -g ios-deploy
 ```
 
+
+### Node
+
+#### Update requirements
+
+```
+$ npm update
+```
+
 ### Links
 
 * [ios-sim](https://github.com/phonegap/ios-sim)
