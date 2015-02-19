@@ -66,6 +66,20 @@ $ cd magic-squares
 
 ```
 
+
+### Development
+
+I've begun making the app more modular but have encountered some issues:
+
+1. The SASS task has been set up. I'll simply refactor the CSS files as SASS file. ( As the [sass-test](https://github.com/russellf9/sass-test) repo ).
+
+2. I created two tasks for the JS files, _distribute_ and _scripts_. The _distribute_ tasks deploys the html files with the [gulp-useref](https://www.npmjs.com/package/gulp-useref), using `build-blocks`.
+
+A method would have to be worked-out to establish the best way to deploy the files, as the Ionic task `ionic build ios` distributes the required files to the ios folder. It might be worthwhile to create a separate _app_ folder which deploys to the _www_ folder.
+
+3. First-off, I'll just start using the new SASS files and leave the JS distribution issue to later.
+
+
 ### Develop in the browser with live reload:
 
 ```

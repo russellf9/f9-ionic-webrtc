@@ -4,7 +4,7 @@ var gulp        = require('gulp'),
     minifyHTML = require('gulp-minify-html'),
     useref = require('gulp-useref');
 
-gulp.task('usemin', function(cb) {
+gulp.task('distribute', function(cb) {
 
     var assets = useref.assets();
 

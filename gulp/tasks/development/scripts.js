@@ -13,7 +13,7 @@ var  _ = require('lodash'),
     footer = require('gulp-footer'),
     gutil = require('gulp-util');
 
-// TODO  need to work out how to use the `minimist` plug-in
+// TODO  need to work out how to use the `minimist` plug-in ( so we can pass arguments on the CLI )
 // TODO need to get the `template` module to work
 
 // performs all required operations to distribute the js files
