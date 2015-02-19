@@ -24,8 +24,10 @@ module.exports = {
     },
     sass: {
         IS_WATCH : false,
-        src:  './scss/',
-        dest: './www/css/',
+        src:  './scss/**/*.{sass, scss}',
+        rubySrc:  './scss/',
+        rubyDest: './www/css/',
+        dest: './www/css/ionic.css',
         options: {
             noCache: true,
             compass: false,

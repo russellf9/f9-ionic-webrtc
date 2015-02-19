@@ -99,6 +99,8 @@ $ ionic build ios
 
 $ ionic emulate ios
 
+$ ionic run ios
+
 ```
 
 ## Issues:

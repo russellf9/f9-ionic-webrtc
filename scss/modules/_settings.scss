@@ -1,0 +1,26 @@
+// a map of settings
+$settings: (
+    max-width: 1024px,
+    columns: 1,
+    margin: 1%,
+    column-width: 98%,
+    column-height: 98%,
+    row-width: 98%,
+
+    game-dimension: 300px,
+    game-width: 90%,
+    game-margin: 5px,
+
+    drag-container-width: 80%,
+    drag-container-height: 100px,
+    drag-container-margin: 5px,
+
+    board-dimension: 150px,
+    board-margin: 2px,
+
+    instruction-row-height: 50px,
+    controls-row-height: 45px,
+
+    square-dimension: 45px,
+    square-margin: 2px
+);
