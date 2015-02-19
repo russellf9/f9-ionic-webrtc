@@ -1,0 +1,217 @@
+@import "../../../bower_components/include-media/dist/include-media";
+
+
+/*
+ set the defaults before we have the individual media queries
+*/
+
+.portrait, .landscape, .retina-2x, .retina-3x {
+    display: none;
+}
+
+%game-container {
+    display: block;
+    font-size: 14px;
+    border-radius: 3px;
+    width: getGameContainerWidth('phone');
+    height: getGameContainerDimension('phone');
+    border: solid 1px $yellow;
+}
+
+%game-board {
+    display: block;
+    background: $lightGrey;
+    width: getGameBoardDimension('phone');
+    height: getGameBoardDimension('phone');
+    margin-top: getBoardMargin('phone');
+}
+
+%drag-container {
+    display: block;
+    background: $flesh;
+    width: getDragContainerWidth('phone');
+    height: getDragContainerHeight('phone');
+    margin-top: getDragContainerMargin('phone');
+}
+
+%game-row {
+    height: getGameRowHeight('phone');
+    background: $blue;
+}
+
+%instructions-row {
+    height: getInstructionRowHeight('phone');
+}
+
+%controls-row {
+    height: getControlsRowHeight('phone');
+}
+
+%square {
+    display: block;
+    width: getSquareDimension('phone');
+    height: getSquareDimension('phone');
+    margin: getSquareMargin('phone');
+}
+
+
+// phone
+@include media(">=phone", "<tablet") {
+    .game-row {
+        @extend %game-row;
+        height: getGameRowHeight('phone');
+    }
+    .game-container {
+        @extend %game-container;
+        width: getGameContainerWidth('phone');
+        height: getGameContainerDimension('phone');
+        background: $pink;
+    }
+    .game-board {
+        @extend %game-board;
+        width: getGameBoardDimension('phone');
+        height: getGameBoardDimension('phone');
+        margin-top: getBoardMargin('phone');
+    }
+    .drag-container {
+        @extend %drag-container;
+        width: getDragContainerWidth('phone');
+        height: getDragContainerHeight('phone');
+        margin-top: getDragContainerMargin('phone');
+    }
+    .instructions-row {
+        @extend %instructions-row;
+        height: getInstructionRowHeight('phone');
+    }
+    .controls-row {
+        @extend %controls-row;
+        height: getControlsRowHeight('phone');
+    }
+    .square {
+        @extend %square;
+        width: getSquareDimension('phone');
+        height: getSquareDimension('phone');
+        margin: getSquareMargin('phone');
+    }
+}
+
+// tablet
+// iPad (first generation), iPad 2, iPad Mini (first generation) has 1024×768 pixels
+// iPad Mini (second generation), iPad (third generation), iPad (fourth generation), iPad Air has 2048×1536px
+
+// (orientation: landscape)
+
+@include media(">=tablet", '<2048px') {
+    .game-row {
+        @extend %game-row;
+        height: getGameRowHeight('tablet');
+    }
+    .game-container {
+        @extend %game-container;
+        width: getGameContainerWidth('tablet');
+        height: getGameContainerDimension('tablet');
+        background: $green;
+    }
+    .game-board {
+        @extend %game-board;
+        width: getGameBoardDimension('tablet');
+        height: getGameBoardDimension('tablet');
+        margin-top: getBoardMargin('tablet');
+    }
+    .drag-container {
+        @extend %drag-container;
+        width: getDragContainerWidth('tablet');
+        height: getDragContainerHeight('tablet');
+        margin-top: getDragContainerMargin('tablet');
+    }
+    .instructions-row{
+        @extend %instructions-row;
+        height: getInstructionRowHeight('tablet');
+    }
+    .controls-row {
+        @extend %controls-row;
+        height: getControlsRowHeight('tablet');
+    }
+    .square {
+        @extend %square;
+        width: getSquareDimension('tablet');
+        height: getSquareDimension('tablet');
+        margin: getSquareMargin('tablet');
+    }
+}
+
+@media screen and (orientation:portrait) {
+    .portrait {
+        display: block;
+    }
+}
+
+@media screen and (orientation:landscape) {
+    .landscape {
+        display: block;
+    }
+}
+
+// retina2x
+@include media("retina2x", ">=tablet") {
+    .retina-2x {
+        display: block;
+    }
+}
+
+// retina3x ( iPhone 6 Plus )
+@include media("retina3x", ">=tablet") {
+    .retina-3x {
+        display: block;
+    }
+}
+
+
+// large desktop
+@include media(">=2048px") {
+    .game-row {
+        @extend %game-row;
+        height: getGameRowHeight('large-desktop');
+    }
+    .game-container {
+        @extend %game-container;
+        width: getGameContainerWidth('large-desktop');
+        height: getGameContainerDimension('large-desktop');
+    }
+    .game-board {
+        @extend %game-board;
+        width: getGameBoardDimension('large-desktop');
+        height: getGameBoardDimension('large-desktop');
+        margin-top: getBoardMargin('large-desktop');
+    }
+    .drag-container {
+        @extend %drag-container;
+        width: getDragContainerWidth('large-desktop');
+        height: getDragContainerHeight('large-desktop');
+        margin-top: getDragContainerMargin('large-desktop');
+    }
+    .instructions-row{
+        @extend %instructions-row;
+        height: getInstructionRowHeight('large-desktop');
+    }
+    .controls-row {
+        @extend %controls-row;
+        height: getControlsRowHeight('large-desktop');
+    }
+    .square {
+        @extend %square;
+        width: getSquareDimension('large-desktop');
+        height: getSquareDimension('large-desktop');
+        margin: getSquareMargin('large-desktop');
+    }
+}
+
+// print
+@include media("print") {
+    .game-container {
+        @extend %game-container;
+        background: $red;
+    }
+}
+
+

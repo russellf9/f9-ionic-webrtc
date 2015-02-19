@@ -1,0 +1,72 @@
+@import "../../../bower_components/modular-scale/stylesheets/modular-scale";
+@import "../vendor/responsive.scssx";
+
+$text-color: $darkGrey;
+
+$fredoka: 'fredoka_oneregular';
+$base-font-family: Helvetica, sans-serif;
+
+// $base-font-size: 16px;
+// // 1rem = 16px
+
+$base-line-height: 24px;
+
+$spacing-unit: $base-line-height;
+
+/**
+ Reset some fonts
+ */
+h1, h2, h3 {
+    font-family: $fredoka;
+    color: $text-color;
+}
+
+$ms-base: 1rem 1.25rem;
+$ms-ratio: $golden;  // 1.618
+
+// define the relative size of a few typographic elements.
+
+body {
+    font-size: ms(0);
+}
+
+h5 {
+    font-size: ms(1);
+}
+
+h4 {
+    font-size: ms(2);
+}
+
+h3 {
+    font-size: ms(3);
+}
+
+h2 {
+    font-size: ms(4);
+}
+
+h1 {
+    font-size: ms(5);
+}
+
+
+p{
+    font-size: 1rem;
+}
+// NOTE: I can't get this to work
+
+//html {
+//    @include responsive("font-size", 12px,
+//        (
+//            600px: 13px,
+//            800px: 13px,
+//            1180px: 14px,
+//            1300px: 15px,
+//            1750px: 16px,
+//            1900px: 17px,
+//            2100px: 18px,
+//            2400px: 19px
+//        )
+//    );
+//}

@@ -1,0 +1,85 @@
+// Created by Max Luster (@maxluster)
+// Usage instructions at https://bugsnag.com/blog/responsive-typography-with-chained-media-queries
+// Requires SASS >= 3.3
+// Enhanced by Breakpoint 2.4.x and Compass 1.0 (alpha)
+// For SASS 3.2.x support, use https://gist.github.com/maxluster/c9ecc6e4a6770e507c2c
+
+// Provides a simplified syntax for chaining media queries across named or numeric breakpoints
+@mixin responsive($properties, $default-value, $responsive-values){
+
+  // No named breakpoints by default
+  $named-breakpoints: () !default;
+
+  // Apply default property values
+  @each $property in $properties{
+    #{$property}: #{$default-value};
+  }
+  
+  @each $breakpoint, $value in $responsive-values{
+
+    // Get named breakpoint values
+    @if type-of($breakpoint) == string{
+      @if(map-has-key($named-breakpoints, $breakpoint)){
+        $breakpoint: map-get($named-breakpoints, $breakpoint);
+      }
+      @else{
+        @warn "Couldn't find named breakpoint: " + $breakpoint;
+      }
+    }
+
+    // Use Breakpoint if it exists
+    @if mixin-exists("breakpoint"){
+      // Apply at breakpoint
+      @include breakpoint($breakpoint) {
+        @each $property in $properties{
+          #{$property}: #{$value};
+        }
+      }
+    }
+    // Fallback to min-width media queries
+    @else{
+      @media screen and (min-width: $breakpoint) {
+        @each $property in $properties{
+          #{$property}: #{$value};
+        }
+      }
+    }
+
+  }
+
+}
+
+// Extras!
+
+// Use $named-breakpoints with block-style media queries
+@mixin named-breakpoint($breakpoint){
+
+  @if type-of($breakpoint) == string{
+    @if(map-has-key($named-breakpoints, $breakpoint)){
+      $breakpoint: map-get($named-breakpoints, $breakpoint);
+      @if mixin-exists("breakpoint"){
+        @include breakpoint($breakpoint){
+          @content;
+        }
+      }
+      @else{
+        @media screen and (min-width: $breakpoint) {
+          @content;
+        }
+      }
+    }
+    @else{
+      @warn "Couldn't find named breakpoint: " + $breakpoint;
+    }
+  }
+
+}
+
+// Create a scope for a local set of named breakpoints
+@mixin with-named-breakpoints($context-breakpoints){
+  $old: $named-breakpoints;
+  $named-breakpoints:  map-merge($named-breakpoints, $context-breakpoints) !global;
+  @content;
+  $named-breakpoints: $old !global;
+}
+

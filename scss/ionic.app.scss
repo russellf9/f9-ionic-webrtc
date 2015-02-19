@@ -21,7 +21,14 @@ $ionicons-font-path: "../www/lib/ionic/fonts" !default;
 // Include all of Ionic
 @import "../www/lib/ionic/scss/ionic";
 
-.portrait, .landscape, .retina-2x, .retina-3x {
-    display: none;
-}
+// Import all the modules
+@import "./fonts/fredoka";
+
+//@import "./modules/all";
+////
+//@import "./partials/all";
+
+//@import "./vendor/responsive";
+
+
 

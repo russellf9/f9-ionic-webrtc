@@ -24,7 +24,7 @@ module.exports = {
     },
     sass: {
         IS_WATCH : false,
-        src:  './scss/**/*.{sass,scss}',
+        src:  './scss/',
         dest: './www/css/',
         options: {
             noCache: true,

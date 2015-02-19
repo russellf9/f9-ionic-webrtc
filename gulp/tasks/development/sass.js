@@ -1,9 +1,15 @@
 /**
   The SASS task, generates a CSS file and creates a minified version of that CSS file.
+
+
+ Notes: not sure about the `source-maps` and how to add the options with the new syntax.
 **/
 
 var gulp        = require('gulp'),
-    sass        = require('gulp-sass'),
+    plumber      = require('gulp-plumber'),
+    gulpFilter   = require('gulp-filter'),
+    sass        = require('gulp-ruby-sass'),
+    sourcemaps   = require('gulp-sourcemaps'),
     config      = require('../../config'),
     minifyCss   = require('gulp-minify-css'),
     autoprefixer = require('gulp-autoprefixer'),
@@ -11,14 +17,18 @@ var gulp        = require('gulp'),
 
 
 gulp.task('sass', function(done) {
-    gulp.src(config.sass.src)
-        .pipe(sass())
+
+    // Don’t write sourcemaps of sourcemaps
+    var filter = gulpFilter(['*.css', '!*.map']),
+
+        sassConfig = config.sass.options;
+//
+    return sass(config.sass.src, { style: 'expanded' })
+        .pipe(sourcemaps.init())
         .pipe(autoprefixer(config.sass.autoprefixer))
-        .pipe(gulp.dest(config.sass.dest))
-        .pipe(minifyCss({
-            keepSpecialComments: 0
-        }))
-        .pipe(rename({ extname: '.min.css' }))
-        .pipe(gulp.dest(config.sass.dest))
-        .on('end', done);
+        .pipe(filter) // Don’t write sourcemaps of sourcemaps
+        .pipe(sourcemaps.write('.', { includeContent: false }))
+        .pipe(filter.restore()) // Restore original files
+        .pipe(gulp.dest(config.sass.dest));
 });
+
