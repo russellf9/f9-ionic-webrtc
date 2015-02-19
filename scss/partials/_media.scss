@@ -23,6 +23,7 @@
 .drag-container {
     display: block;
     background: $flesh;
+    width: getDragContainerWidth('phone');
 }
 
 .game-row {

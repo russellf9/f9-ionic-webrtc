@@ -1,10 +1,11 @@
 
 .column {
-    height: getColumnHeight(map-get($settings, "column-height"), map-get($settings, "margin"));
+    height: map-get($settings, "column-height");
     float: left;
-    width: getColumnWidth(map-get($settings, "column-width"), map-get($settings, "columns"), map-get($settings, "margin"));
-    margin: map-get($settings, "margin") map-get($settings, "margin");
-    background: $warning;
+    width: map-get($settings, "column-width");
+    margin: 0;
+    border: solid 2px black;
+    background: $offWhite;
 }
 
 // defines the row
@@ -15,8 +16,10 @@
 }
 
 .controls-row {
-//    position: absolute;
-    width: map-get($settings, "row-width");
-    bottom: map-get($settings, "margin");
-    border: solid 1px $pink;
+    position: absolute;
+    width: 100%;
+    bottom: 0; // map-get($settings, "margin");
+    border: solid 1px $blue;
+    background: $red;
+    opacity: 1;
 }

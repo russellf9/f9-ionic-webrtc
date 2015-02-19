@@ -122,6 +122,9 @@
 
 // drag container width
 @function getDragContainerWidth($media) {
+    @if $media == 'phone' {
+      @return 100%;
+    }
     @return map-get($settings, "drag-container-width");
 }
 
