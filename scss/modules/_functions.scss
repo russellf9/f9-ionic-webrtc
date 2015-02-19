@@ -92,6 +92,9 @@
     @if $media == 'phone' {
         @return $dimension;
     }
+    @if $media =='tablet-landscape' {
+      @return map-get($settings, "game-height-tablet");
+    }
     @return $dimension * 2;
 }
 
@@ -111,6 +114,7 @@
 
 // game board margin
 @function getBoardMargin($media) {
+    @return 0;
     $margin:getBoardMarginDefault();
     @if $media == 'phone' {
         @return $margin;

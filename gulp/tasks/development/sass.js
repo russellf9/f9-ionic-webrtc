@@ -25,6 +25,7 @@ gulp.task('sass', function(done) {
         sassConfig = config.sass.options;
 
     return rubySass(config.sass.rubySrc, { style: 'expanded' })
+        .pipe(plumber())
         .pipe(autoprefixer(config.sass.autoprefixer))
         .pipe(gulp.dest(config.sass.rubyDest));
     });
