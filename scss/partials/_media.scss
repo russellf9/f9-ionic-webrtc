@@ -132,6 +132,9 @@
   .landscape {
     display: block;
   }
+  .game-row {
+    height: getGameRowHeight('tablet-landscape');
+  }
   .game-container {
     height: getGameContainerDimension('tablet-landscape');;
   }

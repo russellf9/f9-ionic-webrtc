@@ -24,7 +24,7 @@ module.exports = {
     },
     sass: {
         IS_WATCH : false,
-        src:  './scss/**/*.{sass, scss}',
+        src: './scss/**/*.{scss, sass}',
         rubySrc:  './scss/',
         rubyDest: './www/css/',
         dest: './www/css/ionic.css',

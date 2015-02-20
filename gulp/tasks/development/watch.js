@@ -4,10 +4,7 @@ var gulp = require('gulp'),
 
 config.sass.IS_WATCH = false;
 
-gulp.task('watch', ['build'], function() {
+gulp.task('watch', function() {
     config.sass.IS_WATCH = true;
-
-    console.log('DEFAULT - WATCH val: ',config.sass.IS_WATCH);
-
     gulp.watch(config.sass.src, ['sass']);
 });

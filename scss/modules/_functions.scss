@@ -24,6 +24,10 @@
     @return map-get($settings, "game-dimension");
 }
 
+@function getGameRowHeightDefault() {
+  @return map-get($settings, "game-row-height");
+}
+
 // game-margin
 @function getGameMargin() {
     @return map-get($settings, "game-margin");
@@ -75,13 +79,16 @@
 
 // row - game
 @function getGameRowHeight($media) {
-    $height:getGameDimension();
+    $height:getGameRowHeightDefault();
     $margin:getGameMargin();
     @if $media == 'phone' {
         @return $height + $margin * 2 ;
     }
-    @if $media =='tablet' {
+    @if $media == 'tablet' {
         @return ($height + $margin * 2) * 2;
+    }
+    @if $media == 'tablet-landscape' {
+      @return map-get($settings, "game-row-height-tablet-landscape");
     }
     @return ($height + $margin * 2) * 2;
 }
@@ -93,7 +100,7 @@
         @return $dimension;
     }
     @if $media =='tablet-landscape' {
-      @return map-get($settings, "game-height-tablet");
+      @return map-get($settings, "game-height-tablet-landscape");
     }
     @return $dimension * 2;
 }
