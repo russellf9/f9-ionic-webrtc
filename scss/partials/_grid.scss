@@ -19,7 +19,7 @@
     position: absolute;
     width: 100%;
     bottom: 0; // map-get($settings, "margin");
-    border: solid 1px $blue;
+    border: solid 2px black;
     background: $red;
-    opacity: 1;
+    opacity: 0.25;
 }
