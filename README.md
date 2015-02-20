@@ -86,7 +86,9 @@ A method would have to be worked-out to establish the best way to deploy the fil
 $ ionic serve
 ```
 
-- issue with cmd. Will re-visit with Gulp.
+runs in:
+
+[http://localhost:8100](http://localhost:8100/#/)
 
 
 
@@ -114,6 +116,38 @@ See: [dyld: Library not loaded: #70](https://github.com/phonegap/ios-sim/issues/
 
 
 ```
+
+### SASS
+
+In order to use the [gulp-ruby-sass](https://github.com/sindresorhus/gulp-ruby-sass) plugin the correct version of SASS has to be installed. ( > 3.4 ? )
+
+```
+sass -v
+Sass 3.4.12 (Selective Steve)
+```
+
+To update SASS
+
+```
+gem update sass
+```
+
+Also, the correct syntax for the gulp sass task has to be implemented.
+
+```
+return rubySass(config.sass.rubySrc, { style: 'expanded' })
+    .pipe(plumber())
+    .pipe(autoprefixer(config.sass.autoprefixer))
+    .pipe(gulp.dest(config.sass.rubyDest));
+});
+
+```
+
+Relevant links:
+
+[TypeError: Arguments to path.join must be strings #191](https://github.com/sindresorhus/gulp-ruby-sass/issues/191)
+[How to update your Sass version](http://www.codechewing.com/library/update-sass-version/)
+
 
 # using Homebrew
 
