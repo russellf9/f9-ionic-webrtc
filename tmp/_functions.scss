@@ -161,7 +161,7 @@
     @if $media == 'phone' {
         @return $height;
     }
-    @return $height * 2;
+    @return $height * 1.25;
 }
 
 // square - dimension

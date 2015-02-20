@@ -63,7 +63,25 @@
 
     </div>
     <div ng-if="true" class="row controls-row flex-container">
-        <h2 class="center-text">Controls</h2>
+
+
+        <!--style="margin-top: 5px; margin-left: 10px; padding-right: 4px;"-->
+        <form class="flex-container-all-row" style="border: solid 1px red; padding-top: 1%">
+            <span ng-if="false">complete {{master.complete}}, selected {{master.selected}}, checked {{master.checked}} hint {{master.hint}}</span>
+
+            <button style="display: inline; margin-right: 10px;"
+                    class="button button-balanced" type="submit" ng-click="master.check()"
+                    ng-disabled="!master.complete || master.checked">Check
+            </button>
+            <button style="display: inline; margin-right: 10px;"
+                    class="button button-balanced" type="submit" ng-click="master.clear()"
+                    ng-disabled="!master.selected > 0">Clear
+            </button>
+            <button style="display: inline; margin-right: 10px;"
+                    class="button button-balanced" type="submit"
+                    ng-click="master.hint =! master.hint">Hint
+            </button>
+        </form>
     </div>
 </div>
 

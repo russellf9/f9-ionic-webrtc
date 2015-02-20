@@ -12,7 +12,8 @@
 .row {
     display: block;
     border: solid 1px $green;
-    margin: map-get($settings, "margin") 0;
+    //margin: map-get($settings, "margin") 0;
+    margin: 0 0;
 }
 
 .controls-row {
