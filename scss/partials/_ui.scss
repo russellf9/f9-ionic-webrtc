@@ -10,39 +10,40 @@
   display: block;
 }
 
+.drag-container {
+  position: relative;
+}
+
 .bgd-drag-square {
   background-color: $lightGreen;
 }
 
 
-.drag-container {
-  position: relative;
-}
-
 
 .drag-item {
   display: block;
   position: absolute;
-}
-
-.top {
-  z-index: 2;
   top: 0;
   left: 0;
 }
 
-.bottom {
-  z-index: 1;
-  top: 0;
-  left: 0;
+.drag-items {
+  @extend .drag-item;
+    z-index: 2;
 }
-
-
-
-
 
 .drag-bgd {
-  position: absolute;
-  z-index: 1;
+  @extend .drag-item;
+    z-index: 1;
 }
+
+
+
+
+
+
+
+
+
+
 
