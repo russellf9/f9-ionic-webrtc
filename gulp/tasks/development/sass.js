@@ -19,8 +19,6 @@ var gulp = require('gulp'),
 
 gulp.task('sass', function(done) {
 
-    console.log('DOING SASS!')
-
     // Don’t write sourcemaps of sourcemaps
     var filter = gulpFilter(['*.css', '!*.map']),
 
