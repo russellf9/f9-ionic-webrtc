@@ -10,7 +10,8 @@
     "angular-filter": "~0.5.2",
     "angular-touch": "~1.3.12",
     "jqueryui-touch-punch": "*",
-    "include-media": "~1.1.2"
+    "include-media": "~1.1.2",
+    "modular-scale": "~2.0.6"
   },
   "resolutions": {
     "angular": "1.3.6"

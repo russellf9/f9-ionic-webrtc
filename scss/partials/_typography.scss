@@ -1,22 +1,89 @@
-//@import "../../../bower_components/modular-scale/stylesheets/modular-scale";
-//@import "../vendor/responsive";
+@import "../../www/lib/modular-scale/stylesheets/modular-scale";
+@import "../vendor/responsive";
 
 $text-color: $darkGrey;
 
 $fredoka: 'fredoka_oneregular';
 $base-font-family: Helvetica, sans-serif;
 
-// $base-font-size: 16px;
-// // 1rem = 16px
+$base-font-size: 16px; // 1rem = 16px
 
 $base-line-height: 24px;
 
 $spacing-unit: $base-line-height;
 
+$line-height-ratio: 1.2;
+
 /**
  Reset some fonts
  */
-h1, h2, h3 {
+h1, h2, h3, h4, h5, h6 {
     font-family: $fredoka;
     color: $text-color;
+}
+
+$ms-base: 1rem 1.25rem;  // Double stranded modular scale
+//$ms-base: 1rem;
+$ms-ratio: $golden;  // 1.618
+
+// define the relative size of a few typographic elements.
+
+body {
+  font-size: ms(0);
+  line-height: ms(0) * $line-height-ratio;
+}
+
+h5 {
+  font-size: ms(1);
+  line-height: ms(1) * $line-height-ratio;
+}
+
+h4 {
+  font-size: ms(2);
+  line-height: ms(2) * $line-height-ratio;
+}
+
+h3 {
+  font-size: ms(3);
+  line-height: ms(3) * $line-height-ratio;
+}
+
+h2 {
+  font-size: ms(4);
+  line-height: ms(4) * $line-height-ratio;
+}
+
+h1 {
+  font-size: ms(5);
+  line-height: ms(4) * $line-height-ratio;
+}
+
+
+p {
+  font-size: 1rem;
+  ine-height: 1rem * $line-height-ratio;
+}
+
+html{
+  @include responsive("font-size", 11px,
+          (
+                  600px: 12px,
+                  800px: 13px,
+                  1180px: 14px,
+                  1300px: 15px,
+                  1750px: 16px,
+                  1900px: 17px,
+                  2100px: 18px,
+                  2400px: 19px
+          )
+  );
+}
+
+.instruction-text {
+  max-width: 80%;
+  text-align: center;
+  margin: 0 auto;
+
+
+  border: solid 1px $red;
 }

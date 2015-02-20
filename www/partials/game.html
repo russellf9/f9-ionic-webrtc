@@ -1,18 +1,36 @@
-<div class="column">
-    <div class="row instructions-row flex-container">
-        <div>
-            <h2 class="center-text">Instructions</h2>
-            <p class="landscape center-text">Landscape</p>
+<div class="column" ng-controller="Master as master">
 
-            <p class="portrait center-text">Portrait</p>
+    <div ng-if="false">
+        <h1>Magic Squares Game</h1>
+        <h2>Instructions</h2>
+        <h3>Headline 3</h3>
+        <h4>Headline 4 </h4>
+        <h5>Headline 5</h5>
+        <p>paragraph - ipsum whatever </p>
+    </div>
+    <div ng-if="true" class="row instructions-row flex-container">
+        <!--<div>-->
+            <!--<h2 class="center-text">Instructions</h2>-->
+            <!--<p class="landscape center-text">Landscape</p>-->
 
-            <p class="retina-2x center-text">retina2x</p>
+            <!--<p class="portrait center-text">Portrait</p>-->
 
-            <p class="retina-3x center-text">retina3x</p>
+            <!--<p class="retina-2x center-text">retina2x</p>-->
+
+            <!--<p class="retina-3x center-text">retina3x</p>-->
+        <!--</div>-->
+        <!--THE INSTRUCTIONS-->
+        <div class="instructions flex-container-all-column" ng-controller="Instructions as instructions" style="padding-top:5px">
+            <h3 ng-if='!master.checked' class="center-text"><strong>Magic Square Puzzle</strong></h3>
+            <h5 ng-if='!master.checked' class="instruction-text">{{instructions.instructions}}</h5>
+            <h3 class="center-text" ng-if="master.checked && master.allCorrect" style="margin-top:5px">Well done
+                all correct!</h3>
+            <h3 class="center-text" style="margin-top:20px"
+                ng-if='master.checked && master.complete && !master.allCorrect'>Try again!</h3>
         </div>
 
     </div>
-    <div class="row game-row flex-container">
+    <div ng-if="true" class="row game-row flex-container">
         <div class="game-container flex-container-all-column">
             <div class="game-board flex-container-multiple-rows">
                 <div class="square yellow"></div>
@@ -44,7 +62,7 @@
 
 
     </div>
-    <div class="row controls-row flex-container">
+    <div ng-if="true" class="row controls-row flex-container">
         <h2 class="center-text">Controls</h2>
     </div>
 </div>

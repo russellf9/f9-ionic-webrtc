@@ -148,6 +148,12 @@ Relevant links:
 [TypeError: Arguments to path.join must be strings #191](https://github.com/sindresorhus/gulp-ruby-sass/issues/191)
 [How to update your Sass version](http://www.codechewing.com/library/update-sass-version/)
 
+### iPad oreintation
+
+I've done a quick test on the ipad and the app isn;t fitting into the full width in portrait mode. Might be something to do wuth the width (vw) %
+
+Perhaps using `vh` and 'vw` is problamatic see: [VH and VW units](https://gist.github.com/pburtchaell/e702f441ba9b3f76f587)
+
 
 # using Homebrew
 
