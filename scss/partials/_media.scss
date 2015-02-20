@@ -116,18 +116,35 @@
     margin: getSquareMargin('tablet');
   }
 }
-
+//
 @media screen and (orientation: portrait) {
   .portrait {
     display: block;
   }
 }
 
-//@include media(">=tablet", '<2048px') and (orientation:landscape) {
-//
-//
-//}
+@media screen and (orientation: landscape) {
+  .landscape {
+    display: block;
+  }
+}
 
+
+// mobile in landscape
+@media screen and (orientation: landscape) and (min-width: 320px) {
+  .landscape {
+    display: block;
+  }
+  .game-row {
+    height: getGameRowHeight('phone-landscape');
+    background: $lightGrey;
+  }
+  .game-container {
+    height: getGameContainerDimension('phone-landscape');;
+  }
+}
+
+// tablet in landscape
 @media screen and (orientation: landscape) and (min-width: 768px) {
   .landscape {
     display: block;
@@ -137,12 +154,6 @@
   }
   .game-container {
     height: getGameContainerDimension('tablet-landscape');;
-  }
-  .game-board {
-    margin-top: 0;
-  }
-  .drag-container {
-    margin-top: 0;
   }
 }
 

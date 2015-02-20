@@ -84,6 +84,9 @@
     @if $media == 'phone' {
         @return $height + $margin * 2 ;
     }
+    @if $media == 'phone-landscape'{
+      @return map-get($settings, "game-row-height-phone-landscape");
+    }
     @if $media == 'tablet' {
         @return ($height + $margin * 2) * 2;
     }
@@ -99,9 +102,13 @@
     @if $media == 'phone' {
         @return $dimension;
     }
+    @if $media == 'phone-landscape' {
+        @return map-get($settings, "game-height-phone-landscape");
+    }
     @if $media =='tablet-landscape' {
       @return map-get($settings, "game-height-tablet-landscape");
     }
+
     @return $dimension * 2;
 }
 
