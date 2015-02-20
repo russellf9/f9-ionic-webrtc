@@ -40,7 +40,6 @@
 }
 
 .square {
-  display: block;
   width: getSquareDimension('phone');
   height: getSquareDimension('phone');
   margin: getSquareMargin('phone');

@@ -30,7 +30,8 @@
         </div>
 
     </div>
-    <div ng-if="true" class="row game-row flex-container">
+    <!--THE WHOLE `DRAG DROP` AREA-->
+    <div ng-if="true" class="row game-row flex-container" ng-controller="DragDrop as dragDrop">
         <div class="game-container flex-container-all-column">
             <div class="game-board flex-container-multiple-rows">
                 <div class="square yellow"></div>
@@ -45,18 +46,19 @@
                 <div class="square yellow"></div>
                 <div class="square yellow"></div>
             </div>
-            <div class="drag-container flex-container-multiple-rows">
-                <div class="square yellow"></div>
-                <div class="square yellow"></div>
-                <div class="square yellow"></div>
 
-                <div class="square yellow"></div>
-                <div class="square yellow"></div>
-                <div class="square yellow"></div>
 
-                <div class="square yellow"></div>
-                <div class="square yellow"></div>
-                <div class="square yellow"></div>
+
+            <div class="drag-container">
+                <!-- FOR DRAG ITEMS -->
+                <div class="top flex-container-multiple-rows drag-items">
+                    <div ng-repeat="item in dragDrop.dragItems track by $index" class="square bgd-drag-square"></div>
+                </div>
+                <!-- FOR BACKGOUND -->
+                <div class="bottom flex-container-multiple-rows drag-bgd">
+                    <div ng-repeat="item in dragDrop.dragItems track by $index" class="square bgd-drag-square"></div>
+                </div>
+
             </div>
         </div>
 

@@ -5,6 +5,8 @@
     //controller for drag and drop
     angular.module('magicsquares').controller('DragDrop', ['Model', function(Model) {
 
+        console.log('hi from DragDrop');
+
         var self = this;
 
         // the `drop` items
