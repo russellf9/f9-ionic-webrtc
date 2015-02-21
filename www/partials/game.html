@@ -61,7 +61,7 @@
             <div class="drag-container">
                 <!-- FOR DRAG ITEMS -->
                 <div class="top flex-container-multiple-rows drag-items">
-                    <div ng-repeat="item in dragDrop.dragItems track by $index" class="square bgd-drag-square flex-container" jqyoui-droppable="{index: {{$index}}}">
+                    <div ng-repeat="item in dragDrop.dragItems track by $index" class="square bgd-drag-square flex-container" data-drop="true" ng-model='dragDrop.dragItems' jqyoui-droppable="{index: {{$index}}}">
                         <div class="btn-draggable" data-drag="{{item.drag}}"
                              data-jqyoui-options="{revert: 'invalid'}" ng-model="dragDrop.dragItems"
                              jqyoui-draggable="{index: {{$index}},placeholder:true,animate:false, onStart:'dragDrop.startCallback(item, $index)', onStop: 'dragDrop.stopCallback', onDrag: 'dragDrop.dragCallback'}"
