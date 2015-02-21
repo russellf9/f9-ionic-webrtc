@@ -27,7 +27,7 @@ logic, puzzle, maths, game
 
 ### Screenshot
 
-![Screenshot](/design/screenshot-640x1096.jpg?raw=true "Magic Squares Screenshot")
+![Screenshot](/design/magicSquaresiPad_small.png?raw=true "Magic Squares Mockup")
 
 
 ### Further objectives.
