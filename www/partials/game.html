@@ -51,8 +51,6 @@
 
             <div class="drag-container">
                 <!-- FOR DRAG ITEMS -->
-
-                <!--btn btn-info btn-draggable-->
                 <div class="top flex-container-multiple-rows drag-items">
                     <div ng-repeat="item in dragDrop.dragItems track by $index" class="square bgd-drag-square flex-container" jqyoui-droppable="{index: {{$index}}}">
                         <div class="btn-draggable" data-drag="{{item.drag}}"
@@ -64,11 +62,6 @@
                             </span>
                         </div>
                     </div>
-                </div>
-                <!-- FOR BACKGOUND -->
-                <!-- TODO - strange when visible stopes the square above being draggable -->
-                <div ng-if="false" class="bottom flex-container-multiple-rows drag-bgd">
-                    <div ng-repeat="item in dragDrop.dragItems track by $index" class="square bgd-drag-square"></div>
                 </div>
 
             </div>

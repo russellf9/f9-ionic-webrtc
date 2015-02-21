@@ -12,7 +12,7 @@ $darkGrey: #222222;
 $flesh: #ffbcaa;
 $blue: #2222DD;
 $pink: #ff77ff;
-$green: #22AA11;
+$green: #22CC11;
 $yellow: #FFFF00;
 $red: #FF2233;
 $offWhite: #EEEEEE;
@@ -20,4 +20,9 @@ $offWhite: #EEEEEE;
 $warning: #e74c3c;
 
 
-$lightGreen : lighten( $green, 10% );
+$lightGreen : lighten( $green, 20% );
+$darkGreen : darken( $green, 20% );
+
+
+$dragColor : $green;
+$dragBorderColor : $darkGreen;

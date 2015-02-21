@@ -6,20 +6,23 @@
   font-weight: bold;
 }
 
+// shared ui element, it's dimensions are
 .square {
   display: block;
 }
 
+// the container for the draggable items
 .drag-container {
   position: relative;
 }
 
+// the static square which is `home` for each of the draggable squares
 .bgd-drag-square {
   background-color: $lightGreen;
+  border: 2px solid $dragBorderColor;
 }
 
-
-
+// the container for the all draggable items
 .drag-bgd {
   display: block;
   position: absolute;
@@ -27,50 +30,43 @@
   left: 0;
 }
 
+// define an index so there can be a background behind
 .drag-items {
   @extend .drag-bgd;
     z-index: 2;
 }
 
-.drag-bgd {
-  @extend .drag-bgd;
-    z-index: 1;
-}
-
+// the draggable button
 .btn-draggable {
-  background-color: $buttonColor;
-  border: 2px solid darkred;
-
-
+  background-color: $dragColor;
+  border: 2px solid $dragBorderColor;
   width: 100%;
   height: 100%;
-
   // move to mixin...
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-
+// a container for the drag item's title
 .drag-text {
   width: 100%;
   height: 100%;
-  border: red solid 1px;
-
   // move to mixin...
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-
+// the text for the drag item's title
+// see: http://css-tricks.com/adding-stroke-to-web-text/ ( TODO document this )
 .drag-text h1 {
-  border: blue solid 1px;
   text-align: center;
-
-  color: $offWhite;
-
   margin: 0;
+  color: $dragBorderColor;
+  -webkit-text-fill-color: $offWhite; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: $dragBorderColor;
 }
 
 

@@ -87,3 +87,38 @@ html{
 
   border: solid 1px $red;
 }
+
+// see: https://gist.github.com/nathggns/2984123
+@mixin stroke($width, $color) {
+  $width: $width + 0;
+  $shadow: 0 0 0 transparent;
+  $i: 0;
+  $w: 1;
+
+  @while ($i < $width) {
+    $i: $i + 1;
+    $j: 0;
+    $w: $w + 2;
+
+    @for $r from 1 through $w {
+      @for $c from 1 through $w {
+        $x: $c - ceil($w / 2);
+        $y: $r - ceil($w / 2);
+
+        $shadow: #{$shadow}, #{$x}px #{$y}px 0 $color;
+      }
+    }
+  }
+
+  text-shadow: $shadow;
+}
+
+// see: https://gist.github.com/garyharan/957284
+@mixin box-shadow($top, $left, $blur, $size, $color, $inset: false) {
+  @if $inset {
+    box-shadow:inset $top $left $blur $size $color;
+  } @else {
+    box-shadow: $top $left $blur $size $color;
+  }
+}
+/* @include box-shadow(1px,1px,1px,0, #fff, true); */
