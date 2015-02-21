@@ -150,7 +150,7 @@ Relevant links:
 
 ### iPad oreintation
 
-I've done a quick test on the ipad and the app isn;t fitting into the full width in portrait mode. Might be something to do wuth the width (vw) %
+I've done a quick test on the ipad and the app isn't fitting into the full width in portrait mode. Might be something to do wuth the width (vw) %
 
 Perhaps using `vh` and 'vw` is problamatic see: [VH and VW units](https://gist.github.com/pburtchaell/e702f441ba9b3f76f587)
 

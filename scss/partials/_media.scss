@@ -76,6 +76,10 @@
     height: getSquareDimension('phone');
     margin: getSquareMargin('phone');
   }
+  .drag-text h1 {
+    height: getSquareDimension('phone');
+    line-height: getSquareDimension('phone');
+  }
 }
 
 // tablet
@@ -113,6 +117,12 @@
     width: getSquareDimension('tablet');
     height: getSquareDimension('tablet');
     margin: getSquareMargin('tablet');
+  }
+  .drag-text h1 {
+    width: getSquareDimension('tablet');
+    height: getSquareDimension('tablet');
+    line-height: getSquareDimension('tablet');
+    font-size: ms(7);
   }
 }
 //
@@ -199,6 +209,10 @@
     width: getSquareDimension('large-desktop');
     height: getSquareDimension('large-desktop');
     margin: getSquareMargin('large-desktop');
+  }
+  .drag-text h1 {
+    height: getSquareDimension('large-desktop');
+    line-height: getSquareDimension('large-desktop');
   }
 }
 

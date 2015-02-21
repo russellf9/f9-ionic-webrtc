@@ -1,4 +1,4 @@
-<div class="column" ng-controller="Master as master">
+<div ng-if="true" class="column" ng-controller="Master as master">
 
     <div ng-if="false">
         <h1>Magic Squares Game</h1>
@@ -51,11 +51,23 @@
 
             <div class="drag-container">
                 <!-- FOR DRAG ITEMS -->
+
+                <!--btn btn-info btn-draggable-->
                 <div class="top flex-container-multiple-rows drag-items">
-                    <div ng-repeat="item in dragDrop.dragItems track by $index" class="square bgd-drag-square"></div>
+                    <div ng-repeat="item in dragDrop.dragItems track by $index" class="square bgd-drag-square flex-container" jqyoui-droppable="{index: {{$index}}}">
+                        <div class="btn-draggable" data-drag="{{item.drag}}"
+                             data-jqyoui-options="{revert: 'invalid'}" ng-model="dragDrop.dragItems"
+                             jqyoui-draggable="{index: {{$index}},placeholder:true,animate:false, onStart:'dragDrop.startCallback(item, $index)', onStop: 'dragDrop.stopCallback', onDrag: 'dragDrop.dragCallback'}"
+                             ng-hide="!item.title">
+                            <span class="drag-text">
+                                <h1>{{item.title}}</h1>
+                            </span>
+                        </div>
+                    </div>
                 </div>
                 <!-- FOR BACKGOUND -->
-                <div class="bottom flex-container-multiple-rows drag-bgd">
+                <!-- TODO - strange when visible stopes the square above being draggable -->
+                <div ng-if="false" class="bottom flex-container-multiple-rows drag-bgd">
                     <div ng-repeat="item in dragDrop.dragItems track by $index" class="square bgd-drag-square"></div>
                 </div>
 
@@ -86,6 +98,9 @@
         </form>
     </div>
 </div>
+
+
+<span ng-if="false" data-drag="true" jqyoui-draggable>So you think you can drag</span>
 
 
 

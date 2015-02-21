@@ -1,5 +1,6 @@
 @import "grid";
 @import "base";
-@import "media";
 @import "typography";
-@import "ui"
+@import "ui";
+// list the `media` last in the cascade
+@import "media";

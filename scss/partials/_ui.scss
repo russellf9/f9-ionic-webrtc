@@ -20,7 +20,7 @@
 
 
 
-.drag-item {
+.drag-bgd {
   display: block;
   position: absolute;
   top: 0;
@@ -28,13 +28,49 @@
 }
 
 .drag-items {
-  @extend .drag-item;
+  @extend .drag-bgd;
     z-index: 2;
 }
 
 .drag-bgd {
-  @extend .drag-item;
+  @extend .drag-bgd;
     z-index: 1;
+}
+
+.btn-draggable {
+  background-color: $buttonColor;
+  border: 2px solid darkred;
+
+
+  width: 100%;
+  height: 100%;
+
+  // move to mixin...
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.drag-text {
+  width: 100%;
+  height: 100%;
+  border: red solid 1px;
+
+  // move to mixin...
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.drag-text h1 {
+  border: blue solid 1px;
+  text-align: center;
+
+  color: $offWhite;
+
+  margin: 0;
 }
 
 
