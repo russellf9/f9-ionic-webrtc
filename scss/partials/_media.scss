@@ -12,7 +12,6 @@
   display: block;
   font-size: 14px;
   border-radius: 3px;
-//  border: solid 1px $yellow;
 }
 
 
@@ -23,7 +22,6 @@
 }
 
 .game-row {
-//  background: $blue;
 }
 
 .instructions-row {
@@ -37,7 +35,6 @@
 .square {
   width: getSquareDimension('phone');
   height: getSquareDimension('phone');
-//  margin: getSquareMargin('phone');
 }
 
 // phone
@@ -48,7 +45,6 @@
   .game-container {
     width: getGameContainerWidth('phone');
     height: getGameContainerDimension('phone');
-//    background: $pink;
   }
   .game-board {
     width: getGameBoardDimension('phone');
@@ -69,7 +65,6 @@
   .square {
     width: getSquareDimension('phone');
     height: getSquareDimension('phone');
-//    margin: getSquareMargin('phone');
   }
   .drag-text h1 {
     height: getSquareDimension('phone');
@@ -118,7 +113,6 @@
   .square {
     width: getSquareDimension('tablet');
     height: getSquareDimension('tablet');
-//    margin: getSquareMargin('tablet');
   }
   .drag-text h1 {
     width: getSquareDimension('tablet');
@@ -131,6 +125,17 @@
   }
   .btn-draggable, .bgd-drag-square{
     border-width: 2px;
+  }
+  h3 {
+    font-size: ms(6);
+    line-height: ms(6) * $line-height-ratio;
+  }
+  h5 {
+    font-size: ms(3);
+    line-height: ms(3) * 1.5;
+  }
+  .instruction-text {
+    max-width: 100%;
   }
 }
 //
@@ -216,7 +221,6 @@
   .square {
     width: getSquareDimension('large-desktop');
     height: getSquareDimension('large-desktop');
-//    margin: getSquareMargin('large-desktop');
   }
   .drag-text h1 {
     height: getSquareDimension('large-desktop');
