@@ -5,6 +5,10 @@
   //  border: solid 1px $red;
 }
 
+.game-container {
+//  border: solid 2px darkviolet;
+}
+
 .game-board {
   display: block;
   background: $gameBoardbackground;
@@ -83,6 +87,11 @@
 .drop-slot {
   border: dotted 1px $dragBorderColor;
 //  background-color: $lightYellow;
+}
+
+.control-button {
+  display: inline;
+  margin-right: 10px;
 }
 
 

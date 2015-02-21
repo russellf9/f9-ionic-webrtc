@@ -1,19 +1,16 @@
-
 /*
  columns
  */
 
 // Function to calculate column width
 @function getColumnWidth($width, $columns, $margin) {
-    @return ($width / $columns) - ($margin * 2);
+  @return ($width / $columns) - ($margin * 2);
 }
 
 // Function to calculate column height
 @function getColumnHeight($height, $margin) {
-    @return $height - ($margin * 2);
+  @return $height - ($margin * 2);
 }
-
-
 
 /*
  utility functions to get settings
@@ -21,7 +18,7 @@
 
 // game-dimension
 @function getGameDimension() {
-    @return map-get($settings, "game-dimension");
+  @return map-get($settings, "game-dimension");
 }
 
 @function getGameRowHeightDefault() {
@@ -30,47 +27,47 @@
 
 // game-margin
 @function getGameMargin() {
-    @return map-get($settings, "game-margin");
+  @return map-get($settings, "game-margin");
 }
 
 // board-dimension
 @function getBoardDimension() {
-    @return map-get($settings, "board-dimension");
+  @return map-get($settings, "board-dimension");
 }
 
 // board-margin
 @function getBoardMarginDefault() {
-    @return map-get($settings, "board-margin");
+  @return map-get($settings, "board-margin");
 }
 
 // drag container height
 @function getDragContainerHeightDefault() {
-    @return map-get($settings, "drag-container-height");
+  @return map-get($settings, "drag-container-height");
 }
 
 // drag container margin
 @function getDragContainerMarginDefault() {
-    @return map-get($settings, "drag-container-margin");
+  @return map-get($settings, "drag-container-margin");
 }
 
 // instruction-row-height
 @function getInstructionRowHeightDefault() {
-    @return map-get($settings, "instruction-row-height");
+  @return map-get($settings, "instruction-row-height");
 }
 
 // controls-row-height
 @function getControlsRowHeightDefault() {
-    @return map-get($settings, "controls-row-height");
+  @return map-get($settings, "controls-row-height");
 }
 
 // square default dimension
 @function getSquareDimensionDefault() {
-    @return map-get($settings, "square-dimension");
+  @return map-get($settings, "square-dimension");
 }
 
 // square default margin
 @function getSquareMarginDefault() {
-    @return map-get($settings, "square-margin");
+  @return map-get($settings, "square-margin");
 }
 
 /*
@@ -79,126 +76,134 @@
 
 // row - game
 @function getGameRowHeight($media) {
-    $height:getGameRowHeightDefault();
-    $margin:getGameMargin();
-    @if $media == 'phone' {
-        @return $height + $margin * 2 ;
-    }
-    @if $media == 'phone-landscape'{
-      @return map-get($settings, "game-row-height-phone-landscape");
-    }
-    @if $media == 'tablet' {
-        @return ($height + $margin * 2) * 2;
-    }
-    @if $media == 'tablet-landscape' {
-      @return map-get($settings, "game-row-height-tablet-landscape");
-    }
+  $height: getGameRowHeightDefault();
+  $margin: getGameMargin();
+  @if $media == 'phone' {
+    @return $height + $margin * 2;
+  }
+  @if $media == 'phone-landscape' {
+    @return map-get($settings, "game-row-height-phone-landscape");
+  }
+  @if $media == 'tablet' {
     @return ($height + $margin * 2) * 2;
+  }
+  @if $media == 'tablet-landscape' {
+    @return map-get($settings, "game-row-height-tablet-landscape");
+  }
+  @return ($height + $margin * 2) * 2;
 }
+
+
 
 // game container height
 @function getGameContainerDimension($media) {
-    $dimension:getGameDimension();
-    @if $media == 'phone' {
-        @return $dimension;
-    }
-    @if $media == 'phone-landscape' {
-        @return map-get($settings, "game-height-phone-landscape");
-    }
-    @if $media =='tablet-landscape' {
-      @return map-get($settings, "game-height-tablet-landscape");
-    }
+  $dimension: getGameDimension();
+  @if $media == 'phone' {
+    @return $dimension;
+  }
+  @if $media == 'phone-landscape' {
+    @return map-get($settings, "game-height-phone-landscape");
+  }
+  @if $media =='tablet-landscape' {
+    @return map-get($settings, "game-height-tablet-landscape");
+  }
 
-    @return $dimension * 2;
+  @return $dimension * 2;
 }
 
 // game container width
 @function getGameContainerWidth($media) {
-    @return map-get($settings, "game-width");
+  @return map-get($settings, "game-width");
+}
+// a top margin for the game container ( allows space for the hints )
+@function getGameContainerTopMargin($media) {
+  $margin: getGameMargin();
+  @if $media == 'tablet' {
+    @return $margin * 3;
+  }
 }
 
 // game board for width and height
 @function getGameBoardDimension($media) {
-    $dimension:getBoardDimension();
-    @if $media == 'phone' {
-        @return $dimension;
-    }
-    @return $dimension * 2;
+  $dimension: getBoardDimension();
+  @if $media == 'phone' {
+    @return $dimension;
+  }
+  @return $dimension * 2;
 }
 
 // game board margin
 @function getBoardMargin($media) {
-    @return 0;
-    $margin:getBoardMarginDefault();
-    @if $media == 'phone' {
-        @return $margin;
-    }
-    @return $margin * 2;
+  @return 0;
+  $margin: getBoardMarginDefault();
+  @if $media == 'phone' {
+    @return $margin;
+  }
+  @return $margin * 2;
 }
 
 /* Drag container */
 
 // drag container width
 @function getDragContainerWidth($media) {
-    @if $media == 'phone' {
-      @return 100%;
-    }
-    @return map-get($settings, "drag-container-width");
+  @if $media == 'phone' {
+    @return 100%;
+  }
+  @return map-get($settings, "drag-container-width");
 }
 
 // drag container height
 @function getDragContainerHeight($media) {
-    $height:getDragContainerHeightDefault();
-    @if $media == "phone" {
-        @return $height;
-    }
-    @return $height * 2;
+  $height: getDragContainerHeightDefault();
+  @if $media == "phone" {
+    @return $height;
+  }
+  @return $height * 2;
 }
 
 @function getDragContainerMargin($media) {
-    $margin:getDragContainerMarginDefault();
-    @if $media == 'phone' {
-        @return $margin;
-    }
-    @return $margin * 2;
+  $margin: getDragContainerMarginDefault();
+  @if $media == 'phone' {
+    @return $margin;
+  }
+  @return $margin * 2;
 }
-
 
 // row - instruction
 @function getInstructionRowHeight($media) {
-    $height:getInstructionRowHeightDefault();
-    @if $media == 'phone' {
-        @return $height;
-    }
-    @if $media =='tablet' {
-        @return $height * 1.5;
-    }
-    @return $height * 2;
+  $height: getInstructionRowHeightDefault();
+  @if $media == 'phone' {
+    @return $height;
+  }
+  @if $media =='tablet' {
+    @return $height * 1.5;
+  }
+  @return $height * 2;
 }
 
 // row - controls
 @function getControlsRowHeight($media) {
-    $height:getControlsRowHeightDefault();
-    @if $media == 'phone' {
-        @return $height;
-    }
-    @return $height * 2;
+  $height: getControlsRowHeightDefault();
+  @if $media == 'phone' {
+    @return $height;
+  }
+  @return $height * 2;
 }
 
 // square - dimension
 @function getSquareDimension($media) {
-    $dimension:getSquareDimensionDefault();
-    @if $media == 'phone' {
-        @return $dimension;
-    }
-    @return $dimension * 2;
+  $dimension: getSquareDimensionDefault();
+  @if $media == 'phone' {
+    @return $dimension;
+  }
+  @return $dimension * 2;
 }
 
 // square margin
 @function getSquareMargin($media) {
-    $margin:getSquareMarginDefault();
-    @if $media == 'phone' {
-        @return $margin;
-    }
-    @return $margin * 2;
+  $margin: getSquareMarginDefault();
+  @if $media == 'phone' {
+    @return $margin;
+  }
+  @return $margin * 2;
 }

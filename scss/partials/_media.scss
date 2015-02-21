@@ -61,6 +61,9 @@
   .controls-row {
     height: getControlsRowHeight('phone');
   }
+  .hint {
+    display: none;
+  }
   .square {
     width: getSquareDimension('phone');
     height: getSquareDimension('phone');
@@ -81,17 +84,17 @@
 // tablet
 // iPad (first generation), iPad 2, iPad Mini (first generation) has 1024×768 pixels
 // iPad Mini (second generation), iPad (third generation), iPad (fourth generation), iPad Air has 2048×1536px
-
-// (orientation: landscape)
-
 @include media(">=tablet", '<2048px') {
   .game-row {
     height: getGameRowHeight('tablet');
+
   }
   .game-container {
     width: getGameContainerWidth('tablet');
     height: getGameContainerDimension('tablet');
     //    background: $green;
+
+    margin-top: getGameContainerTopMargin('tablet');
   }
   .game-board {
     width: getGameBoardDimension('tablet');

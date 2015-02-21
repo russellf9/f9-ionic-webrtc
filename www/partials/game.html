@@ -85,16 +85,13 @@
         <form class="flex-container-all-row" style="padding-top: 1%">
             <span ng-if="false">complete {{master.complete}}, selected {{master.selected}}, checked {{master.checked}} hint {{master.hint}}</span>
 
-            <button style="display: inline; margin-right: 10px;"
-                    class="button button-balanced" type="submit" ng-click="master.check()"
+            <button class="button button-balanced control-button" type="submit" ng-click="master.check()"
                     ng-disabled="!master.complete || master.checked">Check
             </button>
-            <button style="display: inline; margin-right: 10px;"
-                    class="button button-balanced" type="submit" ng-click="master.clear()"
+            <button class="button button-balanced control-button" type="submit" ng-click="master.clear()"
                     ng-disabled="!master.selected > 0">Clear
             </button>
-            <button style="display: inline; margin-right: 10px;"
-                    class="button button-balanced" type="submit"
+            <button class="button button-balanced control-button hint" type="submit"
                     ng-click="master.hint =! master.hint">Hint
             </button>
         </form>

@@ -20,7 +20,15 @@
     position: absolute;
     width: 100%;
     bottom: 0; // map-get($settings, "margin");
-//    border: solid 2px black;
+//    border: solid 2px blue;
 //    background: $red;
     opacity: 1;
+}
+
+.instructions-row {
+//  border: solid 2px red;
+
+}
+.game-row {
+//  border: solid 2px black;
 }
