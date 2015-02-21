@@ -4,14 +4,14 @@
     float: left;
     width: map-get($settings, "column-width");
     margin: 0;
-    border: solid 2px black;
+//    border: solid 2px black;
     background: $offWhite;
 }
 
 // defines the row
 .row {
     display: block;
-    border: solid 1px $green;
+//    border: solid 1px $green;
     //margin: map-get($settings, "margin") 0;
     margin: 0 0;
 }
@@ -20,7 +20,7 @@
     position: absolute;
     width: 100%;
     bottom: 0; // map-get($settings, "margin");
-    border: solid 2px black;
+//    border: solid 2px black;
 //    background: $red;
     opacity: 1;
 }

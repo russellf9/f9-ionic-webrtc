@@ -79,14 +79,7 @@ html{
   );
 }
 
-.instruction-text {
-  max-width: 80%;
-  text-align: center;
-  margin: 0 auto;
 
-
-  border: solid 1px $red;
-}
 
 // see: https://gist.github.com/nathggns/2984123
 @mixin stroke($width, $color) {

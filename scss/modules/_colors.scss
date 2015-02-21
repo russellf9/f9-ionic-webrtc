@@ -20,9 +20,15 @@ $offWhite: #EEEEEE;
 $warning: #e74c3c;
 
 
-$lightGreen : lighten( $green, 20% );
+$lightGreen : lighten( $green, 40% );
 $darkGreen : darken( $green, 20% );
-
+$lightBlue : lighten( $blue, 10% );
+$veryLightBlue : lighten( lightBlue, 10% );
+$faintBlue : lighten( $veryLightBlue, 10% );
+$lightYellow : lighten( $yellow, 40% );
+$veryLightGrey: lighten($lightGrey, 50%);
+$faintGrey: lighten($veryLightGrey, 15%);
 
 $dragColor : $green;
 $dragBorderColor : $darkGreen;
+$gameBoardbackground: $faintGrey;

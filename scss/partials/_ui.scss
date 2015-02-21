@@ -1,3 +1,16 @@
+.instruction-text {
+  max-width: 80%;
+  text-align: center;
+  margin: 0 auto;
+  //  border: solid 1px $red;
+}
+
+.game-board {
+  display: block;
+  background: $gameBoardbackground;
+  margin-top: getBoardMargin('phone');
+  border: solid 2px $dragBorderColor;
+}
 
 // shared ui element, it's dimensions are to be evaluated by media queries
 .square {
@@ -13,6 +26,8 @@
 .bgd-drag-square {
   background-color: $lightGreen;
   border: 2px solid $dragBorderColor;
+  //TODO enlarge margin for tablet?
+  margin: 2px;
 }
 
 // the container for the all draggable items
@@ -64,6 +79,11 @@
   -webkit-text-stroke-color: $dragBorderColor;
 }
 
+
+.drop-slot {
+  border: dotted 1px $dragBorderColor;
+//  background-color: $lightYellow;
+}
 
 
 

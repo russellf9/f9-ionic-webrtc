@@ -34,17 +34,26 @@
     <div ng-if="true" class="row game-row flex-container" ng-controller="DragDrop as dragDrop">
         <div class="game-container flex-container-all-column">
             <div class="game-board flex-container-multiple-rows">
-                <div class="square yellow"></div>
-                <div class="square yellow"></div>
-                <div class="square yellow"></div>
 
-                <div class="square yellow"></div>
-                <div class="square yellow"></div>
-                <div class="square yellow"></div>
 
-                <div class="square yellow"></div>
-                <div class="square yellow"></div>
-                <div class="square yellow"></div>
+                <div class="square drop-slot flex-container" ng-repeat="drop in dragDrop.dropTargets track by $index">
+
+
+                    <div class="btn btn-droppable square flex-container" data-drop="true" ng-model='dragDrop.selectedItems'
+                         jqyoui-droppable="{index: {{$index}}, onDrop:'dragDrop.dropCallback($index)',onOver: 'dragDrop.overCallback(data-drag)', onOut: 'dragDrop.outCallback($index)'}">
+                        <div class="btn-draggable square"
+                             ng-show="dragDrop.selectedItems[$index].title"
+                             data-drag="{{dragDrop.selectedItems[$index].drag}}"
+                             data-jqyoui-options="{revert: 'invalid'}"
+                             ng-model="dragDrop.selectedItems"
+                             jqyoui-draggable="{index: {{$index}},placeholder:true,animate:false}">
+                            <span class="drag-text"><h1>{{dragDrop.selectedItems[$index].title}}</h1></span>
+                        </div>
+                    </div>
+
+
+                </div>
+
             </div>
 
 
@@ -73,7 +82,7 @@
 
 
         <!--style="margin-top: 5px; margin-left: 10px; padding-right: 4px;"-->
-        <form class="flex-container-all-row" style="border: solid 1px red; padding-top: 1%">
+        <form class="flex-container-all-row" style="padding-top: 1%">
             <span ng-if="false">complete {{master.complete}}, selected {{master.selected}}, checked {{master.checked}} hint {{master.hint}}</span>
 
             <button style="display: inline; margin-right: 10px;"

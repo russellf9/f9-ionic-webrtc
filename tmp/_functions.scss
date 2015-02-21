@@ -175,6 +175,8 @@
 
 // square margin
 @function getSquareMargin($media) {
+
+    @return 0;
     $margin:getSquareMarginDefault();
     @if $media == 'phone' {
         @return $margin;

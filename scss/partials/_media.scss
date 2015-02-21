@@ -12,23 +12,18 @@
   display: block;
   font-size: 14px;
   border-radius: 3px;
-  border: solid 1px $yellow;
+//  border: solid 1px $yellow;
 }
 
-.game-board {
-  display: block;
-  background: $lightGrey;
-  margin-top: getBoardMargin('phone');
-}
 
 .drag-container {
   display: block;
-  background: $flesh;
+//  background: $flesh;
   width: getDragContainerWidth('phone');
 }
 
 .game-row {
-  background: $blue;
+//  background: $blue;
 }
 
 .instructions-row {
@@ -42,7 +37,7 @@
 .square {
   width: getSquareDimension('phone');
   height: getSquareDimension('phone');
-  margin: getSquareMargin('phone');
+//  margin: getSquareMargin('phone');
 }
 
 // phone
@@ -53,7 +48,7 @@
   .game-container {
     width: getGameContainerWidth('phone');
     height: getGameContainerDimension('phone');
-    background: $pink;
+//    background: $pink;
   }
   .game-board {
     width: getGameBoardDimension('phone');
@@ -74,11 +69,14 @@
   .square {
     width: getSquareDimension('phone');
     height: getSquareDimension('phone');
-    margin: getSquareMargin('phone');
+//    margin: getSquareMargin('phone');
   }
   .drag-text h1 {
     height: getSquareDimension('phone');
     line-height: getSquareDimension('phone');
+  }
+  .drop-slot {
+    margin: 0 2px;
   }
 }
 
@@ -95,7 +93,7 @@
   .game-container {
     width: getGameContainerWidth('tablet');
     height: getGameContainerDimension('tablet');
-    background: $green;
+//    background: $green;
   }
   .game-board {
     width: getGameBoardDimension('tablet');
@@ -116,13 +114,16 @@
   .square {
     width: getSquareDimension('tablet');
     height: getSquareDimension('tablet');
-    margin: getSquareMargin('tablet');
+//    margin: getSquareMargin('tablet');
   }
   .drag-text h1 {
     width: getSquareDimension('tablet');
     height: getSquareDimension('tablet');
     line-height: getSquareDimension('tablet');
     font-size: ms(8);
+  }
+  .drop-slot {
+    margin: 0 4px;
   }
 }
 //
@@ -146,7 +147,7 @@
   }
   .game-row {
     height: getGameRowHeight('phone-landscape');
-    background: $lightGrey;
+//    background: $lightGrey;
   }
   .game-container {
     height: getGameContainerDimension('phone-landscape');;
@@ -208,11 +209,14 @@
   .square {
     width: getSquareDimension('large-desktop');
     height: getSquareDimension('large-desktop');
-    margin: getSquareMargin('large-desktop');
+//    margin: getSquareMargin('large-desktop');
   }
   .drag-text h1 {
     height: getSquareDimension('large-desktop');
     line-height: getSquareDimension('large-desktop');
+  }
+  .drop-slot {
+    margin: 0 4px;
   }
 }
 
