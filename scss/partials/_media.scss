@@ -74,9 +74,13 @@
   .drag-text h1 {
     height: getSquareDimension('phone');
     line-height: getSquareDimension('phone');
+    -webkit-text-stroke-width: 1px;
   }
   .drop-slot {
-    margin: 0 2px;
+    margin: 0 1px;
+  }
+  .btn-draggable, .bgd-drag-square{
+    border-width: 1px;
   }
 }
 
@@ -124,6 +128,9 @@
   }
   .drop-slot {
     margin: 0 4px;
+  }
+  .btn-draggable, .bgd-drag-square{
+    border-width: 2px;
   }
 }
 //
@@ -217,6 +224,9 @@
   }
   .drop-slot {
     margin: 0 4px;
+  }
+  .btn-draggable, .bgd-drag-square{
+    border-width: 2px;
   }
 }
 
