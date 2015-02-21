@@ -1,12 +1,5 @@
-.btn-info {
-  color: #fff;
-  background-color: $buttonColor;
-  border-color: #46b8da;
-  text-align: center;
-  font-weight: bold;
-}
 
-// shared ui element, it's dimensions are
+// shared ui element, it's dimensions are to be evaluated by media queries
 .square {
   display: block;
 }
@@ -29,6 +22,8 @@
   top: 0;
   left: 0;
 }
+
+
 
 // define an index so there can be a background behind
 .drag-items {

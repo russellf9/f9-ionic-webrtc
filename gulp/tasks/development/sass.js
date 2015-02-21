@@ -14,7 +14,9 @@ var gulp = require('gulp'),
     config = require('../../config'),
     minifyCss = require('gulp-minify-css'),
     autoprefixer = require('gulp-autoprefixer'),
-    rename = require('gulp-rename');
+    rename = require('gulp-rename'),
+    notify = require('gulp-notify'),
+    through = require('through-gulp');
 
 
 gulp.task('sass', function(done) {
@@ -24,20 +26,25 @@ gulp.task('sass', function(done) {
 
         sassConfig = config.sass.options;
 
-    return rubySass(config.sass.rubySrc, { style: 'expanded' })
-        .pipe(plumber())
+    return rubySass(config.sass.rubySrc, {style: 'expanded'})
+        .on('error', function(err) {
+            notify.onError({
+                title: 'SASS Error!',
+                message: '<%= error.message %>',
+                sound: 'Beep'
+            })(err);
+            this.emit('end');
+        })
         .pipe(autoprefixer(config.sass.autoprefixer))
-        .pipe(gulp.dest(config.sass.rubyDest));
-    });
+        .pipe(gulp.dest(config.sass.rubyDest))
+        .pipe(notify({
+            title: 'SASS',
+            message: 'SASS completed.  New CSS created!',
+            sound: 'Pop'
+        }));
 
-        //return gulp.src(config.sass.src)
-        //    //.pipe(plumber())
-        //    .pipe(sass(sassConfig))
-        //    //.pipe(sourcemaps.init())
-        //    //.pipe(autoprefixer(config.sass.autoprefixer))
-        //    //.pipe(gulp.dest(config.sass.dest))
-        //    //.pipe(rename({extname: '.min.css'}))
-        //    .pipe(gulp.dest(config.sass.dest));
+});
+// TODO do we need to set the sourcemap?
 
 
 // options? , sourcemapPath: '../../scss'
@@ -49,12 +56,4 @@ gulp.task('sass', function(done) {
 //        //.pipe(filter.restore()) // Restore original files
 //        .pipe(gulp.dest(config.sass.dest));
 
-
-        //return gulp.src(config.sass.src)
-        //    .pipe(sass({sourcemap: true, sourcemapPath: '../../scss'}))
-        //    .on('error', function (err) { console.log(err.message); })
-        //    .pipe(gulp.dest(config.sass.dest));
-
-
-//});
 
