@@ -35,6 +35,9 @@
   @return map-get($settings, "board-dimension");
 }
 
+@function getBoardDimensionLarge() {
+  @return map-get($settings, "board-dimension-large");
+}
 // board-margin
 @function getBoardMarginDefault() {
   @return map-get($settings, "board-margin");
@@ -141,6 +144,25 @@
   }
   @return $margin * 2;
 }
+
+// a larger game board for the indicators
+@function getGameBoardDimensionLarge($media) {
+  $dimension: getBoardDimensionLarge();
+  @if $media == 'phone' {
+    @return $dimension;
+  }
+  @return $dimension * 2;
+}
+
+@function getBoardMarginLarge($media) {
+  $margin: getBoardMarginDefault();
+  @if $media == 'phone' {
+    @return $margin;
+  }
+  @return -$margin * 2;
+}
+
+
 
 /* Drag container */
 

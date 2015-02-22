@@ -20,9 +20,6 @@
   width: getDragContainerWidth('phone');
 }
 
-.game-row {
-}
-
 .instructions-row {
   height: getInstructionRowHeight('phone');
 }
@@ -49,6 +46,11 @@
     width: getGameBoardDimension('phone');
     height: getGameBoardDimension('phone');
     margin-top: getBoardMargin('phone');
+  }
+  .game-board-large {
+    width: getGameBoardDimensionLarge('phone');
+    height: getGameBoardDimensionLarge('phone');
+    margin-top: getBoardMarginLarge('phone');
   }
   .drag-container {
     width: getDragContainerWidth('phone');
@@ -100,6 +102,11 @@
     width: getGameBoardDimension('tablet');
     height: getGameBoardDimension('tablet');
     margin-top: getBoardMargin('tablet');
+  }
+  .game-board-large {
+    width: getGameBoardDimensionLarge('tablet');
+    height: getGameBoardDimensionLarge('tablet');
+    margin-top: getBoardMarginLarge('tablet');
   }
   .drag-container {
     width: getDragContainerWidth('tablet');

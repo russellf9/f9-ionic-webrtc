@@ -60,17 +60,17 @@
                     // TODO - should really convert [0,3,6] to [1,2,3]
                     var total = 0;
                     switch (value) {
-                        case 0:
+                        case 1:
                         {
                             total = _row1;
                             break;
                         }
-                        case 3:
+                        case 2:
                         {
                             total = _row2;
                             break;
                         }
-                        case 6:
+                        case 3:
                         {
                             total = _row3;
                             break;
@@ -85,17 +85,17 @@
                 getColumnTotal: function(value) {
                     var total = 0;
                     switch (value) {
-                        case 0:
+                        case 1:
                         {
                             total = _column1;
                             break;
                         }
-                        case 3:
+                        case 2:
                         {
                             total = _column2;
                             break;
                         }
-                        case 6:
+                        case 3:
                         {
                             total = _column3;
                             break;
@@ -111,12 +111,12 @@
                 getDiagonalTotal: function(value) {
                     var total = 0;
                     switch (value) {
-                        case 0:
+                        case 1:
                         {
                             total = _diagonal1;
                             break;
                         }
-                        case 1:
+                        case 2:
                         {
                             total = _diagonal2;
                             break;

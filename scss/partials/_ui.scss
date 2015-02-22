@@ -6,7 +6,15 @@
 }
 
 .game-container {
+//  position: absolute;
 //  border: solid 2px darkviolet;
+}
+
+.indicator-container {
+  z-index: 2;
+}
+.drop-container {
+  z-index: 3;
 }
 
 .game-board {
@@ -15,6 +23,13 @@
   margin-top: getBoardMargin('phone');
   border: solid 2px $dragBorderColor;
 }
+.game-board-large {
+  display: block;
+//  background: $pink;
+  margin-top: getBoardMargin('phone');
+  border: solid 2px $dragBorderColor;
+}
+
 
 // shared ui element, it's dimensions are to be evaluated by media queries
 .square {
@@ -32,6 +47,10 @@
   border: 2px solid $dragBorderColor;
   //TODO enlarge margin for tablet?
   margin: 2px;
+}
+
+.indicator-square {
+  border: 1px solid $lightGrey;
 }
 
 // the container for the all draggable items
