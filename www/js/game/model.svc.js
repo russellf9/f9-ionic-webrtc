@@ -52,12 +52,8 @@
                 getDropItems: function() {
                     return _dropItems;
                 },
-                /**
-                 * 0,3,6
-                 * @param value
-                 */
+                // returns th current total of the specified row
                 getRowTotal: function(value) {
-                    // TODO - should really convert [0,3,6] to [1,2,3]
                     var total = 0;
                     switch (value) {
                         case 1:
@@ -78,10 +74,7 @@
                     }
                     return total;
                 },
-                /**
-                 * 0, 3, 6
-                 * @param value
-                 */
+                // returns th current total of the specified column
                 getColumnTotal: function(value) {
                     var total = 0;
                     switch (value) {
@@ -103,11 +96,7 @@
                     }
                     return total;
                 },
-                /**
-                 * 0 1
-                 * @param value
-                 * @returns {number}
-                 */
+                // returns the current total of the specified diagonal
                 getDiagonalTotal: function(value) {
                     var total = 0;
                     switch (value) {
@@ -174,6 +163,10 @@
                             _selectedItems[key] = {drag: false};
                         }
                     });
+                },
+                getTheNumberOfIndicatorSquares : function() {
+                    var num = (_numberOfSquares / 3) + 2;
+                    return num * num;
                 },
                 getResult: function(index) {
                     var result = '';
@@ -270,8 +263,6 @@
                 },
                 getIndicatorClass: function(index) {
                     var style = '';
-                    style = 'indicator-left';
-
                     switch (index) {
                         // top left diagonal
                         case 0:
@@ -304,32 +295,32 @@
                         // rows
                         case 5:
                         {
-                            style = 'indicator-right';
+                            style = 'indicator-left';
                             break;
                         }
                         case 9:
                         {
-                            style = 'indicator-left';
+                            style = 'indicator-right';
                             break;
                         }
                         case 10:
                         {
-                            style = 'indicator-right';
+                            style = 'indicator-left';
                             break;
                         }
                         case 14:
                         {
-                            style = 'indicator-left';
+                            style = 'indicator-right';
                             break;
                         }
                         case 15:
                         {
-                            style = 'indicator-right';
+                            style = 'indicator-left';
                             break;
                         }
                         case 19:
                         {
-                            style = 'indicator-left';
+                            style = 'indicator-right';
                             break;
                         }
                         // bottom left diagonal
@@ -361,10 +352,7 @@
                             break;
                         }
                     }
-
-
                     return style;
-
                 },
                 /**
                  * Updates the game values `_gameValues`

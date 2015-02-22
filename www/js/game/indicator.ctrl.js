@@ -1,29 +1,20 @@
 (function() {
     'use strict';
 
-    // the `highest` controller the app
+    // the controller for the total indicators
     angular.module('magicsquares').controller('Indicator', ['Model', '$scope', function(Model, $scope) {
-
-        console.log('hi from indicator!');
 
         var self = this;
 
+        // using a grid pattern to layout the indicators
+        this.squares = new Array(Model.getTheNumberOfIndicatorSquares());
 
-        // watches for any change in the `game state`
-        $scope.$watch(Model.getUpdateValues, function(newValue, oldValue) {
-            if (newValue && newValue !== oldValue) {
-            }
-        });
-
-        this.squares = new Array(25);
-
-
+        // returns the current result from each indicator in turn
         this.getResult = function(index) {
             return Model.getResult(index);
         };
 
-
-        //'indicator-left';
+        // returns a specific CSS class for each indicator to adjust the position of the text
         this.getClass = function(index) {
             return Model.getIndicatorClass(index);
         }

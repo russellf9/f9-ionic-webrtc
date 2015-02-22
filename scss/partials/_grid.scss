@@ -1,35 +1,30 @@
-
+/* defines the basic grid for the app */
 .column {
     height: map-get($settings, "column-height");
     float: left;
     width: map-get($settings, "column-width");
     margin: 0;
-//    border: solid 2px black;
-    background: $offWhite;
 }
 
 // defines the row
 .row {
     display: block;
-//    border: solid 1px $green;
-    //margin: map-get($settings, "margin") 0;
     margin: 0 0;
 }
 
-.controls-row {
-    position: absolute;
-    width: 100%;
-    bottom: 0; // map-get($settings, "margin");
-//    border: solid 2px blue;
-//    background: $red;
-    opacity: 1;
-}
-
+// row for the row with the instructions
 .instructions-row {
-//  border: solid 2px red;
-
 }
+
+// the row which contains the actual game
+// ( the position needs to be defined as `absolute` as it holds elements which have to be positioned with z-index
 .game-row {
-//  border: solid 2px black;
   position: absolute;
+}
+
+// the row with the buttons
+.controls-row {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
 }

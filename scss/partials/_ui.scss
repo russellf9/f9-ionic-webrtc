@@ -1,33 +1,34 @@
+//defines various ui elements
+
+// the instruction text at the top
 .instruction-text {
   max-width: 80%;
   text-align: center;
   margin: 0 auto;
-  //  border: solid 1px $red;
 }
 
-.game-container {
-//  position: absolute;
-//  border: solid 2px darkviolet;
-}
-
+// the contianer for the indicators
 .indicator-container {
   z-index: 2;
 }
+
+//the container for the drop items
 .drop-container {
   z-index: 3;
 }
 
+// holds the drop items
 .game-board {
   display: block;
   background: $gameBoardbackground;
-  margin-top: getBoardMargin('phone');
   border: solid 2px $dragBorderColor;
 }
+
+// holds the indicators
 .game-board-large {
   display: block;
   margin-top: getBoardMargin('phone');
 }
-
 
 // shared ui element, it's dimensions are to be evaluated by media queries
 .square {
@@ -46,18 +47,15 @@
   margin: 2px;
 }
 
-// indicators
+/* ----- indicators ----- */
 
+//colors the text for indicator text
 .indicator-square h5 {
-//  width: 100%;
-//  border: 1px solid $lightGrey;
   color: $buttonColor;
 }
 
 .indicator-square {
-//   border: 1px solid $lightGrey;
 }
-
 
 /* Shared indicator vars */
 $indicatorMarginTop: 50px;
@@ -79,17 +77,16 @@ $indicatorBottomMarginTop: -25px;
 .indicator-top {
   margin-top: $indicatorMarginTop;
 }
+
 .indicator-bottom {
   margin-top: $indicatorBottomMarginTop;
 }
 
-// need to swap!!!
-.indicator-left {
+.indicator-right {
   margin-left: -$indicatorMarginLeft;
 }
 
-// need to swap!!!
-.indicator-right {
+.indicator-left {
   margin-left: $indicatorMarginLeft;
   text-align: right;
 }
@@ -113,12 +110,10 @@ $indicatorBottomMarginTop: -25px;
   left: 0;
 }
 
-
-
 // define an index so there can be a background behind
 .drag-items {
   @extend .drag-bgd;
-    z-index: 2;
+  z-index: 2;
 }
 
 // the draggable button
@@ -154,12 +149,12 @@ $indicatorBottomMarginTop: -25px;
   -webkit-text-stroke-color: $dragBorderColor;
 }
 
-
+// defines decoration for the target element the drag items
 .drop-slot {
   border: dotted 1px $dragBorderColor;
-//  background-color: $lightYellow;
 }
 
+// shared style for all the buttons
 .control-button {
   display: inline;
   margin-right: 10px;
