@@ -22,7 +22,7 @@ Other objectives include learning new technical skills and creating a `seed` pro
 
 The app is written in HTML5, CS3 and JavaScript.
 
-More specifically I'm using the [Ionic Framework](http://ionicframework.com_ which incorporates [Sass](http://sass-lang.com) and [AngularJS](http://angularjs.org/).
+More specifically I'm using the [Ionic Framework](http://ionicframework.com) which incorporates [Sass](http://sass-lang.com) and [AngularJS](http://angularjs.org/).
 
 
 ### Keywords
@@ -45,13 +45,18 @@ logic, puzzle, maths, game
 
 I've just submitted the app to Apple for verification. I'll list my new objectives here:
 
-1. Incorporate Gulp more. ( For the ionic build etc )
+1. Make the Gulp tasks modular.
+    * The tasks are now completely modular
+    * A few issues like the [template](https://github.com/sindresorhus/gulp-template) not working in scripts task needed to be ironed out.
 
 2. Document the iOS submission process.
 
 3. Use SASS. ( The CSS has become far too verbose for all the screen sixes etc. )
+  * I've found using SASS to be a real joy. Making CSS more like programming and creating a much more semantic and concise code base.
 
 4. Make more use of [Flexbox](http://www.sketchingwithcss.com/samplechapter/cheatsheet.html).
+ * As the app will be targeted to modern browsers, Flexbox can be used for virtually all my positioning needs!
+ * [gulp-autoprefixer](https://www.npmjs.com/package/gulp-autoprefixer) adds the vendor prefixes on prepossessing to keep the SCSS succinct and readable.
 
 5. Improve the design.
 
