@@ -175,6 +175,197 @@
                         }
                     });
                 },
+                getResult: function(index) {
+                    var result = '';
+                    switch (index) {
+                        // top left diagonal
+                        case 0:
+                        {
+                            result = this.getDiagonalTotal(1);
+                            break;
+                        }
+                        // top columns
+                        case 1:
+                        {
+                            result = this.getColumnTotal(1);
+                            break;
+                        }
+                        case 2:
+                        {
+                            result = this.getColumnTotal(2);
+                            break;
+                        }
+                        case 3:
+                        {
+                            result = this.getColumnTotal(3);
+                            break;
+                        }
+                        // top right diagonal
+                        case 4:
+                        {
+                            result = this.getDiagonalTotal(2);
+                            break;
+                        }
+                        // rows
+                        case 5:
+                        {
+                            result = this.getRowTotal(1);
+                            break;
+                        }
+                        case 9:
+                        {
+                            result = this.getRowTotal(1);
+                            break;
+                        }
+                        case 10:
+                        {
+                            result = this.getRowTotal(2);
+                            break;
+                        }
+                        case 14:
+                        {
+                            result = this.getRowTotal(2);
+                            break;
+                        }
+                        case 15:
+                        {
+                            result = this.getRowTotal(3);
+                            break;
+                        }
+                        case 19:
+                        {
+                            result = this.getRowTotal(3);
+                            break;
+                        }
+                        // bottom left diagonal
+                        case 20:
+                        {
+                            result = this.getDiagonalTotal(2);
+                            break;
+                        }
+                        // bottom columns
+                        case 21:
+                        {
+                            result = this.getColumnTotal(1);
+                            break;
+                        }
+                        case 22:
+                        {
+                            result = this.getColumnTotal(2);
+                            break;
+                        }
+                        case 23:
+                        {
+                            result = this.getColumnTotal(3);
+                            break;
+                        }
+                        // bottom right diagonal
+                        case 24:
+                        {
+                            result = this.getDiagonalTotal(1);
+                            break;
+                        }
+                    }
+                    return result;
+                },
+                getIndicatorClass: function(index) {
+                    var style = '';
+                    style = 'indicator-left';
+
+                    switch (index) {
+                        // top left diagonal
+                        case 0:
+                        {
+                            style = 'indicator-top-left';
+                            break;
+                        }
+                        // top columns
+                        case 1:
+                        {
+                            style = 'indicator-top';
+                            break;
+                        }
+                        case 2:
+                        {
+                            style = 'indicator-top';
+                            break;
+                        }
+                        case 3:
+                        {
+                            style = 'indicator-top';
+                            break;
+                        }
+                        // top right diagonal
+                        case 4:
+                        {
+                            style = 'indicator-top-right';
+                            break;
+                        }
+                        // rows
+                        case 5:
+                        {
+                            style = 'indicator-right';
+                            break;
+                        }
+                        case 9:
+                        {
+                            style = 'indicator-left';
+                            break;
+                        }
+                        case 10:
+                        {
+                            style = 'indicator-right';
+                            break;
+                        }
+                        case 14:
+                        {
+                            style = 'indicator-left';
+                            break;
+                        }
+                        case 15:
+                        {
+                            style = 'indicator-right';
+                            break;
+                        }
+                        case 19:
+                        {
+                            style = 'indicator-left';
+                            break;
+                        }
+                        // bottom left diagonal
+                        case 20:
+                        {
+                            style = 'indicator-bottom-left';
+                            break;
+                        }
+                        // bottom columns
+                        case 21:
+                        {
+                            style = 'indicator-bottom';
+                            break;
+                        }
+                        case 22:
+                        {
+                            style = 'indicator-bottom';
+                            break;
+                        }
+                        case 23:
+                        {
+                            style = 'indicator-bottom';
+                            break;
+                        }
+                        // bottom right diagonal
+                        case 24:
+                        {
+                            style = 'indicator-bottom-right';
+                            break;
+                        }
+                    }
+
+
+                    return style;
+
+                },
                 /**
                  * Updates the game values `_gameValues`
                  * To be called each time the collection of dropped items is changed

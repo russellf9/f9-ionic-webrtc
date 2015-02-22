@@ -30,18 +30,18 @@
         </div>
 
     </div>
-    <!--THE WHOLE `DRAG DROP` AREA-->
-    <div ng-if="true" class="row game-row flex-container-all" style="z-index:1;" ng-controller="Indicator as indicator">
+    <!--INDICATORS FOR THE HINT-->
+    <div ng-if="master.hint" class="row game-row flex-container-all" style="z-index:1;" ng-controller="Indicator as indicator">
         <div class="game-container flex-container-all-column">
 
-
-            <!--style="border: solid 1px #FF4422;  opacity: 1"-->
             <div class="game-board-large flex-container-multiple-rows" >
 
+                <div class="square indicator-square flex-container" ng-repeat="square in indicator.squares track by $index">
 
-                <!--ng-repeat="drop in dragDrop.dropTargets track by $index"-->
-                <div class="square drop-slot indicator-square flex-container" ng-repeat="square in indicator.squares track by $index">
-                   <p>{{indicator.getResult($index)}}</p>
+                    <!--<p ng-class="{'indicator-left': 'true'}">-->
+
+
+                   <h5 ng-class='indicator.getClass($index)'>{{indicator.getResult($index)}}</h5>
                     <!--<p>{{$index}}</p>-->
 
 
@@ -51,7 +51,7 @@
             <div class="drag-container"></div>
         </div>
     </div>
-
+    <!--THE WHOLE `DRAG DROP` AREA-->
     <div ng-if="true" class="row game-row flex-container" style="z-index:2;" ng-controller="DragDrop as dragDrop">
         <div class="game-container flex-container-all-column">
             <div class="game-board flex-container-multiple-rows">

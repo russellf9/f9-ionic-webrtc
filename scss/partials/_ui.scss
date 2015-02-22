@@ -25,9 +25,7 @@
 }
 .game-board-large {
   display: block;
-//  background: $pink;
   margin-top: getBoardMargin('phone');
-  border: solid 2px $dragBorderColor;
 }
 
 
@@ -45,12 +43,66 @@
 .bgd-drag-square {
   background-color: $lightGreen;
   border: 2px solid $dragBorderColor;
-  //TODO enlarge margin for tablet?
   margin: 2px;
 }
 
+// indicators
+
+.indicator-square h5 {
+//  width: 100%;
+//  border: 1px solid $lightGrey;
+  color: $buttonColor;
+}
+
 .indicator-square {
-  border: 1px solid $lightGrey;
+//   border: 1px solid $lightGrey;
+}
+
+
+/* Shared indicator vars */
+$indicatorMarginTop: 50px;
+$indicatorMarginLeft: 55px;
+$indicatorBottomMarginTop: -25px;
+
+// indicator styles
+.indicator-top-left {
+  margin-top: $indicatorMarginTop;
+  margin-left: $indicatorMarginLeft;
+  text-align: right;
+}
+
+.indicator-top-right {
+  margin-top: $indicatorMarginTop;
+  margin-left: -$indicatorMarginLeft;
+}
+
+.indicator-top {
+  margin-top: $indicatorMarginTop;
+}
+.indicator-bottom {
+  margin-top: $indicatorBottomMarginTop;
+}
+
+// need to swap!!!
+.indicator-left {
+  margin-left: -$indicatorMarginLeft;
+}
+
+// need to swap!!!
+.indicator-right {
+  margin-left: $indicatorMarginLeft;
+  text-align: right;
+}
+
+.indicator-bottom-left {
+  margin-top: $indicatorBottomMarginTop;
+  margin-left: $indicatorMarginLeft;
+  text-align: right;
+}
+
+.indicator-bottom-right {
+  margin-top: $indicatorBottomMarginTop;
+  margin-left: -$indicatorMarginLeft;
 }
 
 // the container for the all draggable items

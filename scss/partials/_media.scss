@@ -129,7 +129,7 @@
     line-height: getSquareDimension('tablet');
     font-size: ms(8);
   }
-  .drop-slot {
+  .drop-slot, .indicator-square {
     margin: 0 4px;
   }
   .btn-draggable, .bgd-drag-square {
@@ -235,7 +235,7 @@
     height: getSquareDimension('large-desktop');
     line-height: getSquareDimension('large-desktop');
   }
-  .drop-slot {
+  .drop-slot, .indicator-square {
     margin: 0 4px;
   }
   .btn-draggable, .bgd-drag-square {
