@@ -10,6 +10,8 @@ The 'Magic Squares Game' is a logic puzzle where the objective is to solve a 3×
 
 The magic square is _'... a square grid, where the numbers in each row, and in each column, and the numbers in the main and secondary diagonals, all add up to the same number...'_. This number is known as the 'magic number'. 
 
+(_REF: [Magic square](http://en.wikipedia.org/wiki/Magic_square) - Wikipedia_)
+
 ### Project Objectives
 
 The primary objective is to release a hybrid mobile app on iTunes.
