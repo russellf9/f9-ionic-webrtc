@@ -2,15 +2,25 @@
 
 ## Project Introduction
 
-This project is a continuation of [Magic Squares](https://github.com/russellf9/magic-squares) focusing on creating the Magic Squares game for iOS using Ionic.
+This project is a continuation of my previous Github project [Magic Squares](https://github.com/russellf9/magic-squares).
 
 ### Description
 
-A logic puzzle where the objective is to solve a 3×3 magic square.
+The 'Magic Squares Game' is a logic puzzle where the objective is to solve a 3×3 magic square.
 
-### Project Aims
+The magic square is _'... a square grid, where the numbers in each row, and in each column, and the numbers in the main and secondary diagonals, all add up to the same number...'_. This number is known as the 'magic number'. 
 
-The primary objective is to release an iOS app on iTunes.
+### Project Objectives
+
+The primary objective is to release a hybrid mobile app on iTunes.
+
+Other objectives include learning new technical skills and creating a `seed` project for making further apps.
+
+### Technical Specifications.
+
+The app is written in HTML5, CS3 and JavaScript.
+
+More specifically I'm using the [Ionic Framework](http://ionicframework.com_ which incorporates [Sass](http://sass-lang.com) and [AngularJS](http://angularjs.org/).
 
 
 ### Keywords
@@ -21,7 +31,6 @@ logic, puzzle, maths, game
 
 
 ### Icon
-
 
 ![Icon](/design/Icon-72@2x.jpg?raw=true "Magic Squares Icon")
 
@@ -92,7 +101,7 @@ runs in:
 
 
 
-### Ionic cmds
+### Ionic CLI cmds
 
 ```
 $ ionic platform add ios
@@ -105,7 +114,7 @@ $ ionic run ios
 
 ```
 
-## Issues:
+### Issues:
 
 ```
 # ios-sim not present
@@ -114,8 +123,6 @@ $ ionic run ios
 
 See: [dyld: Library not loaded: #70](https://github.com/phonegap/ios-sim/issues/70)
 
-
-```
 
 ### SASS
 
@@ -148,15 +155,16 @@ Relevant links:
 [TypeError: Arguments to path.join must be strings #191](https://github.com/sindresorhus/gulp-ruby-sass/issues/191)
 [How to update your Sass version](http://www.codechewing.com/library/update-sass-version/)
 
-### iPad oreintation
+### iPad orientation
 
 I've done a quick test on the ipad and the app isn't fitting into the full width in portrait mode. Might be something to do wuth the width (vw) %
 
 Perhaps using `vh` and 'vw` is problamatic see: [VH and VW units](https://gist.github.com/pburtchaell/e702f441ba9b3f76f587)
 
 
-# using Homebrew
+### using Homebrew
 
+```
 $ brew update
 
 $ brew unlink ios-sim
@@ -174,7 +182,7 @@ $ npm install -g ios-deploy
 
 ### Node
 
-#### Update requirements
+#### Update requirements 
 
 ```
 $ npm update
