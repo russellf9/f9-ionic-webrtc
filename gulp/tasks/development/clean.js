@@ -4,7 +4,9 @@ var gulp        = require('gulp'),
 
 // cleans the distribution folder
 gulp.task('clean', function(cb) {
-    gulp.src(config.build.dist+'/*')
+
+    // TODO Add an array of directories?
+    gulp.src('./.tmp/*')
         .pipe(clean({force: true})).on('error', errorHandler);
     cb()
 });

@@ -14,3 +14,4 @@ tmp
 .sass-cache
 _old-www
 bower_components
+.tmp

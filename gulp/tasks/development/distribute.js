@@ -12,7 +12,7 @@ gulp.task('distribute', function(cb) {
 
     console.log('path: ', config.build.html);
 
-    return gulp.src('./www/**/*.html')
+    return gulp.src('./app/**/*.html')
         .pipe(assets)
         .pipe(assets.restore())
         .pipe(useref())

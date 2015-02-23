@@ -1,5 +1,4 @@
 var src               = '/www';
-
 var build             = 'build';
 var development       = 'build/development';
 var production        = 'build/production';
@@ -30,8 +29,8 @@ module.exports = {
         IS_WATCH : false,
         src: './scss/**/*.{scss, sass}',
         rubySrc:  './scss/',
-        rubyDest: './www/css/',
-        dest: './www/css/ionic.css',
+        rubyDest: './app/css/',
+        dest: './app/css/ionic.css',
         options: {
             noCache: true,
             compass: false,
@@ -54,8 +53,8 @@ module.exports = {
     },
     scripts: {
         src1: src + "/js/**/*/js",
-        src: "./www/js/**/*.js",
-        dist: 'dist',
+        src: "./app/js/**/*.js",
+        dist: '.tmp',
         name: 'app.js',
         IS_RELEASE_BUILD: false
     },

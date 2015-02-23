@@ -12,6 +12,6 @@ var gulp = require('gulp'),
  ],
  See: https://github.com/driftyco/ionic/blob/master/gulpfile.js
  */
-gulp.task('bundle', ['scripts'], function() {
-    console.log('bundle - todo!')
+gulp.task('bundle', ['distribute', 'move-fonts'], function() {
+    console.log('bundle - doing!!')
 });
