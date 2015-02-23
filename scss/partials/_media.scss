@@ -175,6 +175,41 @@
   }
 }
 
+
+// iPad 1 or 2 with portrait orientation. ( handles safari `vh` bug )
+@media all and (device-width: 768px) and (device-height: 1024px) and (orientation:portrait){
+  html, .column {
+    width: 768px;
+    height: 1024px;
+  }
+}
+
+
+// iPad 1 or 2 with landscape orientation. ( handles safari `vh` bug )
+@media all and (device-width: 768px) and (device-height: 1024px) and (orientation:landscape){
+  html .column {
+    width: 1024px;
+    height: 768px;
+  }
+}
+
+// iPad 3+ with portrait orientation. ( handles safari `vh` bug )
+@media all and (device-width: 1536px) and (device-height: 2048px) and (orientation:portrait){
+  html, .column {
+    width: 1536px;
+    height: 2048px;
+  }
+}
+
+// iPad 3+ with landscape orientation. ( handles safari `vh` bug )
+@media all and (device-width: 2048px) and (device-height: 1536px) and (orientation:landscape){
+  html .column {
+    width: 2048px;
+    height: 1536px;
+  }
+}
+
+
 // tablet in landscape
 @media screen and (orientation: landscape) and (min-width: 768px) {
   .landscape {

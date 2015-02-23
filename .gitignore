@@ -17,3 +17,5 @@ www/index-copy.not-html
 tmp
 .sass-cache
 www/partials/game-old.html
+
+_old-www
