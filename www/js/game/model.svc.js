@@ -10,7 +10,7 @@
         var _numberOfSquares = 9,
             _grandTotal = 45,
             _selectedItems = [],
-        // true if a correct solution has been found
+            // true if a correct solution has been found
             _allCorrect = false,
             _gameValues = {},
             _row1 = 0,
@@ -23,6 +23,8 @@
             _diagonal2 = 0,
             _dropItems = [],
             _dragItems = [],
+            // will display half of the total indicators
+            _hideSomeIndicators = true,
 
             game = {
                 numberOfSquares: function() {
@@ -174,7 +176,7 @@
                         // top left diagonal
                         case 0:
                         {
-                            result = this.getDiagonalTotal(1);
+                            result = _hideSomeIndicators ? '' : this.getDiagonalTotal(1);
                             break;
                         }
                         // top columns
@@ -200,9 +202,10 @@
                             break;
                         }
                         // rows
+                        // top left
                         case 5:
                         {
-                            result = this.getRowTotal(1);
+                            result = _hideSomeIndicators ? '' : this.getRowTotal(1);
                             break;
                         }
                         case 9:
@@ -210,9 +213,10 @@
                             result = this.getRowTotal(1);
                             break;
                         }
+                        // middle left
                         case 10:
                         {
-                            result = this.getRowTotal(2);
+                            result = _hideSomeIndicators ? '' : this.getRowTotal(2);
                             break;
                         }
                         case 14:
@@ -220,9 +224,10 @@
                             result = this.getRowTotal(2);
                             break;
                         }
+                        // middle bottom
                         case 15:
                         {
-                            result = this.getRowTotal(3);
+                            result = _hideSomeIndicators ? '' : this.getRowTotal(3);
                             break;
                         }
                         case 19:
@@ -233,23 +238,23 @@
                         // bottom left diagonal
                         case 20:
                         {
-                            result = this.getDiagonalTotal(2);
+                            result = _hideSomeIndicators ? '' : this.getDiagonalTotal(2);
                             break;
                         }
                         // bottom columns
                         case 21:
                         {
-                            result = this.getColumnTotal(1);
+                            result = _hideSomeIndicators ? '' : this.getColumnTotal(1);
                             break;
                         }
                         case 22:
                         {
-                            result = this.getColumnTotal(2);
+                            result = _hideSomeIndicators ? '' : this.getColumnTotal(2);
                             break;
                         }
                         case 23:
                         {
-                            result = this.getColumnTotal(3);
+                            result = _hideSomeIndicators ? '' : this.getColumnTotal(3);
                             break;
                         }
                         // bottom right diagonal

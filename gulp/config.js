@@ -22,6 +22,10 @@ module.exports = {
     pkg: {
         version: '0.0.1'
     },
+    json : {
+        package: './package.json',
+        bower: './bower.json'
+    },
     sass: {
         IS_WATCH : false,
         src: './scss/**/*.{scss, sass}',
