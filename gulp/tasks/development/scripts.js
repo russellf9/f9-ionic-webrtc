@@ -18,10 +18,11 @@ var  _ = require('lodash'),
 
 // performs all required operations to distribute the js files
 gulp.task('scripts', function() {
-    return gulp.src(config.scripts.src)
-        .pipe(template({pkg: pkg}))
+    return gulp.src(config.scripts.testSrc)
+        //.pipe(template({pkg: pkg}))
         .pipe(concat(config.scripts.name))
-        .pipe(gulpIf(config.scripts.IS_RELEASE_BUILD, stripDebug()))
+        // task is really slow :-(
+        //.pipe(gulpIf(config.scripts.IS_RELEASE_BUILD, stripDebug()))
         .pipe(header(config.build.closureStart))
         .pipe(footer(config.build.closureEnd))
         .pipe(header(config.build.banner))

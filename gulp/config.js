@@ -15,8 +15,6 @@ var pkg = {
     version: '0.0.1'
 };
 
-// should it be `dist` or `dest`?
-
 module.exports = {
     pkg: {
         version: '0.0.1'
@@ -54,9 +52,11 @@ module.exports = {
     scripts: {
         src1: src + "/js/**/*/js",
         src: "./app/js/**/*.js",
+        testSrc: './.tmp/scripts/**/*.js',
+        html: './app/**/*.html',
         dist: '.tmp',
         name: 'app.js',
-        IS_RELEASE_BUILD: false
+        IS_RELEASE_BUILD: true
     },
     build: {
         banner:

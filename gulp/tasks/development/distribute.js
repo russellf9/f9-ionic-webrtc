@@ -1,18 +1,16 @@
+/**
+    A task which distributes and creates scripts from `run blocks`
+*/
+
 var gulp        = require('gulp'),
     config      = require('../../config'),
-    usemin = require('gulp-usemin'),
-    minifyHTML = require('gulp-minify-html'),
-    useref = require('gulp-useref');
+    useref      = require('gulp-useref');
 
 gulp.task('distribute', function(cb) {
 
     var assets = useref.assets();
 
-    var condition = 'app.js';
-
-    console.log('path: ', config.build.html);
-
-    return gulp.src('./app/**/*.html')
+    return gulp.src(config.scripts.html)
         .pipe(assets)
         .pipe(assets.restore())
         .pipe(useref())
