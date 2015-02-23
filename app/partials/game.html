@@ -1,0 +1,83 @@
+<div ng-if="true" class="column" ng-controller="Master as master">
+
+    <div ng-if="true" class="row instructions-row flex-container">
+        <!--THE INSTRUCTIONS-->
+        <div class="instructions flex-container-all-column" ng-controller="Instructions as instructions" style="padding-top:5px">
+            <h3 ng-if='!master.checked' class="center-text"><strong>Magic Square Puzzle</strong></h3>
+            <h5 ng-if='!master.checked' class="instruction-text">{{instructions.instructions}}</h5>
+            <h3 class="center-text" ng-if="master.checked && master.allCorrect" style="margin-top:5px">Well done
+                all correct!</h3>
+            <h3 class="center-text" style="margin-top:20px"
+                ng-if='master.checked && master.complete && !master.allCorrect'>Try again!</h3>
+        </div>
+
+    </div>
+    <!--INDICATORS FOR THE HINT-->
+    <div ng-if="master.hint" class="row game-row flex-container-all" style="z-index:1;" ng-controller="Indicator as indicator">
+        <div class="game-container flex-container-all-column">
+            <div class="game-board-large flex-container-multiple-rows" >
+                <div class="square indicator-square flex-container" ng-repeat="square in indicator.squares track by $index">
+                   <h5 ng-class='indicator.getClass($index)'>{{indicator.getResult($index)}}</h5>
+                </div>
+            </div>
+            <!--div just used for positioning-->
+            <div class="drag-container"></div>
+        </div>
+    </div>
+    <!--THE WHOLE `DRAG DROP` AREA-->
+    <div ng-if="true" class="row game-row flex-container" style="z-index:2;" ng-controller="DragDrop as dragDrop">
+        <div class="game-container flex-container-all-column">
+            <!--FOR DROP ITEMS-->
+            <div class="game-board flex-container-multiple-rows">
+                <div class="square drop-slot flex-container" ng-repeat="drop in dragDrop.dropTargets track by $index">
+
+                    <div class="btn btn-droppable square flex-container" data-drop="true" ng-model='dragDrop.selectedItems'
+                         jqyoui-droppable="{index: {{$index}}, onDrop:'dragDrop.dropCallback($index)',onOver: 'dragDrop.overCallback(data-drag)', onOut: 'dragDrop.outCallback($index)'}">
+                        <div class="btn-draggable square"
+                             ng-show="dragDrop.selectedItems[$index].title"
+                             data-drag="{{dragDrop.selectedItems[$index].drag}}"
+                             data-jqyoui-options="{revert: 'invalid'}"
+                             ng-model="dragDrop.selectedItems"
+                             jqyoui-draggable="{index: {{$index}},placeholder:true,animate:false}">
+                            <span class="drag-text"><h1>{{dragDrop.selectedItems[$index].title}}</h1></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="drag-container">
+                <!-- FOR DRAG ITEMS -->
+                <div class="top flex-container-multiple-rows drag-items">
+                    <div ng-repeat="item in dragDrop.dragItems track by $index" class="square bgd-drag-square flex-container" data-drop="true" ng-model='dragDrop.dragItems' jqyoui-droppable="{index: {{$index}}}">
+                        <div class="btn-draggable" data-drag="{{item.drag}}"
+                             data-jqyoui-options="{revert: 'invalid'}" ng-model="dragDrop.dragItems"
+                             jqyoui-draggable="{index: {{$index}},placeholder:true,animate:false, onStart:'dragDrop.startCallback(item, $index)', onStop: 'dragDrop.stopCallback', onDrag: 'dragDrop.dragCallback'}"
+                             ng-hide="!item.title">
+                            <span class="drag-text">
+                                <h1>{{item.title}}</h1>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--THE CONTROLS-->
+    <div ng-if="true" class="row controls-row flex-container">
+        <form class="flex-container-all-row" style="padding-top: 1%">
+            <!--CHECK-->
+            <button class="button button-balanced control-button" type="submit" ng-click="master.check()"
+                    ng-disabled="!master.complete || master.checked">Check
+            </button>
+            <!--CLEAR-->
+            <button class="button button-balanced control-button" type="submit" ng-click="master.clear()"
+                    ng-disabled="!master.selected > 0">Clear
+            </button>
+            <!--HINT-->
+            <button class="button button-balanced control-button hint" type="submit"
+                    ng-click="master.hint =! master.hint">Hint
+            </button>
+        </form>
+    </div>
+</div>
+

@@ -1,0 +1,71 @@
+/*
+ columns
+ */
+/*
+ utility functions to get settings
+ */
+/*
+ functions which set class properties dynamically
+*/
+/* Drag container */
+/* Center both horizontal and vertical */
+.flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Center horizontal only */
+.flex-container-horizontal {
+  display: flex;
+  justify-content: center;
+}
+
+/* multiple - rows */
+.flex-container-multiple-rows {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* You can set flex-wrap and flex-direction individually */
+  flex-direction: row;
+  flex-wrap: wrap;
+  /* Or do it all in one line with flex flow */
+  flex-flow: row wrap;
+  /* tweak the where items line up on the row */
+  /* valid values are: flex-start, flex-end, space-between, space-around, stretch */
+  align-content: space-around;
+}
+
+/* Centers all in a row */
+.flex-container-all-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Centers all in a column */
+.flex-container-all-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.center-text {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.pink {
+  background-color: #ff77ff;
+}
+
+.yellow {
+  background-color: #FFFF00;
+}
+
+.blue {
+  background-color: #2222DD;
+}

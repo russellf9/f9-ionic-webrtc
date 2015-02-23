@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>Magic Squares OK </title>
+
+    <!--I think I need this one-->
+    <!--<link href="lib/ionic/css/ionic.css" rel="stylesheet">-->
+
+    <!--these will replaced by the Sass task-->
+    <!--<link href="css/style.css" rel="stylesheet">-->
+    <!--<link href="css/game.css" rel="stylesheet">-->
+
+    <link rel="stylesheet" href="../bower_components/jquery-ui/themes/ui-lightness/jquery-ui.css"/>
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above -->
+    <link href="css/ionic.app.css" rel="stylesheet">
+    <!--<link href="css/style.css" rel="stylesheet">-->
+
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
+    <script src="../bower_components/jquery-ui/jquery-ui.js"></script>
+    <script src="../bower_components/jqueryui-touch-punch/jquery.ui.touch-punch.js"></script>
+
+
+    <!-- ionic/angularjs js -->
+    <script src="../bower_components/ionic/js/ionic.bundle.js"></script>
+    <script src="../bower_components/angular-touch/angular-touch.js"></script>
+    <script src="../bower_components/angular-animate/angular-animate.js"></script>
+    <script src="../bower_components/angular-dragdrop/src/angular-dragdrop.js"></script>
+    <script src="../bower_components/lodash/lodash.js"></script>
+    <script src="../bower_components/angular-filter/dist/angular-filter.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+
+    <!-- your app's js -->
+    <!-- build:js scripts/app.js -->
+    <script src="js/app.js"></script>
+    <script src="js/lodash.svc.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/services.js"></script>
+    <script src="js/game/master.ctrl.js"></script>
+    <script src="js/game/model.svc.js"></script>
+    <script src="js/game/dragDrop.ctrl.js"></script>
+    <script src="js/game/indicator.ctrl.js"></script>
+    <script src="js/game/instructions.ctrl.js"></script>
+    <script src="js/game/text.svc.js"></script>
+    <!-- endbuild -->
+
+
+</head>
+<body ng-app="magicsquares">
+<ui-view class="full"></ui-view>
+</body>
+</html>
