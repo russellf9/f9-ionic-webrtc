@@ -1,6 +1,8 @@
 node_modules/
 platforms/
 plugins/
+magic-squares/www/lib/
+magic-squares/www/lib
 www/lib/
 www/css/
 .DS_Store

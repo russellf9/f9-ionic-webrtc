@@ -1,6 +1,6 @@
 {
   "name": "magic-squares",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "magic-squares: An Ionic project",
   "dependencies": {
     "gulp": "^3.5.6",
