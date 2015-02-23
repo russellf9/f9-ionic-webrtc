@@ -4,6 +4,7 @@ var  _ = require('lodash'),
     config = require('../../config'),
     template = require('gulp-template'),
     gulpIf = require('gulp-if'),
+    path = require('path'),
     concat = require('gulp-concat'),
     uglify = require('gulp-uglify'),
     rename = require('gulp-rename'),
@@ -18,6 +19,11 @@ var  _ = require('lodash'),
 
 // performs all required operations to distribute the js files
 gulp.task('scripts', function() {
+
+    var build = false,
+        targetDir = path.resolve(build ? 'www' : '.tmp');
+
+
     return gulp.src(config.scripts.testSrc)
         //.pipe(template({pkg: pkg}))
         .pipe(concat(config.scripts.name))
@@ -26,11 +32,11 @@ gulp.task('scripts', function() {
         .pipe(header(config.build.closureStart))
         .pipe(footer(config.build.closureEnd))
         .pipe(header(config.build.banner))
-        .pipe(gulp.dest(config.scripts.dist + '/js'))
+        .pipe(gulp.dest(targetDir + '/js'))
         .pipe(gulpIf(config.scripts.IS_RELEASE_BUILD, uglify()))
         .pipe(rename({ extname: '.min.js' }))
         .pipe(header(config.build.banner))
-        .pipe(gulp.dest(config.scripts.dist + '/js'));
+        .pipe(gulp.dest(targetDir + '/js'));
 });
 
 // NOTE - this simple text works, but not the `template` doesn't work above :-(

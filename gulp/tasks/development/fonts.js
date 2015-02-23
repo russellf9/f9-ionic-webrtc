@@ -1,9 +1,16 @@
 var gulp = require('gulp'),
-    path = require('path');
+    path = require('path'),
+    args = require('yargs')
+        .alias('e', 'emulate')
+        .alias('b', 'build')
+        .alias('r', 'run')
+        .default('build', false)
+        .default('port', 9000)
+        .argv;
 
 gulp.task('fonts', function(cb) {
 
-    var build = false,
+    var build = args.build || args.emulate || args.run,
         targetDir = path.resolve(build ? 'www' : '.tmp');
 
     gulp.src(['app/fonts/*.*', 'bower_components/ionic/fonts/*.*'])
