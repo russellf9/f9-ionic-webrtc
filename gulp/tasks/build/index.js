@@ -12,32 +12,33 @@ var gulp        = require('gulp'),
         .default('port', 9000)
         .argv;
 
-// injects js and cs files into the source html file
+// injects the path of the js and cs files into the `target` html file
 gulp.task('index', function(cb) {
-
-
+    
     var build = args.build || args.emulate || args.run,
-        targetDir = path.resolve(build ? 'www' : '.tmp'),
+        // define the src and target
         src = './app/index.html',
-        files = build ? ['./www/js/**/*.js', './app/css/ionic.app.css'] : ['./app/js/**/*.js', './app/css/ionic.app.css'],
-        sources = gulp.src(files);
+        targetDir = path.resolve(build ? 'www' : '.tmp'),
 
-    /// see: https://cameronspear.com/blog/streams-in-wiredep/
-    // the vendor has already been made ( TODO )
-    var vendorStream = gulp.src(['./.tmp/vendor.js']);
+        // define the path for each build
+        cssPath = path.resolve(build ? 'www/styles/main.css' : '.tmp/styles/main.css'),
+        vendorPath = path.resolve(build ? 'www/js/vendor.js' : '.tmp/js/vendor.js'),
+        appPath = path.resolve(build ? 'www/js/app.js' : '.tmp/js/app.js'),
 
-    var appStream = gulp.src(['./app/js/**/*.js']);
+        // define the stream for each build
+        cssStream = gulp.src([cssPath], {read: false}),
+        vendorStream = gulp.src([vendorPath], {read: false}),
+        appStream = gulp.src([appPath], {read: false}),
 
-
-    // './app/css/ionic.app.css'
-///Users/russellwenban/localhosts/www.factornine.co.uk/development/magic-squares-mobile/.tmp/styles/main.css
+        // define options to pass to the `inject` task
+        options =  {ignorePath: '.tmp', addRootSlash: false},
+        vendorOptions = {ignorePath: '.tmp', addRootSlash: false, starttag: '<!-- inject:head:{{ext}} -->'};
 
     gulp.src(src)
-        //.pipe(inject( appStream))
-        .pipe(inject(gulp.src(['.tmp/styles/main.css'], {read: false}), {ignorePath: '.tmp', addRootSlash: false} ))
-        .pipe(inject(gulp.src(['.tmp/js/vendor.js'], {read: false}),  {ignorePath: '.tmp', addRootSlash: false, starttag: '<!-- inject:head:{{ext}} -->'}))
-        .pipe(inject(gulp.src(['.tmp/js/app.js'], {read: false}), {ignorePath: '.tmp', addRootSlash: false}))
-        .pipe( print() )
+        .pipe(inject(cssStream, options))
+        .pipe(inject(vendorStream, vendorOptions))
+        .pipe(inject(appStream, options))
+        .pipe(print())
         .pipe(gulp.dest(targetDir))
         .on('error', errorHandler);
     cb()
