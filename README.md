@@ -106,9 +106,30 @@ runs in:
 
 [http://localhost:8100](http://localhost:8100/#/)
 
+### Gulp Commands
+
+I've added a new set of commands based from [ionic-gulp-seed(https://github.com/tmaximini/ionic-gulp-seed).
+
+I've separated the `dev` and `build` modes.
+
+**dev**
+ * Runs from the .tmp folder
+ * Files are not minified
+
+**build**
+ * Runs from the .www folder
+ * Files are minified and concatenated.
 
 
-### Ionic CLI cmds
+```
+# dev
+
+$ gulp build
+$ gulp serve
+
+```
+
+### Ionic CLI Commands
 
 ```
 $ ionic platform add ios

@@ -1,5 +1,6 @@
 var gulp        = require('gulp'),
     config      = require('../../config'),
+    runSequence = require('run-sequence');
 
 /**
  * Parse arguments
@@ -18,9 +19,19 @@ var emulate = args.emulate;
 var run = args.run;
 var port = args.port;
 
-console.log('arg - build: ', build);
-console.log('arg - port: ', port);
+console.log('build - arg - build: ', build);
+console.log('build - arg - port: ', port);
 
 
 // Run all tasks needed for a build
-gulp.task('build', ['clean', 'distribute', 'fonts']);
+// 'clean' first, 'distribute', 'fonts' in parallel
+// and 'scripts` last
+// note: - Using [run-sequence](https://www.npmjs.com/package/run-sequence)
+// a temporary solution!
+
+gulp.task('build', function(cb) {
+    runSequence('clean',
+        ['distribute', 'fonts'],
+        'scripts',
+        cb);
+});

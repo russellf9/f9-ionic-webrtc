@@ -4,14 +4,21 @@ var gulp = require('gulp'),
     path = require('path'),
     connectLr = require('connect-livereload'),
     open = require('open'),
-    connect = require('gulp-connect');
+    connect = require('gulp-connect'),
+    args = require('yargs')
+        .alias('e', 'emulate')
+        .alias('b', 'build')
+        .alias('r', 'run')
+        .default('build', false)
+        .default('port', 9000)
+        .argv;
 
 // NOTE - HAVE TO BUILD FIRST!
 
 // start local express server
 gulp.task('serve', function() {
 
-    var build = false,
+    var build = args.build || args.emulate || args.run,
         port = 9000,
 
         targetDir = path.resolve(build ? 'www' : '.tmp');

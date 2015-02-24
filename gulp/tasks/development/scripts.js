@@ -12,31 +12,49 @@ var  _ = require('lodash'),
     stripDebug = require('gulp-strip-debug'),
     header = require('gulp-header'),
     footer = require('gulp-footer'),
-    gutil = require('gulp-util');
+    gutil = require('gulp-util'),
+    args = require('yargs')
+        .alias('e', 'emulate')
+        .alias('b', 'build')
+        .alias('r', 'run')
+        .default('build', false)
+        .default('port', 9000)
+        .argv;
 
 // TODO  need to work out how to use the `minimist` plug-in ( so we can pass arguments on the CLI )
 // TODO need to get the `template` module to work
 
 // performs all required operations to distribute the js files
-gulp.task('scripts', function() {
+gulp.task('scripts', function(cb) {
 
-    var build = false,
-        targetDir = path.resolve(build ? 'www' : '.tmp');
+    var build = args.build || args.emulate || args.run,
+
+        //targetSrc = path.resolve(build ? './www/scripts/**/*.js' : './.tmp/scripts/**/*.js' ),
+        // just use the actual app js files
+        targetSrc = './app/js/**/*.js';
 
 
-    return gulp.src(config.scripts.testSrc)
+        targetDir = path.resolve(build ? './www/' : './.tmp/' );
+
+
+    // ./.tmp/scripts/**/*.js
+    // ./www/scripts/**/*.js
+
+
+    return gulp.src(targetSrc)
         //.pipe(template({pkg: pkg}))
-        .pipe(concat(config.scripts.name))
+        .pipe(gulpIf(build, concat(config.scripts.name)))
         // task is really slow :-(
         //.pipe(gulpIf(config.scripts.IS_RELEASE_BUILD, stripDebug()))
         .pipe(header(config.build.closureStart))
         .pipe(footer(config.build.closureEnd))
         .pipe(header(config.build.banner))
         .pipe(gulp.dest(targetDir + '/js'))
-        .pipe(gulpIf(config.scripts.IS_RELEASE_BUILD, uglify()))
+        .pipe(gulpIf(build, uglify()))
         .pipe(rename({ extname: '.min.js' }))
         .pipe(header(config.build.banner))
         .pipe(gulp.dest(targetDir + '/js'));
+    cb();
 });
 
 // NOTE - this simple text works, but not the `template` doesn't work above :-(

@@ -14,16 +14,18 @@ var gulp        = require('gulp'),
         .default('port', 9000)
         .argv;
 
-gulp.task('distribute', function(cb) {
+gulp.task('distribute', ['clean'], function(cb) {
 
     var build = args.build || args.emulate || args.run;
 
-    console.log('arg - build: ', build);
+    console.log('distribute arg - build: ', build);
 
     var assets = useref.assets(),
-        targetDir = path.resolve(build ? 'www' : '.tmp');
+        targetDir = path.resolve(build ? 'www' : '.tmp'),
 
-    return gulp.src(config.scripts.html)
+        src = './app/index.html';
+
+    return gulp.src(src)
         .pipe(assets)
         .pipe(assets.restore())
         .pipe(useref())

@@ -11,10 +11,14 @@ var gulp = require('gulp'),
 gulp.task('fonts', function(cb) {
 
     var build = args.build || args.emulate || args.run,
-        targetDir = path.resolve(build ? 'www' : '.tmp');
+        targetDir = path.resolve(build ? 'www' : '.tmp'),
+        fontDir = targetDir +'/fonts';
+
+    console.log('fonts - build? ',build);
+    // was path.join(targetDir, 'fonts'))
 
     gulp.src(['app/fonts/*.*', 'bower_components/ionic/fonts/*.*'])
-        .pipe(gulp.dest(path.join(targetDir, 'fonts')))
+        .pipe(gulp.dest(fontDir))
         .on('error', errorHandler);
     cb()
 });
