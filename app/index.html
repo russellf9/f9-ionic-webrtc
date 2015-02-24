@@ -5,25 +5,24 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <title>Magic Squares Gulp Me!</title>
 
-    <!-- build:css css/vendor.css -->
-    <!-- endbuild -->
-
-
     <!-- inject:css -->
     <!-- endinject -->
 
-
-
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
-
-    <!-- inject:js -->
+    <!-- inject:head:js -->
+    <!-- only importantFile.js will be injected here -->
     <!-- endinject -->
+
+
 
 
 
 </head>
 <body ng-app="magicsquares">
 <ui-view class="full"></ui-view>
+<!-- inject:js -->
+<!-- endinject -->
+
 </body>
 </html>

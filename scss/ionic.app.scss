@@ -19,9 +19,9 @@ $dark:                            #444 !default;
 $ionicons-font-path: "../www/lib/ionic/fonts" !default;
 
 // Include all of Ionic
-@import "../www/lib/ionic/scss/ionic";
+@import "../bower_components/ionic/scss/ionic";
 
-@import "../www/lib/include-media/dist/include-media";
+@import "../bower_components/include-media/dist/include-media";
 
 // Import all the modules
 @import "./fonts/fredoka";
