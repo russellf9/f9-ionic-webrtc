@@ -12,9 +12,9 @@ var gulp        = require('gulp'),
         .default('port', 9000)
         .argv;
 
-// injects the path of the js and cs files into the `target` html file
+// injects the path of the js and css files into the `target` html file
 gulp.task('index', function(cb) {
-    
+
     var build = args.build || args.emulate || args.run,
         // define the src and target
         src = './app/index.html',
@@ -23,7 +23,7 @@ gulp.task('index', function(cb) {
         // define the path for each build
         cssPath = path.resolve(build ? 'www/styles/main.css' : '.tmp/styles/main.css'),
         vendorPath = path.resolve(build ? 'www/js/vendor.js' : '.tmp/js/vendor.js'),
-        appPath = path.resolve(build ? 'www/js/app.js' : '.tmp/js/app.js'),
+        appPath = path.resolve(build ? 'www/js/app.min.js' : '.tmp/js/app.js'),
 
         // define the stream for each build
         cssStream = gulp.src([cssPath], {read: false}),
@@ -31,8 +31,12 @@ gulp.task('index', function(cb) {
         appStream = gulp.src([appPath], {read: false}),
 
         // define options to pass to the `inject` task
-        options =  {ignorePath: '.tmp', addRootSlash: false},
-        vendorOptions = {ignorePath: '.tmp', addRootSlash: false, starttag: '<!-- inject:head:{{ext}} -->'};
+        options =  {addRootSlash: false},
+        vendorOptions = {addRootSlash: false, starttag: '<!-- inject:head:{{ext}} -->'};
+
+        // ignore the root path according to which build
+        options.ignorePath = build ? 'www': '.tmp';
+        vendorOptions.ignorePath = build ? 'www': '.tmp';
 
     gulp.src(src)
         .pipe(inject(cssStream, options))
@@ -49,15 +53,3 @@ function errorHandler(error) {
     console.log('Gulp index Error: ',error.toString());
     this.emit('end');
 }
-
-
-/**
- .pipe(inject(gulp.src('./app/css/ionic.app.css', {ignorePath: 'app/', addRootSlash: false}, {read: false})))
- .pipe(inject(gulp.src(['./app/js/app.js'], {read: false}), {ignorePath: 'app/', addRootSlash: false}, {starttag: '<!-- inject:head:{{ext}} -->'}))
- .pipe(inject(gulp.src(['./app/js/**/
-
-//*.js', '!./app/js/app.js'], {ignorePath: 'app/', addRootSlash: false}, {read: false})))
-// {ignorePath: 'app/', addRootSlash: false}
-// {read: false},
-
-//  <link rel="stylesheet" href="styles/main.css">
