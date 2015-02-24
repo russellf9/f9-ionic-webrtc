@@ -31,27 +31,21 @@ gulp.task('scripts', function(cb) {
 
         //targetSrc = path.resolve(build ? './www/scripts/**/*.js' : './.tmp/scripts/**/*.js' ),
         // just use the actual app js files
-        targetSrc = './app/js/**/*.js';
-
-
+        targetSrc = './app/js/**/*.js',
         targetDir = path.resolve(build ? './www/' : './.tmp/' );
-
-
-    // ./.tmp/scripts/**/*.js
-    // ./www/scripts/**/*.js
 
 
     return gulp.src(targetSrc)
         //.pipe(template({pkg: pkg}))
-        .pipe(gulpIf(build, concat(config.scripts.name)))
+        .pipe(concat(config.scripts.name))
         // task is really slow :-(
-        //.pipe(gulpIf(config.scripts.IS_RELEASE_BUILD, stripDebug()))
+        .pipe(gulpIf(build, stripDebug()))
         .pipe(header(config.build.closureStart))
         .pipe(footer(config.build.closureEnd))
         .pipe(header(config.build.banner))
+        .pipe(gulpIf(build, rename({ extname: '.min.js' })))
         .pipe(gulp.dest(targetDir + '/js'))
         .pipe(gulpIf(build, uglify()))
-        .pipe(rename({ extname: '.min.js' }))
         .pipe(header(config.build.banner))
         .pipe(gulp.dest(targetDir + '/js'));
     cb();

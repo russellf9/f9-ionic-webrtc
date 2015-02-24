@@ -43,9 +43,7 @@ gulp.task('vendor', function(cb) {
         .pipe(concat('vendor.js'))
         .pipe(gulpIf(build, uglify())
         //.pipe(gulpIf(build, plugins.rev())) // could do this
-
-        .pipe(gulp.dest(targetDir + '/test'))
-
+        .pipe(gulp.dest(path.join(targetDir, 'js')))
         .on('error', errorHandler));
     cb();
 });

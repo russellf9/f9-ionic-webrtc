@@ -31,7 +31,6 @@ console.log('build - arg - port: ', port);
 
 gulp.task('build', function(cb) {
     runSequence('clean',
-        ['distribute', 'fonts'],
-        'scripts',
+        ['scripts', 'vendor', 'fonts'],
         cb);
 });
