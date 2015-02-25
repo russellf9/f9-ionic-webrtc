@@ -35,3 +35,13 @@ function errorHandler(error) {
     console.log('Gulp Styles Error: ', error.toString());
     this.emit('end');
 }
+/**
+TODO;
+
+add notify
+    .pipe(notify({
+        title: 'SASS',
+        message: 'SASS completed.  New CSS created!',
+        sound: 'Pop'
+    }));
+ */
