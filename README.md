@@ -108,9 +108,11 @@ runs in:
 
 ### Gulp Commands
 
-I've added a new set of commands based from [ionic-gulp-seed(https://github.com/tmaximini/ionic-gulp-seed).
+I've spent considerable effort making the gulp tasks as modular as possible. Each task is within its own file and I'm using [require-dir](https://www.npmjs.com/package/require-dir) to keep the tasks DRY.
 
-I've separated the `dev` and `build` modes.
+I've added a new set of commands based from [ionic-gulp-seed](https://github.com/tmaximini/ionic-gulp-seed).
+
+In the original Ionic app, source files were located in the _www_ folder. I've separated the `dev` and `build` modes, so that the source files are within an _app_ folder. Gulp tasks have been set up to either test with a _.tmp_ location or distribute from the _www_ location.
 
 **dev**
  * Runs from the .tmp folder
@@ -123,9 +125,33 @@ I've separated the `dev` and `build` modes.
 
 ```
 # dev
-
 $ gulp build
 $ gulp serve
+```
+
+```
+# build
+$ gulp --build
+$ gulp --serve
+```
+
+Also, I've added a couple of utilities.
+
+[gulp-bump](https://www.npmjs.com/package/gulp-bump), which increments the version numbers in the _package.json_ and _bower.json_., using the MAJOR.MINOR.PATCH, [semantic versioning](http://semver.org).
+
+```
+# implements a semantic 'patch' increment
+$ gulp bump-patch
+
+# implements semantic a 'minor' increment
+$ gulp bump-minor
+
+# implements a semantic 'major' increment
+$ gulp bump-major
+
+
+# creates a new git branch in the format 'dev-{YYMMDD}' from the current date
+$ gulp branch
 
 ```
 
@@ -185,7 +211,7 @@ Relevant links:
 
 ### iPad orientation
 
-I've done a quick test on the ipad and the app isn't fitting into the full width in portrait mode. Might be something to do wuth the width (vw) %
+I've done a quick test on the ipad and the app isn't fitting into the full width in portrait mode. Might be something to do with the width (vw) %
 
 Perhaps using `vh` and 'vw` is problamatic see: [VH and VW units](https://gist.github.com/pburtchaell/e702f441ba9b3f76f587)
 
