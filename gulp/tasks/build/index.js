@@ -1,21 +1,15 @@
 var gulp        = require('gulp'),
     config      = require('../../config'),
-    path        = require('path'),
-    inject      = require('gulp-inject'),
-    print = require('gulp-print'),
-    gutil = require('gulp-util'),
-    args = require('yargs')
-        .alias('e', 'emulate')
-        .alias('b', 'build')
-        .alias('r', 'run')
-        .default('build', false)
-        .default('port', 9000)
-        .argv;
+    path        = require('path');
 
 // injects the path of the js and css files into the `target` html file
 gulp.task('index', function(cb) {
 
-    var build = args.build || args.emulate || args.run,
+    //plugins.log('stuff happened', 'Really it did', plugins.colors.magenta('123'));
+    //gutil.log('plugins: ',plugins);
+    gulp.plugins.util.log('Index - I`m working! build: ', gulp.plugins.colors.magenta(gulp.args.build));
+
+    var build = gulp.args.build || gulp.args.emulate || gulp.args.run,
         // define the src and target
         src = './app/index.html',
         targetDir = path.resolve(build ? 'www' : '.tmp'),
@@ -39,10 +33,10 @@ gulp.task('index', function(cb) {
         vendorOptions.ignorePath = build ? 'www': '.tmp';
 
     gulp.src(src)
-        .pipe(inject(cssStream, options))
-        .pipe(inject(vendorStream, vendorOptions))
-        .pipe(inject(appStream, options))
-        .pipe(print())
+        .pipe(gulp.plugins.inject(cssStream, options))
+        .pipe(gulp.plugins.inject(vendorStream, vendorOptions))
+        .pipe(gulp.plugins.inject(appStream, options))
+        .pipe(gulp.plugins.print())
         .pipe(gulp.dest(targetDir))
         .on('error', errorHandler);
     cb()
