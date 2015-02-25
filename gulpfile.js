@@ -24,4 +24,7 @@ gulp.plugins = plugins;
 // assign the args to the `cached response`
 gulp.args = args;
 
+//
+gulp.vendorFiles = require('./vendor.json');
+
 
