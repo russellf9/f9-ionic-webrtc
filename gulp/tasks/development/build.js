@@ -11,6 +11,6 @@ var gulp        = require('gulp'),
 gulp.task('build', function(cb) {
     runSequence('clean',
         ['scripts', 'vendor', 'styles', 'fonts'],
-        'index',
+        'index', 'partials',
         cb);
 });

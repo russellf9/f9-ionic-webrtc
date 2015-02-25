@@ -7,7 +7,7 @@ gulp.task('index', function(cb) {
 
     //plugins.log('stuff happened', 'Really it did', plugins.colors.magenta('123'));
     //gutil.log('plugins: ',plugins);
-    gulp.plugins.util.log('Index - I`m working! build: ', gulp.plugins.colors.magenta(gulp.args.build));
+    gulp.plugins.util.log('Index - I`m working! build: ', gulp.args.build);
 
     var build = gulp.args.build || gulp.args.emulate || gulp.args.run,
         // define the src and target
