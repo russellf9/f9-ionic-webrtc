@@ -1,41 +1,27 @@
-var gulp        = require('gulp'),
+var gulp = require('gulp'),
     plugins = require('gulp-load-plugins')(),
-    config      = require('../../config'),
-    template = require('gulp-template'),
-    gulpIf = require('gulp-if'),
+    config = require('../../config'),
     path = require('path'),
-    concat = require('gulp-concat'),
-    uglify = require('gulp-uglify'),
-    streamqueue = require('streamqueue'),
+    streamqueue = require('streamqueue');
 
-    args = require('yargs')
-        .alias('e', 'emulate')
-        .alias('b', 'build')
-        .alias('r', 'run')
-        .default('build', false)
-        .default('port', 9000)
-        .argv;
-
-//
+// performs operations to distribute the css files
 gulp.task('styles', function(cb) {
 
-    var build = args.build || args.emulate || args.run,
+    var build = gulp.args.build || gulp.args.emulate || gulp.args.run,
+        options = config.sass.options;
 
-        sassConfig = config.sass.options;
+    options.style = build ? 'compressed' : 'expanded';
 
-    var options = build ?
-    { style: 'compressed' } :
-    { style: 'expanded' };
-
-    var sassStream = plugins.rubySass(config.sass.rubySrc, options)
-        .pipe(plugins.autoprefixer(config.sass.autoprefixer));
-
-    var cssStream = gulp
-        .src('./bower_components/ionic/css/ionic.min.css'),
+    var cssPaths = ['./bower_components/ionic/css/ionic.min.css',
+            './bower_components/jquery-ui/themes/ui-lightness/jquery-ui.css'],
+        sassStream = gulp.plugins.rubySass(config.sass.rubySrc, options)
+            .pipe(gulp.plugins.autoprefixer(config.sass.autoprefixer))
+            .on('error', errorHandler),
+        cssStream = gulp.src(cssPaths),
         targetDir = path.resolve(build ? './www' : './.tmp');
 
-    return streamqueue({ objectMode: true }, cssStream, sassStream)
-        .pipe(concat('main.css'))
+    return streamqueue({objectMode: true}, cssStream, sassStream)
+        .pipe(gulp.plugins.concat('main.css'))
         //.pipe(plugins.if(build, plugins.stripCssComments()))
         //.pipe(plugins.if(build, plugins.rev()))
         .pipe(gulp.dest(path.join(targetDir, 'styles')))
@@ -46,6 +32,6 @@ gulp.task('styles', function(cb) {
 
 // Handle errors
 function errorHandler(error) {
-    console.log('Gulp Styles Error: ',error.toString());
+    console.log('Gulp Styles Error: ', error.toString());
     this.emit('end');
 }

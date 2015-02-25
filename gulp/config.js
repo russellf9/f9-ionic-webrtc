@@ -1,14 +1,14 @@
-var src               = '/www';
-var build             = 'build';
-var development       = 'build/development';
-var production        = 'build/production';
-var srcAssets         = 'app/_assets';
+var src = '/www';
+var build = 'build';
+var development = 'build/development';
+var production = 'build/production';
+var srcAssets = 'app/_assets';
 var developmentAssets = 'build/assets';
-var productionAssets  = 'build/production/assets';
+var productionAssets = 'build/production/assets';
 
 
 var paths = {
-  sass: ['./scss/**/*.scss']
+    sass: ['./scss/**/*.scss']
 };
 
 var pkg = {
@@ -19,22 +19,25 @@ module.exports = {
     pkg: {
         version: '0.0.1'
     },
-    json : {
+    json: {
         package: './package.json',
         bower: './bower.json'
     },
     sass: {
-        IS_WATCH : false,
+        IS_WATCH: false,
         src: './scss/**/*.{scss, sass}',
-        rubySrc:  './scss/',
+        rubySrc: './scss/',
         rubyDest: './app/css/',
         dest: './app/css/ionic.css',
         options: {
             noCache: true,
             compass: false,
-            bundleExec: true,
+            bundleExec: false,
             sourcemap: true,
-            sourcemapPath: '../../scss'
+            // sourcemapPath: '../../scss',
+            sourcemapPath: '.'
+            //// sourcemapPath: './scss/scss',
+            // sourcemapPath: '../scss'
         },
         autoprefixer: {
             browsers: [
@@ -59,19 +62,18 @@ module.exports = {
         IS_RELEASE_BUILD: true
     },
     build: {
-        banner:
-            '/*!\n' +
-            ' * Copyright 2015 Factornine Ltd.\n' +
-            ' * http://www.factornine.co.uk/\n' +
-            ' *\n' +
-            ' * Magic Squares Mobile, v+ ' + pkg.version +'\n' +
-            ' * A HTML5 Angular mobile game.\n' +
-            ' *\n' +
-            ' * By @russellf9 \n' +
-            ' *\n' +
-            ' * Licensed under the MIT license. Please see LICENSE for more information.\n'+
-            ' *\n' +
-            ' */\n\n',
+        banner: '/*!\n' +
+        ' * Copyright 2015 Factornine Ltd.\n' +
+        ' * http://www.factornine.co.uk/\n' +
+        ' *\n' +
+        ' * Magic Squares Mobile, v+ ' + pkg.version + '\n' +
+        ' * A HTML5 Angular mobile game.\n' +
+        ' *\n' +
+        ' * By @russellf9 \n' +
+        ' *\n' +
+        ' * Licensed under the MIT license. Please see LICENSE for more information.\n' +
+        ' *\n' +
+        ' */\n\n',
         closureStart: '(function() {\n',
         closureEnd: '\n})();',
         dist: './dist',
