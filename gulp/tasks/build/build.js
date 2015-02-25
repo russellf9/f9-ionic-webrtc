@@ -10,8 +10,13 @@ var gulp        = require('gulp'),
 // a temporary solution!
 
 gulp.task('build', function(cb) {
+
+    var build = gulp.args.build || gulp.args.emulate || gulp.args.run;
+
+
     runSequence('clean',
-        ['scripts', 'vendor', 'styles', 'fonts'],
+        ['jsHint', 'scripts', 'vendor', 'styles', 'fonts'],
         'index', 'partials',
+        build ? 'noop' : 'watchers',
         cb);
 });

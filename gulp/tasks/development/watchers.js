@@ -1,10 +1,28 @@
 var gulp = require('gulp'),
-    config = require('../../config');
+    config = require('../../config'),
+    livereload = require('connect-livereload');
+
+gulp.task('watchers', function() {
+
+    gulp.plugins.util.log('watchers! ');
+
+    //TODO
+    //livereload.listen();
+
+    gulp.watch(config.paths.sass, ['styles']);
+    // TODO not working...
+    gulp.watch(config.paths.fonts, ['fonts']);
+
+    // TODO
+    // gulp.watch('app/icons/**', ['iconfont']);
+
+    // TODO
+    // gulp.watch('app/images/**', ['images'])
 
 
-config.sass.IS_WATCH = false;
+    gulp.watch(config.paths.scripts, ['jsHint', 'scripts', 'index']);
 
-gulp.task('watch', function() {
-    config.sass.IS_WATCH = true;
-    gulp.watch(config.sass.src, ['sass']);
+
+
 });
+

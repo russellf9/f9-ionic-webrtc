@@ -1,4 +1,5 @@
 var src = '/www';
+var app = './app'
 var build = 'build';
 var development = 'build/development';
 var production = 'build/production';
@@ -18,6 +19,11 @@ var pkg = {
 module.exports = {
     pkg: {
         version: '0.0.1'
+    },
+    paths: {
+        sass: './scss/**/*.{scss, sass}',
+        fonts: './app/fonts/**',
+        scripts: './app/js/**/*.js'
     },
     json: {
         package: './package.json',

@@ -39,13 +39,13 @@ gulp.task('scripts', function(cb) {
         //.pipe(template({pkg: pkg}))
         .pipe(concat(config.scripts.name))
         // task is really slow :-(
-        .pipe(gulpIf(build, stripDebug()))
+       // .pipe(gulpIf(build, stripDebug()))
         .pipe(header(config.build.closureStart))
         .pipe(footer(config.build.closureEnd))
         .pipe(header(config.build.banner))
         .pipe(gulpIf(build, rename({ extname: '.min.js' })))
         .pipe(gulp.dest(targetDir + '/js'))
-        .pipe(gulpIf(build, uglify()))
+        //.pipe(gulpIf(build, uglify()))
         .pipe(header(config.build.banner))
         .pipe(gulp.dest(targetDir + '/js'));
     cb();

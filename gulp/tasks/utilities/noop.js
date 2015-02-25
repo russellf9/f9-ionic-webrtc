@@ -1,3 +1,4 @@
-/**
- * Created by russellwenban on 25/02/2015.
- */
+var gulp = require('gulp');
+
+// no-op = empty function
+gulp.task('noop', function() {});
