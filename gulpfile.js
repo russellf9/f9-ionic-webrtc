@@ -28,3 +28,12 @@ gulp.args = args;
 gulp.vendorFiles = require('./vendor.json');
 
 
+// error handler
+gulp.errorHandler = function(task, error) {
+    gulp.plugins.util.log('Gulp - ', task, ' - error: ', error);
+};
+
+
+
+
+

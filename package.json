@@ -60,7 +60,8 @@
     "event-stream": "~3.2.2",
     "through": "~2.3.6",
     "gulp-print": "~1.1.0",
-    "gulp-jshint": "~1.9.2"
+    "gulp-jshint": "~1.9.2",
+    "gulp-livereload": "~3.8.0"
   },
   "cordovaPlugins": [
     "org.apache.cordova.statusbar"

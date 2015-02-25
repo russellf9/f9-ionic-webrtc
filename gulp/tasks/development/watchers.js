@@ -1,8 +1,12 @@
 var gulp = require('gulp'),
     config = require('../../config'),
+    path = require('path'),
     livereload = require('connect-livereload');
 
 gulp.task('watchers', function() {
+
+    var build = gulp.args.build || gulp.args.emulate || gulp.args.run,
+        targetDir = path.resolve(build ? 'www' : '.tmp');
 
     gulp.plugins.util.log('watchers! ');
 
@@ -25,6 +29,11 @@ gulp.task('watchers', function() {
     gulp.watch(config.paths.index, ['index']);
 
 
+    //gulp.watch(targetDir + '/**')
+    //    .on('change', gulp.plugins.livereload.changed)
+    //    .on('error', function(error) {
+    //        gulp.plugins.util.log(error);
+    //    });
 
 });
 
