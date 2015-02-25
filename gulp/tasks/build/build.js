@@ -1,10 +1,11 @@
 var gulp        = require('gulp'),
-    config      = require('../../config'),
     runSequence = require('run-sequence');
 
 // Run all tasks needed for a build
-// 'clean' first, 'distribute', 'fonts' in parallel
-// and 'scripts` last
+// the 'clean' task completes first,
+// then the 'distribute' tasks are run in parallel
+// lastly the html files are copied
+
 // note: - Using [run-sequence](https://www.npmjs.com/package/run-sequence)
 // a temporary solution!
 
