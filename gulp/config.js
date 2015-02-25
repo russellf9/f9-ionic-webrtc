@@ -31,11 +31,12 @@ module.exports = {
         dest: './app/css/ionic.css',
         options: {
             noCache: true,
-            compass: false,
-            bundleExec: false,
-            sourcemap: true,
+            compass: false
+            //,
+            //bundleExec: false,
+            //sourcemap: true,
             // sourcemapPath: '../../scss',
-            sourcemapPath: '.'
+            //sourcemapPath: '.'
             //// sourcemapPath: './scss/scss',
             // sourcemapPath: '../scss'
         },
