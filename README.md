@@ -69,7 +69,7 @@ I've just submitted the app to Apple for verification. I'll list my new objectiv
 9. Add a timer.
 
 
-## Original Cordova Installation
+### Original Cordova Installation
 
 (Update to Xcode 6 first!)
 
@@ -135,9 +135,11 @@ $ gulp --build
 $ gulp --serve
 ```
 
+**gulp utilities**
+
 Also, I've added a couple of utilities.
 
-[gulp-bump](https://www.npmjs.com/package/gulp-bump), which increments the version numbers in the _package.json_ and _bower.json_., using the MAJOR.MINOR.PATCH, [semantic versioning](http://semver.org).
+[gulp-bump](https://www.npmjs.com/package/gulp-bump), which increments the version numbers in the _package.json_ and _bower.json_., using **MAJOR.MINOR.PATCH**, [semantic versioning](http://semver.org).
 
 ```
 # implements a semantic 'patch' increment
