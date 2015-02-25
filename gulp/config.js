@@ -1,5 +1,5 @@
 var src = '/www';
-var app = './app'
+var app = './app';
 var build = 'build';
 var development = 'build/development';
 var production = 'build/production';
@@ -23,7 +23,10 @@ module.exports = {
     paths: {
         sass: './scss/**/*.{scss, sass}',
         fonts: './app/fonts/**',
-        scripts: './app/js/**/*.js'
+        scripts: './app/js/**/*.js',
+        vendor: './vendor.json',
+        partials: './app/partials/**/*.html',
+        index:      app + '/index.html'
     },
     json: {
         package: './package.json',

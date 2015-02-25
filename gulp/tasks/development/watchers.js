@@ -19,8 +19,10 @@ gulp.task('watchers', function() {
     // TODO
     // gulp.watch('app/images/**', ['images'])
 
-
     gulp.watch(config.paths.scripts, ['jsHint', 'scripts', 'index']);
+    gulp.watch(config.paths.vendor, ['vendor']);
+    gulp.watch(config.paths.partials, ['scripts', 'index']);
+    gulp.watch(config.paths.index, ['index']);
 
 
 

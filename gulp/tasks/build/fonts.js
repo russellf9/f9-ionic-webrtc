@@ -10,12 +10,7 @@ gulp.task('fonts', function(cb) {
 
     gulp.src(['app/fonts/*.*', 'bower_components/ionic/fonts/*.*'])
         .pipe(gulp.dest(fontDir))
-        .on('error', errorHandler)
-        .pipe(gulp.plugins.notify({
-            title: 'FONTS',
-            message: 'Fonts have been modified!',
-            sound: 'Pop'
-        }));
+        .on('error', errorHandler);
     cb()
 });
 
