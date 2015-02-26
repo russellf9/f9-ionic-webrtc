@@ -12,8 +12,6 @@ gulp.task('scripts', function(cb) {
         targetSrc = config.paths.scripts,
         targetDir = path.resolve(build ? './www/' : './.tmp/');
 
-
-    console.log('val: ', pkg.version);
     return gulp.src(targetSrc)
         .pipe(gulp.plugins.concat(config.scripts.name))
         .pipe(gulp.plugins.if(build, gulp.plugins.stripDebug()))
@@ -26,25 +24,6 @@ gulp.task('scripts', function(cb) {
     cb();
 });
 
-// NOTE - this simple text works, but not the `template` doesn't work above :-(
-gulp.task('test-template', function() {
-    return gulp.src('./src/greeting.html')
-        .pipe(gulp.plugins.template({pkg: pkg}))
-        .pipe(gulp.dest(config.scripts.dist));
-});
-
-// NOTE - this simple text works, but not the `template` doesn't work above :-(
-gulp.task('test-banner', function() {
-    return gulp.src('./src/greeting.html')
-        .pipe(gulp.plugins.header(config.build.banner, {pkg: pkg}))
-        .pipe(gulp.dest(config.scripts.dist));
-});
-
-gulp.task('test-banner', function() {
-    return gulp.src('./src/greeting.html')
-        .pipe(gulp.plugins.header(config.build.banner, {pkg: pkg}))
-        .pipe(gulp.dest(config.scripts.dist));
-});
 
 
 
