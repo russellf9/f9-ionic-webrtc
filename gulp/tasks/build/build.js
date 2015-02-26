@@ -15,7 +15,7 @@ gulp.task('build', function(cb) {
 
 
     runSequence('clean',
-        ['jsHint', 'scripts', 'vendor', 'styles', 'fonts'],
+        ['jsHint', 'scripts', 'vendor', 'styles', 'images', 'fonts'],
         'index', 'partials',
         build ? 'noop' : 'watchers',
         cb);

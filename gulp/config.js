@@ -21,12 +21,13 @@ module.exports = {
         version: '0.0.1'
      },
     paths: {
-        sass: './scss/**/*.{scss, sass}',
-        fonts: './app/fonts/**',
+        sass:       './scss/**/*.{scss, sass}',
+        fonts:      './app/fonts/**',
         scripts:    app + '/js/**/*.js',
         vendor:     './vendor.json',
-        partials: './app/partials/**/*.html',
-        index:      app + '/index.html'
+        partials:   './app/partials/**/*.html',
+        index:      app + '/index.html',
+        images:     app + '/img/**/*.*'
     },
     json: {
         package: './package.json',
