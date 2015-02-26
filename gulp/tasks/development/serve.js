@@ -3,7 +3,7 @@
  * Also,
  * @type {Gulp|exports}
  */
-    
+
 var gulp = require('gulp'),
     config = require('../../config'),
     path = require('path'),

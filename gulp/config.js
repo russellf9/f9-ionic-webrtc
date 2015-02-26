@@ -19,12 +19,12 @@ var pkg = {
 module.exports = {
     pkg: {
         version: '0.0.1'
-    },
+     },
     paths: {
         sass: './scss/**/*.{scss, sass}',
         fonts: './app/fonts/**',
-        scripts: './app/js/**/*.js',
-        vendor: './vendor.json',
+        scripts:    app + '/js/**/*.js',
+        vendor:     './vendor.json',
         partials: './app/partials/**/*.html',
         index:      app + '/index.html'
     },
