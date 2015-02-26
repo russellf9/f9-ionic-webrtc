@@ -124,15 +124,27 @@ In the original Ionic app, source files were located in the _www_ folder. I've s
 
 
 ```
-# dev
-$ gulp build
-$ gulp serve
+# dev runs the 'dev' build and starts the server
+$ gulp
+
 ```
 
 ```
 # build
 $ gulp --build
-$ gulp --serve
+# or
+$ gulp -b
+
+```
+
+**ionic**
+
+```
+# emulate ios
+$ gulp -emulate
+# or
+$ gulp -e
+
 ```
 
 **gulp utilities**
@@ -143,13 +155,13 @@ Also, I've added a couple of utilities.
 
 ```
 # implements a semantic 'patch' increment
-$ gulp bump-patch
+$ gulp version-patch
 
 # implements semantic a 'minor' increment
-$ gulp bump-minor
+$ gulp version-minor
 
 # implements a semantic 'major' increment
-$ gulp bump-major
+$ gulp version-major
 
 
 # creates a new git branch in the format 'dev-{YYMMDD}' from the current date
