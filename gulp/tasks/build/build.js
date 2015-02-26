@@ -11,12 +11,17 @@ var gulp        = require('gulp'),
 
 gulp.task('build', function(cb) {
 
-    var build = gulp.args.build || gulp.args.emulate || gulp.args.run;
+    console.log('args: ', gulp.args)
+
+    var build = gulp.args.build || gulp.args.emulate || gulp.args.run,
+        emulate = gulp.args.emulate;
 
 
     runSequence('clean',
         ['jsHint', 'scripts', 'vendor', 'styles', 'images', 'fonts'],
         'index', 'partials',
         build ? 'noop' : 'watchers',
+        build ? 'noop' : 'serve',
+        emulate ? 'ionic:emulate' : 'noop',
         cb);
 });
