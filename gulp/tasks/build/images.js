@@ -1,3 +1,5 @@
+'use strict';
+
 var gulp    = require('gulp'),
     config  = require('../../config'),
     path    = require('path');
@@ -7,7 +9,7 @@ var gulp    = require('gulp'),
 gulp.task('images', function() {
 
     var build = gulp.args.build || gulp.args.emulate || gulp.args.run,
-        targetDir = path.resolve(build ? './www/' : './.tmp/' );
+        targetDir = path.resolve(build ? './www/' : './.tmp/');
 
     return gulp.src(config.paths.images)
         .pipe(gulp.dest(path.join(targetDir, 'img')))

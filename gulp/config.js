@@ -1,33 +1,22 @@
-var src = '/www';
-var app = './app';
-var build = 'build';
-var development = 'build/development';
-var production = 'build/production';
-var srcAssets = 'app/_assets';
-var developmentAssets = 'build/assets';
-var productionAssets = 'build/production/assets';
+'use strict';
 
+var src = '/www',
+    app = './app',
+    version = '0.1.2';
 
-var paths = {
-    sass: ['./scss/**/*.scss']
-};
-
-var pkg = {
-    version: '0.0.1'
-};
 
 module.exports = {
     pkg: {
         version: '0.0.1'
-     },
+    },
     paths: {
-        sass:       './scss/**/*.{scss, sass}',
-        fonts:      './app/fonts/**',
-        scripts:    app + '/js/**/*.js',
-        vendor:     './vendor.json',
-        partials:   './app/partials/**/*.html',
-        index:      app + '/index.html',
-        images:     app + '/img/**/*.*'
+        sass: './scss/**/*.{scss, sass}',
+        fonts: app + '/fonts/**',
+        scripts: app + '/js/**/*.js',
+        vendor: './vendor.json',
+        partials: app + '/partials/**/*.html',
+        index: app + '/index.html',
+        images: app + '/img/**/*.*'
     },
     json: {
         package: './package.json',
@@ -64,8 +53,8 @@ module.exports = {
         }
     },
     scripts: {
-        src1: src + "/js/**/*/js",
-        src: "./app/js/**/*.js",
+        src1: src + '/js/**/*/js',
+        src: './app/js/**/*.js',
         testSrc: './.tmp/scripts/**/*.js',
         html: './app/**/*.html',
         dist: '.tmp',
@@ -77,7 +66,7 @@ module.exports = {
         ' * Copyright 2015 Factornine Ltd.\n' +
         ' * http://www.factornine.co.uk/\n' +
         ' *\n' +
-        ' * Magic Squares Mobile, v+ ' + pkg.version + '\n' +
+        ' * Magic Squares Mobile, v+ ' + version + '\n' +
         ' * A HTML5 Angular mobile game.\n' +
         ' *\n' +
         ' * By @russellf9 \n' +
@@ -91,5 +80,3 @@ module.exports = {
         html: src + '/index-copy.html'
     }
 };
-
-//  ' * Magic Squares Mobile, v<%= pkg.version %>\n' +

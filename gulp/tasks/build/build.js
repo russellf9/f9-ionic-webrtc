@@ -1,3 +1,5 @@
+'use strict';
+
 var gulp        = require('gulp'),
     runSequence = require('run-sequence');
 
@@ -11,14 +13,12 @@ var gulp        = require('gulp'),
 
 gulp.task('build', function(cb) {
 
-    console.log('args: ', gulp.args)
-
     var build = gulp.args.build || gulp.args.emulate || gulp.args.run,
         emulate = gulp.args.emulate;
 
 
     runSequence('clean',
-        ['jsHint', 'scripts', 'vendor', 'styles', 'images', 'fonts'],
+        ['jshint', 'scripts', 'vendor', 'styles', 'images', 'fonts'],
         'index', 'partials',
         build ? 'noop' : 'watchers',
         build ? 'noop' : 'serve',

@@ -1,7 +1,6 @@
 {
   "globalstrict": true,
   "globals": {
-    "this" : false,
     "localStorage": false,
     "angular": true,
     "Firebase": true,

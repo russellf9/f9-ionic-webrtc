@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * The `serve` Gulp task has the responsibility of launching a local Chrome server to run the app.
  * Also,
@@ -39,17 +41,17 @@ gulp.task('serve', function() {
     // define properties
     var build = gulp.args.build || gulp.args.emulate || gulp.args.run,
         port = gulp.args.port || 9029,
-        _targetDir = path.resolve(build ? 'www' : '.tmp');
+        _targetDir = path.resolve(build ? 'www' : '.tmp'),
 
     // set up the express server
-    var app = express();
+    app = express();
     app.use(require('connect-livereload')());
     app.use(express.static(_targetDir));
     app.listen(port);
 
     // can`t see how to handle the error!
     app.on('error', function(error) {
-        console.log(error)
+        console.log(error);
     });
 
     open('http://localhost:' + port + '/', 'Google Chrome');
@@ -64,6 +66,5 @@ gulp.task('serve', function() {
             notifyLivereload(event);
         });
 });
-
 
 

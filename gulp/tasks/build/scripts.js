@@ -1,3 +1,5 @@
+'use strict';
+
 var pkg = require('../../../package.json'),
     gulp = require('gulp'),
     config = require('../../config'),

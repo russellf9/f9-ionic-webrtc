@@ -1,3 +1,5 @@
+'use strict';
+
 var gulp = require('gulp'),
     path = require('path');
 
@@ -11,7 +13,7 @@ gulp.task('fonts', function(cb) {
     gulp.src(['app/fonts/*.*', 'bower_components/ionic/fonts/*.*'])
         .pipe(gulp.dest(fontDir))
         .on('error', errorHandler);
-    cb()
+    cb();
 });
 
 // error handler

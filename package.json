@@ -64,7 +64,8 @@
     "gulp-livereload": "~3.8.0",
     "gulp-server-livereload": "~1.1.0",
     "tiny-lr": "~0.1.5",
-    "gulp-shell": "~0.3.0"
+    "gulp-shell": "~0.3.0",
+    "jscs": "~1.4.0"
   },
   "cordovaPlugins": [
     "org.apache.cordova.statusbar"
