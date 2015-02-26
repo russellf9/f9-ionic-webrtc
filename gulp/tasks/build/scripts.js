@@ -14,11 +14,10 @@ gulp.task('scripts', function(cb) {
 
     return gulp.src(targetSrc)
         .pipe(gulp.plugins.concat(config.scripts.name))
-        .pipe(gulp.plugins.if(build, gulp.plugins.stripDebug()))
+        //.pipe(gulp.plugins.if(build, gulp.plugins.stripDebug()))
         .pipe(gulp.plugins.header(config.build.closureStart))
         .pipe(gulp.plugins.footer(config.build.closureEnd))
         .pipe(gulp.plugins.if(build, gulp.plugins.rename({extname: '.min.js'})))
-        .pipe(gulp.plugins.if(build, gulp.plugins.uglify()))
         .pipe(gulp.plugins.header(config.build.banner, {pkg: pkg}))
         .pipe(gulp.dest(targetDir + '/js'));
     cb();
