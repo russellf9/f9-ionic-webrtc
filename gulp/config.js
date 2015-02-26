@@ -20,7 +20,8 @@ module.exports = {
     },
     json: {
         package: './package.json',
-        bower: './bower.json'
+        bower: './bower.json',
+        config: './gulp/config.js'
     },
     sass: {
         IS_WATCH: false,
@@ -66,7 +67,7 @@ module.exports = {
         ' * Copyright 2015 Factornine Ltd.\n' +
         ' * http://www.factornine.co.uk/\n' +
         ' *\n' +
-        ' * Magic Squares Mobile, v+ ' + version + '\n' +
+        ' * Magic Squares Mobile, v+  <%= pkg.version %> \n' +
         ' * A HTML5 Angular mobile game.\n' +
         ' *\n' +
         ' * By @russellf9 \n' +
@@ -80,3 +81,4 @@ module.exports = {
         html: src + '/index-copy.html'
     }
 };
+
