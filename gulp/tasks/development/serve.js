@@ -1,35 +1,69 @@
+/**
+ * The `serve` Gulp task has the responsibility of launching a local Chrome server to run the app.
+ * Also,
+ * @type {Gulp|exports}
+ */
+    
 var gulp = require('gulp'),
     config = require('../../config'),
     path = require('path'),
     express = require('express'),
     open = require('open');
 
-// start local server
-/* NOTE: if a console window is already running the `serve` will get error:
-
-    error events.js:72
-    throw er; // Unhandled 'error' event
-           ^
-    Error: listen EADDRINUSE
-
-    ---
-*/
+// serves the app
 gulp.task('serve', function() {
 
+    // We'll need a reference to the tinylr
+    // object to send notifications of file changes
+    var lr;
+
+    // start the `Tiny LiveReload Server`
+    function startLivereload() {
+        lr = require('tiny-lr')();
+        lr.listen(35729);
+    }
+
+    // Notifies livereload of changes detected by `gulp.watch()`
+    function notifyLivereload(event) {
+        // `gulp.watch()` events provide an absolute path
+        // so we need to make it relative to the server root
+        var fileName = require('path').relative(_targetDir, event.path);
+
+        lr.changed({
+            body: {
+                files: [fileName]
+            }
+        });
+    }
+
+    // define properties
     var build = gulp.args.build || gulp.args.emulate || gulp.args.run,
         port = gulp.args.port || 9029,
-        targetDir = path.resolve(build ? 'www' : '.tmp');
+        _targetDir = path.resolve(build ? 'www' : '.tmp');
 
+    // set up the express server
     var app = express();
-    app.use(express.static(targetDir));
+    app.use(require('connect-livereload')());
+    app.use(express.static(_targetDir));
     app.listen(port);
 
-    open('http://localhost:' + port + '/', 'Google Chrome');
-
-
-    // cant see how to handle the error!
+    // can`t see how to handle the error!
     app.on('error', function(error) {
         console.log(error)
     });
 
+    open('http://localhost:' + port + '/', 'Google Chrome');
+
+    // live reload
+    startLivereload();
+
+    // have to do a watch here ( rather than in the `watchers` ) as
+    // `serve` has reference to the 'tiny-lr' instance.
+    gulp.watch(_targetDir + '/**')
+        .on('change', function(event) {
+            notifyLivereload(event);
+        });
 });
+
+
+

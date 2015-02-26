@@ -61,7 +61,9 @@
     "through": "~2.3.6",
     "gulp-print": "~1.1.0",
     "gulp-jshint": "~1.9.2",
-    "gulp-livereload": "~3.8.0"
+    "gulp-livereload": "~3.8.0",
+    "gulp-server-livereload": "~1.1.0",
+    "tiny-lr": "~0.1.5"
   },
   "cordovaPlugins": [
     "org.apache.cordova.statusbar"
