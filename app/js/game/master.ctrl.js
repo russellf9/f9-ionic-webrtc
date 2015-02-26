@@ -35,12 +35,6 @@
             }
         });
 
-        // a utility which returns every third element
-        // TODO move to a utility Service?
-        this.mod3 = function(elm) {
-            return !(elm.value % 3);
-        };
-
         // user `hint` function to display the completed values
         this.check = function() {
             this.checked = true;

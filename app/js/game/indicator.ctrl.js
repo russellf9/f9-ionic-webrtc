@@ -17,7 +17,7 @@
         // returns a specific CSS class for each indicator to adjust the position of the text
         this.getClass = function(index) {
             return Model.getIndicatorClass(index);
-        }
+        };
 
     }]);
 }());

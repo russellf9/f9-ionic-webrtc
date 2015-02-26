@@ -390,6 +390,7 @@
                     }
 
                     // evaluate each row, column and diagonal in turn
+
                     _row1 = selectedSquares[0] + selectedSquares[1] + selectedSquares[2],
                         _row2 = selectedSquares[3] + selectedSquares[4] + selectedSquares[5],
                         _row3 = selectedSquares[6] + selectedSquares[7] + selectedSquares[8],
@@ -399,6 +400,7 @@
                         _column3 = selectedSquares[2] + selectedSquares[5] + selectedSquares[8],
 
                         _diagonal1 = selectedSquares[0] + selectedSquares[4] + selectedSquares[8],
+                        /*jshint -W030 */
                         _diagonal2 = selectedSquares[2] + selectedSquares[4] + selectedSquares[6];
 
                     var row1Correct = (_row1 === this.magicNumber()),
