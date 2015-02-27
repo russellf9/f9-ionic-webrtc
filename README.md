@@ -147,6 +147,13 @@ $ gulp -e
 
 ```
 
+```
+# test on device
+$ gulp -run
+# or
+$ gulp -r
+```
+
 **gulp utilities**
 
 Also, I've added a couple of utilities.
