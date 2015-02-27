@@ -291,6 +291,11 @@ $ npm update
 - [ ] a task list item
 
 
+## Developed By
+
+* Russell Wenban
+
+
 ## License
 
 The MIT License (MIT)
