@@ -1,3 +1,5 @@
+'use strict';
+
 var gulp = require('gulp');
 
 // no-op = empty function

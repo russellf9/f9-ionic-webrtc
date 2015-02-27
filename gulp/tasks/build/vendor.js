@@ -1,3 +1,5 @@
+'use strict';
+
 var gulp = require('gulp'),
     config = require('../../config'),
     path = require('path');
@@ -22,5 +24,6 @@ gulp.task('vendor', function(cb) {
 // Handle errors
 function errorHandler(error) {
     console.log('Gulp Vendor Error: ', error.toString());
+    /*jshint validthis:true */
     this.emit('end');
 }

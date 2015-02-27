@@ -1,3 +1,5 @@
+'use strict';
+
 var gulp = require('gulp'),
     plugins = require('gulp-load-plugins')(),
     config = require('../../config'),
@@ -13,7 +15,7 @@ gulp.task('styles', function(cb) {
     options.style = build ? 'compressed' : 'expanded';
 
     var cssPaths = ['./bower_components/ionic/css/ionic.min.css',
-            './bower_components/jquery-ui/themes/ui-lightness/jquery-ui.css'],
+        './bower_components/jquery-ui/themes/ui-lightness/jquery-ui.css'],
         sassStream = gulp.plugins.rubySass(config.sass.rubySrc, options)
             .pipe(gulp.plugins.autoprefixer(config.sass.autoprefixer))
             .on('error', errorHandler),
@@ -38,6 +40,7 @@ gulp.task('styles', function(cb) {
 // Handle errors
 function errorHandler(error) {
     console.log('Gulp Styles Error: ', error.toString());
+    /*jshint validthis:true */
     this.emit('end');
 }
 /**
