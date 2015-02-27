@@ -285,13 +285,13 @@ $ npm update
 
 * [ios-sim](https://github.com/phonegap/ios-sim)
 
-### TODO
+## TODO
 
 
 - [ ] a task list item
 
 
-### License
+## License
 
 The MIT License (MIT)
 
