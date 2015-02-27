@@ -46,13 +46,13 @@ The app is written in HTML5, CSS3 and JavaScript.
 
 More specifically I'm using the [Ionic Framework](http://ionicframework.com) which incorporates [Sass](http://sass-lang.com) and [AngularJS](http://angularjs.org/).
 
-I've also focused on creating a series of modular Gulp tasks to speed up development.
+I've also focused on creating a series of modular [Gulp](http://gulpjs.com) tasks to speed up development.
 
 
 ## Installation
 
 ```
-$ git clone git@github.com:russellf9/magic-squares-mobile.git
+$ git clone git@github.com:russellf9/magic-squares-mobile.git && cd magic-squares-mobile
 
 # update node dependencies
 $ npm update
@@ -69,7 +69,7 @@ $ bower update
 
 ## Screenshot
 
-![Screenshot](/design/screenshots/magicSquaresiPad_150227.jpg.jpg?raw=true "Magic Squares Mockup")
+![Screenshot](/design/screenshots/magicSquaresiPad_150227.jpg?raw=true "Magic Squares Mockup")
 
 
 
