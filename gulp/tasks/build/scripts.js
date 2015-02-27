@@ -6,7 +6,7 @@ var pkg = require('../../../package.json'),
     path = require('path');
 
 // performs all required operations to distribute the js files
-gulp.task('scripts', function(cb) {
+gulp.task('scripts', function() {
 
     var build = gulp.args.build || gulp.args.emulate || gulp.args.run,
         targetSrc = config.paths.scripts,
@@ -20,8 +20,8 @@ gulp.task('scripts', function(cb) {
         .pipe(gulp.plugins.if(build, gulp.plugins.rename({extname: '.min.js'})))
         .pipe(gulp.plugins.header(config.build.banner, {pkg: pkg}))
         .pipe(gulp.dest(targetDir + '/js'));
-    cb();
 });
+
 
 
 

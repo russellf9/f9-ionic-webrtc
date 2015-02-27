@@ -7,7 +7,7 @@ var gulp = require('gulp'),
     streamqueue = require('streamqueue');
 
 // performs operations to distribute the css files
-gulp.task('styles', function(cb) {
+gulp.task('styles', function() {
 
     var build = gulp.args.build || gulp.args.emulate || gulp.args.run,
         options = config.sass.options;
@@ -33,7 +33,6 @@ gulp.task('styles', function(cb) {
             message: 'SASS completed.  New CSS created!',
             sound: 'Pop'
         }));
-    cb();
 });
 
 

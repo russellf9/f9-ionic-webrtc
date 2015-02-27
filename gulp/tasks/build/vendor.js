@@ -5,7 +5,7 @@ var gulp = require('gulp'),
     path = require('path');
 
 // performs all required operations to distribute the vendor js files
-gulp.task('vendor', function(cb) {
+gulp.task('vendor', function() {
 
     var build = gulp.args.build || gulp.args.emulate || gulp.args.run,
         targetDir = path.resolve(build ? './www/' : './.tmp/');
@@ -17,7 +17,6 @@ gulp.task('vendor', function(cb) {
             //.pipe(gulp.plugins.if(build, plugins.rev())) // could do this
             .pipe(gulp.dest(path.join(targetDir, 'js')))
             .on('error', errorHandler));
-    cb();
 });
 
 
