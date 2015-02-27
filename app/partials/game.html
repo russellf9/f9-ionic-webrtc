@@ -2,7 +2,7 @@
 
     <div ng-if="true" class="row instructions-row flex-container">
         <!--THE INSTRUCTIONS-->
-        <div class="instructions flex-container-all-column" ng-controller="Instructions as instructions" style="padding-top:5px">
+        <div class="instructions flex-container-all-column center" ng-controller="Instructions as instructions" style="padding-top:5px;">
             <h3 ng-if='!master.checked' class="center-text"><strong>Magic Square Puzzle</strong></h3>
             <h5 ng-if='!master.checked' class="instruction-text">{{instructions.instructions}}</h5>
             <h3 class="center-text" ng-if="master.checked && master.allCorrect" style="margin-top:5px">Well done

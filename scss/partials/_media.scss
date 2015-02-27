@@ -89,7 +89,6 @@
 @include media(">=tablet", '<2048px') {
   .game-row {
     height: getGameRowHeight('tablet');
-
   }
   .game-container {
     width: getGameContainerWidth('tablet');
@@ -182,11 +181,14 @@
     width: 768px;
     height: 1024px;
   }
+  .column {
+//    background: $pink;
+  }
 }
 
 
 // iPad 1 or 2 with landscape orientation. ( handles safari `vh` bug )
-@media all and (device-width: 768px) and (device-height: 1024px) and (orientation:landscape){
+@media all and (device-width: 1024px) and (device-height: 768px) and (orientation:landscape){
   html .column {
     width: 1024px;
     height: 768px;

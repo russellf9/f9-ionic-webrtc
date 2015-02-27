@@ -6,6 +6,16 @@
     padding: 0;
 }
 
+/* shame class?
+ to fix: https://trello.com/c/PyV2wuM5/7-ui-ipad-portrait-issue
+ */
+.center {
+  margin-left: auto;
+  margin-right: auto;
+  width: 98%;
+//  border: solid blue 4px;
+}
+
 .pink {
     background-color: $pink;
 }
