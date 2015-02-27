@@ -30,7 +30,7 @@ gulp.vendorFiles = require('./vendor.json');
 
 // shared error handler
 gulp.errorHandler = function(task, error) {
-    gulp.plugins.util.log('Gulp - ', task, ' - error: ', plugins.colors.magenta(error));
+    gulp.plugins.util.log('Gulp - ', task, ' - error: ', error);
 };
 
 
