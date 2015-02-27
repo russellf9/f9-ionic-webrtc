@@ -54,7 +54,11 @@ I've also focused on creating a series of modular Gulp tasks to speed up develop
 ```
 $ git clone git@github.com:russellf9/magic-squares-mobile.git
 
-# update dependencies
+# update node dependencies
+$ npm update
+
+# update bower dependencies
+$ bower update
 
 ```
 
