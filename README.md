@@ -9,31 +9,19 @@ A continuation of my previous Github project [Magic Squares](https://github.com/
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
-- [Magic Squares Mobile](#magic-squares-mobile)
-  - [Project Introduction](#project-introduction)
-    - [Description](#description)
-    - [Project Objectives](#project-objectives)
-    - [Technical Specifications.](#technical-specifications)
-    - [Installation](#installation)
-    - [Keywords](#keywords)
-    - [Icon](#icon)
-    - [Screenshot](#screenshot)
-    - [Further objectives.](#further-objectives)
-    - [Original Cordova Installation](#original-cordova-installation)
-    - [Development](#development)
-    - [Develop in the browser with live reload:](#develop-in-the-browser-with-live-reload)
-    - [Gulp Commands](#gulp-commands)
-    - [Ionic CLI Commands](#ionic-cli-commands)
-    - [Issues:](#issues)
-    - [SASS](#sass)
-    - [iPad orientation](#ipad-orientation)
-    - [using Homebrew](#using-homebrew)
-    - [Node](#node)
-      - [Update requirements](#update-requirements)
-    - [Links](#links)
-  - [TODO](#todo)
-  - [Developed By](#developed-by)
-  - [License](#license)
+- [Description](#description)
+- [Project Objectives](#project-objectives)
+- [Technical Specifications.](#technical-specifications)
+- [Installation](#installation)
+- [Icon](#icon)
+- [Screenshot](#screenshot)
+- [Development](#development)
+- [Gulp Commands](#gulp-commands)
+- [Known Issues:](#known-issues)
+  - [SASS](#sass)
+- [TODO](#todo)
+- [Developed By](#developed-by)
+- [License](#license)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -76,7 +64,7 @@ $ git clone git@github.com:russellf9/magic-squares-mobile.git
 
 ## Screenshot
 
-![Screenshot](/design/ipad-screenshot-150227.jpg?raw=true "Magic Squares Mockup")
+![Screenshot](/design/screenshots/ipad-screenshot-150227.jpg?raw=true "Magic Squares Mockup")
 
 
 ## Development
