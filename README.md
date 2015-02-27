@@ -11,11 +11,10 @@ A continuation of my previous Github project [Magic Squares](https://github.com/
 
 - [Description](#description)
 - [Project Objectives](#project-objectives)
-- [Technical Specifications.](#technical-specifications)
+- [Technical Specifications](#technical-specifications)
 - [Installation](#installation)
 - [Icon](#icon)
 - [Screenshot](#screenshot)
-- [Development](#development)
 - [Gulp Commands](#gulp-commands)
 - [Known Issues:](#known-issues)
   - [SASS](#sass)
@@ -33,13 +32,15 @@ The 'Magic Squares Game' is a logic puzzle where the objective is to solve a 3×
 
 To solve the puzzle the numbers in each row, and in each column, and the diagonals, all add up to the same number, this number is known as the 'magic number'.
 
+
 ## Project Objectives
 
 The primary objective is to release a hybrid mobile app on iTunes.
 
-Other objectives include learning new technical skills and creating a `seed` project for making further apps.
+Other objectives include learning new technical skills and creating a _seed_ project for making further apps.
 
-## Technical Specifications.
+
+## Technical Specifications
 
 The app is written in HTML5, CSS3 and JavaScript.
 
@@ -64,20 +65,8 @@ $ git clone git@github.com:russellf9/magic-squares-mobile.git
 
 ## Screenshot
 
-![Screenshot](/design/screenshots/ipad-screenshot-150227.jpg?raw=true "Magic Squares Mockup")
+![Screenshot](/design/screenshots/magicSquaresiPad_150227.jpg.jpg?raw=true "Magic Squares Mockup")
 
-
-## Development
-
-I've begun making the app more modular but have encountered some issues:
-
-1. The SASS task has been set up. I'll simply refactor the CSS files as SASS file. ( As the [sass-test](https://github.com/russellf9/sass-test) repo ).
-
-2. I created two tasks for the JS files, _distribute_ and _scripts_. The _distribute_ tasks deploys the html files with the [gulp-useref](https://www.npmjs.com/package/gulp-useref), using `build-blocks`.
-
-A method would have to be worked-out to establish the best way to deploy the files, as the Ionic task `ionic build ios` distributes the required files to the ios folder. It might be worthwhile to create a separate _app_ folder which deploys to the _www_ folder.
-
-3. First-off, I'll just start using the new SASS files and leave the JS distribution issue to later.
 
 
 ## Gulp Commands
@@ -92,16 +81,15 @@ In the original Ionic app, source files were located in the _www_ folder. I've s
  * Runs from the .tmp folder
  * Files are not minified
 
-**build**
- * Runs from the .www folder
- * Files are minified and concatenated.
-
-
 ```
 # dev runs the 'dev' build and starts the server
 $ gulp
 
 ```
+
+**build**
+ * Runs from the .www folder
+ * Files are minified and concatenated.
 
 ```
 # build
@@ -111,7 +99,7 @@ $ gulp -b
 
 ```
 
-**ionic**
+**ionic CLI wrappers**
 
 ```
 # emulate ios
@@ -130,9 +118,8 @@ $ gulp -r
 
 **gulp utilities**
 
-Also, I've added a couple of utilities.
-
-[gulp-bump](https://www.npmjs.com/package/gulp-bump), which increments the version numbers in the _package.json_ and _bower.json_., using **MAJOR.MINOR.PATCH**, [semantic versioning](http://semver.org).
+* [gulp-bump](https://www.npmjs.com/package/gulp-bump), increments the version numbers in the _package.json_ and _bower.json_.
+Using **MAJOR.MINOR.PATCH**, [semantic versioning](http://semver.org).
 
 ```
 # implements a semantic 'patch' increment
@@ -169,11 +156,14 @@ gem update sass
 ```
 
 
-
-
 ## TODO
 
-[ ] Document the iOS submission process.
+1. [ ] Document the iOS submission process.
+1. [ ] Improve the design.
+1. [ ] Add different sets of numbers.
+1. [ ] Add levels.
+1. [ ] Add scores.
+1. [ ] Add a timer.
 
 
 
