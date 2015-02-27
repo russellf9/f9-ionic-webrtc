@@ -38,7 +38,7 @@ To solve the puzzle the numbers in each row, and in each column, and the diagona
 
 The current version of the app is:
 
-** 0.1.5 **
+**0.1.5**
 
 
 ## App Store
