@@ -1,3 +1,5 @@
+'use strict';
+
 /* A task to `bump` the apps version number using
     MAJOR.MINOR.PATCH
  * */
@@ -29,6 +31,3 @@ gulp.task('version-major', function() {
         .pipe(gulp.plugins.bump({type: 'major'}))
         .pipe(gulp.dest('./'));
 });
-
-
-
