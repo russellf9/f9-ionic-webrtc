@@ -1,6 +1,6 @@
 # Magic Squares Mobile
 
-Magic Squares Mobile is a magic squares game developed using the [Ionicframework](http://ionicframework.com).
+Magic Squares Mobile is a Magic Squares Game developed using the [Ionicframework](http://ionicframework.com).
 
 A continuation of my previous Github project [Magic Squares](https://github.com/russellf9/magic-squares).
 
@@ -39,109 +39,47 @@ A continuation of my previous Github project [Magic Squares](https://github.com/
 
 
 
-
-## Project Introduction
-
-
-
-### Description
+## Description
 
 The 'Magic Squares Game' is a logic puzzle where the objective is to solve a 3×3 magic square.
 
-The magic square is _'... a square grid, where the numbers in each row, and in each column, and the numbers in the main and secondary diagonals, all add up to the same number...'_. This number is known as the 'magic number'. 
+To solve the puzzle the numbers in each row, and in each column, and the diagonals, all add up to the same number, this number is known as the 'magic number'.
 
-(_REF: [Magic square](http://en.wikipedia.org/wiki/Magic_square) - Wikipedia_)
-
-### Project Objectives
+## Project Objectives
 
 The primary objective is to release a hybrid mobile app on iTunes.
 
 Other objectives include learning new technical skills and creating a `seed` project for making further apps.
 
-### Technical Specifications.
+## Technical Specifications.
 
-The app is written in HTML5, CS3 and JavaScript.
+The app is written in HTML5, CSS3 and JavaScript.
 
 More specifically I'm using the [Ionic Framework](http://ionicframework.com) which incorporates [Sass](http://sass-lang.com) and [AngularJS](http://angularjs.org/).
 
+I've also focused on creating a series of modular Gulp tasks to speed up development.
 
 
-Table of Contents
+## Installation
 
-* Installation
-* Usage
-Configuration
-Browser Support
-How It Works
-Obtaining OAuth Keys
-API Reference
-Contributing
-* License
+```
+$ git clone git@github.com:russellf9/magic-squares-mobile.git
 
+# update dependencies
 
-### Installation
+```
 
-
-
-### Keywords
-
-logic, puzzle, maths, game
-
-( The description and keywords are for [iTunes connect](itunesconnect.apple.com) )
-
-
-### Icon
+## Icon
 
 ![Icon](/design/Icon-72@2x.jpg?raw=true "Magic Squares Icon")
 
-### Screenshot
+
+## Screenshot
 
 ![Screenshot](/design/ipad-screenshot-150227.jpg?raw=true "Magic Squares Mockup")
 
 
-### Further objectives.
-
-I've just submitted the app to Apple for verification. I'll list my new objectives here:
-
-1. Make the Gulp tasks modular.
-    * The tasks are now completely modular
-    * A few issues like the [template](https://github.com/sindresorhus/gulp-template) not working in scripts task needed to be ironed out.
-
-2. Document the iOS submission process.
-
-3. Use SASS. ( The CSS has become far too verbose for all the screen sixes etc. )
-  * I've found using SASS to be a real joy. Making CSS more like programming and creating a much more semantic and concise code base.
-
-4. Make more use of [Flexbox](http://www.sketchingwithcss.com/samplechapter/cheatsheet.html).
- * As the app will be targeted to modern browsers, Flexbox can be used for virtually all my positioning needs!
- * [gulp-autoprefixer](https://www.npmjs.com/package/gulp-autoprefixer) adds the vendor prefixes on prepossessing to keep the SCSS succinct and readable.
-
-5. Improve the design.
-
-6. Add different sets of numbers.
-
-7. Add levels.
-
-8. Add scores.
-
-9. Add a timer.
-
-
-### Original Cordova Installation
-
-(Update to Xcode 6 first!)
-
-```
-$ sudo npm install -g cordova ionic
-
-$ ionic start magic-squares blank
-
-$ cd magic-squares
-
-```
-
-
-### Development
+## Development
 
 I've begun making the app more modular but have encountered some issues:
 
@@ -154,17 +92,7 @@ A method would have to be worked-out to establish the best way to deploy the fil
 3. First-off, I'll just start using the new SASS files and leave the JS distribution issue to later.
 
 
-### Develop in the browser with live reload:
-
-```
-$ ionic serve
-```
-
-runs in:
-
-[http://localhost:8100](http://localhost:8100/#/)
-
-### Gulp Commands
+## Gulp Commands
 
 I've spent considerable effort making the gulp tasks as modular as possible. Each task is within its own file and I'm using [require-dir](https://www.npmjs.com/package/require-dir) to keep the tasks DRY.
 
@@ -234,28 +162,8 @@ $ gulp branch
 
 ```
 
-### Ionic CLI Commands
 
-```
-$ ionic platform add ios
-
-$ ionic build ios
-
-$ ionic emulate ios
-
-$ ionic run ios
-
-```
-
-### Issues:
-
-```
-# ios-sim not present
- Library not loaded: @rpath/iPhoneSimulatorRemoteClient.framework/Versions/A/iPhoneSimulatorRemoteClient
-```
-
-See: [dyld: Library not loaded: #70](https://github.com/phonegap/ios-sim/issues/70)
-
+## Known Issues:
 
 ### SASS
 
@@ -272,63 +180,13 @@ To update SASS
 gem update sass
 ```
 
-Also, the correct syntax for the gulp sass task has to be implemented.
-
-```
-return rubySass(config.sass.rubySrc, { style: 'expanded' })
-    .pipe(plumber())
-    .pipe(autoprefixer(config.sass.autoprefixer))
-    .pipe(gulp.dest(config.sass.rubyDest));
-});
-
-```
-
-Relevant links:
-
-[TypeError: Arguments to path.join must be strings #191](https://github.com/sindresorhus/gulp-ruby-sass/issues/191)
-[How to update your Sass version](http://www.codechewing.com/library/update-sass-version/)
-
-### iPad orientation
-
-I've done a quick test on the ipad and the app isn't fitting into the full width in portrait mode. Might be something to do with the width (vw) %
-
-Perhaps using `vh` and 'vw` is problematic see: [VH and VW units](https://gist.github.com/pburtchaell/e702f441ba9b3f76f587)
 
 
-### using Homebrew
-
-```
-$ brew update
-
-$ brew unlink ios-sim
-
-$ brew install ios-sim
-```
-
-
-ios-deploy was not found.
-
-```
-$ npm install -g ios-deploy
-```
-
-
-### Node
-
-#### Update requirements 
-
-```
-$ npm update
-```
-
-### Links
-
-* [ios-sim](https://github.com/phonegap/ios-sim)
 
 ## TODO
 
+[ ] Document the iOS submission process.
 
-- [ ] a task list item
 
 
 ## Developed By
