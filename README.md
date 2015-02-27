@@ -33,6 +33,17 @@ The 'Magic Squares Game' is a logic puzzle where the objective is to solve a 3×
 To solve the puzzle the numbers in each row, and in each column, and the diagonals, all add up to the same number, this number is known as the 'magic number'.
 
 
+## Icon
+
+![Icon](/design/Icon-72@2x.jpg?raw=true "Magic Squares Icon")
+
+
+## Screenshot
+
+![Screenshot](/design/screenshots/magicSquaresiPad_150227.jpg?raw=true "Magic Squares Mockup")
+
+
+
 ## Project Objectives
 
 The primary objective is to release a hybrid mobile app on iTunes.
@@ -61,16 +72,6 @@ $ npm update
 $ bower update
 
 ```
-
-## Icon
-
-![Icon](/design/Icon-72@2x.jpg?raw=true "Magic Squares Icon")
-
-
-## Screenshot
-
-![Screenshot](/design/screenshots/magicSquaresiPad_150227.jpg?raw=true "Magic Squares Mockup")
-
 
 
 ## Gulp Commands
@@ -169,6 +170,41 @@ gem update sass
 1. [ ] Add scores.
 1. [ ] Add a timer.
 
+## TREE
+
+    .
+    ├── css
+    │   ├── game.css
+    │   ├── ionic.app.css
+    │   ├── main.css
+    │   ├── scss
+    │   ├── style.css
+    │   └── style.css.map
+    ├── fonts
+    │   ├── fredokaone-regular-webfont.eot
+    │   ├── fredokaone-regular-webfont.svg
+    │   ├── fredokaone-regular-webfont.ttf
+    │   ├── fredokaone-regular-webfont.woff
+    │      └── fredokaone-regular-webfont.woff2
+    ├── img
+    │   └── icon.png
+    ├── index-copy.html
+    ├── index.html
+    ├── js
+    │   ├── app.js
+    │   ├── controllers.js
+    │   ├── game
+    │   │   ├── dragDrop.ctrl.js
+    │   │   ├── indicator.ctrl.js
+    │   │   ├── instructions.ctrl.js
+    │   │   ├── master.ctrl.js
+    │   │   ├── model.svc.js
+    │   │   └── text.svc.js
+    │   ├── lodash.svc.js
+    │   └── services.js
+    ├── partials
+    │   └── game.html
+    └── tree
 
 
 ## Developed By
