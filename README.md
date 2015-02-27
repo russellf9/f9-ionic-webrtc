@@ -10,7 +10,8 @@ A continuation of my previous Github project [Magic Squares](https://github.com/
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
 - [Description](#description)
-- [Icon](#icon)
+- [Version](#version)
+- [App Store](#app-store)
 - [Screenshot](#screenshot)
 - [Project Objectives](#project-objectives)
 - [Technical Specifications](#technical-specifications)
@@ -33,10 +34,18 @@ The 'Magic Squares Game' is a logic puzzle where the objective is to solve a 3×
 
 To solve the puzzle the numbers in each row, and in each column, and the diagonals, all add up to the same number, this number is known as the 'magic number'.
 
+## Version
 
-## Icon
+The current version of the app is:
 
-![Icon](/design/Icon-72@2x.jpg?raw=true "Magic Squares Icon")
+** 0.1.5 **
+
+
+## App Store
+
+The app ( version 0.0.1 ) is now available on the app store!
+
+[<img src="/design/magic-square-game.png?raw=true">](https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=966245243&mt=8)
 
 
 ## Screenshot
@@ -175,7 +184,6 @@ gem update sass
 ## Project Tree
 
 ```
-
 .
 ├── .bowerrc
 ├── .gitignore
@@ -276,7 +284,6 @@ gem update sass
 │       ├── _typography.scss
 │       └── _ui.scss
 └── vendor.json
-
 ```
 
 ## Developed By
