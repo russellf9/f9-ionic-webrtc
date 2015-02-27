@@ -38,7 +38,7 @@ logic, puzzle, maths, game
 
 ### Screenshot
 
-![Screenshot](/design/magicSquaresiPad_small.png?raw=true "Magic Squares Mockup")
+![Screenshot](/design/ipad-screenshot-150227.jpg?raw=true "Magic Squares Mockup")
 
 
 ### Further objectives.
@@ -234,7 +234,7 @@ Relevant links:
 
 I've done a quick test on the ipad and the app isn't fitting into the full width in portrait mode. Might be something to do with the width (vw) %
 
-Perhaps using `vh` and 'vw` is problamatic see: [VH and VW units](https://gist.github.com/pburtchaell/e702f441ba9b3f76f587)
+Perhaps using `vh` and 'vw` is problematic see: [VH and VW units](https://gist.github.com/pburtchaell/e702f441ba9b3f76f587)
 
 
 ### using Homebrew
