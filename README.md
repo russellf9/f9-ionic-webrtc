@@ -81,6 +81,19 @@ $ npm update
 # update bower dependencies
 $ bower update
 
+# to update node
+node -v
+v0.10.33
+
+#  use n
+npm install -g n
+
+# For the latest stable version:
+sudo n stable
+
+node -v
+v0.12.0
+
 ```
 
 
