@@ -38,7 +38,7 @@ To solve the puzzle the numbers in each row, and in each column, and the diagona
 
 The current version of the app is:
 
-**0.1.5**
+**0.1.6**
 
 
 ## App Store
@@ -145,6 +145,9 @@ $ gulp version-minor
 
 # implements a semantic 'major' increment
 $ gulp version-major
+
+
+**Note:** The widget.version in the config.xml needs to be updated as well.
 
 
 # creates a new git branch in the format 'dev-{YYMMDD}' from the current date

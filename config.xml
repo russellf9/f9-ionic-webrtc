@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<widget id="co.uk.factornine.magicsquares" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="co.uk.factornine.magicsquares" version="0.1.6" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
   <name>Magic Squares</name>
   <description>
         A logic puzzle where the objective is to solve a 3×3 magic square.
