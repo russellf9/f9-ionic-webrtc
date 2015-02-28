@@ -189,6 +189,7 @@ gem update sass
 ```
 .
 ├── .bowerrc
+├── .git
 ├── .gitignore
 ├── .jscsrc
 ├── .jshintrc
@@ -210,7 +211,6 @@ gem update sass
 │   │   └── fredokaone-regular-webfont.woff2
 │   ├── img
 │   │   └── icon.png
-│   ├── index-copy.html
 │   ├── index.html
 │   ├── js
 │   │   ├── app.js
@@ -227,9 +227,7 @@ gem update sass
 │   └── partials
 │       └── game.html
 ├── bower.json
-├── bower_components /
 ├── config.xml
-├── design /
 ├── gulp
 │   ├── config.js
 │   └── tasks
