@@ -1,6 +1,6 @@
 {
   "name": "app",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "f9-ionic-webrtc",
   "dependencies": {
     "gulp": "^3.8.8",
@@ -68,6 +68,7 @@
     "jscs": "~1.4.0"
   },
   "cordovaPlugins": [
-    "org.apache.cordova.statusbar"
+    "org.apache.cordova.statusbar",
+    "https://github.com/alongubkin/phonertc.git"
   ]
 }
