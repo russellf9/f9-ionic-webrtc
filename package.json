@@ -1,7 +1,7 @@
 {
-  "name": "magic-squares",
-  "version": "0.1.6",
-  "description": "magic-squares: An Ionic project",
+  "name": "app",
+  "version": "0.0.0",
+  "description": "f9 Ionic Seed",
   "dependencies": {
     "gulp": "^3.8.8",
     "gulp-sass": "^0.7.1",

@@ -1,8 +1,4 @@
-# Magic Squares Mobile
-
-Magic Squares Mobile is a Magic Squares Game developed using the [Ionicframework](http://ionicframework.com).
-
-A continuation of my previous Github project [Magic Squares](https://github.com/russellf9/magic-squares).
+# f9-ionic-seed
 
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
@@ -30,50 +26,23 @@ A continuation of my previous Github project [Magic Squares](https://github.com/
 
 ## Description
 
-The 'Magic Squares Game' is a logic puzzle where the objective is to solve a 3×3 magic square.
-
-To solve the puzzle the numbers in each row, and in each column, and the diagonals, all add up to the same number, this number is known as the 'magic number'.
+My Ionic Seed Project
 
 ## Version
 
 The current version of the app is:
 
-**0.1.6**
-
-
-## App Store
-
-The app ( version 0.0.1 ) is now available on the app store!
-
-[<img src="/design/magic-square-game.png?raw=true">](https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=966245243&mt=8)
-
-
-## Screenshot
-
-![Screenshot](/design/screenshots/magicSquaresiPad_150227.jpg?raw=true "Magic Squares Mockup")
+**0.0.0**
 
 
 
 ## Project Objectives
 
-The primary objective is to release a hybrid mobile app on iTunes.
-
-Other objectives include learning new technical skills and creating a _seed_ project for making further apps.
-
-
-## Technical Specifications
-
-The app is written in HTML5, CSS3 and JavaScript.
-
-More specifically I'm using the [Ionic Framework](http://ionicframework.com) which incorporates [Sass](http://sass-lang.com) and [AngularJS](http://angularjs.org/).
-
-I've also focused on creating a series of modular [Gulp](http://gulpjs.com) tasks to speed up development.
-
 
 ## Installation
 
 ```
-$ git clone git@github.com:russellf9/magic-squares-mobile.git && cd magic-squares-mobile
+$ git clone git@github.com:russellf9/f9-ionic-seed && cd magic-squares-mobile
 
 # update node dependencies
 $ npm update
@@ -171,26 +140,11 @@ $ gulp branch
 
 ## Known Issues:
 
-### SASS
-
-In order to use the [gulp-ruby-sass](https://github.com/sindresorhus/gulp-ruby-sass) plugin the correct version of SASS has to be installed. ( > 3.4 ? )
-
-```
-sass -v
-Sass 3.4.12 (Selective Steve)
-```
-
-To update SASS
-
-```
-gem update sass
-```
-
 
 ## TODO
 
-1. [ ] Document the iOS submission process.
-1. [ ] Improve the design.
+1. [ ] Make a TODO list!.
+1. [ ] Make the tree using `tree`
 1. [ ] Add different sets of numbers.
 1. [ ] Add levels.
 1. [ ] Add scores.

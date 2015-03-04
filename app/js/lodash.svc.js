@@ -5,7 +5,7 @@
     /**
      * A factory which extends the underscore / lodash lib
      */
-    angular.module('magicsquares').factory('_', ['$window', function($window) {
+    angular.module('app').factory('_', ['$window', function($window) {
 
         // Get a local handle on the global lodash reference.
         var _ = $window._;

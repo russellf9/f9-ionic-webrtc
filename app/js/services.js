@@ -1,2 +1,2 @@
-angular.module('magicsquares.services', []);
+angular.module('app.services', []);
 
