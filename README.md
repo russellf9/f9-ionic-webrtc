@@ -1,4 +1,4 @@
-# f9-ionic-seed
+# f9-ionic-webrtc
 
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
@@ -7,14 +7,11 @@
 
 - [Description](#description)
 - [Version](#version)
-- [App Store](#app-store)
-- [Screenshot](#screenshot)
 - [Project Objectives](#project-objectives)
-- [Technical Specifications](#technical-specifications)
 - [Installation](#installation)
+- [Cordova](#cordova)
 - [Gulp Commands](#gulp-commands)
 - [Known Issues:](#known-issues)
-  - [SASS](#sass)
 - [TODO](#todo)
 - [Project Tree](#project-tree)
 - [Developed By](#developed-by)
@@ -26,13 +23,13 @@
 
 ## Description
 
-My Ionic Seed Project
+A Ionic Test using WebRTC
 
 ## Version
 
 The current version of the app is:
 
-**0.0.0**
+**0.0.3**
 
 
 
@@ -68,7 +65,8 @@ v0.12.0
 ## Cordova
 
 ```
-cordova platform add ios
+# Not sure if I need this - the bower/node updates might be enough?
+$ cordova platform add ios
 
 ```
 
@@ -152,113 +150,12 @@ $ gulp branch
 
 1. [ ] Make a TODO list!.
 1. [ ] Make the tree using `tree`
-1. [ ] Add different sets of numbers.
-1. [ ] Add levels.
-1. [ ] Add scores.
-1. [ ] Add a timer.
 
 
 ## Project Tree
 
 ```
-.
-├── .bowerrc
-├── .git
-├── .gitignore
-├── .jscsrc
-├── .jshintrc
-├── LICENSE.txt
-├── README.md
-├── app
-│   ├── css
-│   │   ├── game.css
-│   │   ├── ionic.app.css
-│   │   ├── main.css
-│   │   ├── scss
-│   │   ├── style.css
-│   │   └── style.css.map
-│   ├── fonts
-│   │   ├── fredokaone-regular-webfont.eot
-│   │   ├── fredokaone-regular-webfont.svg
-│   │   ├── fredokaone-regular-webfont.ttf
-│   │   ├── fredokaone-regular-webfont.woff
-│   │   └── fredokaone-regular-webfont.woff2
-│   ├── img
-│   │   └── icon.png
-│   ├── index.html
-│   ├── js
-│   │   ├── app.js
-│   │   ├── controllers.js
-│   │   ├── game
-│   │   │   ├── dragDrop.ctrl.js
-│   │   │   ├── indicator.ctrl.js
-│   │   │   ├── instructions.ctrl.js
-│   │   │   ├── master.ctrl.js
-│   │   │   ├── model.svc.js
-│   │   │   └── text.svc.js
-│   │   ├── lodash.svc.js
-│   │   └── services.js
-│   └── partials
-│       └── game.html
-├── bower.json
-├── config.xml
-├── gulp
-│   ├── config.js
-│   └── tasks
-│       ├── build
-│       │   ├── build.js
-│       │   ├── clean.js
-│       │   ├── fonts.js
-│       │   ├── images.js
-│       │   ├── index.js
-│       │   ├── ionic.js
-│       │   ├── partials.js
-│       │   ├── scripts.js
-│       │   ├── styles.js
-│       │   └── vendor.js
-│       ├── default.js
-│       ├── development
-│       │   ├── serve.js
-│       │   └── watchers.js
-│       ├── standards
-│       │   ├── jscs.js
-│       │   └── jshint.js
-│       └── utilities
-│           ├── git.js
-│           ├── noop.js
-│           └── version.js
-├── gulpfile.js
-├── icons
-│   └── ios
-│       ├── icon-1024.png
-│       ├── icon-40.png
-│       ├── icon-40@2x.png
-│       ├── icon-50.png
-│       ├── icon-50@2x.png
-│       ├── icon-60.png
-│       ├── icon-60@2x.png
-│       ├── icon-72.png
-│       ├── icon-72@2x.png
-│       ├── icon-76.png
-│       ├── icon-76@2x.png
-│       ├── icon-small.png
-│       ├── icon-small@2x.png
-│       ├── icon.png
-│       └── icon@2x.png
-├── package.json
-├── scss
-│   ├── _style.scss
-│   ├── fonts
-│   │   └── _fredoka.scss
-│   ├── ionic.app.scss
-│   └── partials
-│       ├── _all.scss
-│       ├── _base.scss
-│       ├── _grid.scss
-│       ├── _media.scss
-│       ├── _typography.scss
-│       └── _ui.scss
-└── vendor.json
+
 ```
 
 ## Developed By
