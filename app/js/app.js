@@ -15,8 +15,8 @@ angular.module('app', ['ionic', 'ngDragDrop', 'angular.filter', 'app.controllers
 
         $stateProvider.state('menu', {
             url: '/',
-            //controller: 'Master',
-            //controllerAs: 'master',
+            controller: 'Master',
+            controllerAs: 'master',
             templateUrl: './partials/view-1.html'
         });
     });
