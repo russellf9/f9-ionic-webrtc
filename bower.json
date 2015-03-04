@@ -12,7 +12,9 @@
     "angular-touch": "~1.3.12",
     "jqueryui-touch-punch": "*",
     "include-media": "~1.1.2",
-    "modular-scale": "~2.0.6"
+    "modular-scale": "~2.0.6",
+    "angular-ui-router": "~0.2.11",
+    "angular-socket-io": "~0.6.0"
   },
   "resolutions": {
     "angular": "1.3.6"

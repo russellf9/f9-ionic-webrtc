@@ -7,6 +7,8 @@ var gulp    = require('gulp'),
 // copies the partials
 gulp.task('partials', function() {
 
+    console.log('doing partials!')
+
     var build = gulp.args.build || gulp.args.emulate || gulp.args.run,
         src = './app/partials/**/*.html',
         targetDir = path.resolve(build ? './www/' : './.tmp/');
