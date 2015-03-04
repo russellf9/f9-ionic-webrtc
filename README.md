@@ -65,6 +65,13 @@ v0.12.0
 
 ```
 
+## Cordova
+
+```
+cordova platform add ios
+
+```
+
 
 ## Gulp Commands
 
