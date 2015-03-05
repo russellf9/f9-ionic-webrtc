@@ -11,6 +11,7 @@
 - [Installation](#installation)
 - [Cordova](#cordova)
 - [The new build process](#the-new-build-process)
+- [Instructions for Xcode set up](#instructions-for-xcode-set-up)
 - [Gulp Commands](#gulp-commands)
 - [Known Issues:](#known-issues)
 - [TODO](#todo)
@@ -30,7 +31,7 @@ A Ionic Test using WebRTC
 
 The current version of the app is:
 
-**0.0.7**
+**0.0.8**
 
 
 
@@ -92,8 +93,36 @@ $ gulp --build
 # to run again
 $ cordova run browser
 
+# add platform
+$ ionic platform ios
+
+# rebuild
+$ ionic build ios
+
+# modify as per instructions
+
 ```
 
+## Instructions for Xcode set up
+
+Go platforms/ios and click on [ProjectName].xcodeproj to open it with XCode
+Go to your project settings
+In General, change Deployment Target to 7.0 or above
+Go to Build Settings and change:
+
+a. Valid Architectures => armv7
+
+b. Build Active Architecture Only => No
+
+c. Runpath Search Paths => $(inherited) @executable_path/Frameworks
+
+d. Objective-C Bridging Header => [ProjectName]/Plugins/com.dooble.phonertc/Bridging-Header.h
+
+e. Embedded content contains Swift Code => yes
+
+Repeat steps 4a. - 4c. for the CordovaLib project
+
+Make sure your build target is an actual iPhone or iPad running on the arm7 architecture. The iPhone and iPad simulators are not emulators, and only run on i386. The compiled RTC libraries for ios have been built for arm7.
 
 
 ## Gulp Commands
