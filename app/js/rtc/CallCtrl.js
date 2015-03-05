@@ -3,7 +3,7 @@
 
     angular.module('f9-webrtc')
 
-        .controller('CallCtrl', function($scope, $state, $rootScope, $timeout, $ionicModal, $stateParams, signaling, ContactsService) {
+        .controller('CallCtrl', ['$scope', '$state', '$rootScope', '$timeout', '$ionicModal', '$stateParams', 'signaling', 'ContactsService', function($scope, $state, $rootScope, $timeout, $ionicModal, $stateParams, signaling, ContactsService) {
             var duplicateMessages = [];
 
             $scope.callInProgress = false;
@@ -16,12 +16,13 @@
             $scope.hideFromContactList = [$scope.contactName];
             $scope.muted = false;
 
-            $ionicModal.fromTemplateUrl('templates/select_contact.html', {
+            $ionicModal.fromTemplateUrl('partials/select_contact.html', {
                 scope: $scope,
                 animation: 'slide-in-up'
             }).then(function(modal) {
                 $scope.selectContactModal = modal;
             });
+
 
             function call(isInitiator, contactName) {
                 console.log(new Date().toString() + ': calling to ' + contactName + ', isInitiator: ' + isInitiator);
@@ -42,6 +43,12 @@
                 var session = new cordova.plugins.phonertc.Session(config);
 
                 session.on('sendMessage', function(data) {
+
+                    if (!signaling) {
+                        console.log('signal not ready for message: ', data);
+                        return;
+                    }
+
                     signaling.emit('sendMessage', contactName, {
                         type: 'phonertc_handshake',
                         data: JSON.stringify(data)
@@ -58,6 +65,11 @@
                     }
 
                     if (Object.keys($scope.contacts).length === 0) {
+
+                        if (!signaling) {
+                            console.log('signal not working ');
+                            $state.go('app.contacts');
+                        }
                         signaling.emit('sendMessage', contactName, {type: 'ignore'});
                         $state.go('app.contacts');
                     }
@@ -69,17 +81,27 @@
             }
 
             if ($scope.isCalling) {
-                signaling.emit('sendMessage', $stateParams.contactName, {type: 'call'});
+                if (!signaling) {
+                    console.log('signal not ready for calling');
+                }
+                else {
+                    signaling.emit('sendMessage', $stateParams.contactName, {type: 'call'});
+                }
             }
 
             $scope.ignore = function() {
                 var contactNames = Object.keys($scope.contacts);
                 if (contactNames.length > 0) {
                     $scope.contacts[contactNames[0]].disconnect();
+                }
+                // my hack for the dry run
+                else if (!signaling) {
+                    $state.go('app.contacts');
                 } else {
                     signaling.emit('sendMessage', $stateParams.contactName, {type: 'ignore'});
                     $state.go('app.contacts');
                 }
+
             };
 
             $scope.end = function() {
@@ -213,10 +235,16 @@
                 }
             }
 
-            signaling.on('messageReceived', onMessageReceive);
+            if (signaling) {
+                signaling.on('messageReceived', onMessageReceive);
+            }
+
 
             $scope.$on('$destroy', function() {
-                signaling.removeListener('messageReceived', onMessageReceive);
+                if (signaling) {
+                    signaling.removeListener('messageReceived', onMessageReceive);
+                }
+
             });
-        });
+        }]);
 }());
