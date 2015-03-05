@@ -322,7 +322,7 @@ and
     at require (module.js:384:17)
 --
 ---
-
+```
 
 Fixed the `lock` error by following advice from photusenigma at [Attempt to unlock, which hasn't been locked #4815](https://github.com/npm/npm/issues/4815)
 
@@ -363,9 +363,6 @@ $ npm install -g doctoc
 
 ## Project Tree
 
-```
-
-```
 
 ## Developed By
 
