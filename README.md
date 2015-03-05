@@ -114,7 +114,6 @@ $ ionic build ios
 
 ```
 
-```
 
 ## Instructions for Xcode set up
 
