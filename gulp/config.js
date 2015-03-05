@@ -12,6 +12,7 @@ module.exports = {
     paths: {
         sass: './scss/**/*.{scss, sass}',
         fonts: app + '/fonts/**',
+        appJs: app + '/js/app.js',
         scripts: app + '/js/**/*.js',
         vendor: './vendor.json',
         partials: app + '/partials/**/*.html',

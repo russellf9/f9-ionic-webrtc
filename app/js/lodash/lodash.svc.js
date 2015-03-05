@@ -5,7 +5,7 @@
     /**
      * A factory which extends the underscore / lodash lib
      */
-    angular.module('app').factory('_', ['$window', function($window) {
+    angular.module('f9-webrtc').factory('_', ['$window', function($window) {
 
         // Get a local handle on the global lodash reference.
         var _ = $window._;

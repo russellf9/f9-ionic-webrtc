@@ -9,10 +9,11 @@ var pkg = require('../../../package.json'),
 gulp.task('scripts', function() {
 
     var build = gulp.args.build || gulp.args.emulate || gulp.args.run,
+        appJs = config.paths.appJs,
         targetSrc = config.paths.scripts,
         targetDir = path.resolve(build ? './www/' : './.tmp/');
 
-    return gulp.src(targetSrc)
+    return gulp.src([appJs, targetSrc])
         .pipe(gulp.plugins.concat(config.scripts.name))
         //.pipe(gulp.plugins.if(build, gulp.plugins.stripDebug()))
         .pipe(gulp.plugins.header(config.build.closureStart))
