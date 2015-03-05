@@ -10,6 +10,7 @@
 - [Project Objectives](#project-objectives)
 - [Installation](#installation)
 - [Cordova](#cordova)
+- [The new build process](#the-new-build-process)
 - [Gulp Commands](#gulp-commands)
 - [Known Issues:](#known-issues)
 - [TODO](#todo)
@@ -29,7 +30,7 @@ A Ionic Test using WebRTC
 
 The current version of the app is:
 
-**0.0.3**
+**0.0.7**
 
 
 
@@ -69,6 +70,30 @@ v0.12.0
 $ cordova platform add ios
 
 ```
+
+## The new build process
+
+Now attempting to use the _Browser Platform_
+
+See: [Browser as a platform for your PhoneGap/Cordova apps](http://www.raymondcamden.com/2014/09/24/Browser-as-a-platform-for-your-PhoneGapCordova-apps)
+
+
+```
+# to add the Browser platform
+# this builds from the current state of the www folder
+$ cordova platform add browser --usegit
+
+# to run - kill Chrome, and then type
+$ cordova run browser
+
+# to rebuild the www folder
+$ gulp --build
+
+# to run again
+$ cordova run browser
+
+```
+
 
 
 ## Gulp Commands
