@@ -5,27 +5,19 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
-  - [Description](#description)
-  - [Version](#version)
-  - [Project Objectives](#project-objectives)
-  - [Installation](#installation)
-  - [Cordova](#cordova)
-  - [The new build process](#the-new-build-process)
-- [dev runs the 'dev' build and starts the server](#dev-runs-the-dev-build-and-starts-the-server)
-- [build](#build)
-- [or](#or)
-- [emulate ios](#emulate-ios)
-- [or](#or-1)
-- [test on device](#test-on-device)
-- [or](#or-2)
-- [implements a semantic 'patch' increment](#implements-a-semantic-patch-increment)
-- [implements semantic a 'minor' increment](#implements-semantic-a-minor-increment)
-- [implements a semantic 'major' increment](#implements-a-semantic-major-increment)
-- [creates a new git branch in the format 'dev-{YYMMDD}' from the current date](#creates-a-new-git-branch-in-the-format-dev-yymmdd-from-the-current-date)
-  - [](#)
-  - [ * Run npm install -g ionic to update](#-run-npm-install--g-ionic-to-update)
-  - [    at require (module.js:384:17)](#at-require-modulejs38417)
-  - [--](#--)
+- [Description](#description)
+- [Version](#version)
+- [Project Objectives](#project-objectives)
+- [Installation](#installation)
+- [Cordova](#cordova)
+- [The new build process](#the-new-build-process)
+- [Instructions for Xcode set up](#instructions-for-xcode-set-up)
+- [Gulp Commands](#gulp-commands)
+- [Known Issues:](#known-issues)
+- [](#)
+- [ * Run npm install -g ionic to update](#-run-npm-install--g-ionic-to-update)
+- [    at require (module.js:384:17)](#at-require-modulejs38417)
+- [--](#--)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -289,7 +281,7 @@ run
 $ npm -v
 
 2.5.1
-``
+```
 
 Trying to update I had some interesting messages:
 
