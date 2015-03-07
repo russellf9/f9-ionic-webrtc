@@ -14,10 +14,10 @@
 - [Instructions for Xcode set up](#instructions-for-xcode-set-up)
 - [Gulp Commands](#gulp-commands)
 - [Known Issues:](#known-issues)
-- [TODO](#todo)
-- [Project Tree](#project-tree)
-- [Developed By](#developed-by)
-- [License](#license)
+- [](#)
+- [ * Run npm install -g ionic to update](#-run-npm-install--g-ionic-to-update)
+- [    at require (module.js:384:17)](#at-require-modulejs38417)
+- [--](#--)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -31,7 +31,7 @@ A Ionic Test using WebRTC
 
 The current version of the app is:
 
-**0.0.8**
+**0.0.9**
 
 
 
@@ -41,7 +41,7 @@ The current version of the app is:
 ## Installation
 
 ```
-$ git clone git@github.com:russellf9/f9-ionic-seed && cd magic-squares-mobile
+$ git clone git@github.com:russellf9/f9-ionic-webrtc && cd f9-ionic-webrtc
 
 # update node dependencies
 $ npm update
@@ -55,6 +55,8 @@ v0.10.33
 
 #  use n
 npm install -g n
+
+see: [Upgrade Node.js via NPM](http://davidwalsh.name/upgrade-nodejs)
 
 # For the latest stable version:
 sudo n stable
@@ -84,11 +86,12 @@ See: [Browser as a platform for your PhoneGap/Cordova apps](http://www.raymondca
 # this builds from the current state of the www folder
 $ cordova platform add browser --usegit
 
-# to run - kill Chrome, and then type
-$ cordova run browser
 
 # to rebuild the www folder
 $ gulp --build
+
+# to run - kill Chrome, and then type
+$ cordova run browser
 
 # to run again
 $ cordova run browser
@@ -102,6 +105,7 @@ $ ionic build ios
 # modify as per instructions
 
 ```
+
 
 ## Instructions for Xcode set up
 
@@ -199,18 +203,166 @@ $ gulp branch
 
 ## Known Issues:
 
+On a fresh install of the app from Github I had the following error:
 
+```
+cordova platform add browser --usegit
+Current working directory is not a Cordova-based project.
+```
+
+In the original project ( on my iMac ) there was a _Ionic.project_ file. This file was not committed.
+
+I'm guessing that is the cause of the error!
+
+Running:
+
+```
+ionic  platform add browser --usegit
+Current working directory is not a Cordova-based project.
+
+------------------------------------
+Ionic CLI is out of date:
+ * Locally installed version: 1.3.10
+ * Latest version: 1.3.11
+ * https://github.com/driftyco/ionic-cli/blob/master/CHANGELOG.md
+ * Run npm install -g ionic to update
+------------------------------------
+```
+
+I ran the following:
+
+```
+
+$ npm uninstall -g generator-karma && npm install -g generator-angular
+
+
+$ sudo npm install -g ionic
+```
+
+So yo errors
+
+```
+peerinvalid The package yo does not satisfy its siblings' peerDependencies requirements!
+npm ERR! peerinvalid Peer generator-angular@0.11.1 wants yo@>=1.0.0
+npm ERR! peerinvalid Peer generator-angular-php@0.6.2 wants yo@~1.3.3
+```
+
+I ran
+```
+$ npm remove -g generator-angular
+```
+
+Actually the answer was pretty simple, I just added a www folder then:
+
+```
+$ cordova platform add browser --usegit
+```
+worked!
+
+
+```
+gulp --build
+[16:58:14] Using gulpfile ~/localhosts/www.factornine.co.uk/development/f9-ionic-webrtc/gulpfile.js
+[16:58:14] Starting 'build'...
+[16:58:14] Starting 'clean'...
+[16:58:14] Finished 'clean' after 144 ms
+[16:58:14] Starting 'jshint'...
+[16:58:14] 'jshint' errored after 117 ms
+[16:58:14] Error: Cannot find module 'through2'
+    at Function.Module._resolveFilename (module.js:336:15)
+    at Function.Module._load (module.js:278:25)
+    at Module.require (module.js:365:17)
+    at require (module.js:384:17)
+```
+
+run
+
+```
+$ npm -v
+
+2.5.1
+```
+
+Trying to update I had some interesting messages:
+
+```
+localhost:f9-ionic-webrtc factornine$ npm install gulp-jshint --save-dev
+npm WARN package.json app@0.0.8 No repository field.
+npm WARN package.json path@0.11.14 path is also the name of a node core module.
+npm WARN locking Error: EACCES, open '/Users/factornine/.npm/_locks/gulp-jshint-e0a315277a01f285.lock'
+npm WARN locking     at Error (native)
+npm WARN locking  /Users/factornine/.npm/_locks/gulp-jshint-e0a315277a01f285.lock failed { [Error: EACCES, open '/Users/factornine/.npm/_locks/gulp-jshint-e0a315277a01f285.lock']
+npm WARN locking   errno: -13,
+npm WARN locking   code: 'EACCES',
+npm WARN locking   path: '/Users/factornine/.npm/_locks/gulp-jshint-e0a315277a01f285.lock' }
+npm ERR! Darwin 13.4.0
+npm ERR! argv "/usr/local/bin/node" "/usr/local/bin/npm" "install" "gulp-jshint" "--save-dev"
+npm ERR! node v0.12.0
+npm ERR! npm  v2.5.1
+
+npm ERR! Attempt to unlock /Users/factornine/localhosts/www.factornine.co.uk/development/f9-ionic-webrtc/node_modules/gulp-jshint, which hasn't been locked
+npm ERR! 
+npm ERR! If you need help, you may report this error at:
+npm ERR!     <http://github.com/npm/npm/issues>
+```
+and
+
+```
+[17:16:51] Error: Cannot find module 'through2'
+    at Function.Module._resolveFilename (module.js:336:15)
+    at Function.Module._load (module.js:278:25)
+    at Module.require (module.js:365:17)
+    at require (module.js:384:17)
+    at Object.<anonymous> (/Users/factornine/localhosts/www.factornine.co.uk/development/f9-ionic-webrtc/node_modules/gulp-notify/lib/extra_api.js:1:77)
+    at Module._compile (module.js:460:26)
+    at Object.Module._extensions..js (module.js:478:10)
+    at Module.load (module.js:355:32)
+    at Function.Module._load (module.js:310:12)
+    at Module.require (module.js:365:17)
+    at require (module.js:384:17)
+--
+---
+```
+
+Fixed the `lock` error by following advice from photusenigma at [Attempt to unlock, which hasn't been locked #4815](https://github.com/npm/npm/issues/4815)
+
+```
+sudo chown -R `whoami` ~/.npm
+sudo chown -R `whoami` /usr/local/lib/node_modules
+
+```
+
+Update each plugin?
+
+```
+npm install --save-dev gulp-notify  node-notifier
+```
+
+```
+
+17:39:17] 'styles' errored after 597 ms
+[17:39:17] Error: Cannot find module 'node-notifier'
+    at Function.Module._resolveFilename (module.js:336:15)
+    at Function.Module._load (module.js:278:25)
+    at Module.require (module.js:365:17)
+    at require (module.js:384:17)
+    at Object.<anonymous> (/Users/factor
+    ... 
+```
 ## TODO
 
 1. [ ] Make a TODO list!.
 1. [ ] Make the tree using `tree`
 
+## Doctoc - Install
+
+```
+$ npm install -g doctoc
+```
+
 
 ## Project Tree
 
-```
-
-```
 
 ## Developed By
 
