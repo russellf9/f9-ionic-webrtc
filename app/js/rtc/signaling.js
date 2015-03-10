@@ -2,7 +2,7 @@ angular.module('f9-webrtc')
     .factory('signaling', ['socketFactory', function(socketFactory) {
 
         if (typeof io === 'undefined') {
-            console.log('doesn`t exist!');
+            console.log('io doesn`t exist!');
             return null;
         }
 

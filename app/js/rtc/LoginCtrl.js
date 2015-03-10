@@ -6,7 +6,7 @@ angular.module('f9-webrtc')
             $scope.loading = false;
 
             $scope.login = function() {
-                console.log('login!');
+                console.log('login! 12:13');
                 $scope.loading = true;
                 if (signaling) {
                     signaling.emit('login', $scope.data.name);
