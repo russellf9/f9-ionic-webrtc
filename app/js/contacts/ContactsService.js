@@ -33,8 +33,8 @@ angular.module('f9-webrtc')
                         onlineUsers.push(user);
                     }
                 });
-                onlineUsers.push(currentName); // hack for now...
-                console.log('++++ users: ', onlineUsers);
+                //onlineUsers.push(currentName); // hack for now...
+                console.log('++++ online users: ', onlineUsers);
             }
         }
     }]);

@@ -1,7 +1,7 @@
 /**
  * To run simple server:
  *
- * $ run node index.js
+ * $ node index.js
  * */
 
 var app = require('express')();
@@ -42,6 +42,7 @@ io.on('connection', function (socket) {
     });
 
     socket.on('sendMessage', function (name, message) {
+        console.log('sendMessage | name: ', name, ' | message: ', message);
         var currentUser = _.find(users, { socket: socket.id });
         if (!currentUser) { return; }
 

@@ -94,9 +94,8 @@
                 if (contactNames.length > 0) {
                     $scope.contacts[contactNames[0]].disconnect();
                 }
-                // my hack for the dry run
                 else if (!signaling) {
-                    $state.go('app.contacts');
+                    console.log('Error - no signalling');
                 } else {
                     signaling.emit('sendMessage', $stateParams.contactName, {type: 'ignore'});
                     $state.go('app.contacts');
@@ -166,6 +165,8 @@
             };
 
             function onMessageReceive(name, message) {
+
+                console.log('CallCtrl::onMessageReceive | name: ',name, ' | message: ', message);
                 switch (message.type) {
                     case 'answer':
                         $scope.$apply(function() {

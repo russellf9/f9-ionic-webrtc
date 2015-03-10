@@ -1,3 +1,5 @@
+
+
 angular.module('f9-webrtc')
 
     .controller('LoginCtrl', ['$scope', '$state', '$ionicPopup', 'signaling', 'ContactsService',
@@ -6,15 +8,12 @@ angular.module('f9-webrtc')
             $scope.loading = false;
 
             $scope.login = function() {
-                console.log('login! 12:13   ');
+                console.log('login! 14:34');
                 $scope.loading = true;
                 if (signaling) {
                     signaling.emit('login', $scope.data.name);
                 } else {
-                    var users = [];
-                    console.log('login! | users: ', users);
-                    ContactsService.setOnlineUsers(users, $scope.data.name);
-                    $state.go('app.contacts');
+                    console.log('Error - no signalling');
                 }
             };
 
