@@ -86,6 +86,8 @@ See: [Browser as a platform for your PhoneGap/Cordova apps](http://www.raymondca
 # this builds from the current state of the www folder
 $ cordova platform add browser --usegit
 
+# add platform
+$ ionic platform ios
 
 # to rebuild the www folder
 $ gulp --build
@@ -96,11 +98,14 @@ $ cordova run browser
 # to run again
 $ cordova run browser
 
-# add platform
-$ ionic platform ios
-
 # rebuild
 $ ionic build ios
+
+# to refresh the browser build
+# 1. rebuild the www folder
+$ gulp --build ( ensure the index task has been run )
+# 2. `rebuild` the browser app
+$ cordova run browser
 
 # modify as per instructions
 
@@ -127,6 +132,22 @@ e. Embedded content contains Swift Code => yes
 Repeat steps 4a. - 4c. for the CordovaLib project
 
 Make sure your build target is an actual iPhone or iPad running on the arm7 architecture. The iPhone and iPad simulators are not emulators, and only run on i386. The compiled RTC libraries for ios have been built for arm7.
+
+
+### Plugin issues
+
+I had an issue where the _.../Plugins/_ folder was empty after a build.
+
+The post [Third Party Plugins Don’t Install Correctly (Fails on Build)](http://forum.ionicframework.com/t/third-party-plugins-dont-install-correctly-fails-on-build/7585) gave me a solution:
+
+```
+$ ionic platform rm ios
+$ ionic platform add ios
+
+```
+
+This installed all the required plugins including the _Bridging-Header.h_ file which allowed the Objective-C Bridging Header to be set.
+
 
 
 ## Gulp Commands
@@ -199,6 +220,13 @@ $ gulp version-major
 $ gulp branch
 
 ```
+
+
+## ipcortex - Keevio
+
+Use the following URL:
+
+https://pabx1.ipcortex.net/login.whtm
 
 
 ## Known Issues:
