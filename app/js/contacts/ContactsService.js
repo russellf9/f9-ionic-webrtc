@@ -1,9 +1,11 @@
+'use strict';
+
 angular.module('f9-webrtc')
     .factory('ContactsService', ['signaling', function(signaling) {
         var onlineUsers = [];
 
         if (!signaling) {
-            console.log('signal not ready!')
+            console.log('signal not ready!');
         }
 
         if (signaling) {
@@ -36,5 +38,5 @@ angular.module('f9-webrtc')
                 //onlineUsers.push(currentName); // hack for now...
                 console.log('++++ online users: ', onlineUsers);
             }
-        }
+        };
     }]);

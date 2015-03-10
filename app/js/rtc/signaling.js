@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('f9-webrtc')
     .factory('signaling', ['socketFactory', function(socketFactory) {
 
@@ -11,7 +13,7 @@ angular.module('f9-webrtc')
         // NOTE - Hard-coded reference
         var socket = io.connect('http://192.168.0.4:3000/');
 
-        var socketFactory = socketFactory({
+        socketFactory = socketFactory || socketFactory({
             ioSocket: socket
         });
 

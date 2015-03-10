@@ -4,6 +4,8 @@
     "localStorage": false,
     "angular": true,
     "Firebase": true,
+    "io": true,
+    "cordova" : true,
     "Modernizr": true,
     "moment" : true,
     "tool" : true,

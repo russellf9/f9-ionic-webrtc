@@ -1,4 +1,4 @@
-
+'use strict';
 
 angular.module('f9-webrtc')
 

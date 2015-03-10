@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('f9-webrtc')
     .directive('videoView', function($rootScope, $timeout) {
         return {
@@ -22,5 +24,5 @@ angular.module('f9-webrtc')
                 $timeout(updatePosition, 500);
                 $rootScope.$on('videoView.updatePosition', updatePosition);
             }
-        }
+        };
     });
