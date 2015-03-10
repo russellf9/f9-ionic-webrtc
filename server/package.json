@@ -1,13 +1,14 @@
 {
-    "name": "socket-app",
-    "version": "0.0.1",
-    "description": "my first socket.io app",
-    "dependencies": {
-        "socket.io": "1.2.0"
-    },
-    "devDependencies": {
-        "express": "~4.10.2",
-        "lodash-node": "~3.3.1",
-        "socket.io": "1.2.0"
-    }
+  "name": "socket-app",
+  "version": "0.0.1",
+  "description": "my first socket.io app",
+  "dependencies": {
+    "socket.io": "1.2.0",
+    "express": "~4.10.2"
+  },
+  "devDependencies": {
+    "express": "~4.10.2",
+    "lodash-node": "~3.3.1",
+    "socket.io": "1.2.0"
+  }
 }
