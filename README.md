@@ -12,12 +12,25 @@
 - [Cordova](#cordova)
 - [The new build process](#the-new-build-process)
 - [Instructions for Xcode set up](#instructions-for-xcode-set-up)
+  - [Plugin issues](#plugin-issues)
 - [Gulp Commands](#gulp-commands)
+- [ipcortex - Keevio](#ipcortex---keevio)
 - [Known Issues:](#known-issues)
 - [](#)
 - [ * Run npm install -g ionic to update](#-run-npm-install--g-ionic-to-update)
 - [    at require (module.js:384:17)](#at-require-modulejs38417)
 - [--](#--)
+- [TODO](#todo)
+  - [Utilities](#utilities)
+  - [Doctoc](#doctoc)
+    - [To Install](#to-install)
+    - [To run](#to-run)
+  - [Tree](#tree)
+    - [To Install](#to-install-1)
+    - [To run](#to-run-1)
+- [Project Tree](#project-tree)
+- [Developed By](#developed-by)
+- [License](#license)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -389,14 +402,123 @@ npm install --save-dev gulp-notify  node-notifier
 1. [ ] Make a TODO list!.
 1. [ ] Make the tree using `tree`
 
-## Doctoc - Install
+### Utilities
+
+I've used a few utilities to improve the documentation process.
+
+### Doctoc
+
+**Doctoc** creates a table of contents.
+
+#### To Install
 
 ```
 $ npm install -g doctoc
 ```
 
+####  To run
+
+```
+doctoc README.md --github
+```
+
+### Tree
+
+[Tree](http://mama.indstate.edu/users/ice/tree/) creates a tree diagram for a project.
+
+#### To Install
+
+Download from: [Download the latest version (tree-1.7.0.tgz) (FTP)](ftp://mama.indstate.edu/linux/tree/tree-1.7.0.tgz)
+
+
+####  To run
+
+```
+# use the '-I' to ignore folders
+$ tree -I '.temp|ionic.project|vendor|bower_components|hooks|node_modules|platforms|plugins|resources|server|www|modules|fonts'
+```
+
+The output can be copied into the README file.
+
 
 ## Project Tree
+
+
+```
+.
+├── LICENSE.txt
+├── README.md
+├── app
+│   ├── css
+│   │   ├── ionic.app.css
+│   │   └── style.css
+│   ├── img
+│   │   └── icon.png
+│   ├── index.html
+│   ├── js
+│   │   ├── app.js
+│   │   ├── contacts
+│   │   │   ├── ContactsCtrl.js
+│   │   │   └── ContactsService.js
+│   │   ├── lodash
+│   │   │   └── lodash.svc.js
+│   │   └── rtc
+│   │       ├── CallCtrl.js
+│   │       ├── LoginCtrl.js
+│   │       ├── VideoViewDirective.js
+│   │       └── signaling.js
+│   ├── partials
+│   │   ├── app.html
+│   │   ├── call.html
+│   │   ├── contacts.html
+│   │   ├── login.html
+│   │   ├── select_contact.html
+│   │   └── view-1.html
+│   └── tree
+├── bower.json
+├── config.xml
+├── gulp
+│   ├── config.js
+│   └── tasks
+│       ├── build
+│       │   ├── build.js
+│       │   ├── clean.js
+│       │   ├── fonts.js
+│       │   ├── images.js
+│       │   ├── index.js
+│       │   ├── ionic.js
+│       │   ├── partials.js
+│       │   ├── scripts.js
+│       │   ├── styles.js
+│       │   └── vendor.js
+│       ├── default.js
+│       ├── development
+│       │   ├── serve.js
+│       │   └── watchers.js
+│       ├── socket
+│       ├── standards
+│       │   ├── jscs.js
+│       │   └── jshint.js
+│       └── utilities
+│           ├── git.js
+│           ├── noop.js
+│           └── version.js
+├── gulpfile.js
+├── icons
+├── package.json
+├── scss
+│   ├── _style.scss
+│   ├── ionic.app.scss
+│   └── partials
+│       ├── _all.scss
+│       ├── _base.scss
+│       ├── _grid.scss
+│       ├── _media.scss
+│       ├── _typography.scss
+│       └── _ui.scss
+├── tree
+└── vendor.json
+```
 
 
 ## Developed By
