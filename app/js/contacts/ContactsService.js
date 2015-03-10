@@ -8,6 +8,8 @@ angular.module('f9-webrtc')
             console.log('signal not ready!');
         }
 
+        //console.log('signaling: ', signaling);
+
         if (signaling) {
             signaling.on('online', function(name) {
                 if (onlineUsers.indexOf(name) === -1) {

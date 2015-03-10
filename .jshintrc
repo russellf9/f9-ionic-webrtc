@@ -31,6 +31,7 @@
     "by" : true,
     "require" : true,
     "StatusBar" : true,
-    "process": true
+    "process": true,
+    "window" : true
   }
 }
