@@ -31,7 +31,7 @@ A Ionic Test using WebRTC
 
 The current version of the app is:
 
-**0.0.9**
+**0.0.10**
 
 
 
@@ -56,8 +56,6 @@ v0.10.33
 #  use n
 npm install -g n
 
-see: [Upgrade Node.js via NPM](http://davidwalsh.name/upgrade-nodejs)
-
 # For the latest stable version:
 sudo n stable
 
@@ -65,6 +63,9 @@ node -v
 v0.12.0
 
 ```
+
+To update Node using **n** see: [Upgrade Node.js via NPM](http://davidwalsh.name/upgrade-nodejs)
+
 
 ## Cordova
 
@@ -134,6 +135,8 @@ Repeat steps 4a. - 4c. for the CordovaLib project
 Make sure your build target is an actual iPhone or iPad running on the arm7 architecture. The iPhone and iPad simulators are not emulators, and only run on i386. The compiled RTC libraries for ios have been built for arm7.
 
 
+I'm using Xcode rather than the Gulp or Ionic commands to deploy the app at the moment. (I'll document if that is the best technique in due course.)
+
 ### Plugin issues
 
 I had an issue where the _.../Plugins/_ folder was empty after a build.
@@ -143,10 +146,9 @@ The post [Third Party Plugins Don’t Install Correctly (Fails on Build)](http:/
 ```
 $ ionic platform rm ios
 $ ionic platform add ios
-
 ```
 
-This installed all the required plugins including the _Bridging-Header.h_ file which allowed the Objective-C Bridging Header to be set.
+This installed all the required plugins including the _Bridging-Header.h_ file which allowed the **Objective-C Bridging Header** to be set.
 
 
 
@@ -228,6 +230,10 @@ Use the following URL:
 
 https://pabx1.ipcortex.net/login.whtm
 
+or
+
+https://pabx1.ipcortex.net/keevio/
+
 
 ## Known Issues:
 
@@ -286,6 +292,7 @@ Actually the answer was pretty simple, I just added a www folder then:
 $ cordova platform add browser --usegit
 ```
 worked!
+_**Note:** without a **www** folder the project is not a valid cordova application.
 
 
 ```
