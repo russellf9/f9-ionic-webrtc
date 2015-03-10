@@ -112,7 +112,7 @@ $ cordova run browser
 # to run again
 $ cordova run browser
 
-# rebuild
+# rebuild ( same as gulp --build?)
 $ ionic build ios
 
 # to refresh the browser build
