@@ -1,7 +1,9 @@
 'use strict';
 
 var gulp = require('gulp'),
-    runSequence = require('run-sequence');
+    runSequence = require('run-sequence'),
+    notifier = require('node-notifier');
+
 
 // Run all tasks needed for a build
 // the 'clean' task completes first,
@@ -33,5 +35,18 @@ gulp.task('build', function(cb) {
         build ? 'noop' : 'serve',
         emulate ? 'ionic:emulate' : 'noop',
         run ? 'ionic:run' : 'noop',
+        'notify:build-success',
         cb);
+
+});
+
+
+// a sub task to run the success notification
+gulp.task('notify:build-success', function() {
+
+    notifier.notify({
+        title: 'Build',
+        message: 'Build task completed.  A new app has been created!',
+        sound: 'Pop'
+    });
 });
