@@ -36,6 +36,7 @@ gulp.task('build', function(cb) {
         emulate ? 'ionic:emulate' : 'noop',
         run ? 'ionic:run' : 'noop',
         'notify:build-success',
+        'ionic:prepare',
         cb);
 
 });
