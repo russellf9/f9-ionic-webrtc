@@ -212,6 +212,18 @@ $ gulp -run
 $ gulp -r
 ```
 
+There seems to be a issue presently to test on device so use the following:
+
+```
+# test on device
+$ gulp --build
+# "refresh" the build
+$ cordova prepare
+# from xcode select -> project -> device -> run ( the play like button )
+
+```
+
+
 **gulp utilities**
 
 * [gulp-bump](https://www.npmjs.com/package/gulp-bump), increments the version numbers in the _package.json_ and _bower.json_.
