@@ -12,6 +12,7 @@ gulp.task('images', function() {
         targetDir = path.resolve(build ? './www/' : './.tmp/');
 
     return gulp.src(config.paths.images)
+        .pipe(gulp.plugins.chmod(755))
         .pipe(gulp.dest(path.join(targetDir, 'img')))
 
         .on('error', function(error) {

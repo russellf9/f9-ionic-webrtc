@@ -68,7 +68,8 @@
     "through": "~2.3.6",
     "tiny-lr": "~0.1.5",
     "wiredep": "~2.2.2",
-    "yargs": "~3.2.1"
+    "yargs": "~3.2.1",
+    "gulp-chmod": "~1.2.0"
   },
   "cordovaPlugins": [
     "org.apache.cordova.statusbar",
