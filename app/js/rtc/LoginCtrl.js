@@ -11,8 +11,10 @@ angular.module('f9-webrtc')
                 console.log('login - 18:45');
                 $scope.loading = true;
                 if (signaling) {
+                    $scope.hasSignaling = true;
                     signaling.emit('login', $scope.data.name);
                 } else {
+                    $scope.hasSignaling = false;
                     console.log('Error - no signalling');
                 }
             };

@@ -11,7 +11,9 @@ angular.module('f9-webrtc')
         // for network ip address use:
         // var ip = shell.task(['ipconfig getifaddr en1']);
         // NOTE - Hard-coded reference
-        var socket = io.connect('http://192.168.0.4:3000/');
+
+        var ip = '192.168.0.2'; //192.168.0.4
+        var socket = io.connect('http://' + ip + ':3000/');
 
         socketFactory = socketFactory({
             ioSocket: socket

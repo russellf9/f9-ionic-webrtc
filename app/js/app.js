@@ -46,7 +46,7 @@ angular.module('f9-webrtc', ['ionic',  'ngDragDrop', 'angular.filter', 'f9-webrt
     })
 
     .run(function($state, signaling) {
-        console.log($state, signaling);
+        console.log('on - state: ', $state, signaling);
         if (signaling) {
             signaling.on('messageReceived', function(name, message) {
                 switch (message.type) {
