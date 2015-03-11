@@ -8,6 +8,7 @@ angular.module('f9-webrtc')
             replace: true,
             link: function(scope, element, attrs) {
                 function updatePosition() {
+                    console.log('video - updatePosition!');
                     cordova.plugins.phonertc.setVideoView({
                         container: element[0],
                         local: {
