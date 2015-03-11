@@ -4,6 +4,9 @@
  * $ node index.js
  * */
 
+
+'use strict';
+
 var app = require('express')();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
@@ -11,21 +14,21 @@ var _ = require('lodash-node');
 
 var users = [];
 
-app.get('/', function (req, res){
+app.get('/', function(req, res) {
     res.sendfile('index.html');
 });
 
-io.on('connection', function (socket) {
-    socket.on('login', function (name) {
+io.on('connection', function(socket) {
+    socket.on('login', function(name) {
         // if this socket is already connected,
         // send a failed login message
-        if (_.findIndex(users, { socket: socket.id }) !== -1) {
+        if (_.findIndex(users, {socket: socket.id}) !== -1) {
             socket.emit('login_error', 'You are already connected.');
         }
 
         // if this name is already registered,
         // send a failed login message
-        if (_.findIndex(users, { name: name }) !== -1) {
+        if (_.findIndex(users, {name: name}) !== -1) {
             socket.emit('login_error', 'This name already exists.');
             return;
         }
@@ -41,20 +44,24 @@ io.on('connection', function (socket) {
         console.log(name + ' logged in');
     });
 
-    socket.on('sendMessage', function (name, message) {
+    socket.on('sendMessage', function(name, message) {
         console.log('sendMessage | name: ', name, ' | message: ', message);
-        var currentUser = _.find(users, { socket: socket.id });
-        if (!currentUser) { return; }
+        var currentUser = _.find(users, {socket: socket.id});
+        if (!currentUser) {
+            return;
+        }
 
-        var contact = _.find(users, { name: name });
-        if (!contact) { return; }
+        var contact = _.find(users, {name: name});
+        if (!contact) {
+            return;
+        }
 
         io.to(contact.socket)
             .emit('messageReceived', currentUser.name, message);
     });
 
-    socket.on('disconnect', function () {
-        var index = _.findIndex(users, { socket: socket.id });
+    socket.on('disconnect', function() {
+        var index = _.findIndex(users, {socket: socket.id});
         if (index !== -1) {
             socket.broadcast.emit('offline', users[index].name);
             console.log(users[index].name + ' disconnected');
@@ -64,6 +71,6 @@ io.on('connection', function (socket) {
     });
 });
 
-http.listen(3000, function(){
+http.listen(3000, function() {
     console.log('for web rtc -> listening on *:3000');
 });
