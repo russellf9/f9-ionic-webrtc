@@ -4,11 +4,11 @@ angular.module('f9-webrtc')
     .factory('ContactsService', ['signaling', function(signaling) {
         var onlineUsers = [];
 
+        var currentUser = '';
+
         if (!signaling) {
             console.log('signal not ready!');
         }
-
-        //console.log('signaling: ', signaling);
 
         if (signaling) {
             signaling.on('online', function(name) {
@@ -29,7 +29,7 @@ angular.module('f9-webrtc')
             onlineUsers: onlineUsers,
             setOnlineUsers: function(users, currentName) {
                 console.log('users, currentName', users, currentName);
-                this.currentName = currentName;
+                currentUser = currentName;
 
                 onlineUsers.length = 0;
                 users.forEach(function(user) {
@@ -37,8 +37,9 @@ angular.module('f9-webrtc')
                         onlineUsers.push(user);
                     }
                 });
-                //onlineUsers.push(currentName); // hack for now...
-                console.log('++++ online users: ', onlineUsers);
+            },
+            currentUser: function() {
+                return currentUser;
             }
         };
     }]);

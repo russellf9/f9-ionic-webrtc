@@ -2,6 +2,8 @@
 
 angular.module('f9-webrtc')
 
-  .controller('ContactsCtrl', ['$scope', 'ContactsService', function ($scope, ContactsService) {
-    $scope.contacts = ContactsService.onlineUsers;
-  }]);
+    .controller('ContactsCtrl', ['$scope', 'ContactsService', function($scope, ContactsService) {
+        $scope.contacts = ContactsService.onlineUsers;
+        $scope.currentUser = ContactsService.currentUser;
+        $scope.currentUser = ContactsService.currentUser;
+    }]);
