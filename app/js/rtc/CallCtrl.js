@@ -108,6 +108,10 @@
                     $scope.contacts[contact].close();
                     delete $scope.contacts[contact];
                 });
+
+                if (typeof session !== 'undefined') {
+                    session.close();
+                }
             };
 
             $scope.answer = function() {
@@ -209,7 +213,11 @@
                         break;
 
                     case 'phonertc_handshake':
-                        if (duplicateMessages.indexOf(message.data) === -1) {
+                        if (duplicateMessages.indexOf(message.data) === -1 ) {
+                            // extra test
+                            if ($scope.contacts[name] === 'undefined') {
+                                return;
+                            }
                             $scope.contacts[name].receiveMessage(JSON.parse(message.data));
                             duplicateMessages.push(message.data);
                         }

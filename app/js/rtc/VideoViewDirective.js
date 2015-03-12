@@ -6,9 +6,10 @@ angular.module('f9-webrtc')
             restrict: 'E',
             template: '<div class="video-container"></div>',
             replace: true,
+            // the zero indexed element is the template - the video container
             link: function(scope, element, attrs) {
                 function updatePosition() {
-                    console.log('video - updatePosition!');
+                    console.log('video - updatePosition! |element[0]: ',element[0]);
                     cordova.plugins.phonertc.setVideoView({
                         container: element[0],
                         local: {
