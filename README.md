@@ -44,11 +44,14 @@ A Ionic Test using WebRTC
 
 The current version of the app is:
 
-**0.0.10**
-
+**0.0.11**
 
 
 ## Project Objectives
+
+The motivation for the project is get a basic mobile app using Web Real-Time Communications (RTC).
+
+I'm using the [phonertc](https://github.com/alongubkin/phonertc) cordova plugin
 
 
 ## Installation
@@ -89,6 +92,13 @@ $ cordova platform add ios
 ```
 
 ## The new build process
+
+We have three environments;
+
+1. The local sever ( runs from the .tmp folder )
+2. browser platform ( runs from platforms/browser ) - useful as cordova and the PhoneRTC are imported.
+3. Deploys to an iOS device
+(For this set up the emulator doesn't work)
 
 Now attempting to use the _Browser Platform_
 
@@ -212,16 +222,17 @@ $ gulp -run
 $ gulp -r
 ```
 
-There seems to be a issue presently to test on device so use the following:
+There seems to be a issue presently to test on device using Gulp only so use the following:*
 
 ```
 # test on device
 $ gulp --build
 # "refresh" the build
-$ cordova prepare
+# "cordova prepare" is now run by the build task, so there is no need to run
 # from xcode select -> project -> device -> run ( the play like button )
 
 ```
+* Error whiche referes to the *? and the armv7 architecture
 
 
 **gulp utilities**

@@ -8,6 +8,8 @@ angular.module('f9-webrtc')
             return null;
         }
 
+        console.log('signaling');
+
         // for network ip address use:
         // var ip = shell.task(['ipconfig getifaddr en1']);
         // NOTE - Hard-coded reference

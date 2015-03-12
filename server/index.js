@@ -19,6 +19,9 @@ app.get('/', function(req, res) {
 });
 
 io.on('connection', function(socket) {
+
+    console.log('index - connection');
+
     socket.on('login', function(name) {
         // if this socket is already connected,
         // send a failed login message
