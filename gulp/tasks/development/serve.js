@@ -44,7 +44,7 @@ gulp.task('serve', function() {
     // define properties
     var build = gulp.args.build || gulp.args.emulate || gulp.args.run,
         port = gulp.args.port || 9029,
-        _targetDir = path.resolve(build ? 'www' : '.tmp'),
+        _targetDir = path.resolve(build ? 'www' : config.paths.target),
 
     // set up the express server
     app = express();

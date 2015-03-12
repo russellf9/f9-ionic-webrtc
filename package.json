@@ -1,6 +1,6 @@
 {
   "name": "app",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "f9-ionic-webrtc",
   "dependencies": {
     "gulp": "^3.8.8",

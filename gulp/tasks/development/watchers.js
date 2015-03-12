@@ -6,8 +6,7 @@ var gulp = require('gulp'),
 
 gulp.task('watchers', function() {
 
-    var build = gulp.args.build || gulp.args.emulate || gulp.args.run,
-        targetDir = path.resolve(build ? 'www' : '.tmp');
+    var build = gulp.args.build || gulp.args.emulate || gulp.args.run;
 
     gulp.watch(config.paths.sass, ['styles']);
 

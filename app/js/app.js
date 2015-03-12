@@ -3,7 +3,7 @@
 angular.module('f9-webrtc', ['ionic',  'ngDragDrop', 'angular.filter', 'f9-webrtc.controllers', 'btford.socket-io'])
 
     .config(function($stateProvider, $urlRouterProvider) {
-        console.log('app::14:26');
+        console.log('app::150312 - 14:35b');
 
         $stateProvider
             .state('app', {

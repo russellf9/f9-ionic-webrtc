@@ -2,6 +2,8 @@
 
 var src = '/www',
     app = './app',
+    browserPlatform = './platforms/browser/www',
+    tmp = '.tmp',
     version = '0.1.6';
 
 
@@ -17,7 +19,9 @@ module.exports = {
         vendor: './vendor.json',
         partials: app + '/partials/**/*.html',
         index: app + '/index.html',
-        images: app + '/img/**/*.*'
+        images: app + '/img/**/*.*',
+        // we can switch between `.tmp` or `browser` here
+        target: browserPlatform
     },
     json: {
         package: './package.json',

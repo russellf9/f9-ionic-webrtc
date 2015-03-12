@@ -44,7 +44,7 @@ A Ionic Test using WebRTC
 
 The current version of the app is:
 
-**0.0.12**
+**0.0.14**
 
 
 ## Project Objectives
@@ -192,6 +192,11 @@ In the original Ionic app, source files were located in the _www_ folder. I've s
 $ gulp
 
 ```
+**Note:-**
+I've made the _browserPlatform_ the default target for the serve task,
+a little buggy for now, and the index and vendor files are not updated.
+But this will be ok fir general development.
+
 
 **build**
  * Runs from the .www folder
