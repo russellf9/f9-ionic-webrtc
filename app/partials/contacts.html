@@ -1,4 +1,4 @@
-<ion-view title="17:05 || Contacts for {{currentUser()}}" hide-back-button="false">
+<ion-view title="{{currentUser()}} - Contacts" hide-back-button="true">
   <ion-content>
     <ul class="list">
       <li class="item item-button-right" ng-repeat="contact in contacts">
@@ -10,6 +10,10 @@
         </button>
       </li>
     </ul>
-      <p ng-if="!contacts || contacts.length === 0">No contacts!</p>
+      <div class="card" ng-if="!contacts || contacts.length === 0">
+          <div class="item item-text-wrap">
+              <p>You have no contacts!</p>
+          </div>
+      </div>
   </ion-content>
 </ion-view>
