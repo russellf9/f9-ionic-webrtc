@@ -44,7 +44,7 @@ A Ionic Test using WebRTC
 
 The current version of the app is:
 
-**0.0.11**
+**0.0.12**
 
 
 ## Project Objectives
@@ -232,7 +232,7 @@ $ gulp --build
 # from xcode select -> project -> device -> run ( the play like button )
 
 ```
-* Error whiche referes to the *? and the armv7 architecture
+* Error which perhaps refers to the arm64 and the armv7s architecture
 
 
 **gulp utilities**
