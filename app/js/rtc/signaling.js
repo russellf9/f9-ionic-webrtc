@@ -8,13 +8,13 @@ angular.module('f9-webrtc')
             return null;
         }
 
-        console.log('signaling');
+        console.log('signaling || vendor: ');
 
         // for network ip address use:
         // var ip = shell.task(['ipconfig getifaddr en1']);
         // NOTE - Hard-coded reference
 
-        var ip = '192.168.0.2'; //192.168.0.4
+        var ip = '192.168.0.4'; // '192.168.0.2';
         var socket = io.connect('http://' + ip + ':3000/');
 
         socketFactory = socketFactory({
