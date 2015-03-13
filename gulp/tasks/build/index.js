@@ -11,15 +11,18 @@ gulp.task('index', function(cb) {
     //gutil.log('plugins: ',plugins);
     gulp.plugins.util.log('Index - I`m working! build: ', gulp.args.build);
 
+    // note:  config.paths.target = browserPlatform = './platforms/browser/www'
+    //
+
     var build = gulp.args.build || gulp.args.emulate || gulp.args.run,
     // define the src and target
         src = './app/index.html',
-        targetDir = path.resolve(build ? 'www' : '.tmp'),
+        targetDir = path.resolve(build ? 'www' : config.paths.target),
 
     // define the path for each build
-        cssPath = path.resolve(build ? 'www/styles/main.css' : '.tmp/styles/main.css'),
-        vendorPath = path.resolve(build ? 'www/js/vendor.js' : '.tmp/js/vendor.js'),
-        appPath = path.resolve(build ? 'www/js/app.min.js' : '.tmp/js/app.js'),
+        cssPath = path.resolve(build ? 'www/styles/main.css' : config.paths.target + '/styles/main.css'),
+        vendorPath = path.resolve(build ? 'www/js/vendor.js' : config.paths.target + '/js/vendor.js'),
+        appPath = path.resolve(build ? 'www/js/app.min.js'   : config.paths.target + '/js/app.min.js'),
 
     // define the stream for each build
         cssStream = gulp.src([cssPath], {read: false}),
@@ -31,8 +34,8 @@ gulp.task('index', function(cb) {
         vendorOptions = {addRootSlash: false, starttag: '<!-- inject:head:{{ext}} -->'};
 
     // ignore the root path according to which build
-    options.ignorePath = build ? 'www' : '.tmp';
-    vendorOptions.ignorePath = build ? 'www' : '.tmp';
+    options.ignorePath = build ? 'www' : 'platforms/browser/www/';
+    vendorOptions.ignorePath = build ? 'www' : 'platforms/browser/www/';
 
     gulp.src(src)
         .pipe(gulp.plugins.inject(cssStream, options))
