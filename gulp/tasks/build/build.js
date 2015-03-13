@@ -32,7 +32,6 @@ gulp.task('build', function(cb) {
         ['jshint', 'scripts', 'vendor', 'styles', 'images'],
         'index', 'partials', 'fonts',
         build ? 'noop' : 'watchers',
-        build ? 'noop' : 'serve',
         emulate ? 'ionic:emulate' : 'noop',
         run ? 'ionic:run' : 'noop',
         'notify:build-success',

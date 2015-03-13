@@ -57,7 +57,7 @@ gulp.task('serve', function() {
         console.log(error);
     });
 
-    open('http://localhost:' + port + '/', 'Google Chrome');
+    //open('http://localhost:' + port + '/', 'Google Chrome');
 
     // live reload
     startLivereload();

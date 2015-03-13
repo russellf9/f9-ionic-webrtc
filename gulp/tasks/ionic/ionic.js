@@ -17,3 +17,8 @@ gulp.task('ionic:run', shell.task([
 gulp.task('ionic:prepare', shell.task([
     'cordova prepare'
 ]));
+
+// starts the cordova browser
+gulp.task('ionic:browser', shell.task([
+    'cordova run browser'
+]));
