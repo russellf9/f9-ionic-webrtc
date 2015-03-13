@@ -71,7 +71,9 @@
     "wiredep": "~2.2.2",
     "yargs": "~3.2.1",
     "gulp-chmod": "~1.2.0",
-    "browser-sync": "~2.2.3"
+    "browser-sync": "~2.2.3",
+    "gulp-jscs": "~1.4.0",
+    "gulp-jscs-stylish": "~1.0.2"
   },
   "cordovaPlugins": [
     "org.apache.cordova.statusbar",

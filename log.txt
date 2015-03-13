@@ -1,0 +1,1441 @@
+commit cc5c7e6053e43ea8f3d695f31c067c23dc76918c
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Thu Mar 12 21:07:44 2015 +0000
+
+    #40-video-display
+
+commit 46713fdce7f81674960db6698c482a2f5c880e2c
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Thu Mar 12 15:46:45 2015 +0000
+
+    Now v 0.1.0, the most important features are present.
+
+commit e4215db42df212340fe6b3d53895499d9e6e85a1
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Thu Mar 12 15:04:30 2015 +0000
+
+    #46-watch-browser - Watching the browser platform
+     - The Serve task is running using the browser platform
+     - scripts
+     - partials
+
+commit effc857cfae6644ad1146177f71124956b4d9d75
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Thu Mar 12 12:51:29 2015 +0000
+
+    #45-contacts-view-user-tidy - The back button has been removed
+     - The style of the header has been improved
+     - The `no contacts` is using a `card`
+
+commit 2ac3edd49bb7b66ded058eb194ccc8877039789f
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Thu Mar 12 12:30:03 2015 +0000
+
+    #43-server-fix-ip - The ip address has been updated manually
+
+commit ddc857ebfec6e59bbeff70044361d42be64a9707
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Thu Mar 12 12:00:11 2015 +0000
+
+    #21-update-documentation - A few typos and minor mods made.
+
+commit afef594f5fe18567ddf1760aef0400af3762b2de
+Merge: eb61666 8a84a4a
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Thu Mar 12 10:57:35 2015 +0000
+
+    #42-splash-screen-create - * Bug New assets have been created manually
+     - There is an issue with those images being updated
+
+commit eb61666866940798085af566f4e75aa82784d8ab
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Thu Mar 12 10:55:58 2015 +0000
+
+    #42-splash-screen-create - * Bug New assets have been created manually
+     - There is an issue with those images being updated
+
+commit 8a84a4a25cb4bb5da482fe30ccf4537e4ef19606
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Wed Mar 11 22:18:13 2015 +0000
+
+    #21-update-documentation - Datails of the build process have been added
+
+commit a648d502b49c9702d09d773f4dab4cb4f888e612
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Wed Mar 11 21:32:49 2015 +0000
+
+    #33-coding-standards - Run jshint for the server js files
+
+commit 274d0fd36a3ec9e9b8e1a8606681600a497cb309
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Wed Mar 11 21:28:46 2015 +0000
+
+    #41-icons-create / #42-splash-screen-create - New icons and splash screens have been created
+
+commit 676ea6af4bc6f17aefd8621101edcfa685e23b3d
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Wed Mar 11 17:23:02 2015 +0000
+
+    #40-video-display - A CSS class has been implemented, which sets the size of the main video.
+     - As a side-effect the video is now displaying in an iPad ( see: #28-deploy-to-device )
+
+commit ee1716e395205aaf33f8df24cc88354b49a99926
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Wed Mar 11 16:27:27 2015 +0000
+
+    #36-run-refresh-issue - The build task is now calling the ionic prepare
+
+commit 62093eff545596eec0ca2cc9e650d5a096c426d0
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Wed Mar 11 15:49:07 2015 +0000
+
+    #36-run-refresh-issue - A method has been formulated to create `fresh` deployments
+
+commit b5480a917c35a8ac80b2dc46b60cd9dcbb564d28
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Wed Mar 11 15:13:47 2015 +0000
+
+    #37-contacts-view-user - The current user is now displayed in the title
+
+commit 0ecf0cfdbd40583227fc1c0dabc9c2f76a1fe593
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Wed Mar 11 13:23:22 2015 +0000
+
+    #35-build-fix-errors - `node-notifier` is being used to display a message after the build has completed
+
+commit 95904efe7fc0cab776e8f070e649826c129fcefa
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Wed Mar 11 12:49:27 2015 +0000
+
+    #35-build-fix-errors - The `clean` bug has been resolved by returning the stream
+
+commit 531c36773aa0d10e96e2e0c16411155467761e9a
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Wed Mar 11 12:41:25 2015 +0000
+
+    #35-build-fix-errors - Using the `Gulp chmod plugin` to set rwx permissions has fixed the `Images` bug.
+
+commit fabff438afc3945c05397d6918454786f5a163d0
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Wed Mar 11 11:12:00 2015 +0000
+
+    #28-deploy-to-device - The socket and audio call are working
+
+commit f68dfc1393bbd2e35398bf260229aab3c7483499
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Tue Mar 10 21:10:45 2015 +0000
+
+    #32-browser-app-create - The video call is working partially
+
+commit ffd79b9f7ba6dc96b89bdc7ecc7b17dfa4fcc865
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Tue Mar 10 16:03:24 2015 +0000
+
+    #33-coding-standards - The `jshint` has been fixed for all the js files.
+
+commit 745f21ec7cdde22de1a53c7b688209fbc4e7e308
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Tue Mar 10 15:27:19 2015 +0000
+
+    #32-browser-app-create - Some of the missing assets have been fixed
+     - The fonts are more likely to be added.
+
+commit 0cf19c15ecf8d59ad5c5c4385adb89603a855e97
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Tue Mar 10 15:02:27 2015 +0000
+
+    #32-browser-app-create - The `browser app` is no connecting to the server
+
+commit d82f2259fb14d616f262162284f13f9671de261a
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Tue Mar 10 14:01:36 2015 +0000
+
+    #32-browser-app-create - The build process documentation has been improved
+     - The socket.io is being imported correctly.
+
+commit 0d55463f3707e9ef73625fcd8450a152b798e210
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Tue Mar 10 12:43:08 2015 +0000
+
+    #30-simple-socket-app-create - The `simple chat` app has been tidied up
+
+commit 3e117c73dd0c6549ec92184c60bdfaae7e1b0d68
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Tue Mar 10 11:59:23 2015 +0000
+
+    #21-update-documentation - Doc helper information has been added.
+
+commit d5713d26350d6be5f98f81634d1058f6f98f587d
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Tue Mar 10 11:39:21 2015 +0000
+
+    #21-update-documentation - The documentation has been updated.
+
+commit 89a5b1516cefccb4836bb58d920cfbb91980af27
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Tue Mar 10 11:25:05 2015 +0000
+
+    #28-deploy-to-device - The `dry run` has been deployed to an iOS device.
+
+commit 85c9670074521f77b93890419a58567794efa82e
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Tue Mar 10 11:19:55 2015 +0000
+
+    #30-simple-socket-app-create - A simple  server app is working.
+
+commit 874b36c23a42240b93cbdf681074ca27b7cf3ccf
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Mon Mar 9 10:25:35 2015 +0000
+
+    #30-simple-socket-app-create - Documentation has been added.
+
+commit 43e100d34278a2ab08e354b8f8a0c5f1e9f354a1
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Sat Mar 7 16:42:25 2015 +0000
+
+    #30-simple-socket-app-create - A simple chat example has been implemented.
+
+commit 9cc8c6c564cebd5264a8dd892cc8ccc8e8ff526d
+Merge: d9e52c2 cc20feb
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Sat Mar 7 15:26:37 2015 +0000
+
+    Merge branch 'master' of github.com:russellf9/f9-ionic-webrtc
+
+commit d9e52c2936aed5156b64db1a66b4a93ab65700a5
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Sat Mar 7 15:24:31 2015 +0000
+
+    #30-simple-socket-app-create - A simple app has been implemented.
+
+commit cc20febbdecce73c774297821427cbbf67ec9615
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Thu Mar 5 17:57:50 2015 +0000
+
+    25-ionic-browser-platform - Updated docs
+
+commit 5df830c05d49a7a6fa26d6654cd7100996952b16
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Thu Mar 5 17:56:11 2015 +0000
+
+    25-ionic-browser-platform - Updated docs
+
+commit 40c45be0507d53ab75cad7ced6d84e0c583a9d2a
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Thu Mar 5 17:54:55 2015 +0000
+
+    25-ionic-browser-platform - Updated docs
+
+commit 9d3d35efb6d0401661d5569b8bed168b9730c55c
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Thu Mar 5 17:50:51 2015 +0000
+
+    25-ionic-browser-platform - Set up for MacBook
+
+commit 1548583308c59f82cf6e5e73f50dd8d21c5d7829
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Thu Mar 5 16:11:08 2015 +0000
+
+    #25-ionic-browser-platform - adding project file.
+
+commit a376f6e60673a041f85e9bd1b13bec8b3547eb1b
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Thu Mar 5 15:30:30 2015 +0000
+
+    #28-deploy-to-device - Found issues when deploying to device.
+
+commit 558f94c41641f496d25584c9d2b16ecb10402159
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Thu Mar 5 13:16:23 2015 +0000
+
+    #25-ionic-browser-platform - The Browser Platform has been set up.
+     - The process has been documented
+
+commit 227ddd2771d5008086fbed5a6b4e61312d381e07
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Thu Mar 5 12:30:27 2015 +0000
+
+    #24-set-up-initial-angular-app - The app is running through the views, testing without the `session`
+
+commit bf471b75b17ceacbf2ae9da5b94faee39f5d7344
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Thu Mar 5 09:45:30 2015 +0000
+
+    #24-set-up-initial-angular-app - Fixed angular order bug.
+     - Added the rtc js files.
+
+commit 5808a13dd0d68c31b655ad4344e6442fa327edd8
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Wed Mar 4 18:17:01 2015 +0000
+
+    #24-set-up-initial-angular-app - The partials are now rebuilt on modification.
+     - The dependacies have been added to th json.
+
+commit a421732188345b7a37dad9932cdb97ff46d3d880
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Wed Mar 4 17:26:22 2015 +0000
+
+    #23-add-the-phonetic-plugin - The Plugin has been Installed
+
+commit d4c84b97b386ce28b2e7307963477064eb3b9732
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Wed Mar 4 17:02:13 2015 +0000
+
+    #22-default-sever-set-up - The code from the `phonertc` seed is set up and working.
+
+commit f4db04db623c2d856499909dee1ef2a40e2c393b
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Wed Mar 4 16:09:30 2015 +0000
+
+    #21-update-documentation - Removed references to the seed
+
+commit 325de7e4d64cea511b45844a1b3b6e4860dec7d4
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Wed Mar 4 15:59:13 2015 +0000
+
+    #20-set-up-initial-seed - The initial seed has been set up and is working.
+
+commit 6204f39e408936fa1c75eeeee39dcc24f5097ce7
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Wed Mar 4 15:45:28 2015 +0000
+
+    #20-set-up-initial-seed - A basic set up is working.
+
+commit fb22108ea01a269ccaa6547b2e2879c676d0c8a0
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Wed Mar 4 15:05:17 2015 +0000
+
+    A basic view has been added
+
+commit d4b2229eff702528937c71b9da5a34e74a118783
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Wed Mar 4 14:17:11 2015 +0000
+
+    Initial Commit
+
+commit 7cade45d6420e22a667e3a2fed1c17d6d8ba3866
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Sat Feb 28 23:00:03 2015 +0000
+
+    16-github-documentation - The docs have been updated with information on updating Node.
+
+commit b97aa96a0ac81d68f64dd804a0bf16a90b679bfb
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Sat Feb 28 22:26:25 2015 +0000
+
+    #16-github-documentation - Updates.
+
+commit c5a98159c0fe64ff7e9bc75d55d7dc97fb27bf7b
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Sat Feb 28 21:54:07 2015 +0000
+
+    #46-graphics-update - The large icon has been updated.
+
+commit 16295c362e32d65dd3a6276de68741863e634c00
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Sat Feb 28 15:52:36 2015 +0000
+
+    version has been bumped to 0.1.6
+
+commit 18585b98fc924d670ff42b0d4551365ce15d8e99
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Sat Feb 28 15:46:32 2015 +0000
+
+    #46-graphics-update - The iTunes screenshots have been updated.
+
+commit f3ca97291238e41b00492725251274e45a8ec960
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Sat Feb 28 14:26:19 2015 +0000
+
+    #46-graphics-update - The Splash Screen and Icons have been updated.
+
+commit b00cc72b77e4354dec7be55640223bf554daaeec
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Fri Feb 27 22:45:02 2015 +0000
+
+    #16-github-documentation - Minor style improvements have been made.
+
+commit 1623de8537f0c63496f8a17d82028bfa6d3eb44d
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Fri Feb 27 22:42:10 2015 +0000
+
+    #16-github-documentation - A link to the app in iTunes has been added.
+
+commit ea7aad99752751e92e15d025c304f3d306803aba
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Fri Feb 27 22:18:09 2015 +0000
+
+    #16-github-documentation - Trying to foramt the tree path.
+
+commit a9f8c48aca4d224b2d9a004a53de75cbcad9fee2
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Fri Feb 27 22:15:09 2015 +0000
+
+    #16-github-documentation - A tree path has ben added to the documentation.
+
+commit bfca5648557bccc861cc140abdd704c14deec774
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Fri Feb 27 17:46:23 2015 +0000
+
+    #16-github-documentation - The docs are being reformatted.
+
+commit 277609e21e3dc5bb2bada64f439234cf4fac2413
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Fri Feb 27 17:24:27 2015 +0000
+
+    #16-github-documentation - The docs are being reformatted.
+
+commit e555acbb51339a39e06a7e76150a712214b7f539
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Fri Feb 27 17:19:36 2015 +0000
+
+    #16-github-documentation - The docs are being reformatted.
+
+commit 195d051383617f1992a8ab3365f57b371cf069be
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Fri Feb 27 17:16:56 2015 +0000
+
+    #16-github-documentation - The docs are being reformatted.
+
+commit 08184ff7b06e8f8fe821b8b83dd0683fdee4ffea
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Fri Feb 27 17:03:46 2015 +0000
+
+    #16-github-documentation - The docs are being reformatted.
+
+commit ded92c09971af25989b0c74f613afbffd52a3d87
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Fri Feb 27 16:57:15 2015 +0000
+
+    #16-github-documentation - The docs are being reformatted.
+
+commit 694172fb9bf5eb496976092b8011a943db8f4a50
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Fri Feb 27 16:28:54 2015 +0000
+
+    #30-general-tidy-code - The code base has been tidied.
+     - JSCS errors have been resolved.
+
+commit 1073ed1c2626cac1657bdd5c8bfc01f478eb36f3
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Fri Feb 27 16:28:12 2015 +0000
+
+    #16-github-documentation - The docs are being reformatted.
+
+commit 0cbcf4d47e954fa7ef8e49fffeed6626a76ba3ff
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Fri Feb 27 16:12:03 2015 +0000
+
+    version has been bumped to 0.1.5
+
+commit c9df01e4043f970171fcb7dea325b06c57b88086
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Fri Feb 27 16:10:59 2015 +0000
+
+    #16-github-documentation - The docs are being reformatted.
+
+commit 64895de77e9f70c4578e2c47f8391d446077206d
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Fri Feb 27 15:59:21 2015 +0000
+
+    #16-github-documentation - The docs are being reformated.
+
+commit 9932fa6e1aca3882938e00d69ce9794c8727f9c5
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Fri Feb 27 15:58:39 2015 +0000
+
+    #16-github-documentation - The docs are being reformated.
+
+commit 86db82a8022cf015b94aca91eddd0811718e7367
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Fri Feb 27 15:56:45 2015 +0000
+
+    #16-github-documentation - The docs are being reformated.
+
+commit 0be2f069c75647f5ba861abd5e159d8824676304
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Fri Feb 27 15:55:11 2015 +0000
+
+    #16-github-documentation - The docs are being reformated.
+
+commit 19912e1e783a26dc032b7c26d44d22616360df70
+Merge: da0aec5 e81d28a
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Fri Feb 27 15:44:27 2015 +0000
+
+    Merge branch 'dev-150223' of github.com:russellf9/magic-squares-mobile into dev-150223
+
+commit da0aec5a8fe77e9bf7beb0db5577368b8128d704
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Fri Feb 27 15:43:35 2015 +0000
+
+    #16-github-documentation - The docs are being reformated.
+
+commit e81d28abb9c80383fb3c1370c14a7c65c655b309
+Author: Russell Wenban <russell@factornine.co.uk>
+Date:   Fri Feb 27 15:36:35 2015 +0000
+
+    Update LICENSE.txt
+    
+    #16-github-documentation - A linens has been added to the documentation.
+
+commit 03e9661c5a2c5d8c85790ea230edfedefb147cf1
+Author: Russell Wenban <russell@factornine.co.uk>
+Date:   Fri Feb 27 15:34:00 2015 +0000
+
+    Create LICENSE.txt
+
+commit f95af2e45d5e97b1b98b5be495441fc04bc2b463
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Fri Feb 27 15:14:29 2015 +0000
+
+    #16-github-documentation - A new screenshot has been added.
+
+commit df234afeade323455f4b8b56e3414ef0da07127e
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Fri Feb 27 15:05:29 2015 +0000
+
+    #7-ui-ipad-portrait-issue - Hacked around with the CSS, some success.
+     - Not fully resolved.
+
+commit 8ec3d2bb2692b857e6e60c4253768234a43ccf78
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Fri Feb 27 14:02:24 2015 +0000
+
+    #41-logging-error - * Bug - By-passed bug for now.
+
+commit 04209f47e20f82012e62c3ace68e6cb29a9274cf
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Fri Feb 27 11:06:10 2015 +0000
+
+    #30-general-tidy-code - renamed file with all lower case letters.
+
+commit 15cc6e2f5602d7b646948265a4f7fba8b32d91f0
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Fri Feb 27 11:01:54 2015 +0000
+
+    #38-gulp-callback-unreachable-code - All parallel running tasks have had their call back removed.
+
+commit ddda22bfa6dff61cc9c555f88b72d1f211d662cd
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Fri Feb 27 10:44:34 2015 +0000
+
+    #30-general-tidy-code - The code base has been tidied.
+     - JSCS errors have been resolved.
+
+commit 7564e022111f1648f54bc17dace346de8c785a3e
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Fri Feb 27 10:30:00 2015 +0000
+
+    #32-gulp-ionic-run - The gulp `run` task now works.
+
+commit 212bb6f57324904787fe1b7baca481c85c0d2def
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Thu Feb 26 22:19:14 2015 +0000
+
+    #29-gulp-scripts-build - * Bug The `scripts` task now does not attempt to remove the traces.
+
+commit 91c70933d0c3745163d34a219ee30d794365212e
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Thu Feb 26 22:00:20 2015 +0000
+
+    30-general-tidy-code - The code base has been tidied.;
+
+commit 9171f50309b240e0117296d9a775ed3928baf597
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Thu Feb 26 21:49:21 2015 +0000
+
+    #29-gulp-scripts-build - The `scripts` task in build mode now removes logs and uglifies.
+     - also, the version number is added to the app.js.
+
+commit 46cdd805e66b0a12326792a84e493f9fec359321
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Thu Feb 26 18:37:38 2015 +0000
+
+    #16-github-documentation - Changes to reflect the new tasks have been added.
+
+commit 5497606c6aff11dde7c6eb915ce78897ae81c33a
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Thu Feb 26 18:23:59 2015 +0000
+
+    #26-coding-standards - The lint ( JSCS ) has been set up in Webstorm.
+     - The JS code has been fixed to reflect hints.
+     - Bug in the Gulp `jscs` so leaving it for now.
+
+commit a7e6c403324ec2969ec6c9936c82680c41311db1
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Thu Feb 26 16:34:12 2015 +0000
+
+    #26-coding-standards - The lint ( JSHINT ) has been set up in Gulp and Webstorm.
+     - The JS code has been fixed to reflect hints.
+
+commit b2701856640752e168b4a999c63112e1376256e6
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Thu Feb 26 14:50:47 2015 +0000
+
+    #2-gulp - The `ionic` tasks have been implemented.
+
+commit 55c75b6439d54384658ba62df0cb8fda0f6d492d
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Thu Feb 26 13:40:33 2015 +0000
+
+    #2-gulp - The `images` tasks has been implemented.
+
+commit af0aa8c66fcbba8ccc7d74a52259e6fc41564946
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Thu Feb 26 13:18:56 2015 +0000
+
+    #2-gulp - The `scripts` task has been normalised.
+     - All references to the `args` now belong to the `gulp` reference.
+
+commit 83ef5f8955702a003cf9e440dcd2e41ebb6e04be
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Thu Feb 26 11:48:33 2015 +0000
+
+    #2-gulp - The `live reload` is now working.
+
+commit 3a43fe0c5ee4678e19b791af5045da62bae763dc
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Thu Feb 26 09:23:33 2015 +0000
+
+    #2-gulp - The `version` task has been normalised and improved.
+
+commit 1427af35a9025cdf1526a40616496f723e0fc0f2
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Wed Feb 25 21:36:40 2015 +0000
+
+    #16-github-documentation - Style improvements have been made to the  documentation.
+
+commit 247860586724f784c7f8f441a23cc32a3199247c
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Wed Feb 25 21:31:41 2015 +0000
+
+    #16-github-documentation - Gulp information has been added to the  documentation.
+
+commit 9cdad991e6ee87ac7c426f622140c2724a90f1cd
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Wed Feb 25 20:48:24 2015 +0000
+
+    #2-gulp - * Bug - the `watchers` have been improved.
+
+commit 420628ae4a562ce533887058a7eae59e46c5915c
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Wed Feb 25 17:16:40 2015 +0000
+
+    #2-gulp - The `watchers` have been mostly implemented.
+
+commit d9f02fcc41bdb4f32d411098872c5c769c8b2444
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Wed Feb 25 17:01:44 2015 +0000
+
+    #2-gulp - The `hint` task has been added.
+     - The `watchers` have been implemented
+     - Utilities have been added.
+
+commit c8296dc6db888141fe2f17b850f7b19f6a89dbb4
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Wed Feb 25 17:00:58 2015 +0000
+
+    #2-gulp - The `hint` task has been added.
+     - The `watchers` have been implemented
+     - Utilities have been added.
+
+commit eccab773279470737f268eab8c9b5f1b9712f5db
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Wed Feb 25 15:34:26 2015 +0000
+
+    #2-gulp - Added `TODO` - Redundant tasks have been removed.
+
+commit 8182bab3fccbd0d580e130842e3c9ef64fd90e8a
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Wed Feb 25 15:30:11 2015 +0000
+
+    #2-gulp - Redundant tasks have been removed.
+
+commit ad01f34b8ed3af541d01d7480d74d1023d137fe7
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Wed Feb 25 15:29:18 2015 +0000
+
+    #2-gulp - The `fonts` task has been normalised.
+
+commit c7e4d8c926aaf94d140d80da049a59f8bb64bb72
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Wed Feb 25 15:22:30 2015 +0000
+
+    #2-gulp - Redundant tasks have been removed.
+
+commit 38f50127d6307024282d30ebf4437d1827dc6cb0
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Wed Feb 25 15:20:11 2015 +0000
+
+    #2-gulp - The `clean` task has been normalised.
+
+commit b9807ffe7424c44bd2a0cd8431c054aecbe00028
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Wed Feb 25 15:15:47 2015 +0000
+
+    #2-gulp - The `vendor` task has been normalised.
+
+commit 80f40f80c86556bff4d2f5a77a1e21f186f0c9ff
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Wed Feb 25 14:54:15 2015 +0000
+
+    #2-gulp - The `build` task has been normalised.
+
+commit 3b79a7501d83dacb1a293ae3f091571651cf5ac9
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Wed Feb 25 14:39:19 2015 +0000
+
+    #2-gulp - The `serve` task has been normalised.
+
+commit 00215760c8fa074ad22e556762bc5a0365f8b882
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Wed Feb 25 14:22:21 2015 +0000
+
+    #2-gulp - * BUG `styles` - removed the map settings to enable build.
+
+commit a4ee16c2a08bbe894a45bdf810ab775afce90317
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Wed Feb 25 13:24:40 2015 +0000
+
+    #2-gulp - The `styles` task has been normalised.
+
+commit 6af33f21a49700c9cc324bdbd9240ede64259ef4
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Wed Feb 25 12:17:41 2015 +0000
+
+    #2-gulp - `partials` task is deploying the partial files.
+
+commit ca9733775ddc03c3f5bda7aa65b413026e3497eb
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Wed Feb 25 11:59:35 2015 +0000
+
+    #2-gulp - The `args` are now assigned to `gulp`, the `index` task is now more succinct.
+     - general normalisation.
+
+commit d7d34f73b72212f3b7be13b479c69e6f9077d3c4
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Tue Feb 24 22:16:35 2015 +0000
+
+    #2-gulp - The `Index` now works for `dev` and `build` modes.
+
+commit 1e1a6304312d31cb9c24a9f4bf1c2dbb986f3b0c
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Tue Feb 24 22:03:32 2015 +0000
+
+    #2-gulp - The `Index` task has been normalised.
+
+commit 740c9a096531be7a2a8d847b4ace52c31718148e
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Tue Feb 24 21:27:18 2015 +0000
+
+    #2-gulp - The `Index` task is now injected correctly for the dev build.
+
+commit c62153bedcf9c420efc1b52b22874966673ccacb
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Tue Feb 24 16:07:14 2015 +0000
+
+    #2-gulp - `Index` task has been created.
+
+commit 72edad46d4fce9c6262264612f7165cbe81773ae
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Tue Feb 24 14:50:21 2015 +0000
+
+    #2-gulp - `Scripts` task has been rationalised.
+
+commit df5d7090692f394239e39875c2b02c346d8651e2
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Tue Feb 24 14:16:00 2015 +0000
+
+    #2-gulp - Vendor task is working but hackey.
+
+commit 3c37072b44833ad5e57cfa4167dd0ee138379b12
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Tue Feb 24 12:15:31 2015 +0000
+
+    #2-gulp - Build task are now running using `runSequence`.
+     - Known issues, not complete!
+
+commit 088016fb2900c6cad08b834c30c14259aa4e2dbb
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Mon Feb 23 22:32:08 2015 +0000
+
+    #2-gulp - Task are now distributing according to the `args` properties.
+
+commit cbd58cd04d4ab0698d60787c72d0e6163073280a
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Mon Feb 23 21:48:09 2015 +0000
+
+    #12-configure-app-folder - Tasks have been created to minify and perform other operations on the scripts.
+
+commit b70b47ea91b5eb28d731866e64fef356c44b4d72
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Mon Feb 23 19:20:09 2015 +0000
+
+    #12-configure-app-folder - Tasks have been created to move the required files and serve the app from a temporary location.
+
+commit ab51b6acf7286179677d76dddf75a6de47020521
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Mon Feb 23 17:51:31 2015 +0000
+
+    #12-configure-app-folder - The initial `app` folder has been created.
+
+commit 1705e36b5f0b0d18d4e5b9552571c0ac32adbeed
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Mon Feb 23 16:36:41 2015 +0000
+
+    #7-ui-ipad-portrait-issue - Added media queries but wasn’t able to solve issue.
+
+commit aa44aa4cb38840801eca9d770071ae1acc528176
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Mon Feb 23 14:50:29 2015 +0000
+
+    #11-version-numbers - A gulp task which increments the app`s version number has been implemented.
+
+commit 3ec76b2a249833beea06f52129e28aafb43c3300
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Mon Feb 23 11:38:36 2015 +0000
+
+    * The version number has been updated.
+
+commit aec3ca6d749d42799e5082777e62d20833b2d95a
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Sun Feb 22 22:27:27 2015 +0000
+
+    * Documentation - Improvements to the README have been made.
+
+commit 62956a6561653517a96f1b918d5e959b52b42b35
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Sun Feb 22 22:06:59 2015 +0000
+
+    * Documentation - The README reference added.
+
+commit f9c29fb51e6dc11eb8bc1149d7e202603ac78b11
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Sun Feb 22 22:02:21 2015 +0000
+
+    * Documentation - The README is now more imformative.
+
+commit c4173ac7d4342aaafe6c4bc3c14af3629e08e773
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Sun Feb 22 17:10:13 2015 +0000
+
+    * Refactoring - Added comments, tidied code etc.
+
+commit 43345eda69f28bc3e74e1fb757cb0fe46a781704
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Sun Feb 22 16:11:52 2015 +0000
+
+    * UI - Indicators - The indicators have been implemented.
+     - A bit scrappy though!
+
+commit 46a7f0d7ebddbc4a1d76904bb7c854731a57a624
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Sun Feb 22 14:26:53 2015 +0000
+
+    * UI - Indicator - A basic indicator has been added.
+
+commit c58ea328bf58ad71c102d602253f01788bd7d821
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Sat Feb 21 22:40:15 2015 +0000
+
+    *Documentation - A mockup has been added.
+
+commit f1780c202ede289c0f281146cf6bbc48e1bea730
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Sat Feb 21 19:27:13 2015 +0000
+
+    * UI - The `hint` button is now invisible in phone view.
+
+commit 4adf9ef9757f7d17783f3e77e52ff976c37272b6
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Sat Feb 21 18:41:14 2015 +0000
+
+    * UI - The drag items can now be dropped back home.
+
+commit f108228f28a463e97430c71ef6ad22334a247d7e
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Sat Feb 21 18:36:16 2015 +0000
+
+    * Typography - The instruction and title text has been made larger for desktop.
+
+commit 47950c88d5fe17de250e8fda5fddaa7bed487983
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Sat Feb 21 18:35:27 2015 +0000
+
+    * Typography - The instruction and title text has been made larger for tablet.
+
+commit 23e6032f4e610f90e2ed5c7e5390db8aa758f8a4
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Sat Feb 21 18:22:17 2015 +0000
+
+    * UI - The layout and styles have been tweeked for phone.
+
+commit 4c1d1944bade5308dc41fc8cfc6283d6fa9eb7f2
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Sat Feb 21 18:14:00 2015 +0000
+
+    * UI - The layout and styles have been tweeked.
+
+commit 9c0d347a5d6c7cc7429c200679667711d9d5d509
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Sat Feb 21 17:01:02 2015 +0000
+
+    * Build Tasks - The SASS task has been improved by adding a note on error.
+
+commit 8db5cdf66e10fa77a59685b9262e2399bca13a2d
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Sat Feb 21 16:15:23 2015 +0000
+
+    * Refactoring - Added comments.
+    * Typography - added a stroke for the drag item text.
+
+commit 4f76a3019656c5e7fb7b7141e0ab8a58b38f0132
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Sat Feb 21 14:44:46 2015 +0000
+
+    * UI - Implemented the draggable buttons.
+
+commit 3d72fbac853da36568b730f8b7748486dbd1cf11
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Fri Feb 20 22:36:36 2015 +0000
+
+    * Layout - added SASS to layer.
+
+commit 32d12cf59b9ec46d9e23d6a8d3993e04a8686e92
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Fri Feb 20 19:20:21 2015 +0000
+
+    * Layout - Added layersfor the drag and static items.
+
+commit 6cbdbce4fec51880b0128d8d6f825cd64181c3dd
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Fri Feb 20 18:03:37 2015 +0000
+
+    * UI - Implemented the panel with the buttons.
+
+commit 4d6595dd7b2dac80eb5f61b62beb5974fa297eb6
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Fri Feb 20 17:04:59 2015 +0000
+
+    * Typography - The `include-media` and `responsive` libraries have been implemented.
+    * Documentation - issue with `vw` reported.
+
+commit ae97cec89d44381cfd9d0aabf05c0662e2554301
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Fri Feb 20 15:11:42 2015 +0000
+
+    *Layout - Created more space for the instructions.
+
+commit 994e550b397a890932ef66ee1b2104f0dddda332
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Fri Feb 20 14:58:24 2015 +0000
+
+    *Layout - Attempted to create phone tablet specific queries.
+
+commit 33c41344c813b2914fb3fec34806ce4672791f8c
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Fri Feb 20 13:01:43 2015 +0000
+
+    * Layout - tidied code.
+
+commit f1a6d8a9973b7fa97c3f48d8ea9d5cd97d726ec1
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Fri Feb 20 12:59:31 2015 +0000
+
+    * Layout - fixed flex layout for the `game-container`s` items.
+
+commit 77f618db49207c45f2bffb0a8d50a5c8702900d5
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Fri Feb 20 12:34:49 2015 +0000
+
+    * Build tasks - The `watch` task is now working.
+    * Layout - reized for portrait tablet.
+
+commit b80059fa78eb856d9994acc2d8b6242259d3616c
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Fri Feb 20 11:56:22 2015 +0000
+
+    * Documentation - Included SASS information.
+
+commit 66f9dbbb53677b7a264277badeef74a1377f1ef9
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Thu Feb 19 21:38:47 2015 +0000
+
+    * Style worked on the layout for iPad.
+
+commit 309a16ac33e464646387655424a7d91643e02f5b
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Thu Feb 19 19:01:33 2015 +0000
+
+    * Style - Improved the layout and added a font.
+
+commit 1e28720be0527c0d86690e2978985b93b173346b
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Thu Feb 19 18:02:19 2015 +0000
+
+    * Style - A very rough CSS layout is working.
+
+commit e4180c3cf722f8b717170cb58dab1099aa6f23f6
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Thu Feb 19 13:16:42 2015 +0000
+
+    * Build Tasks - `gulp-ruby-sass` now working.
+
+commit d2d19d5948b3f3e1c390952da68c58da177ba8c5
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Thu Feb 19 11:04:07 2015 +0000
+
+    * Build Tasks - Tidied tasks.
+    * Documentation - New Devlopment ideas have been added.
+
+commit 6243ee834607cae1560b2afbf3bd40aaee88fb56
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Thu Feb 19 09:55:24 2015 +0000
+
+    * Build Tasks - minor change.
+
+commit 8a56365011436936bb6231961bd607b2f8b51cae
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Wed Feb 18 17:30:57 2015 +0000
+
+    * Build tasks - html build blocks
+     - using the `useref` task to deploy html and scripts.
+
+commit c3a4f6a73fe75644515e3f1d91448852f482624f
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Wed Feb 18 16:38:59 2015 +0000
+
+    * Build tasks - `clean`.
+
+commit f29bfe1d388a7d9d06d4f2cd39cab13f222276f2
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Wed Feb 18 16:07:31 2015 +0000
+
+    * Build tasks - `scripts`.
+     - The `scripts` task works ( except the `template` part).
+
+commit 3bca6ac88d47c95f3a0aad0617cd2feb8b226e34
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Wed Feb 18 13:09:11 2015 +0000
+
+    * Build tasks - The `SASS` task is now working.
+
+commit f11c69f3b66f811845ed8072cd2b8bd29143f15f
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Wed Feb 18 12:20:58 2015 +0000
+
+    * Build Tasks - Modular gulp tasks have been implemented.
+
+commit 09957e7e1d006c390da3689e198a7b5ad377fda3
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Wed Feb 18 11:34:06 2015 +0000
+
+    * Documentation has been updated.
+     *Refactoring removed redundant folder.
+
+commit f9629f02bef56e4950584561e0cc0901daadc5e3
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Wed Feb 18 10:36:11 2015 +0000
+
+    * Packaging updated the ignore file.
+
+commit 9a78db4defc449639093775ab7972e2f0bbe5a26
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Wed Feb 18 10:25:32 2015 +0000
+
+    * Documentation - changed image path to reflect the removal of the redundant parent folder.
+
+commit f13d5af63b7d71c0257c9206ed365f5d9d2e4eef
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Wed Feb 18 10:10:16 2015 +0000
+
+    * Refactoring - removed the nested `magoc-squares` folder.
+
+commit fd899dff2ee27826672f859a789a9cf1828a433d
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Tue Feb 17 22:47:39 2015 +0000
+
+    * Refactoring - looked at the new set up.
+
+commit a245d40c0a0e143adb716db1aaf5c67115038a9e
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Wed Feb 11 17:57:57 2015 +0000
+
+    * Refactoring
+
+commit a153f4d34c9b3891e0665480adee5beb805ec800
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Wed Feb 11 17:19:33 2015 +0000
+
+    * Design - Added further screenshots.
+
+commit 844d3e7f9387828b0b32050cff849a6da0b17dee
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Wed Feb 11 16:45:35 2015 +0000
+
+    * Documentation
+
+commit a2b00f13608840e931b3c511dd8ab6c72e82b080
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Wed Feb 11 16:27:05 2015 +0000
+
+    * Build added splash screens.
+
+commit 39cb89bdbbfafe8476b29b31aba654726ef33e5e
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Wed Feb 11 15:33:30 2015 +0000
+
+    * Design - Added screenshot and splash screen.
+
+commit 8073a904095022ef2a19c53e1b784071df4edcce
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Wed Feb 11 15:16:39 2015 +0000
+
+    * Design - Added a splash resource file.
+
+commit a6cfd68d107eaa0925852613bfd68685b0ed6623
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Wed Feb 11 15:00:59 2015 +0000
+
+    * Style - `flex` added the prefix for the vertical alignment for the control buttons.
+
+commit 712d69f9130b56584a21dbc09417cf3871bfe9ba
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Wed Feb 11 14:15:18 2015 +0000
+
+    * Style - Fixed issue with a block being too tall.
+
+commit 32f09f75e698a225a7d53c12d2b23ac5c41aed8a
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Wed Feb 11 12:58:58 2015 +0000
+
+    * Refactor - Removed all logs.
+
+commit 33946d83645f0b33f095cf3839a38bac115ce38e
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Wed Feb 11 12:43:12 2015 +0000
+
+    * Documention - add jpg for the icon.
+
+commit ac14ecd264990cdd3d0bce08da8f10e6fa485d4a
+Merge: 67b6d4e dad2d5b
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Wed Feb 11 12:40:33 2015 +0000
+
+    Merge branch 'master' of https://github.com/russellf9/magic-squares-mobile
+
+commit 67b6d4ed176ec4350bb827d0e8924b89e4c5e9ee
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Wed Feb 11 12:40:09 2015 +0000
+
+    * Design/Documentation - added a jpeg for the markdown docs.
+
+commit dad2d5be1ba70d1dc4da76a3b21ff5f726a63c24
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Wed Feb 11 12:25:04 2015 +0000
+
+    * Documentation - Added smaller icon to the docs.
+
+commit 40ad6325f550dacbefc8d8ed9a65f30c2227d120
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Wed Feb 11 12:23:50 2015 +0000
+
+    * Documentation - Added smaller icon to the docs.
+
+commit de09de234793a28af55657f5d09f2d06523d3238
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Wed Feb 11 12:21:00 2015 +0000
+
+    * Documentation - Added screenshots and icons to the docs.
+
+commit 94526d71a3d1bcd059aaf961f11e261fdf84a1b9
+Merge: f471b73 71b75cc
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Wed Feb 11 12:19:47 2015 +0000
+
+    Merge branch 'master' of https://github.com/russellf9/magic-squares-mobile
+
+commit f471b73d374e9bde456c794d8ac8b35cf72f89a5
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Wed Feb 11 12:18:58 2015 +0000
+
+    * Design - 1024 screenshot for iTunes has been added.
+
+commit 71b75cc0d758a11ddc061767b31c4c1f27518dfd
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Wed Feb 11 12:16:01 2015 +0000
+
+    * Documentation - Added screenshots and icons to the docs.
+
+commit 430c508d7170051f176c783cc5a4c8913f74f4f4
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Wed Feb 11 12:12:40 2015 +0000
+
+    * Design - screenshots for iTunes have been added.
+
+commit 523bc6842d184961b4ab9f67d3afd0d365f39438
+Merge: 8f84d05 86fddea
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Wed Feb 11 11:15:14 2015 +0000
+
+    Merge branch 'master' of https://github.com/russellf9/magic-squares-mobile
+
+commit 8f84d0589ab180b14a4cd216bed51a644e70cf1c
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Wed Feb 11 11:14:49 2015 +0000
+
+    * Design - added icon.
+
+commit 86fddea9c87d7aaa49cae8152ae11cb0d1c10967
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Wed Feb 11 11:10:06 2015 +0000
+
+    * Documentation.
+
+commit 0781f9172680f6931082244c1b14cad06b9cd7ab
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Wed Feb 11 11:06:46 2015 +0000
+
+    * Documentation.
+
+commit d18a1d3376ee9b7c045cd8187f4633f0532fd43c
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Wed Feb 11 11:04:16 2015 +0000
+
+    * Documentation.
+
+commit a70f35aca02cfff25d8dad79d1c4a296b03997dd
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Wed Feb 11 10:54:06 2015 +0000
+
+    * Design - added icon.
+    * Config has been updatedto replace defualts.
+
+commit 45ad31e093aeba1692605344029789500f97ca7d
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Wed Feb 11 10:41:47 2015 +0000
+
+    * Design - An icon for the App store has been added.
+
+commit 06309bd0dbb4206396db67358947289a4d5c036e
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Tue Feb 10 21:50:40 2015 +0000
+
+    * Design - Icons
+     - the new icons have been added to the config
+
+commit cfc14e9d976e8071087ac601db6e7865c41bc4d0
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Tue Feb 10 21:21:10 2015 +0000
+
+    * Design - Icons
+     - An icon has been designed and different sizes have been exported.
+
+commit a69c2550cc3c8ef6d35f30e6c4bf6f155718b92d
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Tue Feb 10 17:42:51 2015 +0000
+
+    * App - tidied app
+     * Config updated.
+
+commit c63f44b4af56fac3efc2ce44fbadf6e95fbf8753
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Tue Feb 10 09:52:45 2015 +0000
+
+    * Style - A new off-white bagd color has been introduced.
+
+commit ee315552c01ff3953bddd99983bccadbf00424a4
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Tue Feb 10 09:38:55 2015 +0000
+
+    * UI - The total indicators are now hidden for the left and bottom.
+     - This was done using ng-if.
+
+commit 963fa2186366e03d9a85c5f4058250a780032b90
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Tue Feb 10 09:28:37 2015 +0000
+
+    * Documentation - Code comments have been improved.
+
+commit d904ce2a01b39c1b338b961fd04a50c1f4cb4cc9
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Mon Feb 9 19:12:14 2015 +0000
+
+    * UI - Now hiding the `Status Bar` by default.
+
+commit e25d79254d5f8f24f2dc349f9e45232a86f5fd76
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Mon Feb 9 18:56:30 2015 +0000
+
+    * Style - Tryting to fix the indicators.
+
+commit 77aaa28ae8311a5dfdfcd66045bc46bba018cac3
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Mon Feb 9 18:50:25 2015 +0000
+
+    * Style - Tryting to fix the indicators.
+
+commit 7faead0c2a5081a28a4e70ee29a026e0dcc3c852
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Mon Feb 9 18:35:20 2015 +0000
+
+    * Style - Tryting to fix the indicators.
+
+commit 0eff78639a224416ffb985e59738d2dbc66bac52
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Mon Feb 9 17:55:45 2015 +0000
+
+    * Style - Removing bgd and border colors.
+
+commit 1ddbd8caaee4dc93df688bcfbf9c53d79aeeddf8
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Mon Feb 9 17:50:42 2015 +0000
+
+    * Style - Removing bgd and border colors.
+
+commit 3fb00d6284dea31bc8b4cb9a08106e3d122782ba
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Mon Feb 9 17:39:23 2015 +0000
+
+    * Style - Removing bgd and border colors.
+
+commit 86198bab8f16db5c3d43ae403fe4f13c328a9f69
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Mon Feb 9 17:01:35 2015 +0000
+
+    * Style - Positioned the indicators.
+
+commit c4ead40510d1c7135a4f7a23b307c528dd4a2a9e
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Mon Feb 9 15:29:39 2015 +0000
+
+    * Style - positioned the diagonal indicators.
+
+commit bba312aecb4687c2cd04be772b86e8ca25a94e65
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Mon Feb 9 14:40:29 2015 +0000
+
+    * Style - positioned the row indicators.
+
+commit b76ed037a9b53bd33b268958efa4cc93d0cd5dc2
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Mon Feb 9 13:01:09 2015 +0000
+
+    * Style - Worked on the positioning.
+
+commit 1947cc045cff56795db95734382d4660b1d366cb
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Mon Feb 9 12:53:34 2015 +0000
+
+    * Style - Webkit rules have been added to enable the app to display on iOS.
+
+commit a0164279892404da9846769bce5a508f43d1447e
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Mon Feb 9 12:41:44 2015 +0000
+
+    * Style - The control buttons have been styled and positioned.
+
+commit 48695d11de85008b7413e3e27a16574226202ea0
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Mon Feb 9 12:20:45 2015 +0000
+
+    * Style - Fonts styles and positioning have been added.
+
+commit 100cf81355810dcc4e0571b476440acca1904094
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Mon Feb 9 10:34:00 2015 +0000
+
+    * Style - The `drop-slots` are aligned for both tablet and mobile.
+
+commit ecd3cc5caee7545c790364c7529857d23469d298
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Sat Feb 7 17:04:03 2015 +0000
+
+    * Style - `drop-slot` sized for mobile and iPad.
+
+commit d205f9d6d453469a421fa155eb7b537181d2676b
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Sat Feb 7 15:59:20 2015 +0000
+
+    * Style - Drop Container - sized for mobile.
+
+commit 87967b9dd337ed4518e910c5825b6c42bdf4cfb9
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Sat Feb 7 14:57:29 2015 +0000
+
+    * Style - Drag items positioning the items for full size.
+
+commit da6e3cc41b783f64adf332ce4ba5f635a2063cc3
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Sat Feb 7 13:11:05 2015 +0000
+
+    * Style - Formatted the drag items numbers`.
+
+commit e501d2772d7c8d8c6e607065378fa267ba12dcfa
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Sat Feb 7 12:50:00 2015 +0000
+
+    * Style - The `drop slots` have been laid out in a grid.
+
+commit 76e21b4dc17cd4a2c9c10b531179402bebc32c43
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Fri Feb 6 17:56:37 2015 +0000
+
+    Style - Positioning is OK on iPhone and iPad!
+
+commit 8bef06978f70cef373b3ab563e63490c675ea97f
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Fri Feb 6 17:13:48 2015 +0000
+
+    * Style - Fuxing postioning for Safari.
+
+commit e1c74e6c91d02da25561badc541bb37dd1bceba3
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Fri Feb 6 11:55:03 2015 +0000
+
+    * Style - Added positioning and sizing queries for iOS.
+
+commit 9e33ce58f3d3638f67fc5f4c65b82391fd84bb7d
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Fri Feb 6 09:42:11 2015 +0000
+
+    * Style - A iOS media queries have been added.
+
+commit 4c75427cf260a1f743c6514d1f56c6314e7c3338
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Thu Feb 5 17:33:29 2015 +0000
+
+    * UI - Drag drop
+     - Working but messy.
+
+commit b90ea8008dcadeacce3ceb4836bf609126930b36
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Thu Feb 5 17:17:22 2015 +0000
+
+    * UI - Drag and drop is working!
+
+commit 3b3b559c2aff9872f5132ae80fbf3c258f04dae1
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Thu Feb 5 13:46:59 2015 +0000
+
+    * Architecture - Basic App
+     - The project starting point has been created.
+
+commit de48ada1df90dc8f10ddf5cc7d570b267408729e
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Thu Feb 5 11:57:48 2015 +0000
+
+    Initial commit - Tab app working.
+
+commit c5a43705b434285beb06fbfd2d3cccd34b2f66d6
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Thu Feb 5 11:55:39 2015 +0000
+
+    Initial commit - Tab app working.
+
+commit a25512fa9e38549211fdaf9c3bf4565481a81470
+Author: russellf9 <russell@factornine.co.uk>
+Date:   Thu Feb 5 10:07:17 2015 +0000
+
+    first commit

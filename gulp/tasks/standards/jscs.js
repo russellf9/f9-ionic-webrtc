@@ -2,13 +2,24 @@
 
 var gulp = require('gulp'),
     config = require('../../config'),
-    jscs = require('jscs');
+    noop = function () {},
+    jscs = require('jscs'),
+    stylish = require('gulp-jscs-stylish');
 
 // lint js sources based on .jshintrc ruleset
 gulp.task('jscs', function() {
-    return gulp.src('app/js/**/*.js')
-        .pipe(jscs());
+    gulp.src('./app/js/app.js')
+        .pipe(jscs())
+        .on('error', noop) // don't stop on error
+        .pipe(stylish());  // log style errors
 });
+/*
+return gulp.src('src/app.js')
+
+.pipe(jscs())
+ */
+
+
 
 
 
