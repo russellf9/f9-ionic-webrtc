@@ -8,7 +8,7 @@ var gulp = require('gulp'),
 gulp.task('vendor', function() {
 
     var build = gulp.args.build || gulp.args.emulate || gulp.args.run,
-        targetDir = path.resolve(build ? './www/' : './.tmp/');
+        targetDir = path.resolve(build ? './www/' : config.paths.target);
 
     return gulp.src(gulp.vendorFiles,
         {base: 'bower_components/'})

@@ -8,7 +8,7 @@ var gulp    = require('gulp'),
 gulp.task('clean', function() {
 
     var build = gulp.args.build || gulp.args.emulate || gulp.args.run,
-        targetDir = path.resolve(build ? './www' : './.tmp');
+        targetDir = path.resolve(build ? './www' : config.paths.target);
 
     return gulp.src(targetDir)
         .pipe(gulp.plugins.clean({force: true, read: false})).on('error', errorHandler);
