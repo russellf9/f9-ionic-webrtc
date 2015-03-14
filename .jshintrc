@@ -32,6 +32,7 @@
     "require" : true,
     "StatusBar" : true,
     "process": true,
-    "window" : true
+    "window" : true,
+    "SimpleCTI" : true
   }
 }

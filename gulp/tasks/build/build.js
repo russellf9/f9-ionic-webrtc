@@ -29,7 +29,7 @@ gulp.task('build', function(cb) {
     }
 
     runSequence('clean',
-        ['jshint', 'jscs', 'scripts', 'vendor', 'styles', 'images'],
+        ['jshint', 'scripts', 'cti', 'vendor', 'styles', 'images'],
         'index', 'partials', 'fonts',
         build ? 'noop' : 'watchers',
         emulate ? 'ionic:emulate' : 'noop',

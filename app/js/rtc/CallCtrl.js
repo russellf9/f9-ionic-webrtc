@@ -3,7 +3,7 @@
 
     angular.module('f9-webrtc')
 
-        .controller('CallCtrl', ['$scope', '$state', '$rootScope', '$timeout', '$ionicModal', '$stateParams', 'signaling', 'ContactsService', function($scope, $state, $rootScope, $timeout, $ionicModal, $stateParams, signaling, ContactsService) {
+        .controller('CallCtrl', ['$scope', '$state', '$rootScope', '$timeout', '$ionicModal', '$stateParams', 'CTIService', 'ContactsService', function($scope, $state, $rootScope, $timeout, $ionicModal, $stateParams, CTIService, ContactsService) {
             var duplicateMessages = [];
 
             $scope.callInProgress = false;
@@ -44,12 +44,12 @@
 
                 session.on('sendMessage', function(data) {
 
-                    if (!signaling) {
+                    if (!CTIService) {
                         console.log('signal not ready for message: ', data);
                         return;
                     }
 
-                    signaling.emit('sendMessage', contactName, {
+                    CTIService.emit('sendMessage', contactName, {
                         type: 'phonertc_handshake',
                         data: JSON.stringify(data)
                     });
@@ -66,11 +66,11 @@
 
                     if (Object.keys($scope.contacts).length === 0) {
 
-                        if (!signaling) {
+                        if (!CTIService) {
                             console.log('signal not working ');
                             $state.go('app.contacts');
                         }
-                        signaling.emit('sendMessage', contactName, {type: 'ignore'});
+                        CTIService.emit('sendMessage', contactName, {type: 'ignore'});
                         $state.go('app.contacts');
                     }
                 });
@@ -81,11 +81,11 @@
             }
 
             if ($scope.isCalling) {
-                if (!signaling) {
+                if (!CTIService) {
                     console.log('signal not ready for calling');
                 }
                 else {
-                    signaling.emit('sendMessage', $stateParams.contactName, {type: 'call'});
+                    CTIService.emit('sendMessage', $stateParams.contactName, {type: 'call'});
                 }
             }
 
@@ -94,10 +94,10 @@
                 if (contactNames.length > 0) {
                     $scope.contacts[contactNames[0]].disconnect();
                 }
-                else if (!signaling) {
+                else if (!CTIService) {
                     console.log('Error - no signalling');
                 } else {
-                    signaling.emit('sendMessage', $stateParams.contactName, {type: 'ignore'});
+                    CTIService.emit('sendMessage', $stateParams.contactName, {type: 'ignore'});
                     $state.go('app.contacts');
                 }
 
@@ -126,7 +126,7 @@
 
                 setTimeout(function() {
                     console.log('sending answer');
-                    signaling.emit('sendMessage', $stateParams.contactName, {type: 'answer'});
+                    CTIService.emit('sendMessage', $stateParams.contactName, {type: 'answer'});
                 }, 1500);
             };
 
@@ -146,7 +146,7 @@
 
             $scope.addContact = function(newContact) {
                 $scope.hideFromContactList.push(newContact);
-                signaling.emit('sendMessage', newContact, {type: 'call'});
+                CTIService.emit('sendMessage', newContact, {type: 'call'});
 
                 cordova.plugins.phonertc.showVideoView();
                 $scope.selectContactModal.hide();
@@ -180,7 +180,7 @@
 
                         var existingContacts = Object.keys($scope.contacts);
                         if (existingContacts.length !== 0) {
-                            signaling.emit('sendMessage', name, {
+                            CTIService.emit('sendMessage', name, {
                                 type: 'add_to_group',
                                 contacts: existingContacts,
                                 isInitiator: false
@@ -231,7 +231,7 @@
 
                             if (!message.isInitiator) {
                                 $timeout(function() {
-                                    signaling.emit('sendMessage', contact, {
+                                    CTIService.emit('sendMessage', contact, {
                                         type: 'add_to_group',
                                         contacts: [ContactsService.currentName],
                                         isInitiator: true
@@ -244,14 +244,14 @@
                 }
             }
 
-            if (signaling) {
-                signaling.on('messageReceived', onMessageReceive);
+            if (CTIService) {
+                CTIService.on('messageReceived', onMessageReceive);
             }
 
 
             $scope.$on('$destroy', function() {
-                if (signaling) {
-                    signaling.removeListener('messageReceived', onMessageReceive);
+                if (CTIService) {
+                    CTIService.removeListener('messageReceived', onMessageReceive);
                 }
 
             });

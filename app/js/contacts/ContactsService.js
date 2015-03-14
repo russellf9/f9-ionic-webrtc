@@ -1,29 +1,30 @@
 'use strict';
 
 angular.module('f9-webrtc')
-    .factory('ContactsService', ['signaling', function(signaling) {
-        var onlineUsers = [];
+    .factory('ContactsService', ['_', function(_) {
+        var onlineUsers = [],
+            allUsers = ['pierre',
+                'frank',
+                'russell',
+                'robert',
+                'chaz'],
+            currentUser = '';
 
-        var currentUser = '';
 
-        if (!signaling) {
-            console.log('signal not ready!');
-        }
 
-        if (signaling) {
-            signaling.on('online', function(name) {
-                if (onlineUsers.indexOf(name) === -1) {
-                    onlineUsers.push(name);
-                }
-            });
+        //SimpleCTI.$on('online', function(name) {
+        //    if (onlineUsers.indexOf(name) === -1) {
+        //        onlineUsers.push(name);
+        //    }
+        //});
+        //
+        //SimpleCTI.$on('offline', function(name) {
+        //    var index = onlineUsers.indexOf(name);
+        //    if (index !== -1) {
+        //        onlineUsers.splice(index, 1);
+        //    }
+        //});
 
-            signaling.on('offline', function(name) {
-                var index = onlineUsers.indexOf(name);
-                if (index !== -1) {
-                    onlineUsers.splice(index, 1);
-                }
-            });
-        }
 
         return {
             onlineUsers: onlineUsers,
@@ -40,6 +41,11 @@ angular.module('f9-webrtc')
             },
             currentUser: function() {
                 return currentUser;
+            },
+            validUser: function(name) {
+                var index = allUsers.indexOf(name.toLowerCase());
+                console.log(index);
+                return index !== -1;
             }
         };
     }]);

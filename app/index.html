@@ -4,6 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <title>f9 WebRTC App</title>
+    <script src="js/simpleCTI.js" type="text/javascript"></script>
+    <!-- *** Substitute your appliance domain name below *** -->
+    <script src="https://37.122.196.252/api/wrapper.whtm" type="text/javascript"></script>
 
     <!-- inject:css -->
     <!-- endinject -->
@@ -14,12 +17,13 @@
     <!-- only importantFile.js will be injected here -->
     <!-- endinject -->
 
-    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+
 
 </head>
 <body ng-app="f9-webrtc">
 <ui-view class="full"></ui-view>
 <!-- inject:js -->
 <!-- endinject -->
+
 </body>
 </html>

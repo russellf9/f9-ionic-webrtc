@@ -11,9 +11,10 @@ gulp.task('scripts', function() {
     var build = gulp.args.build || gulp.args.emulate || gulp.args.run,
         appJs = config.paths.appJs,
         targetSrc = config.paths.scripts,
+        ctiSrc = config.paths.ctiJs,
         targetDir = path.resolve(build ? './www/' : config.paths.target);
     // Note: for the time being bit hackey for the .min suffix
-    return gulp.src([appJs, targetSrc])
+    return gulp.src([appJs, targetSrc, '!./app/js/cti/simpleCTI.js'])
         .pipe(gulp.plugins.concat(config.scripts.name))
         //.pipe(gulp.plugins.if(build, gulp.plugins.stripDebug()))
         .pipe(gulp.plugins.header(config.build.closureStart))

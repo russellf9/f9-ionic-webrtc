@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('f9-webrtc', ['ionic',  'ngDragDrop', 'angular.filter', 'f9-webrtc.controllers', 'btford.socket-io'])
+angular.module('f9-webrtc', ['ionic',  'ngDragDrop', 'angular.filter', 'f9-webrtc.controllers'])
 
     .config(function($stateProvider, $urlRouterProvider) {
         console.log('app::150312 - 14:35b');
@@ -46,21 +46,21 @@ angular.module('f9-webrtc', ['ionic',  'ngDragDrop', 'angular.filter', 'f9-webrt
         });
     })
 
-    .run(function($state, signaling) {
-        console.log('on - state: ', $state, signaling);
-        if (signaling) {
-            signaling.on('messageReceived', function(name, message) {
-                switch (message.type) {
-                    case 'call':
-                        if ($state.current.name === 'app.call') {
-                            return;
-                        }
-
-                        $state.go('app.call', {isCalling: false, contactName: name});
-                        break;
-                }
-            });
-
-        }
+    .run(function($state) {
+        console.log('on - state: ', $state);
+        //if (signaling) {
+        //    signaling.on('messageReceived', function(name, message) {
+        //        switch (message.type) {
+        //            case 'call':
+        //                if ($state.current.name === 'app.call') {
+        //                    return;
+        //                }
+        //
+        //                $state.go('app.call', {isCalling: false, contactName: name});
+        //                break;
+        //        }
+        //    });
+        //
+        //}
 
     });
