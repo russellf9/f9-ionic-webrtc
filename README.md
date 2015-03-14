@@ -276,6 +276,11 @@ or
 https://pabx1.ipcortex.net/keevio/
 
 
+## Trello/Github integration
+
+I'm attempting to ink commits up to Trello
+
+
 ## Known Issues:
 
 On a fresh install of the app from Github I had the following error:
