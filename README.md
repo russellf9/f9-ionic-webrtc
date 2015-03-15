@@ -282,6 +282,9 @@ I'm attempting to ink commits up to Trello
 
 See: [olebedev/hook-to-trello](https://github.com/olebedev/hook-to-trello)
 
+I've documented my issue with this in an Evernote: 'Trello and Github Integration'
+
+
 
 ## Known Issues:
 
