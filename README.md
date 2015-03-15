@@ -284,7 +284,9 @@ See: [olebedev/hook-to-trello](https://github.com/olebedev/hook-to-trello)
 
 I've documented my issue with this in an Evernote: 'Trello and Github Integration'
 
+A sample commit would be:
 
+`$ git commit -m Trello has been integrated with trello done #49'`
 
 ## Known Issues:
 
