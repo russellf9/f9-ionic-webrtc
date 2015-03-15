@@ -46,6 +46,8 @@ The current version of the app is:
 
 **0.0.11**
 
+This version is using websockets
+
 
 ## Project Objectives
 
@@ -353,6 +355,8 @@ $ npm -v
 
 2.5.1
 ```
+
+
 
 Trying to update I had some interesting messages:
 
