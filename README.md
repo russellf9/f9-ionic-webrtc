@@ -280,6 +280,8 @@ https://pabx1.ipcortex.net/keevio/
 
 I'm attempting to ink commits up to Trello
 
+See: [olebedev/hook-to-trello](https://github.com/olebedev/hook-to-trello)
+
 
 ## Known Issues:
 
