@@ -1,23 +1,19 @@
 'use strict';
 
 angular.module('f9-webrtc')
-    .factory('CTIService', ['ContactsService', function(ContactsService) {
-
+    .factory('CTIService', ['ContactsService', '$sanitize', function(ContactsService, $sanitize) {
         var _password = 'Stat1onX!',
-
             _simpleCTI;
 
-
-
         function statusCB(status, code, reason) {
-            console.log('++++  statusCB | status, code, reason: ', status, code, reason);
+            console.log('11:44 ++++  statusCB | status, code, reason: ', status, code, reason);
         }
 
         // Call event callback - we use the same callback for all three event types
-//  and key off the first state parameter to work out what to do.
+        // and key off the first state parameter to work out what to do.
         function eventCB(state, number, party, call, line) {
-           // var callstatus = document.getElementById('callstatus');
-           // var statuspanel = document.getElementById('statuspanel');
+            // var callstatus = document.getElementById('callstatus');
+            // var statuspanel = document.getElementById('statuspanel');
             var description = '';
             console.log('got ' + state + ' event to number ' + number + ' we are the ' + party);
             switch (state) {
@@ -60,17 +56,12 @@ angular.module('f9-webrtc')
 
                     // 2. will have to test the CTI Login success
                     _simpleCTI = new SimpleCTI(name.toLowerCase(), _password, statusCB, eventCB, eventCB, eventCB);
-
-
                     _simpleCTI.login();
 
                     return true;
                 } else {
                     return false;
                 }
-
-
             }
-
         };
     }]);

@@ -45,14 +45,16 @@
  *            {Object} Raw underlying line object
  */
 
+'use strict';
 
-var SimpleCTI = (function(username, password, statusCB, ringCB, upCB, deadCB) {
+
+var SimpleCTI = (function(aUsername, aPassword, statusCB, ringCB, upCB, deadCB) {
 
     console.log('new SimpleCTI');
 
 
-    var username = username;
-        password = password,
+    var username = aUsername,
+        password = aPassword,
         CB = {
             status: statusCB,
             ring: ringCB,
@@ -157,8 +159,7 @@ var SimpleCTI = (function(username, password, statusCB, ringCB, upCB, deadCB) {
                 // If we have a callback registered, and new call is in that
                 // state and
                 // saved state is different
-                if (typeof CB[state] == 'function' && state == currentState
-                    && currentState != callstate[x])
+                if (typeof CB[state] == 'function' && state == currentState && currentState != callstate[x])
                 // Fire the callback
                 {
                     CB[state](state, calls[x].get('number'), calls[x]
@@ -232,8 +233,9 @@ var SimpleCTI = (function(username, password, statusCB, ringCB, upCB, deadCB) {
 });
 
 // function called by the `wrapper`
-onAPILoadReady = function() {
-    console.log('api ready');
-};
+function onAPILoadReady() {
+    console.log('OK api ready');
+}
+
 
 
