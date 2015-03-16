@@ -8,16 +8,21 @@
         <input type="text" placeholder="Name" ng-model="data.name">
       </label>
     </div>
-
-    <div class="padding" ng-hide="loading">
-      <button class="button button-block button-positive" ng-click="login()">Login Please</button>
+      <div class="padding" ng-hide="loading">
+        <button class="button button-block button-positive" ng-click="login()">Login</button>
     </div>
       <div>
           <p>properties | loading: {{loading}}</p>
       </div>
 
       <div class="padding">
-          <p>Testing {{}}</p>
+          <p>Status: {{status}}</p>
       </div>
+
+      <!--// for error-->
+      <div class="padding" ng-show="loading">
+        Logging in...
+      </div>
+
   </ion-content>
 </ion-view>

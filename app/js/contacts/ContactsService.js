@@ -1,36 +1,40 @@
 'use strict';
 
 angular.module('f9-webrtc')
-    .factory('ContactsService', ['_', function(_) {
+    .service('ContactsService', ['_', '$rootScope', function(_, $rootScope) {
         var onlineUsers = [],
             allUsers = ['pierre',
                 'frank',
                 'russell',
                 'robert',
                 'chaz'],
-            currentUser = '';
-
-
-
-        //SimpleCTI.$on('online', function(name) {
-        //    if (onlineUsers.indexOf(name) === -1) {
-        //        onlineUsers.push(name);
-        //    }
-        //});
-        //
-        //SimpleCTI.$on('offline', function(name) {
-        //    var index = onlineUsers.indexOf(name);
-        //    if (index !== -1) {
-        //        onlineUsers.splice(index, 1);
-        //    }
-        //});
+            currentUser = '',
+            data = {};
 
 
         return {
+            // simply returns the current users data
+            getUsers : function() {
+                return data;
+            },
             onlineUsers: onlineUsers,
             setOnlineUsers: function(users, currentName) {
-                console.log('users, currentName', users, currentName);
+                console.log('AAA users, currentName', users, currentName);
                 currentUser = currentName;
+
+
+                data = {currentUser:currentName};
+
+                //this works
+                if($rootScope.$root.$$phase != '$apply' && $rootScope.$root.$$phase != '$digest') {
+                    $rootScope.$apply(function() {
+                        data.currentUser = currentName;
+                        console.log('BBB data!');
+                    });
+                }
+
+
+                console.log('B  currentUser: ',  currentUser);
 
                 onlineUsers.length = 0;
                 users.forEach(function(user) {
@@ -40,6 +44,7 @@ angular.module('f9-webrtc')
                 });
             },
             currentUser: function() {
+                console.log('C  currentUser: ',  currentUser);
                 return currentUser;
             },
             validUser: function(name) {

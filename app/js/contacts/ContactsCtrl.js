@@ -2,8 +2,15 @@
 
 angular.module('f9-webrtc')
 
-    .controller('ContactsCtrl', ['$scope', 'ContactsService', function($scope, ContactsService) {
+    .controller('ContactsCtrl', ['$scope', '$timeout', 'ContactsService', function($scope, $timeout, ContactsService) {
         $scope.contacts = ContactsService.onlineUsers;
-        $scope.currentUser = ContactsService.currentUser;
-        $scope.currentUser = ContactsService.currentUser;
+
+        // watch the service for updates to the user status
+        $scope.$watch(ContactsService.getUsers, function(newValue, oldValue, scope) {
+            console.log('\n** !Contacts Updated ', newValue);
+            $timeout(function() {
+                $scope.currentUser = newValue.currentUser;
+            }, 20);
+        });
+
     }]);

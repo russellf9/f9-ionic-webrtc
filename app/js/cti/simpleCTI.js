@@ -183,6 +183,7 @@ var SimpleCTI = (function(aUsername, aPassword, statusCB, ringCB, upCB, deadCB) 
 
         login: function() {
             console.log('LOGIN!');
+            //IPCortex.PBX.Auth.setHost('https://37.122.196.252');
             IPCortex.PBX.Auth.login(username, password, null, authCB);
         },
 
@@ -234,7 +235,8 @@ var SimpleCTI = (function(aUsername, aPassword, statusCB, ringCB, upCB, deadCB) 
 
 // function called by the `wrapper`
 function onAPILoadReady() {
-    console.log('OK api ready');
+    console.log('ready: Auth: ', IPCortex.PBX.Auth)
+    IPCortex.PBX.Auth.setHost('https://37.122.196.252');
 }
 
 
