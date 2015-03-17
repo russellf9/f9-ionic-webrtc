@@ -60,5 +60,14 @@ angular.module('f9-webrtc')
                 }
             });
 
+            //logout of the app
+            // NOTE:- For the time is cheating, only going back to the login page
+            $scope.logout = function() {
+                $scope.loading = false;
+                $scope.error = false;
+                $scope.message = '';
+                $state.go('app.login');
+            };
+
         }]);
 

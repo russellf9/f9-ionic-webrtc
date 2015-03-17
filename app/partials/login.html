@@ -1,33 +1,42 @@
 <ion-view title="PhoneRTC - Login" hide-back-button="true">
-  <i class="icon ion-loading-c progress-bar-icon" ng-if="loading"></i>
+    <i class="icon ion-loading-c progress-bar-icon" ng-if="loading"></i>
+
     <p>properties | loading: {{loading}}</p>
 
-  <ion-content>
-    <div class="list" ng-hide="loading">
-      <label class="item item-input">
-        <input type="text" placeholder="Name" ng-model="data.name">
-      </label>
-    </div>
-      <div class="padding" ng-hide="loading">
-        <button class="button button-block button-positive" ng-click="login()">Login</button>
-    </div>
-      <div class="list" ng-if="error">
-          <label class="item assertive">
-              {{message}} - Use a valid user name to login.
-          </label>
-      </div>
-      <div ng-if="false">
-          <p>properties | loading: {{loading}}</p>
-      </div>
+    <ion-content>
+        <div class="list" ng-hide="loading">
+            <label class="item item-input">
+                <input type="text" placeholder="Name" ng-model="data.name">
+            </label>
+        </div>
+        <div class="padding" ng-hide="loading">
+            <button class="button button-block button-positive" ng-click="login()">Login</button>
+        </div>
+        <div class="list" ng-if="error">
+            <label class="item assertive">
+                {{message}} - Use a valid user name to login.
+            </label>
+        </div>
+        <div ng-if="false">
+            <p>properties | loading: {{loading}}</p>
+        </div>
 
-      <div class="padding" ng-if="false">
-          <p>Status: {{status}}</p>
-      </div>
+        <div class="padding" ng-if="false">
+            <p>Status: {{status}}</p>
+        </div>
 
-      <!--// for error-->
-      <div class="padding" ng-show="loading">
-        Logging in...
-      </div>
+        <!--// for error-->
+        <ul class="list" ng-show="loading">
+            <li class="item">
+                Logging in...
+            </li>
+            <li class="item item-button-left">
+                Logout
+                <button class="button button-assertive" ng-click="logout()">
+                    <i class="icon ion-log-out"></i>
+                </button>
+            </li>
+        </ul>
 
-  </ion-content>
+    </ion-content>
 </ion-view>
