@@ -83,11 +83,9 @@ angular.module('f9-webrtc')
 
 
                     } else {
-
-                        console.log('User: ', name, ' is not authorized!');
-
-                        // TODO handle invalid name
-
+                        // simply reset the data, as the interested parties should be watching this object
+                        var message = 'User: ' + name + ' is not authorized!';
+                        data = {status: false, code: -1, reason: message};
                     }
                 },
 

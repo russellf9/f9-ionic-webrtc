@@ -11,11 +11,16 @@
       <div class="padding" ng-hide="loading">
         <button class="button button-block button-positive" ng-click="login()">Login</button>
     </div>
-      <div>
+      <div class="list" ng-if="error">
+          <label class="item assertive">
+              {{message}} - Use a valid user name to login.
+          </label>
+      </div>
+      <div ng-if="false">
           <p>properties | loading: {{loading}}</p>
       </div>
 
-      <div class="padding">
+      <div class="padding" ng-if="false">
           <p>Status: {{status}}</p>
       </div>
 

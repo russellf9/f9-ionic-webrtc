@@ -33,6 +33,7 @@ angular.module('f9-webrtc')
                     // success
                     $scope.loading = false;
                     $scope.error = false;
+                    $scope.message = '';
 
                     // might be best if a service does this..
                     var user = $scope.data.name.toLowerCase();
@@ -44,6 +45,7 @@ angular.module('f9-webrtc')
                     // failure
                     $scope.loading = false;
                     $scope.error = true;
+                    $scope.message = data.reason;
                 }
 
             };

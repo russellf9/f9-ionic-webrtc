@@ -71,7 +71,7 @@ angular.module('f9-webrtc')
                 return currentUser;
             },
             validUser: function(name) {
-                var user = _.where(phoneBook, {name:name});
+                var user = _.where(phoneBook, {name:name.toLowerCase()});
                 return user.length  ? true : false;
             }
         };
