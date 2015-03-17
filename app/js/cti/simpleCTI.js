@@ -63,7 +63,7 @@ var SimpleCTI = (function(aUsername, aPassword, statusCB, ringCB, upCB, deadCB) 
         },
 
     // Initialise an empty call list
-        calls = {}, callstate = {}.
+        calls = {}, callstate = {},
 
             // Initialise an empty line array
             lines = [];
@@ -129,6 +129,9 @@ var SimpleCTI = (function(aUsername, aPassword, statusCB, ringCB, upCB, deadCB) 
             line.hook(lineEvent);
             lines.push(line);
         }
+
+
+        console.log('SimpleCTI.linesCB - lines: ', lines);
     }
 
     /**
@@ -208,10 +211,14 @@ var SimpleCTI = (function(aUsername, aPassword, statusCB, ringCB, upCB, deadCB) 
          *            [line=0] line index (zero based)
          */
         dial: function(number, line) {
-            if (line == null || lines[line] == null) {
+            if (line === null || lines[line] === null) {
                 line = 0;
             }
-            // lines[line].enablertc();
+            line = line || 0;
+
+            console.log('line: ', line);
+            console.log('12:53 line: ', lines[line]);
+            //lines[line].enablertc();
             lines[line].dial(number, true, true);
         },
 
@@ -224,7 +231,7 @@ var SimpleCTI = (function(aUsername, aPassword, statusCB, ringCB, upCB, deadCB) 
         hangup: function(id) {
             console.log('Hangup ID: ' + id);
 
-            if (id != null || calls[id] == null) {
+            if (id !== null || calls[id] == null) {
                 calls[id].hangup();
             }
         },
@@ -238,7 +245,7 @@ var SimpleCTI = (function(aUsername, aPassword, statusCB, ringCB, upCB, deadCB) 
         answer: function(id) {
             console.log('Answer ID: ' + id);
 
-            if (id != null || calls[id] == null) {
+            if (id !== null || calls[id] == null) {
                 calls[id].talk();
             }
         }

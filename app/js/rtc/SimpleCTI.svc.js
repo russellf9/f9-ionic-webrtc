@@ -89,6 +89,13 @@ angular.module('f9-webrtc')
                         // TODO handle invalid name
 
                     }
+                },
+
+                // dials the supplied contact
+                dial: function(contact) {
+
+                    _simpleCTI.dial(contact.number);
+
                 }
             };
         }]);

@@ -2,7 +2,7 @@
 
 angular.module('f9-webrtc')
 
-    .controller('ContactsCtrl', ['$scope', '$timeout', 'ContactsService', function($scope, $timeout, ContactsService) {
+    .controller('ContactsCtrl', ['$scope', '$timeout', 'ContactsService', 'CTIService', function($scope, $timeout, ContactsService, CTIService) {
         $scope.contacts = ContactsService.onlineUsers;
 
         // watch the service for updates to the user status
@@ -12,5 +12,11 @@ angular.module('f9-webrtc')
                 $scope.currentUser = newValue.currentUser;
             }, 20);
         });
+
+        // call the supplied contact
+        $scope.call = function(contact) {
+            console.log('12:07 || call! - ', contact);
+            CTIService.dial(contact);
+        };
 
     }]);
