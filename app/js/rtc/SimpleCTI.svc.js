@@ -17,7 +17,7 @@ angular.module('f9-webrtc')
                 console.log('14:33 ++++  statusCB | status, code, reason: ', status, code, reason);
 
                 //this works
-                if($rootScope.$root.$$phase != '$apply' && $rootScope.$root.$$phase != '$digest') {
+                if ($rootScope.$root.$$phase != '$apply' && $rootScope.$root.$$phase != '$digest') {
                     $rootScope.$apply(function() {
                         data = {status: status, code: code, reason: reason};
                     });
@@ -37,6 +37,18 @@ angular.module('f9-webrtc')
                         break;
                     case 'up':
                         description = 'Answered: ';
+
+                        var session = call.get('session');
+
+                       // currentCall.videoEl to be a video element
+
+                        if (session && session.getRemoteStreams().length) {
+                           // currentCall.videoEl.volume = volume();
+                            // will need to do `app.call` as well...
+                            /// currentCall.videoEl
+                            attachMediaStream(null, session.getRemoteStreams()[0]);
+                        }
+
                         break;
                     case 'dead':
                         description = 'Nothing Doing, last call was: ';
@@ -60,7 +72,7 @@ angular.module('f9-webrtc')
 
             return {
                 // simply returns the current login status
-                getLoginData : function() {
+                getLoginData: function() {
                     return data;
                 },
 
