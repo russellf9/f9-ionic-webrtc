@@ -288,6 +288,13 @@ A sample commit would be:
 
 `$ git commit -m Trello has been integrated with trello done #49'`
 
+
+## Git Standards
+
+I'm trying to set standards for my Git commit messages.
+
+
+
 ## Known Issues:
 
 On a fresh install of the app from Github I had the following error:
