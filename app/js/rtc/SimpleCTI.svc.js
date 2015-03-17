@@ -84,6 +84,8 @@ angular.module('f9-webrtc')
 
                     } else {
 
+                        console.log('User: ', name, ' is not authorized!');
+
                         // TODO handle invalid name
 
                     }

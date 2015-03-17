@@ -1,5 +1,19 @@
 'use strict';
 
+
+// add extensions:
+
+
+/*
+
+ Name	Extension	DDI
+ Chaz	205
+ Frank	202
+ Pierre	201
+ Robert	204
+ Russell	203
+ */
+
 angular.module('f9-webrtc')
     .service('ContactsService', ['_', '$rootScope', function(_, $rootScope) {
         var onlineUsers = [],
@@ -8,6 +22,12 @@ angular.module('f9-webrtc')
                 'russell',
                 'robert',
                 'chaz'],
+            phoneBook = [
+                {name:'pierre',number:'201'},
+                {name:'frank', number: '202'},
+                {name:'russell', number: '203'},
+                {name:'robert', number: '204'},
+                {name:'chaz', number: '205'}],
             currentUser = '',
             data = {};
 
@@ -48,9 +68,8 @@ angular.module('f9-webrtc')
                 return currentUser;
             },
             validUser: function(name) {
-                var index = allUsers.indexOf(name.toLowerCase());
-                console.log(index);
-                return index !== -1;
+                var user = _.where(phoneBook, {name:name});
+                return user.length  ? true : false;
             }
         };
     }]);
