@@ -1,24 +1,35 @@
 <ion-view hide-back-button="true">
     <ion-nav-title>{{currentUser | capitalize}} - Contacts
+        <!--<span>-->
+            <!--<button class="button button-warning" ng-click="logout()">-->
+                <!--<i class="icon ion-log-out"></i>-->
+            <!--</button>-->
+        <!--</span>-->
     </ion-nav-title>
-  <ion-content>
-    <ul class="list">
-      <li class="item item-button-right" ng-repeat="contact in contacts">
-        <i class="icon ion-record" style="color: green"></i>
-        {{ contact.name | capitalize}} | ext: {{contact.number}}
-        <button class="button button-positive"
-                ng-click="call(contact)">
-          <i class="icon ion-ios7-telephone"></i>
-        </button>
-      </li>
-    </ul>
-      <div class="card" ng-if="!contacts || contacts.length === 0">
-          <div class="item item-text-wrap">
-              <p>You have no contacts!</p>
-          </div>
-      </div>
-      <p>
-          The current user: {{currentUser}}
-      </p>
-  </ion-content>
+    <ion-content>
+        <ul class="list">
+            <li class="item item-button-right" ng-repeat="contact in contacts">
+                <i class="icon ion-record" style="color: green"></i>
+                {{ contact.name | capitalize}} | ext: {{contact.number}}
+                <button class="button button-positive"
+                        ng-click="call(contact)">
+                    <i class="icon ion-ios7-telephone"></i>
+                </button>
+            </li>
+            <li class="item item-button-left">
+                Logout
+                <button class="button button-assertive" ng-click="logout()">
+                <i class="icon ion-log-out"></i>
+                </button>
+            </li>
+        </ul>
+        <div class="card" ng-if="!contacts || contacts.length === 0">
+            <div class="item item-text-wrap">
+                <p>You have no contacts!</p>
+            </div>
+        </div>
+        <!--<p>-->
+        <!--The current user: {{currentUser}}-->
+        <!--</p>-->
+    </ion-content>
 </ion-view>

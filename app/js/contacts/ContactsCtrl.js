@@ -2,7 +2,8 @@
 
 angular.module('f9-webrtc')
 
-    .controller('ContactsCtrl', ['$scope', '$timeout', 'ContactsService', 'CTIService', function($scope, $timeout, ContactsService, CTIService) {
+    .controller('ContactsCtrl', ['$scope', '$timeout', '$state', 'ContactsService', 'CTIService',
+        function($scope, $timeout, $state, ContactsService, CTIService) {
         $scope.contacts = ContactsService.onlineUsers;
 
         // watch the service for updates to the user status
@@ -17,6 +18,12 @@ angular.module('f9-webrtc')
         $scope.call = function(contact) {
             console.log('12:07 || call! - ', contact);
             CTIService.dial(contact);
+        };
+
+        //logout of the app
+        // NOTE:- For the time is cheating, only going back to the login page
+        $scope.logout = function() {
+            $state.go('app.login');
         };
 
     }]);
