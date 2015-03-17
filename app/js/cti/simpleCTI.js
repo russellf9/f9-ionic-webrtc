@@ -128,6 +128,7 @@ var SimpleCTI = (function(aUsername, aPassword, statusCB, ringCB, upCB, deadCB) 
              */
             line.hook(lineEvent);
             lines.push(line);
+            if(line.get('webrtc')) line.enablertc();
         }
 
 
@@ -187,6 +188,7 @@ var SimpleCTI = (function(aUsername, aPassword, statusCB, ringCB, upCB, deadCB) 
         login: function() {
             console.log('LOGIN!');
             //IPCortex.PBX.Auth.setHost('https://37.122.196.252');
+            IPCortex.PBX.Auth.setHost('https://call.webrtc.nu');
 
 
             try {
@@ -218,7 +220,7 @@ var SimpleCTI = (function(aUsername, aPassword, statusCB, ringCB, upCB, deadCB) 
 
             console.log('line: ', line);
             console.log('12:53 line: ', lines[line]);
-            //lines[line].enablertc();
+
             lines[line].dial(number, true, true);
         },
 
@@ -255,7 +257,8 @@ var SimpleCTI = (function(aUsername, aPassword, statusCB, ringCB, upCB, deadCB) 
 // function called by the `wrapper`
 function onAPILoadReady() {
     console.log('ready: Auth: ', IPCortex.PBX.Auth);
-    IPCortex.PBX.Auth.setHost('https://37.122.196.252');
+    //IPCortex.PBX.Auth.setHost('https://37.122.196.252');
+    IPCortex.PBX.Auth.setHost('https://call.webrtc.nu');
 }
 
 

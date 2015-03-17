@@ -293,6 +293,10 @@ A sample commit would be:
 
 I'm trying to set standards for my Git commit messages.
 
+Looking at using Webstorm to manage my commits now
+
+See: [Using Git Integration](https://www.jetbrains.com/webstorm/help/using-git-integration.htm)
+
 
 
 ## Known Issues:
