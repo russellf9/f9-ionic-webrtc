@@ -1,12 +1,12 @@
 <ion-view hide-back-button="true">
-    <ion-nav-title>{{currentUser}} - Contacts
+    <ion-nav-title>{{currentUser | capitalize}} - Contacts
     </ion-nav-title>
   <ion-content>
     <ul class="list">
       <li class="item item-button-right" ng-repeat="contact in contacts">
         <i class="icon ion-record" style="color: green"></i>
-        {{ contact.name }} | ext: {{contact.number}}
-        <button class="button button-positive" 
+        {{ contact.name | capitalize}} | ext: {{contact.number}}
+        <button class="button button-positive"
                 ng-click="call(contact)">
           <i class="icon ion-ios7-telephone"></i>
         </button>
