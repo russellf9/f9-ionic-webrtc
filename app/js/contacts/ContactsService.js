@@ -57,11 +57,14 @@ angular.module('f9-webrtc')
                 console.log('B  currentUser: ',  currentUser);
 
                 onlineUsers.length = 0;
-                users.forEach(function(user) {
-                    if (user !== currentName) {
+                phoneBook.forEach(function(user) {
+                    if (user.name !== currentName) {
                         onlineUsers.push(user);
                     }
                 });
+
+
+                data.onLineUsers = onlineUsers;
             },
             currentUser: function() {
                 console.log('C  currentUser: ',  currentUser);
