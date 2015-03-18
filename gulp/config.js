@@ -8,9 +8,6 @@ var src = '/www',
 
 
 module.exports = {
-    pkg: {
-        version: '0.1.6'
-    },
     paths: {
         sass: './scss/**/*.{scss, sass}',
         fonts: app + '/fonts/**',
@@ -73,8 +70,8 @@ module.exports = {
         ' * Copyright 2015 Factornine Ltd.\n' +
         ' * http://www.factornine.co.uk/\n' +
         ' *\n' +
-        ' * Magic Squares Mobile, v+  <%= pkg.version %> \n' +
-        ' * A HTML5 Angular mobile game.\n' +
+        ' * <%= pkg.description %>, v+ <%= pkg.version %> \n' +
+        ' * An application to explore Web RTC.\n' +
         ' *\n' +
         ' * By @russellf9 \n' +
         ' *\n' +
