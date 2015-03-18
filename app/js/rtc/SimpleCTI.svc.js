@@ -25,6 +25,16 @@ angular.module('f9-webrtc')
                 }
             }
 
+
+            function setData(value) {
+                console.log('B setting data!');
+                if ($rootScope.$root.$$phase != '$apply' && $rootScope.$root.$$phase != '$digest') {
+                    $rootScope.$apply(function() {
+                        data = value;
+                    });
+                }
+            }
+
             // Call event callback - we use the same callback for all three event types
             // and key off the first state parameter to work out what to do.
             function eventCB(state, number, party, call, line) {
@@ -51,11 +61,10 @@ angular.module('f9-webrtc')
 
                             _currentSession = session;
 
-                            data = {status: true, code: 1, reason: 'up'};
+                            console.log('A setting data!');
 
-                            console.log('setting data!');
+                            setData({status: true, code: 1, reason: 'up'});
 
-                            //$state.go('app.call');
                         }
 
                         break;
@@ -91,6 +100,7 @@ angular.module('f9-webrtc')
                 },
 
                 getSession: function() {
+                    console.log('CTIService::getSession: ',_currentSession);
                     return _currentSession;
                 },
 

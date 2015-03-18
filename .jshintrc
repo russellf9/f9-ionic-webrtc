@@ -33,6 +33,7 @@
     "StatusBar" : true,
     "process": true,
     "window" : true,
-    "SimpleCTI" : true
+    "SimpleCTI" : true,
+    "attachMediaStream": true
   }
 }

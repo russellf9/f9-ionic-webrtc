@@ -39,7 +39,13 @@ angular.module('f9-webrtc')
             var handleLoginStatusUpdates = function(data) {
                 console.log('+++ data: ', data);
                 if (data.status) {
+                    // if the code is 1 and reason "up" we have a new call!
+                    if (data.code === 1) {
+                        console.log('+++ should open up call ctrl: ', data);
+                        $state.go('app.call');
+                        // hack
 
+                    }
                 }
             };
 
