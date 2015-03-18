@@ -23,6 +23,10 @@
                 $scope.selectContactModal = modal;
             });
 
+            $scope.currentSession = CTIService.getSession();
+
+            console.log('session: ', $scope.currentSession);
+
 
             function call(isInitiator, contactName) {
                 console.log(new Date().toString() + ': calling to ' + contactName + ', isInitiator: ' + isInitiator);

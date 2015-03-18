@@ -1,10 +1,11 @@
 'use strict';
 
 angular.module('f9-webrtc')
-    .service('CTIService', ['ContactsService', '$rootScope', '$q', '$interval',
-        function(ContactsService, $rootScope, $q, $interval) {
+    .service('CTIService', ['ContactsService', '$rootScope', '$q', '$interval', '$state',
+        function(ContactsService, $rootScope, $q, $interval, $state) {
             var _password = 'Stat1onX!',
                 _simpleCTI,
+                _currentSession,
                 data = {status: 0, code: -1, reason: ''};
 
             /**
@@ -46,7 +47,15 @@ angular.module('f9-webrtc')
                            // currentCall.videoEl.volume = volume();
                             // will need to do `app.call` as well...
                             /// currentCall.videoEl
-                            attachMediaStream(null, session.getRemoteStreams()[0]);
+                            //attachMediaStream(null, session.getRemoteStreams()[0]);
+
+                            _currentSession = session;
+
+                            data = {status: true, code: 1, reason: 'up'};
+
+                            console.log('setting data!');
+
+                            //$state.go('app.call');
                         }
 
                         break;
@@ -81,6 +90,9 @@ angular.module('f9-webrtc')
                     return true;
                 },
 
+                getSession: function() {
+                    return _currentSession;
+                },
 
                 // login function ( currently just checking if name is in the user base )
                 login: function(name) {
