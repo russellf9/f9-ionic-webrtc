@@ -284,10 +284,16 @@ var SimpleCTI = (function(aUsername, aPassword, statusCB, ringCB, upCB, deadCB) 
 
                 console.log('session: ', session);
 
+                call.talk();
+
                 if (call.hasOwnProperty('talk')) {
+
+                    console.log('talk???');
                     call.talk();
                 }
             });
+
+            console.log('------ Answer ------' + id);
 
             //if (id !== null || calls[id] == null) {
             //    calls[id].talk();

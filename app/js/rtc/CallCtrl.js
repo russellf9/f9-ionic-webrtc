@@ -34,7 +34,7 @@ angular.module('f9-webrtc')
         };
 
         // hang up the current call
-        $scope.ignore = function() {
+        $scope.hangup = function() {
             CTIService.hangup();
         };
 
@@ -67,15 +67,24 @@ angular.module('f9-webrtc')
             $scope.status = newValue;
             handleLoginStatusUpdates(newValue);
         });
+        // to receive call
+
+       // CallCtrl::data:  Object {status: true, code: 0, reason: "ring", number: "204", party: "callee"}
+        // will need to 'up` the call
 
         // the handler for status updates
         var handleLoginStatusUpdates = function(data) {
             console.log('CallCtrl::data: ', data);
+
+            if (data.code === 1) {
+                $scope.callInProgress = true;
+            }
+
             if (data.status) {
                 // call active
                 $scope.party = data.party;
                 // if the call is being made
-                if (data.code === 0) {
+                if (data.code === 0 || data.code === 1) {
                     attachStream();
                 }
 
@@ -84,6 +93,7 @@ angular.module('f9-webrtc')
                 if (data.code === -1) {
                     // call has been hung-up
                     $state.go('app.contacts');
+                    $scope.callInProgress = false;
                 }
             }
 
