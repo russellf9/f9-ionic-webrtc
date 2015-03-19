@@ -52,7 +52,6 @@ var SimpleCTI = (function(aUsername, aPassword, statusCB, ringCB, upCB, deadCB) 
 
     console.log('new SimpleCTI');
 
-
     var username = aUsername,
         password = aPassword,
         CB = {
@@ -128,7 +127,7 @@ var SimpleCTI = (function(aUsername, aPassword, statusCB, ringCB, upCB, deadCB) 
              */
             line.hook(lineEvent);
             lines.push(line);
-            console.log('line: ', line);
+            console.log('SimpleCTI. - line: ', line);
             if (line.get('webrtc')) {
                 line.enablertc();
             }
@@ -230,34 +229,14 @@ var SimpleCTI = (function(aUsername, aPassword, statusCB, ringCB, upCB, deadCB) 
          *            {String} ID of call to hangup
          */
         hangup: function(id) {
-            console.log('Hangup ID: ' + id);
-            console.log('Hangup ID: calls: ' + calls);
-            console.log('Hangup ID: 0: ' + calls[0]);
             // a call is Class.create.o has no hangup method
             angular.forEach(calls, function(call) {
-                console.log('call: ', call);
+                console.log('SimpleCTI.hangup() | call: ', call);
 
                 var session = call.get('session');
 
-                if (call.get('hangup')) {
-
-                    console.log('we have a hangup!');
-                    call.hangup();
-                    return;
-                }
-
-                console.log('session: ', session);
                 // calling the jssip method
                 session.terminate();
-
-                // I couldn't pick this one method up
-                if (call.hasOwnProperty('hangup')) {
-                    call.hangup();
-                }
-            });
-
-            angular.forEach(lines, function(line) {
-                console.log('line: ', line);
             });
         },
 
@@ -268,24 +247,10 @@ var SimpleCTI = (function(aUsername, aPassword, statusCB, ringCB, upCB, deadCB) 
          *            {String} ID of call to answer
          */
         answer: function(id) {
-            console.log('Answer ID: ' + id);
+            console.log('SimpleCTI.answer ID: ' + id);
             angular.forEach(calls, function(call) {
-                console.log('call: ', call);
-
-                var session = call.get('session');
-
-                console.log('session: ', session);
-
                 call.talk();
-
-                if (call.hasOwnProperty('talk')) {
-
-                    console.log('talk???');
-                    call.talk();
-                }
             });
-
-            console.log('------ Answer ------' + id);
         }
     };
 });

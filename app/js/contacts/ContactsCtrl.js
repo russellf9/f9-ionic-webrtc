@@ -19,6 +19,7 @@ angular.module('f9-webrtc')
             };
 
             // watch the service for updates to the user status
+            // will return the currentUser and the onLineUsers ( all the users less the current user )
             $scope.$watch(ContactsService.getUsers, function(newValue, oldValue, scope) {
                 console.log('\n** !Contacts Updated ', newValue);
                 $timeout(function() {
