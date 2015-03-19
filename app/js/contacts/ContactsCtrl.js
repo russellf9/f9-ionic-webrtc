@@ -38,13 +38,18 @@ angular.module('f9-webrtc')
 
             var handleLoginStatusUpdates = function(data) {
                 console.log('+++ data: ', data);
+                // we have the number so we can look up the name of the caller
+                var name = ContactsService.getName(data.number);
+
                 if (data.status) {
                     // if the code is 1 and reason "up" we have a new call!
                     if (data.code === 1) {
                         console.log('+++ should open up call ctrl: ', data);
-                        $state.go('app.call');
-                        // hack
-
+                        $state.go('app.call', {contactName:name});
+                    } else if(data.code === 0) {
+                        // A call is being received
+                        // WILL NEED TO ANSWER
+                        $state.go('app.call', {contactName:name});
                     }
                 }
             };

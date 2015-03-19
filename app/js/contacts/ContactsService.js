@@ -73,6 +73,11 @@ angular.module('f9-webrtc')
             validUser: function(name) {
                 var user = _.where(phoneBook, {name:name.toLowerCase()});
                 return user.length  ? true : false;
+            },
+            getName: function(number){
+                var contacts = _.where(phoneBook, { 'number': number });
+                console.log('getName: ', contacts);
+                return contacts[0].name;
             }
         };
     }]);

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('f9-webrtc', ['ionic',  'ngDragDrop', 'angular.filter', 'f9-webrtc.controllers', 'f9-webrtc.filters'])
+angular.module('f9-webrtc', ['ngRoute', 'ionic', 'ngDragDrop', 'angular.filter', 'f9-webrtc.controllers', 'f9-webrtc.filters'])
 
     .config(function($stateProvider, $urlRouterProvider) {
         console.log('app::150312 - 14:35b');
@@ -22,9 +22,8 @@ angular.module('f9-webrtc', ['ionic',  'ngDragDrop', 'angular.filter', 'f9-webrt
                 templateUrl: 'partials/contacts.html'
             })
             .state('app.call', {
-                url: '/call',
-                //url: '/call/:contactName?isCalling',
-                //controller: 'CallCtrl',
+                url: '/call/:contactName',
+                controller: 'CallCtrl',
                 templateUrl: 'partials/call.html'
             });
 

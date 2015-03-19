@@ -65,8 +65,8 @@ var SimpleCTI = (function(aUsername, aPassword, statusCB, ringCB, upCB, deadCB) 
     // Initialise an empty call list
         calls = {}, callstate = {},
 
-            // Initialise an empty line array
-            lines = [];
+    // Initialise an empty line array
+        lines = [];
 
     /**
      * This private method is called by the API when login is initialised Just
@@ -128,7 +128,12 @@ var SimpleCTI = (function(aUsername, aPassword, statusCB, ringCB, upCB, deadCB) 
              */
             line.hook(lineEvent);
             lines.push(line);
-            if(line.get('webrtc')) line.enablertc();
+            console.log('line: ', line);
+            if (line.get('webrtc')) {
+
+                console.log('HAS WEB RTC!');
+                line.enablertc();
+            }
         }
 
 
@@ -143,8 +148,13 @@ var SimpleCTI = (function(aUsername, aPassword, statusCB, ringCB, upCB, deadCB) 
      * @param l
      */
     function lineEvent(f, h, l) {
+
+
         // Get a list of all calls on the line
         calls = l.get('calls');
+
+
+        console.log('SimpleCTI.lineEvent(' + calls + ')');
 
         // For each call
         for (var x in calls) {
@@ -192,12 +202,12 @@ var SimpleCTI = (function(aUsername, aPassword, statusCB, ringCB, upCB, deadCB) 
 
 
             try {
-                if(!IPCortex) {
+                if (!IPCortex) {
                     throw 'null IPCortex';
                 }
                 IPCortex.PBX.Auth.login(username, password, null, authCB);
             }
-            catch(error) {
+            catch (error) {
                 console.log('Error: ', error);
             }
 
@@ -232,10 +242,31 @@ var SimpleCTI = (function(aUsername, aPassword, statusCB, ringCB, upCB, deadCB) 
          */
         hangup: function(id) {
             console.log('Hangup ID: ' + id);
+            console.log('Hangup ID: calls: ' + calls);
+            console.log('Hangup ID: 0: ' + calls[0]);
+            // a call is Class.create.o has no hangup method
+            angular.forEach(calls, function(call) {
+                console.log('call: ', call);
 
-            if (id !== null || calls[id] == null) {
-                calls[id].hangup();
-            }
+                var session = call.get('session');
+
+                console.log('session: ', session);
+                // calling the jssip method
+                session.terminate();
+
+                // I couldn't pick this one method up
+                if (call.hasOwnProperty('hangup')) {
+                    call.hangup();
+                }
+            });
+
+            angular.forEach(lines, function(line) {
+                console.log('line: ', line);
+            });
+
+            // was
+            //  calls[id].hangup();
+
         },
 
         /**
@@ -246,10 +277,21 @@ var SimpleCTI = (function(aUsername, aPassword, statusCB, ringCB, upCB, deadCB) 
          */
         answer: function(id) {
             console.log('Answer ID: ' + id);
+            angular.forEach(calls, function(call) {
+                console.log('call: ', call);
 
-            if (id !== null || calls[id] == null) {
-                calls[id].talk();
-            }
+                var session = call.get('session');
+
+                console.log('session: ', session);
+
+                if (call.hasOwnProperty('talk')) {
+                    call.talk();
+                }
+            });
+
+            //if (id !== null || calls[id] == null) {
+            //    calls[id].talk();
+            //}
         }
     };
 });

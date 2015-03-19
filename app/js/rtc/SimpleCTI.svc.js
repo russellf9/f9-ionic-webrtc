@@ -40,36 +40,39 @@ angular.module('f9-webrtc')
             function eventCB(state, number, party, call, line) {
                 // var callstatus = document.getElementById('callstatus');
                 // var statuspanel = document.getElementById('statuspanel');
-                var description = '';
+                var description = '',
+                    session = {};
+
+
+                _currentSession = call.get('session') || {};
+
+
                 console.log('got ' + state + ' event to number ' + number + ' we are the ' + party);
                 switch (state) {
                     case 'ring':
                         description = 'Ringing: ';
+                        setData({status: true, code: 0, reason: 'ring', number: number, party: party});
                         break;
                     case 'up':
                         description = 'Answered: ';
 
-                        var session = call.get('session');
+                        session = call.get('session');
 
                        // currentCall.videoEl to be a video element
-
                         if (session && session.getRemoteStreams().length) {
                            // currentCall.videoEl.volume = volume();
                             // will need to do `app.call` as well...
                             /// currentCall.videoEl
                             //attachMediaStream(null, session.getRemoteStreams()[0]);
 
-                            _currentSession = session;
-
                             console.log('A setting data!');
-
-                            setData({status: true, code: 1, reason: 'up'});
-
+                            setData({status: true, code: 1, reason: 'up', number: number, party: party});
                         }
 
                         break;
                     case 'dead':
                         description = 'Nothing Doing, last call was: ';
+                        setData({status: false, code: -1, reason: 'dead', number: number, party: party});
                         break;
                 }
                 if (party == 'callee') {
@@ -125,9 +128,15 @@ angular.module('f9-webrtc')
 
                 // dials the supplied contact
                 dial: function(contact) {
-
                     _simpleCTI.dial(contact.number);
+                },
+                hangup: function(id) {
+                    _simpleCTI.hangup(id);
+                },
+                answer: function(id) {
 
+                    console.log('Session: ', _currentSession);
+                    _simpleCTI.answer(id);
                 }
             };
         }]);

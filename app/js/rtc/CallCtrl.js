@@ -5,10 +5,10 @@ angular.module('f9-webrtc')
     .controller('CallCtrl', ['$scope', '$state', '$rootScope', '$timeout', '$ionicModal', '$stateParams', '$document', 'CTIService', 'ContactsService', function($scope, $state, $rootScope, $timeout, $ionicModal, $stateParams, $document, CTIService, ContactsService) {
         //var duplicateMessages = [];
         //
-        //$scope.callInProgress = false;
+        $scope.callInProgress = false;
         //
         //$scope.isCalling = $stateParams.isCalling === 'true';
-        //$scope.contactName = $stateParams.contactName;
+        $scope.contactName = $stateParams.contactName;
         //
         //$scope.allContacts = ContactsService.onlineUsers;
         //$scope.contacts = {};
@@ -22,87 +22,71 @@ angular.module('f9-webrtc')
         //    $scope.selectContactModal = modal;
         //});
 
-        console.log('12::08 CallCtrl');
+        console.log('A 21::38 CallCtrl | $stateParams: ', $stateParams.contactName);
 
+
+        $scope.data = ContactsService.getLoginData;
+
+        // answer a call if the user is the callee
+        $scope.answer = function() {
+            console.log('CallCtrl::answer');
+            CTIService.answer();
+        };
+
+        // hang up the current call
+        $scope.ignore = function() {
+            CTIService.hangup();
+        };
 
         $timeout(function() {
             $scope.currentSession = CTIService.getSession();
 
-            console.log('A CallCtrl::17:02 session: ', $scope.currentSession);
+            console.log('B CallCtrl::11:08 session: ', $scope.currentSession);
+
+            if ($scope.currentSession) {
+                var stream = $scope.currentSession.getRemoteStreams()[0];
+                attachMediaStream($document[0].getElementById('audio'), stream);
+            }
+
+        }, 100);
 
 
+        // attaches the stream as audio
+        var attachStream = function() {
+            $scope.currentSession = CTIService.getSession();
+            console.log('B CallCtrl::attachStream session: ', $scope.currentSession);
+            if ($scope.currentSession) {
+                var stream = $scope.currentSession.getRemoteStreams()[0];
+                attachMediaStream($document[0].getElementById('audio'), stream);
+            }
+        };
 
-            // for some reason had to use jQuery
-            var element = $document[0].getElementById('video-test');
-
-            console.log('B CallCtrl::element ', element);
-
-
-            var stream = $scope.currentSession.getRemoteStreams()[0];
-
-            stream.id = createUUID();
-
-            console.log('session stream: ', stream);
-
-            var videoEl = attachMediaStream(element, stream, {autoplay: true, mirror: false});
-
-            console.log('17:02 C CallCtrl::videoEl ', videoEl);
-
-            $document[0].getElementById('video-test').autoplay = true;
-
-
-
-        }, 3000);
-
-
-        // get the local stream, show it in the local video element and send it
-        // copied from http://stackoverflow.com/questions/15501753/trouble-with-webrtc-in-nightly-22-and-chrome-25
-        getUserMedia({'audio': true, 'video': true}, function(stream) {
-            console.log('self stream: ', stream);
-            // attach media stream to local video - WebRTC Wrapper
-            attachMediaStream($document[0].getElementById('local-video'), stream);
-            $document[0].getElementById('local-video').muted = true;
-            $document[0].getElementById('local-video').autoplay = true;
-            //peerConnection.addStream(stream);
-            //
-            //if (isCaller)
-            //    peerConnection.createOffer(gotDescription);
-            //else {
-            //    peerConnection.createAnswer(gotDescription);
-            //}
-            //
-            //function gotDescription(desc) {
-            //    sendMessage(JSON.stringify({'sdp': desc}));
-            //    peerConnection.setLocalDescription(desc);
-            //
-            //}
-        }, function() {
+        // watch the service for updates to the login status
+        $scope.$watch(CTIService.getLoginData, function(newValue, oldValue, scope) {
+            console.log('CallCtrl -> getLoginData |  newValue: ', newValue);
+            $scope.status = newValue;
+            handleLoginStatusUpdates(newValue);
         });
 
-        /// currentCall.videoEl
-        // var element =  document.getElementById('myVideo')
+        // the handler for status updates
+        var handleLoginStatusUpdates = function(data) {
+            console.log('CallCtrl::data: ', data);
+            if (data.status) {
+                // call active
+                $scope.party = data.party;
+                // if the call is being made
+                if (data.code === 0) {
+                    attachStream();
+                }
 
-
-        //document.getElementById('vidContainer').appendChild(attachMediaStream(stream));
-
-
-        // element.(attachMediaStream($scope.currentSession.getRemoteStreams()[0]));
-
-        //attachMediaStream(element, $scope.currentSession.getRemoteStreams()[0]);
-
-        function createUUID() {
-            // http://www.ietf.org/rfc/rfc4122.txt
-            var s = [];
-            var hexDigits = '0123456789abcdef';
-            for (var i = 0; i < 36; i++) {
-                s[i] = hexDigits.substr(Math.floor(Math.random() * 0x10), 1);
+            } else {
+                // call inactive
+                if (data.code === -1) {
+                    // call has been hung-up
+                    $state.go('app.contacts');
+                }
             }
-            s[14] = '4';  // bits 12-15 of the time_hi_and_version field to 0010
-            s[19] = hexDigits.substr((s[19] & 0x3) | 0x8, 1);  // bits 6-7 of the clock_seq_hi_and_reserved to 01
-            s[8] = s[13] = s[18] = s[23] = '-';
 
-            var uuid = s.join('');
-            return uuid;
-        }
+        };
 
     }]);
