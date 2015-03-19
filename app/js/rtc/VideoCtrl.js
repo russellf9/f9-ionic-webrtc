@@ -1,5 +1,8 @@
 'use strict';
 
+
+// the controller for the video
+// TODO to implement
 angular.module('f9-webrtc')
 
     .controller('VideoCtrl', ['$scope',  '$document', function($scope, $document){

@@ -3,17 +3,22 @@
 angular.module('f9-webrtc')
 
     .controller('CallCtrl', ['$scope', '$state', '$rootScope', '$timeout', '$ionicModal', '$stateParams', '$document', 'CTIService', 'ContactsService', function($scope, $state, $rootScope, $timeout, $ionicModal, $stateParams, $document, CTIService, ContactsService) {
-        //var duplicateMessages = [];
-        //
+
         $scope.callInProgress = false;
-        //
-        //$scope.isCalling = $stateParams.isCalling === 'true';
+
         $scope.contactName = $stateParams.contactName;
-        //
+
+        // TODO
+        $scope.isCalling = $stateParams.isCalling === 'true';
+
+        // TODO
+        $scope.muted = false;
+
+
+        // Contacts TODO
         //$scope.allContacts = ContactsService.onlineUsers;
         //$scope.contacts = {};
         //$scope.hideFromContactList = [$scope.contactName];
-        //$scope.muted = false;
 
         //$ionicModal.fromTemplateUrl('partials/select_contact.html', {
         //    scope: $scope,
@@ -22,10 +27,8 @@ angular.module('f9-webrtc')
         //    $scope.selectContactModal = modal;
         //});
 
-        console.log('A 21::38 CallCtrl | $stateParams: ', $stateParams.contactName);
+        //console.log('CallCtrl | $stateParams: ', $stateParams.contactName);
 
-
-        $scope.data = ContactsService.getLoginData;
 
         // answer a call if the user is the callee
         $scope.answer = function() {
@@ -38,23 +41,15 @@ angular.module('f9-webrtc')
             CTIService.hangup();
         };
 
-        $timeout(function() {
-            $scope.currentSession = CTIService.getSession();
+        // toggles the audio mute
+        // TODO
+        $scope.toggleMute = function() {
 
-            console.log('B CallCtrl::11:08 session: ', $scope.currentSession);
-
-            if ($scope.currentSession) {
-                var stream = $scope.currentSession.getRemoteStreams()[0];
-                attachMediaStream($document[0].getElementById('audio'), stream);
-            }
-
-        }, 100);
-
+        };
 
         // attaches the stream as audio
         var attachStream = function() {
             $scope.currentSession = CTIService.getSession();
-            console.log('B CallCtrl::attachStream session: ', $scope.currentSession);
             if ($scope.currentSession) {
                 var stream = $scope.currentSession.getRemoteStreams()[0];
                 attachMediaStream($document[0].getElementById('audio'), stream);
@@ -62,24 +57,17 @@ angular.module('f9-webrtc')
         };
 
         // watch the service for updates to the login status
-        $scope.$watch(CTIService.getLoginData, function(newValue, oldValue, scope) {
-            console.log('CallCtrl -> getLoginData |  newValue: ', newValue);
+        $scope.$watch(CTIService.getCTIData, function(newValue, oldValue, scope) {
+            //console.log('CallCtrl -> getCTIData |  newValue: ', newValue);
             $scope.status = newValue;
-            handleLoginStatusUpdates(newValue);
+            handleUpdate(newValue);
         });
-        // to receive call
-
-       // CallCtrl::data:  Object {status: true, code: 0, reason: "ring", number: "204", party: "callee"}
-        // will need to 'up` the call
 
         // the handler for status updates
-        var handleLoginStatusUpdates = function(data) {
-            console.log('CallCtrl::data: ', data);
-
+        var handleUpdate = function(data) {
             if (data.code === 1) {
                 $scope.callInProgress = true;
             }
-
             if (data.status) {
                 // call active
                 $scope.party = data.party;
@@ -87,16 +75,13 @@ angular.module('f9-webrtc')
                 if (data.code === 0 || data.code === 1) {
                     attachStream();
                 }
-
             } else {
                 // call inactive
                 if (data.code === -1) {
-                    // call has been hung-up
+                    // call has been hung-up, so back to the contacts
                     $state.go('app.contacts');
                     $scope.callInProgress = false;
                 }
             }
-
         };
-
     }]);

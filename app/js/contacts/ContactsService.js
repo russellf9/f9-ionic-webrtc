@@ -1,27 +1,12 @@
 'use strict';
 
 
-// add extensions:
+// a service which handles the uesrs of the rtc app
 
-
-/*
-
- Name	Extension	DDI
- Chaz	205
- Frank	202
- Pierre	201
- Robert	204
- Russell	203
- */
 
 angular.module('f9-webrtc')
     .service('ContactsService', ['_', '$rootScope', function(_, $rootScope) {
         var onlineUsers = [],
-            allUsers = ['pierre',
-                'frank',
-                'russell',
-                'robert',
-                'chaz'],
             phoneBook = [
                 {name:'pierre',number:'201'},
                 {name:'frank', number: '202'},
@@ -31,53 +16,46 @@ angular.module('f9-webrtc')
             currentUser = '',
             data = {};
 
-
         return {
             // simply returns the current users data
             getUsers : function() {
                 return data;
             },
             onlineUsers: onlineUsers,
+            // sets the online users
+            // TODO redo this
             setOnlineUsers: function(users, currentName) {
-                console.log('AAA users, currentName', users, currentName);
                 currentUser = currentName;
-
-
                 data = {currentUser:currentName};
 
                 //this works
                 if($rootScope.$root.$$phase != '$apply' && $rootScope.$root.$$phase != '$digest') {
                     $rootScope.$apply(function() {
                         data.currentUser = currentName;
-                        console.log('BBB data!');
                     });
                 }
-
-
-                console.log('B  currentUser: ',  currentUser);
-
                 onlineUsers.length = 0;
                 phoneBook.forEach(function(user) {
                     if (user.name !== currentName) {
                         onlineUsers.push(user);
                     }
                 });
-
-
                 data.onLineUsers = onlineUsers;
             },
+            // simply returns the current user
             currentUser: function() {
-                console.log('C  currentUser: ',  currentUser);
                 return currentUser;
             },
+            // returns true if the supplied name is within the phone book
             validUser: function(name) {
                 var user = _.where(phoneBook, {name:name.toLowerCase()});
                 return user.length  ? true : false;
             },
+            //simply returns the name of the user with the supplied number
             getName: function(number){
                 var contacts = _.where(phoneBook, { 'number': number });
-                console.log('getName: ', contacts);
-                return contacts[0].name;
+                return contacts.length ? contacts[0].name : '';
             }
         };
     }]);
+

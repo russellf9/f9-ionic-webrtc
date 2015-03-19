@@ -97,7 +97,7 @@ var SimpleCTI = (function(aUsername, aPassword, statusCB, ringCB, upCB, deadCB) 
      */
     function error(n, m) {
         CB.status(false, n, m);
-        console.error('We got an error number: ' + n + ' Text: ' + m);
+        console.error('SimpleCTI.error() - We got an error number: ' + n + ' Text: ' + m);
     }
 
     /**
@@ -130,14 +130,9 @@ var SimpleCTI = (function(aUsername, aPassword, statusCB, ringCB, upCB, deadCB) 
             lines.push(line);
             console.log('line: ', line);
             if (line.get('webrtc')) {
-
-                console.log('HAS WEB RTC!');
                 line.enablertc();
             }
         }
-
-
-        console.log('SimpleCTI.linesCB - lines: ', lines);
     }
 
     /**
@@ -149,10 +144,8 @@ var SimpleCTI = (function(aUsername, aPassword, statusCB, ringCB, upCB, deadCB) 
      */
     function lineEvent(f, h, l) {
 
-
         // Get a list of all calls on the line
         calls = l.get('calls');
-
 
         console.log('SimpleCTI.lineEvent(' + calls + ')');
 
@@ -196,10 +189,9 @@ var SimpleCTI = (function(aUsername, aPassword, statusCB, ringCB, upCB, deadCB) 
     return {
 
         login: function() {
-            console.log('LOGIN!');
+            console.log('SimpleCTI.login()');
             //IPCortex.PBX.Auth.setHost('https://37.122.196.252');
             IPCortex.PBX.Auth.setHost('https://call.webrtc.nu');
-
 
             try {
                 if (!IPCortex) {
@@ -210,8 +202,6 @@ var SimpleCTI = (function(aUsername, aPassword, statusCB, ringCB, upCB, deadCB) 
             catch (error) {
                 console.log('Error: ', error);
             }
-
-
         },
 
         /**
@@ -228,8 +218,7 @@ var SimpleCTI = (function(aUsername, aPassword, statusCB, ringCB, upCB, deadCB) 
             }
             line = line || 0;
 
-            console.log('line: ', line);
-            console.log('12:53 line: ', lines[line]);
+            console.log('SimpleCTI.dial() to line- ', lines[line]);
 
             lines[line].dial(number, true, true);
         },
@@ -250,6 +239,13 @@ var SimpleCTI = (function(aUsername, aPassword, statusCB, ringCB, upCB, deadCB) 
 
                 var session = call.get('session');
 
+                if (call.get('hangup')) {
+
+                    console.log('we have a hangup!');
+                    call.hangup();
+                    return;
+                }
+
                 console.log('session: ', session);
                 // calling the jssip method
                 session.terminate();
@@ -263,10 +259,6 @@ var SimpleCTI = (function(aUsername, aPassword, statusCB, ringCB, upCB, deadCB) 
             angular.forEach(lines, function(line) {
                 console.log('line: ', line);
             });
-
-            // was
-            //  calls[id].hangup();
-
         },
 
         /**
@@ -294,10 +286,6 @@ var SimpleCTI = (function(aUsername, aPassword, statusCB, ringCB, upCB, deadCB) 
             });
 
             console.log('------ Answer ------' + id);
-
-            //if (id !== null || calls[id] == null) {
-            //    calls[id].talk();
-            //}
         }
     };
 });

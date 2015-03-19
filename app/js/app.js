@@ -3,8 +3,6 @@
 angular.module('f9-webrtc', ['ngRoute', 'ionic', 'ngDragDrop', 'angular.filter', 'f9-webrtc.controllers', 'f9-webrtc.filters'])
 
     .config(function($stateProvider, $urlRouterProvider) {
-        console.log('app::150312 - 14:35b');
-
         $stateProvider
             .state('app', {
                 url: '/app',
@@ -47,7 +45,7 @@ angular.module('f9-webrtc', ['ngRoute', 'ionic', 'ngDragDrop', 'angular.filter',
     })
 
     .run(function($state) {
-        console.log('on - state: ', $state);
+        console.log('app - on - state: ', $state);
         //if (signaling) {
         //    signaling.on('messageReceived', function(name, message) {
         //        switch (message.type) {
