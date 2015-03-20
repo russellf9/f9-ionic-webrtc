@@ -2,8 +2,8 @@
 
 // the controller for app's login functionality
 angular.module('f9-webrtc')
-    .controller('LoginCtrl', ['$scope', '$state', '$ionicPopup', 'CTIService', 'ContactsService',
-        function($scope, $state, $ionicPopup, CTIService, ContactsService) {
+    .controller('LoginCtrl', ['$scope', '$state', '$ionicPopup', 'CommunicationService', 'ContactsService',
+        function($scope, $state, $ionicPopup, CommunicationService, ContactsService) {
             $scope.data = {};
             $scope.loading = false;
 
@@ -14,7 +14,7 @@ angular.module('f9-webrtc')
             // login function
             $scope.login = function() {
                 $scope.loading = true;
-                CTIService.login($scope.data.name);
+                CommunicationService.login($scope.data.name);
             };
 
             // logout of the app
@@ -27,7 +27,7 @@ angular.module('f9-webrtc')
             };
 
             // watch the service for updates to the login status
-            $scope.$watch(CTIService.getCTIData, function(newValue, oldValue, scope) {
+            $scope.$watch(CommunicationService.getCTIData, function(newValue, oldValue, scope) {
                 if (newValue && newValue !== oldValue) {
                     $scope.status = newValue;
                     handleLoginStatusUpdates(newValue);

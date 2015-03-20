@@ -3,13 +3,13 @@
 // the controller for the contacts, the default `start` page for the app
 angular.module('f9-webrtc')
 
-    .controller('ContactsCtrl', ['$scope', '$timeout', '$state', 'ContactsService', 'CTIService',
-        function($scope, $timeout, $state, ContactsService, CTIService) {
+    .controller('ContactsCtrl', ['$scope', '$timeout', '$state', 'ContactsService', 'CommunicationService',
+        function($scope, $timeout, $state, ContactsService, CommunicationService) {
             $scope.contacts = ContactsService.onlineUsers;
 
             // call the supplied contact
             $scope.call = function(contact) {
-                CTIService.dial(contact);
+                CommunicationService.dial(contact);
             };
 
             // logout of the app
@@ -28,7 +28,7 @@ angular.module('f9-webrtc')
             });
 
             // watch the service for updates to the login status
-            $scope.$watch(CTIService.getCTIData, function(newValue, oldValue, scope) {
+            $scope.$watch(CommunicationService.getCTIData, function(newValue, oldValue, scope) {
                 console.log('ContactsCtrl::update', newValue);
                 if (newValue && newValue !== oldValue) {
                     handleUpdate(newValue);

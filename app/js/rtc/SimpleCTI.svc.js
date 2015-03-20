@@ -2,7 +2,7 @@
 
 // an angular service wrapper for the SimpleCTI
 angular.module('f9-webrtc')
-    .service('CTIService', ['ContactsService', '$rootScope', '$q', '$interval', '$state',
+    .service('CommunicationService', ['ContactsService', '$rootScope', '$q', '$interval', '$state',
         function(ContactsService, $rootScope, $q, $interval, $state) {
             var _password = 'Stat1onX!',
                 _simpleCTI,
@@ -11,14 +11,14 @@ angular.module('f9-webrtc')
 
             // status call back
             function statusCB(status, code, reason) {
-                console.log('CTIService::statusCB | status, code, reason: ', status, code, reason);
+                console.log('CommunicationService::statusCB | status, code, reason: ', status, code, reason);
                 data = {status: status, code: code, reason: reason};
                 setData(data);
             }
 
             // sets the services data object
             function setData(value) {
-                console.log('CTIService::setData');
+                console.log('CommunicationService::setData');
                 if ($rootScope.$root.$$phase != '$apply' && $rootScope.$root.$$phase != '$digest') {
                     $rootScope.$apply(function() {
                         data = value;
@@ -34,7 +34,7 @@ angular.module('f9-webrtc')
 
                 _currentSession = call.get('session') || {};
 
-                console.log('CTIService::eventCB | got ' + state + ' event to number ' + number + ' we are the ' + party);
+                console.log('CommunicationService::eventCB | got ' + state + ' event to number ' + number + ' we are the ' + party);
                 switch (state) {
                     case 'ring':
                         description = 'Ringing: ';
@@ -77,12 +77,12 @@ angular.module('f9-webrtc')
                 },
                 // simply returns the current session
                 getSession: function() {
-                    console.log('CTIService::getSession: ',_currentSession);
+                    console.log('CommunicationService::getSession: ',_currentSession);
                     return _currentSession;
                 },
                 // login function ( currently just checking if name is in the user base )
                 login: function(name) {
-                    console.log('CTIService::User: ', name, ' logging in!');
+                    console.log('CommunicationService::User: ', name, ' logging in!');
                     // 1 test is in valid users
                     if (ContactsService.validUser(name)) {
                         // 2. TODO will have to test the CTI Login success

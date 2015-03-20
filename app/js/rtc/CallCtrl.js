@@ -2,7 +2,7 @@
 
 angular.module('f9-webrtc')
 
-    .controller('CallCtrl', ['$scope', '$state', '$rootScope', '$timeout', '$ionicModal', '$stateParams', '$document', 'CTIService', 'ContactsService', function($scope, $state, $rootScope, $timeout, $ionicModal, $stateParams, $document, CTIService, ContactsService) {
+    .controller('CallCtrl', ['$scope', '$state', '$rootScope', '$timeout', '$ionicModal', '$stateParams', '$document', 'CommunicationService', 'ContactsService', function($scope, $state, $rootScope, $timeout, $ionicModal, $stateParams, $document, CommunicationService, ContactsService) {
 
         $scope.callInProgress = false;
 
@@ -33,12 +33,12 @@ angular.module('f9-webrtc')
         // answer a call if the user is the callee
         $scope.answer = function() {
             console.log('CallCtrl::answer');
-            CTIService.answer();
+            CommunicationService.answer();
         };
 
         // hang up the current call
         $scope.hangup = function() {
-            CTIService.hangup();
+            CommunicationService.hangup();
         };
 
         // toggles the audio mute
@@ -49,7 +49,7 @@ angular.module('f9-webrtc')
 
         // attaches the stream as audio
         var attachStream = function() {
-            $scope.currentSession = CTIService.getSession();
+            $scope.currentSession = CommunicationService.getSession();
             if ($scope.currentSession) {
                 var stream = $scope.currentSession.getRemoteStreams()[0];
                 attachMediaStream($document[0].getElementById('audio'), stream);
@@ -57,7 +57,7 @@ angular.module('f9-webrtc')
         };
 
         // watch the service for updates to the login status
-        $scope.$watch(CTIService.getCTIData, function(newValue, oldValue, scope) {
+        $scope.$watch(CommunicationService.getCTIData, function(newValue, oldValue, scope) {
             //console.log('CallCtrl -> getCTIData |  newValue: ', newValue);
             $scope.status = newValue;
             handleUpdate(newValue);
