@@ -212,7 +212,7 @@ $ gulp -b
 
 **ionic CLI wrappers**
 
-```
+``` 
 # emulate ios
 $ gulp -emulate
 # or

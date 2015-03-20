@@ -41,6 +41,25 @@ angular.module('f9-webrtc', ['ngRoute', 'ionic', 'ngDragDrop', 'angular.filter',
                 // org.apache.cordova.statusbar required
                 StatusBar.styleDefault();
             }
+
+            // add the functionality for the new SIP stuff
+            var SIP = cordova.require("com.onsip.cordova.Sipjs");
+            var PhoneRTCMediaHandler = cordova.require("com.onsip.cordova.SipjsMediaHandler")(SIP);
+
+            console.log('---------');
+            console.log('APP = 16:48');
+            console.log('SIP ',SIP);
+            console.log('PhoneRTCMediaHandler ',PhoneRTCMediaHandler);
+            console.log('---------');
+
+            window.ua = new SIP.UA({
+                uri:                 'my_user...@domain.onsip.com',
+                authorizationUser:   'sip_username',
+                password:            'password',
+                mediaHandlerFactory: PhoneRTCMediaHandler
+            });
+            console.log('is live visible?: ', IPCortex.PBX.live);
+
         });
     })
 
