@@ -1,6 +1,6 @@
 {
   "name": "app",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "description": "f9-ionic-webrtc",
   "dependencies": {
     "gulp": "^3.8.8",
@@ -77,6 +77,6 @@
   },
   "cordovaPlugins": [
     "https://github.com/onsip/onsip-cordova.git",
-    "https://github.com/alongubkin/phonertc.git"
+    "org.apache.cordova.console"
   ]
 }
