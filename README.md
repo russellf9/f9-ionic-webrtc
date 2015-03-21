@@ -104,6 +104,7 @@ Now attempting to use the _Browser Platform_
 
 See: [Browser as a platform for your PhoneGap/Cordova apps](http://www.raymondcamden.com/2014/09/24/Browser-as-a-platform-for-your-PhoneGapCordova-apps)
 
+TODO - Tidy uap as the default `gulp` opens the platform browser
 
 ```
 # to add the Browser platform

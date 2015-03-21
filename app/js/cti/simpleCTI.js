@@ -146,10 +146,12 @@ var SimpleCTI = (function(aUsername, aPassword, statusCB, ringCB, upCB, deadCB) 
         // Get a list of all calls on the line
         calls = l.get('calls');
 
-        console.log('SimpleCTI.lineEvent(' + calls + ')');
+        console.log('14:24 - SimpleCTI.lineEvent(' + calls + ')');
 
         // For each call
         for (var x in calls) {
+
+            console.log('14:24 -  SimpleCTI.lineEvent | x (' + x + ')');
 
             // What is its new state
             var currentState = calls[x].get('state');
@@ -217,7 +219,7 @@ var SimpleCTI = (function(aUsername, aPassword, statusCB, ringCB, upCB, deadCB) 
             }
             line = line || 0;
 
-            console.log('SimpleCTI.dial() to line- ', lines[line]);
+            console.log('12:48 || SimpleCTI.dial() to line- ', lines[line]);
 
             lines[line].dial(number, true, true);
         },

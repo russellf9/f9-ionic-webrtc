@@ -13,6 +13,7 @@ module.exports = {
         fonts: app + '/fonts/**',
         appJs: app + '/js/app.js',
         ctiJs: app + '/js/cti/simpleCTI.js',
+        apiJs: app + '/js/cti/api.js',
         scripts: app + '/js/**/*.js',
         vendor: './vendor.json',
         partials: app + '/partials/**/*.html',
