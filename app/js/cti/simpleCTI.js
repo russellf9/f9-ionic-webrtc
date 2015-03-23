@@ -84,7 +84,7 @@ var SimpleCTI = (function(aUsername, aPassword, statusCB, ringCB, upCB, deadCB) 
              */
             IPCortex.PBX.startPoll(go, error);
         } else {
-            CB.status(false, -1, "Login failed");
+            CB.status(false, -1, 'Login failed');
         }
     }
 
@@ -107,7 +107,7 @@ var SimpleCTI = (function(aUsername, aPassword, statusCB, ringCB, upCB, deadCB) 
 
         // Once initialised, request all our owned lines are returned
         IPCortex.PBX.getLines(linesCB, true);
-        CB.status(true, 0, "API Initialised");
+        CB.status(true, 0, 'API Initialised');
     }
 
     /**
@@ -117,6 +117,7 @@ var SimpleCTI = (function(aUsername, aPassword, statusCB, ringCB, upCB, deadCB) 
      */
     function linesCB(l) {
         console.log('SimpleCTI.linesCB(' + l.length + ')');
+
 
         // Lines are returned in a list - Hook them all
         while (l.length) {
@@ -134,6 +135,20 @@ var SimpleCTI = (function(aUsername, aPassword, statusCB, ringCB, upCB, deadCB) 
         }
     }
 
+    function r(obj) {
+        if (obj) {
+            for (var key in obj) {
+                if (typeof obj[key] == 'object') {
+                    r(obj[key]);
+                } else if (typeof obj[key] != 'function') {
+                    console.log(obj[key]);
+                }
+            }
+        }
+
+        return;
+    }
+
     /**
      * Handler for PBX line event callback
      *
@@ -146,7 +161,13 @@ var SimpleCTI = (function(aUsername, aPassword, statusCB, ringCB, upCB, deadCB) 
         // Get a list of all calls on the line
         calls = l.get('calls');
 
-        console.log('14:24 - SimpleCTI.lineEvent(' + calls + ')');
+        console.log('16:25 - SimpleCTI.lineEvent f (' + f + ')');
+
+        console.log('16:25 - SimpleCTI.lineEvent h (' + h + ')');
+
+        console.log('16:25 - SimpleCTI.lineEvent(' + calls + ')');
+
+       // r(calls);
 
         // For each call
         for (var x in calls) {
