@@ -31,6 +31,9 @@ angular.module('f9-webrtc', ['ngRoute', 'ionic', 'ngDragDrop', 'angular.filter',
 
     .run(function(_, $ionicPlatform) {
         $ionicPlatform.ready(function() {
+
+            console.log('A ionicPlatform ready! plugins:', window.cordova.plugins);
+            console.log('B ionicPlatform ready! plugins:', window.cordova.plugins.phonertc);
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
             // for form inputs)
             if (window.cordova && window.cordova.plugins.Keyboard) {

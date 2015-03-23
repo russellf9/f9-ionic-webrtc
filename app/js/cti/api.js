@@ -1423,6 +1423,7 @@ IPCortex.PBX = (function() {
 	 */
 	function getLines(callback, owned) {
 		/* Retrieve cached callback function if not provided */
+        console.log('api::getLines()');
 		if ( callback == null ) {
 			callback = callbacks.getLines;
 			owned = callbacks.getLinesOwned;
@@ -2280,8 +2281,19 @@ IPCortex.PBX = (function() {
 	 * @private
 	 */
 	function haveJsSIP() {
+
+        console.log('haveJsSIP 14:07 - plugins: ',window.cordova.plugins);
+
+        console.log('14:07 - new api - RTCPeerConnection: ',typeof(RTCPeerConnection));
+
+        console.log('14:07 - new api -  PeerConnection: ', typeof(PeerConnection)); // not visible
 console.log('new api - haveJsSIP', (typeof JsSIP == 'object' ? 'found JsSIP' : 'NO JsSIP'), 'uri = ', live.origURI.substr(0,8), 'RTCPeerConnection', (typeof RTCPeerConnection == 'function' ? 'found' : 'absent'));
-		return (typeof JsSIP == 'object' && live.origURI.substr(0,8) == 'https://' && typeof RTCPeerConnection == 'function' );
+
+
+        return true;
+
+
+		return (typeof JsSIP == 'object' && live.origURI.substr(0,8) == 'https://' && typeof  RTCPeerConnection== 'function' );
 	}
 
 	function validateMessage(msg, sigtype) {
@@ -2569,6 +2581,7 @@ console.log('new api - haveJsSIP', (typeof JsSIP == 'object' ? 'found JsSIP' : '
 console.log('PRE-DESTROY PC', this.attr.cid);
 			},
 		_setup:	function(pID) {
+                console.log('api::_setUp id: ',pID);
 				var _this = this;
 				var cid = this.attr.cid;
 				var handler = this.attr.handler;
@@ -2623,6 +2636,8 @@ console.log('PRE-DESTROY PC', this.attr.cid);
 						_thispc.iceTimer = setTimeout(send, 1000);
 				}
 				var iceServers = (live.stunServer ? [ {url: live.stunServer} ] : []).concat(live.turnServers);
+
+                console.log('api::Making new RTCPeerConnection');
 				var _pc = new RTCPeerConnection(
 					{iceServers: iceServers},
 					{optional: [
@@ -5388,6 +5403,7 @@ console.log('merge FAIL ', this.attr.type, ' into ', msg.data.type);
 			 * @protected
 			 */
 			construct: function(device) {
+                console.log('api:construct(' + device + ')');
 				this.attr = {
 						blf:		0,
 						opt:		{in: [], out: []},
@@ -5850,6 +5866,7 @@ console.log('merge FAIL ', this.attr.type, ' into ', msg.data.type);
 			 */
 			_holdexcept:
 				function(session) {
+                    console.log('api::_holdexcept')
 					if ( ! haveJsSIP() || ! this.attr.jssip ) 
 						return;
 					for ( var id in this.attr.calls ) {
@@ -5906,7 +5923,8 @@ console.log('merge FAIL ', this.attr.type, ' into ', msg.data.type);
 			 * @instance
 			 */
 			dial:	function(number, autohold, autoanswer, callback) {
-					var _this = this;
+					console.log('api::dial || attr: ',this.attr.jssip);
+                    var _this = this;
 					function result(txt) {
 						_this._result(callback, txt || '')
 					}
@@ -5934,6 +5952,8 @@ console.log('merge FAIL ', this.attr.type, ' into ', msg.data.type);
 					if ( number == null || number == '' ) {
 						setTimeout(result, 10);
 					} else if ( haveJsSIP() && this.attr.jssip ) {
+                        console.log('api::dial to call jssip | sip:' + number);
+                        console.log('api::dial to call jssip | host:' + live.origHost);
 						var _sessionOptions = {
 							eventHandlers: {
 								trying:		trying,
@@ -5957,6 +5977,7 @@ console.log('merge FAIL ', this.attr.type, ' into ', msg.data.type);
 							_sessionOptions.mediaConstraints.audio = {optional: [{sourceId: _options.microphone}]};
 						this.attr.jssip.call('sip:' + number + '@' + live.origHost, _sessionOptions);
 					} else {
+                        console.log('api::dial to call http');
 						Utils.httpPost(live.origURI + live.origHostPort + '/api/api.whtm',
 								'cmd=call' +
 								'&number=' + number + 
@@ -6037,6 +6058,8 @@ console.log('merge FAIL ', this.attr.type, ' into ', msg.data.type);
 				},
 			enablertc:
 				function() {
+
+                    console.log('api::enablertc')
 					if ( this.attr.jssip )
 						return;
 					if ( ! haveJsSIP() )
@@ -6059,10 +6082,12 @@ console.log('merge FAIL ', this.attr.type, ' into ', msg.data.type);
 						password:		this.attr.rtcpwd
 					};
 
-                    console.log('fixing jssip for JsSIPCordovaRTCEngine!');
+                    console.log('13:17 - fixing jssip for JsSIPCordovaRTCEngine!');
                     if (window.cordova) {
-                        console.log('I`m cordova!');
+                        console.log('I`m cordova! ');
                         JsSIP.rtcEngine = JsSIPCordovaRTCEngine;
+                        console.log('Engine: ',typeof(JsSIP.rtcEngine));
+
                     }
 					var _jsSip = new JsSIP.UA(_config);
 					_jsSip.on('newRTCSession', trying); 
