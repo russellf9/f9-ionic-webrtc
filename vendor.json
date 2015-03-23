@@ -3,6 +3,7 @@
   "./bower_components/jquery-ui/jquery-ui.js",
   "./bower_components/jqueryui-touch-punch/jquery.ui.touch-punch.js",
   "./bower_components/ionic/js/ionic.bundle.js",
+  "./bower_components/ngCordova/dist/ng-cordova.js",
   "./bower_components/angular-touch/angular-touch.js",
   "./bower_components/angular-animate/angular-animate.js",
   "./bower_components/angular-dragdrop/src/angular-dragdrop.js",
