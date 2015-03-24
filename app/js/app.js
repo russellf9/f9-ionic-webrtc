@@ -49,7 +49,7 @@ angular.module('f9-webrtc', ['ngCordova', 'ngRoute', 'ionic', 'ngDragDrop', 'ang
                 uuid = $cordovaDevice.getUUID(),
                 version = $cordovaDevice.getVersion();
 
-            console.log('Ios device is a: ',model, ' using version ', cordova, ' of cordova, with platform ',platform );
+            console.log('Ios device is a ',model, ' using version ', cordova, ' of cordova, with platform ',platform );
 
         });
     })
