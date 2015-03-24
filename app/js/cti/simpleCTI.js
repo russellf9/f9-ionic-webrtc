@@ -165,7 +165,7 @@ var SimpleCTI = (function(aUsername, aPassword, statusCB, ringCB, upCB, deadCB) 
 
         console.log('16:25 - SimpleCTI.lineEvent h (' + h + ')');
 
-        console.log('16:25 - SimpleCTI.lineEvent(' + calls + ')');
+        console.log('16:25 - SimpleCTI.lineEvent calls (' + calls + ')');
 
        // r(calls);
 

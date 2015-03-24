@@ -47,6 +47,33 @@ angular.module('f9-webrtc')
 
         };
 
+        var addHandlers = function(data) {
+            console.log('A CallCtrl::addHandlers() | data: ', data);
+
+            // add to the session?
+            var session = CTIService.getSession();
+            console.log('B CallCtrl::addHandlers() | ', session);
+
+
+            // if initiator
+            //{status: true, code: 0, reason: "ring", number: "205", party: "caller"}
+            if (data && data.party === 'caller') {
+                //var offer = RTCEngine.createOffer(onSuccess, onFailure);
+            }
+
+        };
+
+
+        // handlers for the jssip engine
+        var onSuccess = function(obj) {
+            console.log('CallCtrl::Offer Success: ', obj);
+        };
+
+        var onFailure = function(error) {
+            console.log('CallCtrl::Offer failure: ', error);
+        };
+
+
         // attaches the stream as audio
         var attachStream = function() {
             $scope.currentSession = CTIService.getSession();
@@ -81,7 +108,7 @@ angular.module('f9-webrtc')
                 $scope.party = data.party;
                 // if the call is being made
                 if (data.code === 0 || data.code === 1) {
-                    attachStream();
+                    addHandlers(data);
                 }
             } else {
                 // call inactive

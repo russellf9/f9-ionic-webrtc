@@ -5954,6 +5954,7 @@ console.log('merge FAIL ', this.attr.type, ' into ', msg.data.type);
 					} else if ( haveJsSIP() && this.attr.jssip ) {
                         console.log('api::dial to call jssip | sip:' + number);
                         console.log('api::dial to call jssip | host:' + live.origHost);
+                        console.log('api::dial | callback: ', callback);
 						var _sessionOptions = {
 							eventHandlers: {
 								trying:		trying,

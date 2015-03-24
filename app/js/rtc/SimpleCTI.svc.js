@@ -34,6 +34,8 @@ angular.module('f9-webrtc')
 
                 _currentSession = call.get('session') || {};
 
+                console.log('CTIService::eventCB | call: ', call);
+
                 console.log('CTIService::eventCB | got session: ', _currentSession );
 
                 console.log('CTIService::eventCB | got ' + state + ' event to number ' + number + ' we are the ' + party);
