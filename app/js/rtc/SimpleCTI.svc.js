@@ -34,7 +34,7 @@ angular.module('f9-webrtc')
 
                 _currentSession = call.get('session') || {};
 
-                console.log('CTIService::eventCB | got session: ', call.get('session'));
+                console.log('CTIService::eventCB | got session: ', _currentSession );
 
                 console.log('CTIService::eventCB | got ' + state + ' event to number ' + number + ' we are the ' + party);
                 switch (state) {
@@ -44,10 +44,16 @@ angular.module('f9-webrtc')
                         break;
                     case 'up':
                         description = 'Answered: ';
-
-                        if ( _currentSession &&  _currentSession.getRemoteStreams().length) {
-                            setData({status: true, code: 1, reason: 'up', number: number, party: party});
+                        try {
+                            if ( _currentSession &&  _currentSession.getRemoteStreams().length) {
+                                setData({status: true, code: 1, reason: 'up', number: number, party: party});
+                            }
                         }
+                        catch(error)
+                        {
+                            console.log('Error ', error);
+                        }
+
                         // TODO Add a clause for there being no session?
                         break;
                     case 'dead':

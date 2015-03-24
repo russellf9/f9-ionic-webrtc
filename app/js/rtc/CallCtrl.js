@@ -50,9 +50,17 @@ angular.module('f9-webrtc')
         // attaches the stream as audio
         var attachStream = function() {
             $scope.currentSession = CTIService.getSession();
+
+            console.log('A CallCtrl::attachStream | session: ', $scope.currentSession);
             if ($scope.currentSession) {
-                var stream = $scope.currentSession.getRemoteStreams()[0];
-                attachMediaStream($document[0].getElementById('audio'), stream);
+
+                try {
+                    var stream = $scope.currentSession.getRemoteStreams()[0];
+                    attachMediaStream($document[0].getElementById('audio'), stream);
+                }
+                catch(error) {
+                    console.log('CallCtrl::attachStream -> Error', error);
+                }
             }
         };
 

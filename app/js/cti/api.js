@@ -5897,7 +5897,7 @@ console.log('merge FAIL ', this.attr.type, ' into ', msg.data.type);
 			 */
 			progress:
 				function(session) {
-					if ( session.getRemoteStreams().length == 0 )
+					if (!session || !session.hasOwnProperty('getRemoteStreams') || session.getRemoteStreams().length == 0 )
 						return;
 					for ( var _uid in this.attr.calls ) {
 						var _call = this.attr.calls[_uid];
@@ -6082,12 +6082,11 @@ console.log('merge FAIL ', this.attr.type, ' into ', msg.data.type);
 						password:		this.attr.rtcpwd
 					};
 
-                    console.log('13:17 - fixing jssip for JsSIPCordovaRTCEngine!');
+                    console.log('13:28 - fixing jssip for JsSIPCordovaRTCEngine!');
                     if (window.cordova) {
                         console.log('I`m cordova! ');
-                        JsSIP.rtcEngine = JsSIPCordovaRTCEngine;
-                        console.log('Engine: ',typeof(JsSIP.rtcEngine));
-
+                       JsSIP.rtcEngine = JsSIPCordovaRTCEngine;
+                       console.log('Engine: ',typeof(JsSIP.rtcEngine));
                     }
 					var _jsSip = new JsSIP.UA(_config);
 					_jsSip.on('newRTCSession', trying); 
