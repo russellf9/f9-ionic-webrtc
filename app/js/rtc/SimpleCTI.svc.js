@@ -41,6 +41,10 @@ angular.module('f9-webrtc')
 
                 console.log('CTIService::eventCB | call: ', call);
 
+                var streams = call.get('remoteStreams');
+
+                console.log('CTIService::eventCB | streams: ', streams);
+
                 console.log('CTIService::eventCB | got session: ', _currentSession );
 
                 console.log('CTIService::eventCB | line: ', line);

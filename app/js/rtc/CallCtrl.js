@@ -13,10 +13,11 @@ angular.module('f9-webrtc')
 
         // TODO
         $scope.muted = false;
-        var _phoneRTC;
+        var _phoneRTC,
+            _session;
 
 
-        // Contacts TODO
+        //  TODO
         //$scope.allContacts = ContactsService.onlineUsers;
         //$scope.contacts = {};
         //$scope.hideFromContactList = [$scope.contactName];
@@ -28,14 +29,15 @@ angular.module('f9-webrtc')
         //    $scope.selectContactModal = modal;
         //});
 
-        //console.log('CallCtrl | $stateParams: ', $stateParams.contactName);
-
 
         // answer a call if the user is the callee
         $scope.answer = function() {
             console.log('CallCtrl::answer | _phoneRTC: ', _phoneRTC);
             //CTIService.answer();
-            // create the  var _phoneRTC; as non initiator?
+            if (_session) {
+                console.log('session: ', _session);
+                _session.call();
+            }
         };
 
         // hang up the current call
@@ -50,10 +52,8 @@ angular.module('f9-webrtc')
         };
 
 
-
-
-        var addHandlers = function(data) {
-            console.log('10:41 || A CallCtrl::addHandlers() | data: ', data);
+        var addSession = function(data) {
+            console.log('10:41 || A CallCtrl::addSession() | data: ', data);
 
             // add to the session?
             var session = CTIService.getSession();
@@ -61,79 +61,59 @@ angular.module('f9-webrtc')
             var isInitiator = (session.direction === 'outgoing');
             _phoneRTC = CTIService.getPhoneRTC(isInitiator);
 
-            console.log('B CallCtrl::addHandlers() | session: ', session);
-            console.log('C CallCtrl::addHandlers() | direction: ', session.direction);
-            console.log('D CallCtrl::addHandlers() | phoneRTCSession: ', _phoneRTC);
+            console.log('B CallCtrl::addSession() | session: ', session);
+            console.log('C CallCtrl::addSession() | direction: ', session.direction);
+            console.log('D CallCtrl::addSession() | phoneRTCSession: ', _phoneRTC);
 
 
-            // only add handlers if code is 0?
             if (data.code === 0) {
-
-                //phoneRTCSession.on('sendMessage',  function (data) {
-                //    console.log('sendMessage: ', data);
-                //});
-                //phoneRTCSession.on('disconnect', function () {
-                //    console.log('disconnect');
-                //});
-                //phoneRTCSession.on('answer', function () {
-                //    console.log('Answered!');
-                //});
             }
-
-            // if initiator
-            //{status: true, code: 0, reason: "ring", number: "205", party: "caller"}
-            if (data && data.party === 'caller') {
-                //var offer = RTCEngine.createOffer(onSuccess, onFailure);
-            }
-
 
             if (session.direction === 'incoming') {
-                //session.answer();
-                // session.createOffer(onSuccess, onFailure);
-                //var obj = session.answer();
-                //console.log('Answers with: ',obj);
-
-
-                // cordova.plugins.phonertc.Session
-                console.log('D CallCtrl::incoming - ',cordova.plugins.phonertc.Session);
+                _phoneRTC.Session(onSuccessIn, onFailure);
             }
 
             if (session.direction === 'outgoing') {
-                // session.createOffer(onSuccess, onFailure); not valid!
-                //var _session = phoneRTCSession.createOffer(onSuccess, onFailure);
-
-
-                // console.log('another session: ', _session);
                 _phoneRTC.createOffer(onSuccess, onFailure);
-
-
             }
         };
 
+        // handlers for the jssip engine
+        var onSuccessIn = function(session) {
+            console.log('+++ In CallCtrl::Offer Success: ');
+
+            _session = session;
+
+            addEvents();
+        };
 
         // handlers for the jssip engine
         var onSuccess = function(session) {
-            console.log('CallCtrl::Offer Success: ', session);
+            console.log('CallCtrl::Offer Success: ');
+            _session = session;
+            addEvents();
 
             console.log('Session: ', session);
 
             console.log('Streams: ', session.streams); // {audio: true, video: true}
 
-            session.call(); // failing
-
-            session.on('sendMessage',  function (data) {
-                console.log('sendMessage: ', data);
-            });
-            session.on('disconnect', function () {
-                console.log('disconnect');
-            });
-            session.on('answer', function () {
-                console.log('Answered!');
-            });
+            session.call();
 
             console.log('_phoneRTC: ', _phoneRTC);
 
+        };
 
+        //
+        var addEvents = function() {
+            _session.on('sendMessage', function(data) {
+                console.log('sendMessage: ', data);
+            });
+            _session.on('disconnect', function() {
+                console.log('disconnect');
+            });
+            _session.on('answer', function() {
+                console.log('Answered!');
+            });
         };
 
         var onFailure = function(error) {
@@ -175,7 +155,7 @@ angular.module('f9-webrtc')
                 $scope.party = data.party;
                 // if the call is being made
                 if (data.code === 0 || data.code === 1) {
-                    addHandlers(data);
+                    addSession(data);
                 }
             } else {
                 // call inactive
