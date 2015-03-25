@@ -44,7 +44,9 @@ A Ionic Test using WebRTC
 
 The current version of the app is:
 
-**0.1.1**
+**0.6.0**
+
+In this version I'm trying to get the PhoneRTC to work within cordova jsssip
 
 
 ## Project Objectives
