@@ -57,6 +57,19 @@ angular.module('f9-webrtc')
             console.log('C CallCtrl::addHandlers() | direction: ', session.direction);
 
 
+            // only add handlers if code is 0?
+            if(data.code === 0) {
+
+                session.on('sendMessage',  function (data) {
+                    console.log('sendMessage: ', data);
+                });
+                session.on('disconnect', function () {
+                    console.log('disconnect');
+                });
+                session.on('answer', function () {
+                    console.log('Answered!');
+                });
+            }
 
             // if initiator
             //{status: true, code: 0, reason: "ring", number: "205", party: "caller"}
@@ -64,6 +77,11 @@ angular.module('f9-webrtc')
                 //var offer = RTCEngine.createOffer(onSuccess, onFailure);
             }
 
+
+            if (session.direction === 'incoming') {
+                var obj = session.answer();
+                console.log('Answers with: ',obj);
+            }
         };
 
 
