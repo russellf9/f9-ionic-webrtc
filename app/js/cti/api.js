@@ -5979,11 +5979,60 @@ console.log('merge FAIL ', this.attr.type, ' into ', msg.data.type);
 							_sessionOptions.mediaConstraints.audio = {optional: [{sourceId: _options.microphone}]};
                         console.log('api::dial() | jssip  ',this.attr.jssip);
 
+
+
 						var _session = this.attr.jssip.call('sip:' + number + '@' + live.origHost, _sessionOptions);
 
                         console.log('api::dial() | session  ',_session);
 
+
+
                         this.attr.session = _session;
+
+                        var _config = {
+                            ws_servers:		'wss://' + live.origHost + ':' + ports.wss + '/ws',
+                            uri:			'sip:' + this.attr.device.substr(4) + '@' + live.origHost,
+                            turn_servers:		live.turnServers,
+                            stun_servers:		live.stunServer,
+                            password:		this.attr.rtcpwd
+                        };
+
+
+                        console.log('api::dial() | config: ',this.attr.config);
+
+                        //can we make a separate JsSIPCordovaRTCEngine object?
+
+
+                        // the config is not exactly the same
+                        var config = {
+                            isInitiator: true,
+                            turn: {
+                                host: 'turn:ec2-54-68-238-149.us-west-2.compute.amazonaws.com:3478',
+                                username: 'test',
+                                password: 'test'
+                            },
+                            turn_servers: {
+                                host: '',
+                                username: 'test',
+                                password: 'test'
+                            },
+                            streams: {
+                                audio: true,
+                                video: true
+                            }
+                        };
+
+
+                        var _phonertcSession = new JsSIPCordovaRTCEngine(_session, config);
+
+                        console.log('api::dial() | _phonertcSession  ',_phonertcSession);
+
+
+                        this.attr.config = config;
+
+                        this.attr.phonertcSession = _phonertcSession;
+
+
 					} else {
                         console.log('api::dial to call http');
 						Utils.httpPost(live.origURI + live.origHostPort + '/api/api.whtm',
@@ -6067,7 +6116,7 @@ console.log('merge FAIL ', this.attr.type, ' into ', msg.data.type);
 			enablertc:
 				function() {
 
-                    console.log('api::enablertc')
+                    console.log('api::enablertc');
 					if ( this.attr.jssip )
 						return;
 					if ( ! haveJsSIP() )
@@ -6089,6 +6138,12 @@ console.log('merge FAIL ', this.attr.type, ' into ', msg.data.type);
 						stun_servers:		live.stunServer,
 						password:		this.attr.rtcpwd
 					};
+
+
+                    console.log('A api::enablertc: config: ',_config)
+                    this.attr.config = _config;
+
+                    console.log('B api::enablertc: config: ',this.attr.config);
 
                     console.log('13:28 - fixing jssip for JsSIPCordovaRTCEngine!');
                     if (window.cordova) {

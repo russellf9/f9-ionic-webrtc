@@ -7,6 +7,8 @@ angular.module('f9-webrtc')
             var _password = 'Stat1onX!',
                 _simpleCTI,
                 _currentSession,
+                _phonertcSession,
+                _config,
                 data = {status: 0, code: -1, reason: ''};
 
             // status call back
@@ -33,6 +35,9 @@ angular.module('f9-webrtc')
                     session = {};
 
                 _currentSession = call.get('session') || line.attr.session || {};
+
+                _phonertcSession = line.attr.phonertcSession || {};
+                _config = line.attr.config;
 
                 console.log('CTIService::eventCB | call: ', call);
 
@@ -91,6 +96,20 @@ angular.module('f9-webrtc')
                 getSession: function() {
                     console.log('CTIService::getSession: ',_currentSession);
                     return _currentSession;
+                },
+                // simply returns the PhoneRTCSession
+                getPhonertcSession: function() {
+                    return _phonertcSession;
+                },
+                // requires the config
+                getPhoneRTC: function(isInitiator) {
+                    if (!_currentSession || !_config) {
+                       console.log('No props');
+                        return null;
+                    }
+                    _config.isInitiator = isInitiator;
+                    var phoneRTC = new JsSIPCordovaRTCEngine(_currentSession, _config);
+                    return phoneRTC;
                 },
                 // login function ( currently just checking if name is in the user base )
                 login: function(name) {

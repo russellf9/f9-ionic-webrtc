@@ -47,28 +47,35 @@ angular.module('f9-webrtc')
 
         };
 
+
+        var _phoneRTC;
+
         var addHandlers = function(data) {
-            console.log('A CallCtrl::addHandlers() | data: ', data);
+            console.log('10:41 || A CallCtrl::addHandlers() | data: ', data);
 
             // add to the session?
             var session = CTIService.getSession();
 
+            var isInitiator = (session.direction === 'outgoing');
+            _phoneRTC = CTIService.getPhoneRTC(isInitiator);
+
             console.log('B CallCtrl::addHandlers() | session: ', session);
             console.log('C CallCtrl::addHandlers() | direction: ', session.direction);
+            console.log('D CallCtrl::addHandlers() | phoneRTCSession: ', _phoneRTC);
 
 
             // only add handlers if code is 0?
-            if(data.code === 0) {
+            if (data.code === 0) {
 
-                session.on('sendMessage',  function (data) {
-                    console.log('sendMessage: ', data);
-                });
-                session.on('disconnect', function () {
-                    console.log('disconnect');
-                });
-                session.on('answer', function () {
-                    console.log('Answered!');
-                });
+                //phoneRTCSession.on('sendMessage',  function (data) {
+                //    console.log('sendMessage: ', data);
+                //});
+                //phoneRTCSession.on('disconnect', function () {
+                //    console.log('disconnect');
+                //});
+                //phoneRTCSession.on('answer', function () {
+                //    console.log('Answered!');
+                //});
             }
 
             // if initiator
@@ -79,15 +86,53 @@ angular.module('f9-webrtc')
 
 
             if (session.direction === 'incoming') {
-                var obj = session.answer();
-                console.log('Answers with: ',obj);
+                //session.answer();
+                // session.createOffer(onSuccess, onFailure);
+                //var obj = session.answer();
+                //console.log('Answers with: ',obj);
+            }
+
+            if (session.direction === 'outgoing') {
+                // session.createOffer(onSuccess, onFailure); not valid!
+                //var _session = phoneRTCSession.createOffer(onSuccess, onFailure);
+
+
+                // console.log('another session: ', _session);
+
+                // failed to create the offer, but can we do something else?
+                // phoneRTCSession.session.call(); // WON'T WORK
+                // session.call(); // WON'T WORK
+                // phoneRTCSession.call(); // WON'T WORK
+                _phoneRTC.createOffer(onSuccess, onFailure);
+
+
             }
         };
 
 
         // handlers for the jssip engine
-        var onSuccess = function(obj) {
-            console.log('CallCtrl::Offer Success: ', obj);
+        var onSuccess = function(session) {
+            console.log('CallCtrl::Offer Success: ', session);
+
+            console.log('Session: ', session);
+
+            console.log('Streams: ', session.streams); // {audio: true, video: true}
+
+            session.call(); // failing
+
+            session.on('sendMessage',  function (data) {
+                console.log('sendMessage: ', data);
+            });
+            session.on('disconnect', function () {
+                console.log('disconnect');
+            });
+            session.on('answer', function () {
+                console.log('Answered!');
+            });
+
+            console.log('_phoneRTC: ', _phoneRTC);
+
+
         };
 
         var onFailure = function(error) {
@@ -106,7 +151,7 @@ angular.module('f9-webrtc')
                     var stream = $scope.currentSession.getRemoteStreams()[0];
                     attachMediaStream($document[0].getElementById('audio'), stream);
                 }
-                catch(error) {
+                catch (error) {
                     console.log('CallCtrl::attachStream -> Error', error);
                 }
             }
