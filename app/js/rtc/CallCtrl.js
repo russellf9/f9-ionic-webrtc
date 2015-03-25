@@ -13,6 +13,7 @@ angular.module('f9-webrtc')
 
         // TODO
         $scope.muted = false;
+        var _phoneRTC;
 
 
         // Contacts TODO
@@ -32,8 +33,9 @@ angular.module('f9-webrtc')
 
         // answer a call if the user is the callee
         $scope.answer = function() {
-            console.log('CallCtrl::answer');
-            CTIService.answer();
+            console.log('CallCtrl::answer | _phoneRTC: ', _phoneRTC);
+            //CTIService.answer();
+            // create the  var _phoneRTC; as non initiator?
         };
 
         // hang up the current call
@@ -48,7 +50,7 @@ angular.module('f9-webrtc')
         };
 
 
-        var _phoneRTC;
+
 
         var addHandlers = function(data) {
             console.log('10:41 || A CallCtrl::addHandlers() | data: ', data);
@@ -90,6 +92,10 @@ angular.module('f9-webrtc')
                 // session.createOffer(onSuccess, onFailure);
                 //var obj = session.answer();
                 //console.log('Answers with: ',obj);
+
+
+                // cordova.plugins.phonertc.Session
+                console.log('D CallCtrl::incoming - ',cordova.plugins.phonertc.Session);
             }
 
             if (session.direction === 'outgoing') {
@@ -98,11 +104,6 @@ angular.module('f9-webrtc')
 
 
                 // console.log('another session: ', _session);
-
-                // failed to create the offer, but can we do something else?
-                // phoneRTCSession.session.call(); // WON'T WORK
-                // session.call(); // WON'T WORK
-                // phoneRTCSession.call(); // WON'T WORK
                 _phoneRTC.createOffer(onSuccess, onFailure);
 
 

@@ -1,6 +1,6 @@
 {
   "name": "app",
-  "version": "0.5.4",
+  "version": "0.5.5",
   "description": "f9-ionic-webrtc",
   "dependencies": {
     "gulp": "^3.8.8",
@@ -58,8 +58,8 @@
     "gulp-useref": "~1.1.1",
     "gulp-util": "~3.0.3",
     "jscs": "~1.4.0",
-    "jssip": "^0.6.21",
-    "jssip-cordova": "^0.1.2",
+    "jssip": "git://github.com/davies147/JsSIP",
+    "jssip-cordova": "git://github.com/russellf9/jssip-cordova",
     "lodash": "^2.4.1",
     "lodash.template": "^2.4.1",
     "main-bower-files": "~2.5.0",
