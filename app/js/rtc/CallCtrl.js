@@ -52,7 +52,10 @@ angular.module('f9-webrtc')
 
             // add to the session?
             var session = CTIService.getSession();
-            console.log('B CallCtrl::addHandlers() | ', session);
+
+            console.log('B CallCtrl::addHandlers() | session: ', session);
+            console.log('C CallCtrl::addHandlers() | direction: ', session.direction);
+
 
 
             // if initiator

@@ -32,11 +32,13 @@ angular.module('f9-webrtc')
                 var description = '',
                     session = {};
 
-                _currentSession = call.get('session') || {};
+                _currentSession = call.get('session') || line.attr.session || {};
 
                 console.log('CTIService::eventCB | call: ', call);
 
                 console.log('CTIService::eventCB | got session: ', _currentSession );
+
+                console.log('CTIService::eventCB | line: ', line);
 
                 console.log('CTIService::eventCB | got ' + state + ' event to number ' + number + ' we are the ' + party);
                 switch (state) {
@@ -47,7 +49,7 @@ angular.module('f9-webrtc')
                     case 'up':
                         description = 'Answered: ';
                         try {
-                            if ( _currentSession &&  _currentSession.getRemoteStreams().length) {
+                            if ( _currentSession) {
                                 setData({status: true, code: 1, reason: 'up', number: number, party: party});
                             }
                         }

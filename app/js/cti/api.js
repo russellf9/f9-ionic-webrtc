@@ -5923,7 +5923,8 @@ console.log('merge FAIL ', this.attr.type, ' into ', msg.data.type);
 			 * @instance
 			 */
 			dial:	function(number, autohold, autoanswer, callback) {
-					console.log('api::dial || attr: ',this.attr.jssip);
+					console.log('19:16 | api::dial || attr: ',this.attr.jssip);
+
                     var _this = this;
 					function result(txt) {
 						_this._result(callback, txt || '')
@@ -5976,7 +5977,13 @@ console.log('merge FAIL ', this.attr.type, ' into ', msg.data.type);
 						}
 						if ( typeof(_options.microphone) == 'string' && _options.microphone != 'default' )
 							_sessionOptions.mediaConstraints.audio = {optional: [{sourceId: _options.microphone}]};
-						this.attr.jssip.call('sip:' + number + '@' + live.origHost, _sessionOptions);
+                        console.log('api::dial() | jssip  ',this.attr.jssip);
+
+						var _session = this.attr.jssip.call('sip:' + number + '@' + live.origHost, _sessionOptions);
+
+                        console.log('api::dial() | session  ',_session);
+
+                        this.attr.session = _session;
 					} else {
                         console.log('api::dial to call http');
 						Utils.httpPost(live.origURI + live.origHostPort + '/api/api.whtm',
