@@ -18,22 +18,14 @@ angular.module('f9-webrtc')
             _session;
 
 
-        //  TODO
-        //$scope.allContacts = ContactsService.onlineUsers;
-        //$scope.contacts = {};
-        //$scope.hideFromContactList = [$scope.contactName];
-
-        //$ionicModal.fromTemplateUrl('partials/select_contact.html', {
-        //    scope: $scope,
-        //    animation: 'slide-in-up'
-        //}).then(function(modal) {
-        //    $scope.selectContactModal = modal;
-        //});
-
 
         // answer a call if the user is the callee
         $scope.answer = function() {
+            if ($scope.callInProgress) {
+                return;
+            }
             $scope.callInProgress = true;
+            $timeout($scope.updateVideoPosition, 1000);
             console.log('CallCtrl::answer | _phoneRTC: ', _phoneRTC);
             //CTIService.answer();
             if (_session) {
@@ -42,7 +34,8 @@ angular.module('f9-webrtc')
                 console.log(_session == session);
                 // not sure if there is any point to this...
                 _phoneRTC.addStream(true, onMediaSuccess, onMediaFailure);
-               attachStream();
+                $timeout($scope.updateVideoPosition, 1000);
+                attachStream();
             }
         };
 
@@ -59,23 +52,22 @@ angular.module('f9-webrtc')
         };
 
 
-
         // Will be always be called by the update function on first launch
         // either the call is `outgoing` or it is `outgoing`
         // if the call is `outgoing` we create an Offer
         // if the call is `incoming` we create a Session
-        var addPhoneRTC = function(data) {
-            console.log('10:41 || A CallCtrl::addPhoneRTC() | data: ', data);
+        var handleLineCall = function(data) {
+            console.log('CallCtrl::handleLineCall() | data: ', data);
 
-            // add to the session?
             session = CTIService.getSession();
 
             var isInitiator = (session.direction === 'outgoing');
+
             _phoneRTC = CTIService.getPhoneRTC(isInitiator);
 
-            console.log('B CallCtrl::addPhoneRTC() | session: ', session);
-            console.log('C CallCtrl::addPhoneRTC() | direction: ', session.direction);
-            console.log('D CallCtrl::addPhoneRTC() | phoneRTCSession: ', _phoneRTC);
+            console.log('B CallCtrl::handleLineCall() | session: ', session);
+            console.log('C CallCtrl::handleLineCall() | direction: ', session.direction);
+            console.log('D CallCtrl::handleLineCall() | phoneRTCSession: ', _phoneRTC);
 
             if (session.direction === 'outgoing') {
                 _phoneRTC.createOffer(onSuccessOut, onFailure);
@@ -97,6 +89,7 @@ angular.module('f9-webrtc')
             addEvents();
             _session.call();
             _phoneRTC.addStream(true, onMediaSuccess, onMediaFailure);
+            $timeout($scope.updateVideoPosition, 1000);
         };
         // in
         var onSuccessIn = function(session) {
@@ -173,7 +166,7 @@ angular.module('f9-webrtc')
                 $scope.party = data.party;
                 // if the call is being made
                 if (data.code === 0 || data.code === 1) {
-                    addPhoneRTC(data);
+                    handleLineCall(data);
                 }
             } else {
                 // call inactive
@@ -183,5 +176,9 @@ angular.module('f9-webrtc')
                     $scope.callInProgress = false;
                 }
             }
+        };
+
+        $scope.updateVideoPosition = function() {
+            $rootScope.$broadcast('videoView.updatePosition');
         };
     }]);

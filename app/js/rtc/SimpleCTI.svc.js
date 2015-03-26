@@ -112,8 +112,7 @@ angular.module('f9-webrtc')
                     }
                     _config.isInitiator = isInitiator;
                     console.log('\t\t ** new here with config: ', _config.turn_servers);
-                    var phoneRTC = new JsSIPCordovaRTCEngine(_currentSession, _config);
-                    return phoneRTC;
+                    return new JsSIPCordovaRTCEngine(_currentSession, _config);
                 },
                 // login function ( currently just checking if name is in the user base )
                 login: function(name) {
