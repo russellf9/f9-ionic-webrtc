@@ -37,12 +37,12 @@ angular.module('f9-webrtc')
             console.log('CallCtrl::answer | _phoneRTC: ', _phoneRTC);
             //CTIService.answer();
             if (_session) {
-                console.log('session streams: ', _session.streams); // {audio: true, video: true}
                 _session.call(); // -> PhoneRTCProxy::call()
                 console.log('Are the 2 sessions the same?'); // no!
                 console.log(_session == session);
                 // not sure if there is any point to this...
                 _phoneRTC.addStream(true, onMediaSuccess, onMediaFailure);
+               attachStream();
             }
         };
 
@@ -90,8 +90,9 @@ angular.module('f9-webrtc')
 
         // handlers for the jssip engine
         // out
+        // @param session -
         var onSuccessOut = function(session) {
-            console.log('PhoneRTC Offer Success: ');
+            console.log('PhoneRTC Offer Success: ', session);
             _session = session;
             addEvents();
             _session.call();
@@ -99,7 +100,7 @@ angular.module('f9-webrtc')
         };
         // in
         var onSuccessIn = function(session) {
-            console.log('PhoneRTC Session has been created');
+            console.log('PhoneRTC Session has been created: ', session);
             _session = session;
             addEvents();
         };
@@ -110,7 +111,6 @@ angular.module('f9-webrtc')
             console.log('A CallCtrl::attachStream | streams: ', CTIService.getStreams());
             if ($scope.currentSession) {
                 try {
-                    // call.get('remoteStreams')
                     var streams = CTIService.getStreams();
                     attachMediaStream($document[0].getElementById('audio'), streams[0]);
                 }
@@ -122,32 +122,38 @@ angular.module('f9-webrtc')
 
         // handlers for the media stream
         // success
-        var onMediaSuccess = function(value) {
-            console.log('CallCtrl::onMediaSuccess: ',value);
+        var onMediaSuccess = function() {
+            console.log('CallCtrl::onMediaSuccess');
         };
         // failure
-        var onMediaFailure = function(value) {
-            console.log('CallCtrl::onMediaFailure: ',value);
+        var onMediaFailure = function() {
+            console.log('CallCtrl::onMediaFailure');
         };
 
         //
         var addEvents = function() {
-            _session.on('sendMessage', function(data) {
-                console.log('sendMessage: ', data);
+
+            // test
+
+            console.log('CallCtrl::addEvents::addEvents | ', _phoneRTC.session);
+            _phoneRTC.session.on('A sendMessage', function(data) {
+                console.log('CallCtrl::Message::sendMessage: ', data);
             });
-            _session.on('disconnect', function() {
-                console.log('disconnect');
+
+            _session.on('B sendMessage', function(data) {
+                console.log('CallCtrl::Message::sendMessage: ', data);
             });
-            _session.on('answer', function() {
-                console.log('Answered!');
+            _session.on('C disconnect', function() {
+                console.log('CallCtrl::Message::disconnect');
+            });
+            _session.on('D answer', function() {
+                console.log('CallCtrl::Message::Answered!');
             });
         };
 
         var onFailure = function(error) {
             console.log('CallCtrl::Offer failure: ', error);
         };
-
-
 
 
         // watch the service for updates to the login status
