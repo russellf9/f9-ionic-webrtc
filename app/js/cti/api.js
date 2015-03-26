@@ -6140,10 +6140,27 @@ console.log('merge FAIL ', this.attr.type, ' into ', msg.data.type);
 					};
 
 
-                    console.log('A api::enablertc: config: ',_config)
+                    // create a turn object
+                    var turn = {
+                        host: _config.turn_servers[0].urls,
+                        username: _config.turn_servers[0].username,
+                        password: _config.turn_servers[0].credential
+                    };
+
+                   // _config.turn = turn;
+
+                    console.log('A api::enablertc: config: ',_config.turn_servers);
+                    console.log('\t\t ** api::enablertc: turn_servers[0]: ',_config.turn_servers);
+                    console.log('B api::enablertc: config turn: ',_config.turn);
                     this.attr.config = _config;
 
-                    console.log('B api::enablertc: config: ',this.attr.config);
+                    // {urls: "turn:ice.webrtc.nu:5349", username: "webrtc", credential: "curntoat9919"}
+
+                        // turn_server.urls[0]
+                        // username: turn_server.username,
+                        // password: turn_server.credential
+
+                    console.log('C api::enablertc: config: ',this.attr.config);
 
                     console.log('13:28 - fixing jssip for JsSIPCordovaRTCEngine!');
                     if (window.cordova) {

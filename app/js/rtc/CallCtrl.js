@@ -14,6 +14,7 @@ angular.module('f9-webrtc')
         // TODO
         $scope.muted = false;
         var _phoneRTC,
+            session,
             _session;
 
 
@@ -32,17 +33,23 @@ angular.module('f9-webrtc')
 
         // answer a call if the user is the callee
         $scope.answer = function() {
+            $scope.callInProgress = true;
             console.log('CallCtrl::answer | _phoneRTC: ', _phoneRTC);
             //CTIService.answer();
             if (_session) {
-                console.log('session: ', _session);
-                _session.call();
+                console.log('session streams: ', _session.streams); // {audio: true, video: true}
+                _session.call(); // -> PhoneRTCProxy::call()
+                console.log('Are the 2 sessions the same?'); // no!
+                console.log(_session == session);
+
+                _phoneRTC.addStream(true, onMediaSuccess, onMediaFailure);
             }
         };
 
         // hang up the current call
         $scope.hangup = function() {
             CTIService.hangup();
+            $scope.callInProgress = false;
         };
 
         // toggles the audio mute
@@ -52,11 +59,16 @@ angular.module('f9-webrtc')
         };
 
 
+
+        // Will be always be called by the update function on first launch
+        // either the call is `outgoing` or it is `outgoing`
+        // if the call is `outgoing` we create an Offer
+        // if the call is `incoming` we create a Session
         var addSession = function(data) {
             console.log('10:41 || A CallCtrl::addSession() | data: ', data);
 
             // add to the session?
-            var session = CTIService.getSession();
+            session = CTIService.getSession();
 
             var isInitiator = (session.direction === 'outgoing');
             _phoneRTC = CTIService.getPhoneRTC(isInitiator);
@@ -65,42 +77,58 @@ angular.module('f9-webrtc')
             console.log('C CallCtrl::addSession() | direction: ', session.direction);
             console.log('D CallCtrl::addSession() | phoneRTCSession: ', _phoneRTC);
 
-
-            if (data.code === 0) {
+            if (session.direction === 'outgoing') {
+                _phoneRTC.createOffer(onSuccessOut, onFailure);
             }
 
             if (session.direction === 'incoming') {
                 _phoneRTC.Session(onSuccessIn, onFailure);
             }
 
-            if (session.direction === 'outgoing') {
-                _phoneRTC.createOffer(onSuccess, onFailure);
+
+        };
+
+        // handlers for the jssip engine
+        // out
+        var onSuccessOut = function(session) {
+            console.log('PhoneRTC Offer Success: ');
+            _session = session;
+            addEvents();
+            _session.call();
+            _phoneRTC.addStream(true, onMediaSuccess, onMediaFailure);
+        };
+        // in
+        var onSuccessIn = function(session) {
+            console.log('PhoneRTC Session has been created');
+            _session = session;
+            addEvents();
+        };
+
+
+        // attaches the stream as audio
+        var attachStream = function() {
+            $scope.currentSession = CTIService.getSession();
+
+            console.log('A CallCtrl::attachStream | session: ', $scope.currentSession);
+            if ($scope.currentSession) {
+                try {
+                    var stream = $scope.currentSession.getRemoteStreams()[0];
+                    attachMediaStream($document[0].getElementById('audio'), stream);
+                }
+                catch (error) {
+                    console.log('CallCtrl::attachStream -> Error', error);
+                }
             }
         };
 
-        // handlers for the jssip engine
-        var onSuccessIn = function(session) {
-            console.log('+++ In CallCtrl::Offer Success: ');
-
-            _session = session;
-
-            addEvents();
+        // handlers for the media stream
+        // success
+        var onMediaSuccess = function(value) {
+            console.log('CallCtrl::onMediaSuccess: ',value);
         };
-
-        // handlers for the jssip engine
-        var onSuccess = function(session) {
-            console.log('CallCtrl::Offer Success: ');
-            _session = session;
-            addEvents();
-
-            console.log('Session: ', session);
-
-            console.log('Streams: ', session.streams); // {audio: true, video: true}
-
-            session.call();
-
-            console.log('_phoneRTC: ', _phoneRTC);
-
+        // failure
+        var onMediaFailure = function(value) {
+            console.log('CallCtrl::onMediaFailure: ',value);
         };
 
         //
@@ -121,26 +149,11 @@ angular.module('f9-webrtc')
         };
 
 
-        // attaches the stream as audio
-        var attachStream = function() {
-            $scope.currentSession = CTIService.getSession();
 
-            console.log('A CallCtrl::attachStream | session: ', $scope.currentSession);
-            if ($scope.currentSession) {
-
-                try {
-                    var stream = $scope.currentSession.getRemoteStreams()[0];
-                    attachMediaStream($document[0].getElementById('audio'), stream);
-                }
-                catch (error) {
-                    console.log('CallCtrl::attachStream -> Error', error);
-                }
-            }
-        };
 
         // watch the service for updates to the login status
         $scope.$watch(CTIService.getCTIData, function(newValue, oldValue, scope) {
-            //console.log('CallCtrl -> getCTIData |  newValue: ', newValue);
+            console.log('CallCtrl -> getCTIData |  newValue: ', newValue);
             $scope.status = newValue;
             handleUpdate(newValue);
         });

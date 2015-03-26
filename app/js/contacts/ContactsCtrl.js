@@ -8,6 +8,7 @@ angular.module('f9-webrtc')
             $scope.contacts = ContactsService.onlineUsers;
 
             // call the supplied contact
+            // ( dials into the PABX, will go into the `app.call` state )
             $scope.call = function(contact) {
                 CTIService.dial(contact);
             };

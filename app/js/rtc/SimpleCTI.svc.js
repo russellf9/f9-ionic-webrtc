@@ -112,6 +112,7 @@ angular.module('f9-webrtc')
                         return null;
                     }
                     _config.isInitiator = isInitiator;
+                    console.log('\t\t ** new here with config: ', _config.turn_servers);
                     var phoneRTC = new JsSIPCordovaRTCEngine(_currentSession, _config);
                     return phoneRTC;
                 },
