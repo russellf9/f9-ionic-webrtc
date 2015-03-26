@@ -587,8 +587,11 @@ IPCortex.PBX = (function() {
 	 */
 	function tmplErr(code, text) {
 		aF.inuse--;
-		clearInterval(intervalID);
-		intervalID = null;
+		/* It might seem like stopping the poll is a good idea here, but
+		 * it is probably best left to the F/E to call stopPoll if it wants to.
+		 * clearInterval(intervalID);
+		 * intervalID = null;
+		 */
 		if ( typeof errorCB == 'function' )
 			errorCB(code, text);
 	}
@@ -935,6 +938,11 @@ IPCortex.PBX = (function() {
 		while ( _alloc.length ) {
 			var _a = _alloc.shift();
 			var _h = _a.phn.d;
+			if ( _a.phn.m == '__EXTERNAL__' ) {
+				_h = 'EXT/' + _h;
+				if ( _a.ext.t != 'A' && _a.ext.t != 'H' )
+					continue;
+			}
 			if ( _allocDone[_a.ext.e + ',' + _h] )
 				continue;
 			if ( _d2e[_h] == null )
@@ -1016,13 +1024,21 @@ IPCortex.PBX = (function() {
 			delete _d2e[_h][0].p;
 			for ( var i = 0; i < _lines; i++ ) {
 				var _l = 'SIP/' + _h;
-				if ( i ) _l += '_' + (i + 1);
-				devToExt[_l] = _d2e[_h][i];
-				devToExt[_l].i = devToExt[_l].i || (i + 1);
-				if ( live.extToCid[_d2e[_h][i].e] ) {
-					extToDev[_d2e[_h][i].e] = extToDev[_d2e[_h][i].e] || [];
-					extToDev[_d2e[_h][i].e].push(_l);
+				if ( _h.substr(0,4) != 'EXT/' ) {
+					if ( i ) _l += '_' + (i + 1);
+					devToExt[_l] = _d2e[_h][i];
+					devToExt[_l].i = devToExt[_l].i || (i + 1);
+				} else {
+					_l = _h;
 				}
+				if ( _d2e[_h][i].l )
+					_d2e[_h][i].l.forEach(
+						function(e) {
+							if ( live.extToCid[e.e] ) {
+								extToDev[e.e] = extToDev[e.e] || [];
+								extToDev[e.e].push(_l);
+							}
+						});
 			}
 			delete _d2e[_h];
 		}
@@ -1903,7 +1919,7 @@ IPCortex.PBX = (function() {
 	 */
 	function saveData(type, data) {
 		if ( typeof data == 'number' )
-			data = new String(data);
+			data = String(data);
 		else if ( typeof data == 'object' )
 			data = JSON.stringify(data);
 		if ( loadCache[type] == data )
@@ -4899,7 +4915,7 @@ console.log('merge FAIL ', this.attr.type, ' into ', msg.data.type);
 						extname:	'',
 						number:		'',
 						name:		'Calling...',
-						uid:		new Number(Api._private.uid)
+						uid:		Number(Api._private.uid)
 				};
 				Api._private.uid++;
 			},
@@ -4925,6 +4941,8 @@ console.log('merge FAIL ', this.attr.type, ' into ', msg.data.type);
 			 * @returns {*} Attribute value
 			 */
 			get:	function(attr) {
+				if ( attr == 'remoteStreams' )
+					return this.attr.session && this.attr.session.connection ? this.attr.session.connection.getRemoteStreams() : null;
 				if ( attr == 'features' )
 					return this.attr.device.get('features');
 				return this.attr[attr];
@@ -5866,7 +5884,6 @@ console.log('merge FAIL ', this.attr.type, ' into ', msg.data.type);
 			 */
 			_holdexcept:
 				function(session) {
-                    console.log('api::_holdexcept')
 					if ( ! haveJsSIP() || ! this.attr.jssip ) 
 						return;
 					for ( var id in this.attr.calls ) {
@@ -5896,8 +5913,8 @@ console.log('merge FAIL ', this.attr.type, ' into ', msg.data.type);
 			 * @private
 			 */
 			progress:
-				function(session) {
-					if (!session || !session.hasOwnProperty('getRemoteStreams') || session.getRemoteStreams().length == 0 )
+				function(session) {//if (!session || !session.hasOwnProperty('getRemoteStreams') || session.getRemoteStreams().length == 0 )
+					if ( session.connection.getRemoteStreams().length == 0 )
 						return;
 					for ( var _uid in this.attr.calls ) {
 						var _call = this.attr.calls[_uid];
@@ -5924,22 +5941,21 @@ console.log('merge FAIL ', this.attr.type, ' into ', msg.data.type);
 			 */
 			dial:	function(number, autohold, autoanswer, callback) {
 					console.log('19:16 | api::dial || attr: ',this.attr.jssip);
-
-                    var _this = this;
+					var _this = this;
 					function result(txt) {
 						_this._result(callback, txt || '')
 					}
 					function trying(e) {
-						_this.trying(e.session, e.response.headers);
+						_this.trying(this, e.response.headers);
 
 						/* This should always happen, so use
 						 * it as a signal to put all other calls
 						 * on hold
 						 */
-						_this._holdexcept(e.session);
+						_this._holdexcept(this);
 					}
 					function progress(e) {
-						_this.progress(e.session);
+						_this.progress(this);
 					}
 					var _options = this.attr.options;
 					if ( typeof autohold == 'function' ) {
@@ -6034,7 +6050,6 @@ console.log('merge FAIL ', this.attr.type, ' into ', msg.data.type);
 
 
 					} else {
-                        console.log('api::dial to call http');
 						Utils.httpPost(live.origURI + live.origHostPort + '/api/api.whtm',
 								'cmd=call' +
 								'&number=' + number + 
@@ -6115,7 +6130,6 @@ console.log('merge FAIL ', this.attr.type, ' into ', msg.data.type);
 				},
 			enablertc:
 				function() {
-
                     console.log('api::enablertc');
 					if ( this.attr.jssip )
 						return;
@@ -6622,17 +6636,22 @@ console.log('merge FAIL ', this.attr.type, ' into ', msg.data.type);
 					if ( this.attr.extension ) {
 						var _ext = this.attr.extension;
 						if ( ! this.attr.cid ) {
+							/* Not an extension we know about. */
+							if ( !extByExt[_ext] )
+								return true;
 							/* Not associated with a user, online when any called device is ok */
-							if ( extByExt[_ext] && extByExt[_ext].type != 'A' && extByExt[_ext].type != 'H' )
+							if ( extByExt[_ext].type != 'A' && extByExt[_ext].type != 'H' )
 								return true;
-							/* Does not appear to be an extension, appear online */
+							/* Does not call anything at-all... */
 							if ( !extToDev[_ext] )
-								return true;
+								return false;
 							/* Not associated with a phone, online if from another company (no other data available) */
 							if ( this.attr.company != live.userData.home && extToDev[_ext].length == 0 )
 								return true;
 							/* If any callable phone is callable, appear online */
 							for ( var i = 0; i < extToDev[_ext].length; i++ ) {
+								if ( extToDev[_ext][i].substr(0,3) == 'EXT' )
+									return true;
 								if ( lookUp.dev[extToDev[_ext][i]] && lookUp.dev[extToDev[_ext][i]].attr.status == 'up' )
 									return true;
 							}
@@ -7043,6 +7062,8 @@ console.log('merge FAIL ', this.attr.type, ' into ', msg.data.type);
 					this.hid.device = null;
 				if ( _ownDev && lookUp.dev[_ownDev] )
 					this.hid.owned = lookUp.dev[_ownDev].hook(update);
+				/* If no owned devices, the hook never gets called, so 'prime' the entry */
+				update();
 			},
 			/**
 			 * Contact hook method - Same as normal hook but runs child hooks too.
@@ -7135,7 +7156,7 @@ console.log('merge FAIL ', this.attr.type, ' into ', msg.data.type);
 			 */
 			update:	function() {
 				var _blf = 0;
-				this.attr.phone = null;
+				this.attr.phone = false;
 				var up = {owned: null, hotdesk: null, webrtc: null}
 
 				/* Roll in any hotdesk BLF state. */
@@ -7161,9 +7182,6 @@ console.log('merge FAIL ', this.attr.type, ' into ', msg.data.type);
 				 * Exclude any line that has been hotdesked over.
 				 */
 				for ( var i = 0; i < this.devices.length; i++ ) {
-					/* We have at least one device so change starting assumption */
-					if ( this.attr.phone == null )
-						this.attr.phone = true;
 					/*
 					 * We are hotdesked over, regular blf data is not used for us
 					 * instead use special-case blf for non-HD only BLF if available
@@ -7182,24 +7200,18 @@ console.log('merge FAIL ', this.attr.type, ' into ', msg.data.type);
 							up.owned = true;
 					}
 				}
-/* Our response be if there is no owned phone? If any callable phone from owned extension is callable, appear online */
-				if ( up.webrtc == null && up.hotdesk == null && up.owned == null ) {
-					this.attr.phone = false;
+				/* As a starting point, callable status us based on owned / hotdesked / webrtc phones found */
+				this.attr.phone = (!!up.webrtc || !!up.hotdesk || !!up.owned );
+				if ( ! this.attr.phone ) {
+					/* If that is not enough, check all callable endpoints. */
 					for ( var i = 0; _usr.extension && extToDev[_usr.extension] && i < extToDev[_usr.extension].length; i++ ) {
-						if ( lookUp.dev[extToDev[_usr.extension][i]] && lookUp.dev[extToDev[_usr.extension][i]].attr.status == 'up' )
+						if ( extToDev[_usr.extension][i].substr(0,3) == 'EXT' )
+							this.attr.phone = true;
+						else if ( lookUp.dev[extToDev[_usr.extension][i]] && lookUp.dev[extToDev[_usr.extension][i]].attr.status == 'up' )
 							this.attr.phone = true;
 					}
-// console.log('update no owned (', this.attr.cid, _usr.name, ') ext', _usr.extension, this.attr.phone);
-				} else if ( this.attr.phone == null && ! _hdDev ) {
-// console.log('update no phone/no HD (', this.attr.cid, _usr.name, ') ext', _usr.extension, this.attr.phone);
-					this.attr.phone = false;
-				} else {
-					this.attr.phone = (!!up.webrtc || !!up.hotdesk || !!up.owned );
-// console.log('update: ', up.webrtc ? 'webrtc' : '', up.hotdesk ? 'hotdesk' : '', up.owned ? 'owned' : '', '(', this.attr.cid, _usr.name, ') ext', _usr.extension, this.attr.phone);
-// console.log('_blf ', _blf);
 				}
 				this.attr.blf = _blf;
-
 				this.run();
 			},
 			/**

@@ -9,6 +9,7 @@ angular.module('f9-webrtc')
                 _currentSession,
                 _phonertcSession,
                 _config,
+                _streams = [],
                 data = {status: 0, code: -1, reason: ''};
 
             // status call back
@@ -33,17 +34,12 @@ angular.module('f9-webrtc')
             function eventCB(state, number, party, call, line) {
                 var description = '',
                     session = {};
-
                 _currentSession = call.get('session') || line.attr.session || {};
-
                 _phonertcSession = line.attr.phonertcSession || {};
                 _config = line.attr.config;
+                _streams = call.get('remoteStreams') || [];
 
-                console.log('CTIService::eventCB | call: ', call);
-
-                var streams = call.get('remoteStreams');
-
-                console.log('CTIService::eventCB | streams: ', streams);
+                console.log('CTIService::eventCB | streams: ', _streams);
 
                 console.log('CTIService::eventCB | got session: ', _currentSession );
 
@@ -95,6 +91,9 @@ angular.module('f9-webrtc')
                 // TODO
                 online: function() {
                     return true;
+                },
+                getStreams: function() {
+                    return _streams;
                 },
                 // simply returns the current session
                 getSession: function() {
