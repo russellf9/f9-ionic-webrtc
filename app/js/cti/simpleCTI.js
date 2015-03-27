@@ -161,11 +161,11 @@ var SimpleCTI = (function(aUsername, aPassword, statusCB, ringCB, upCB, deadCB) 
         // Get a list of all calls on the line
         calls = l.get('calls');
 
-        console.log('16:25 - SimpleCTI.lineEvent f (' + f + ')');
-
-        console.log('16:25 - SimpleCTI.lineEvent h (' + h + ')');
-
-        console.log('16:25 - SimpleCTI.lineEvent calls (' + calls + ')');
+        //console.log('16:25 - SimpleCTI.lineEvent f (' + f + ')');
+        //
+        //console.log('16:25 - SimpleCTI.lineEvent h (' + h + ')');
+        //
+        //console.log('16:25 - SimpleCTI.lineEvent calls (' + calls + ')');
 
        // r(calls);
 

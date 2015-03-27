@@ -97,7 +97,6 @@ angular.module('f9-webrtc')
                 },
                 // simply returns the current session
                 getSession: function() {
-                    console.log('CTIService::getSession: ',_currentSession);
                     return _currentSession;
                 },
                 // simply returns the PhoneRTCSession
@@ -111,7 +110,6 @@ angular.module('f9-webrtc')
                         return null;
                     }
                     _config.isInitiator = isInitiator;
-                    console.log('\t\t ** new here with config: ', _config.turn_servers);
                     return new JsSIPCordovaRTCEngine(_currentSession, _config);
                 },
                 // login function ( currently just checking if name is in the user base )

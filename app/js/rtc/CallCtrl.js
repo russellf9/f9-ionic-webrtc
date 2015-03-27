@@ -25,13 +25,10 @@ angular.module('f9-webrtc')
                 return;
             }
             $scope.callInProgress = true;
-            $timeout($scope.updateVideoPosition, 1000);
-            console.log('CallCtrl::answer | _phoneRTC: ', _phoneRTC);
-            //CTIService.answer();
+            console.log('CallCtrl::answer');
+            CTIService.answer();
             if (_session) {
                 _session.call(); // -> PhoneRTCProxy::call()
-                console.log('Are the 2 sessions the same?'); // no!
-                console.log(_session == session);
                 // not sure if there is any point to this...
                 _phoneRTC.addStream(true, onMediaSuccess, onMediaFailure);
                 $timeout($scope.updateVideoPosition, 1000);
@@ -57,7 +54,7 @@ angular.module('f9-webrtc')
         // if the call is `outgoing` we create an Offer
         // if the call is `incoming` we create a Session
         var handleLineCall = function(data) {
-            console.log('CallCtrl::handleLineCall() | data: ', data);
+            console.log('A CallCtrl::handleLineCall() | data: ', data);
 
             session = CTIService.getSession();
 
@@ -65,9 +62,7 @@ angular.module('f9-webrtc')
 
             _phoneRTC = CTIService.getPhoneRTC(isInitiator);
 
-            console.log('B CallCtrl::handleLineCall() | session: ', session);
-            console.log('C CallCtrl::handleLineCall() | direction: ', session.direction);
-            console.log('D CallCtrl::handleLineCall() | phoneRTCSession: ', _phoneRTC);
+            console.log('B CallCtrl::handleLineCall() | direction: ', session.direction);
 
             if (session.direction === 'outgoing') {
                 _phoneRTC.createOffer(onSuccessOut, onFailure);
@@ -84,24 +79,26 @@ angular.module('f9-webrtc')
         // out
         // @param session -
         var onSuccessOut = function(session) {
-            console.log('PhoneRTC Offer Success: ', session);
             _session = session;
             addEvents();
             _session.call();
             _phoneRTC.addStream(true, onMediaSuccess, onMediaFailure);
+            console.log('PhoneRTC Offer Success Ready ', _phoneRTC.isReady());
             $timeout($scope.updateVideoPosition, 1000);
         };
         // in
         var onSuccessIn = function(session) {
-            console.log('PhoneRTC Session has been created: ', session);
             _session = session;
+            console.log('PhoneRTC Session has been created Ready ', _phoneRTC.isReady());
             addEvents();
+            // wait to accept call
         };
 
 
         // attaches the stream as audio
         var attachStream = function() {
             console.log('A CallCtrl::attachStream | streams: ', CTIService.getStreams());
+            console.log('B CallCtrl::attachStream | Ready ', _phoneRTC.isReady());
             if ($scope.currentSession) {
                 try {
                     var streams = CTIService.getStreams();
@@ -116,7 +113,7 @@ angular.module('f9-webrtc')
         // handlers for the media stream
         // success
         var onMediaSuccess = function() {
-            console.log('CallCtrl::onMediaSuccess');
+           // console.log('CallCtrl::onMediaSuccess');
         };
         // failure
         var onMediaFailure = function() {
@@ -125,21 +122,13 @@ angular.module('f9-webrtc')
 
         //
         var addEvents = function() {
-
-            // test
-
-            console.log('CallCtrl::addEvents::addEvents | ', _phoneRTC.session);
-            _phoneRTC.session.on('A sendMessage', function(data) {
-                console.log('CallCtrl::Message::sendMessage: ', data);
+            _session.on('sendMessage', function(data) {
+                //console.log('CallCtrl::Message::sendMessage: ', data);
             });
-
-            _session.on('B sendMessage', function(data) {
-                console.log('CallCtrl::Message::sendMessage: ', data);
-            });
-            _session.on('C disconnect', function() {
+            _session.on('disconnect', function() {
                 console.log('CallCtrl::Message::disconnect');
             });
-            _session.on('D answer', function() {
+            _session.on('answer', function() {
                 console.log('CallCtrl::Message::Answered!');
             });
         };
@@ -151,7 +140,7 @@ angular.module('f9-webrtc')
 
         // watch the service for updates to the login status
         $scope.$watch(CTIService.getCTIData, function(newValue, oldValue, scope) {
-            console.log('CallCtrl -> getCTIData |  newValue: ', newValue);
+            //console.log('CallCtrl -> getCTIData |  newValue: ', newValue);
             $scope.status = newValue;
             handleUpdate(newValue);
         });
