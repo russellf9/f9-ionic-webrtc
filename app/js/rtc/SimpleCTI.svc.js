@@ -2,8 +2,8 @@
 
 // an angular service wrapper for the SimpleCTI
 angular.module('f9-webrtc')
-    .service('CTIService', ['ContactsService', '$rootScope', '$q', '$interval', '$state',
-        function(ContactsService, $rootScope, $q, $interval, $state) {
+    .service('CTIService', ['ContactsService', 'ChatService', '$rootScope', '$q', '$interval', '$state',
+        function(ContactsService, ChatService, $rootScope, $q, $interval, $state) {
             var _password = 'Stat1onX!',
                 _simpleCTI,
                 _currentSession,
@@ -119,7 +119,9 @@ angular.module('f9-webrtc')
                     if (ContactsService.validUser(name)) {
                         // 2. TODO will have to test the CTI Login success
                         _simpleCTI = new SimpleCTI(name.toLowerCase(), _password, statusCB, eventCB, eventCB, eventCB);
+                        ChatService.init(name.toLowerCase(), _password);
                         _simpleCTI.login();
+                        ChatService.ready();
                     } else {
                         // simply reset the data, as the interested parties should be watching this object
                         var message = 'User: ' + name + ' is not authorized!';
