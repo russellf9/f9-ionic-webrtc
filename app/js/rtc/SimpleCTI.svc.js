@@ -149,8 +149,6 @@ angular.module('f9-webrtc')
                         // 2. TODO will have to test the CTI Login success
                         _simpleCTI = new SimpleCTI(name.toLowerCase(), _password, statusCB, eventCB, eventCB, eventCB, tryingCB);
                         _simpleCTI.login();
-
-
                     } else {
                         // simply reset the data, as the interested parties should be watching this object
                         var message = 'User: ' + name + ' is not authorized!';

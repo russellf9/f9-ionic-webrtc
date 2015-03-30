@@ -76,9 +76,12 @@ angular.module('f9-webrtc')
             if (session.direction === 'outgoing') {
                 _phoneRTC.createOffer(onSuccess, onFailure);
             }
+
+
         };
 
         // handlers for the jssip engine
+        // for callee
         var onSuccessIn = function(session) {
             console.log('\n++++++++++');
             console.log(' In CallCtrl::Offer Success: ');
@@ -86,17 +89,31 @@ angular.module('f9-webrtc')
             _session = session;
 
             addEvents();
+            _session.call();
+            _phoneRTC.addStream(true, onMediaSuccess, onMediaFailure);
+            console.log('PhoneRTC Offer Success Ready ', _phoneRTC.isReady());
+            $timeout($scope.updateVideoPosition, 1000);
         };
 
-        // handlers for the jssip engine
+        // for caller
         var onSuccess = function(session) {
             console.log('\n++++++++++');
             console.log('CallCtrl::Offer Success: ');
             _session = session;
             addEvents();
             // console.log('Streams: ', session.streams); // just {audio: true, video: true}
-
+            _phoneRTC.addStream(true, onMediaSuccess, onMediaFailure);
             session.call();
+        };
+
+        // handlers for the media stream
+        // success
+        var onMediaSuccess = function() {
+            console.log('CallCtrl::onMediaSuccess');
+        };
+        // failure
+        var onMediaFailure = function() {
+            console.log('CallCtrl::onMediaFailure');
         };
 
         //
