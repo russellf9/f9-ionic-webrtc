@@ -48,7 +48,7 @@
 'use strict';
 
 
-var SimpleCTI = (function(aUsername, aPassword, statusCB, ringCB, upCB, deadCB) {
+var SimpleCTI = (function(aUsername, aPassword, statusCB, ringCB, upCB, deadCB, tryingCB) {
 
     console.log('new SimpleCTI');
 
@@ -58,7 +58,8 @@ var SimpleCTI = (function(aUsername, aPassword, statusCB, ringCB, upCB, deadCB) 
             status: statusCB,
             ring: ringCB,
             up: upCB,
-            dead: deadCB
+            dead: deadCB,
+            trying: tryingCB
         },
 
     // Initialise an empty call list
@@ -116,7 +117,8 @@ var SimpleCTI = (function(aUsername, aPassword, statusCB, ringCB, upCB, deadCB) 
      * @param l
      */
     function linesCB(l) {
-        console.log('SimpleCTI.linesCB(' + l.length + ')');
+        console.log('\n-------------');
+        console.log('A SimpleCTI.linesCB(' + l.length + ')');
 
 
         // Lines are returned in a list - Hook them all
@@ -128,12 +130,21 @@ var SimpleCTI = (function(aUsername, aPassword, statusCB, ringCB, upCB, deadCB) 
              */
             line.hook(lineEvent);
             lines.push(line);
-            console.log('SimpleCTI. - line: ', line);
+            console.log('B SimpleCTI. - line: ', line);
             if (line.get('webrtc')) {
                 line.enablertc();
+                line.attr.jssip.on('newRTCSession', CB.trying);
             }
         }
+
+
+        console.log('\n-------------');
     }
+
+
+
+
+
 
     function r(obj) {
         if (obj) {
@@ -161,13 +172,13 @@ var SimpleCTI = (function(aUsername, aPassword, statusCB, ringCB, upCB, deadCB) 
         // Get a list of all calls on the line
         calls = l.get('calls');
 
-        console.log('16:25 - SimpleCTI.lineEvent f (' + f + ')');
+        //console.log('16:25 - SimpleCTI.lineEvent f (' + f + ')');
 
-        console.log('16:25 - SimpleCTI.lineEvent h (' + h + ')');
+        //console.log('16:25 - SimpleCTI.lineEvent h (' + h + ')');
 
-        console.log('16:25 - SimpleCTI.lineEvent calls (' + calls + ')');
+        //console.log('16:25 - SimpleCTI.lineEvent calls (' + calls + ')');
 
-       // r(calls);
+        // r(calls);
 
         // For each call
         for (var x in calls) {

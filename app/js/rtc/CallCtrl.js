@@ -53,7 +53,7 @@ angular.module('f9-webrtc')
 
 
         var addSession = function(data) {
-            console.log('10:41 || A CallCtrl::addSession() | data: ', data);
+            console.log('\n12:35 || A CallCtrl::addSession() | data: ', data);
 
             // add to the session?
             var session = CTIService.getSession();
@@ -80,7 +80,8 @@ angular.module('f9-webrtc')
 
         // handlers for the jssip engine
         var onSuccessIn = function(session) {
-            console.log('+++ In CallCtrl::Offer Success: ');
+            console.log('\n++++++++++');
+            console.log(' In CallCtrl::Offer Success: ');
 
             _session = session;
 
@@ -89,6 +90,7 @@ angular.module('f9-webrtc')
 
         // handlers for the jssip engine
         var onSuccess = function(session) {
+            console.log('\n++++++++++');
             console.log('CallCtrl::Offer Success: ');
             _session = session;
             addEvents();
