@@ -138,6 +138,9 @@ angular.module('f9-webrtc')
                     }
                     return _phoneRTC;
                 },
+                clear: function() {
+                    _phoneRTC = null;
+                },
                 // login function ( currently just checking if name is in the user base )
                 login: function(name) {
                     console.log('CTIService::User: ', name, ' logging in!');
@@ -161,6 +164,7 @@ angular.module('f9-webrtc')
                 // hangs up the current call
                 hangup: function(id) {
                     _simpleCTI.hangup(id);
+                    this.clear();
                 },
                 // answers the current call
                 answer: function(id) {

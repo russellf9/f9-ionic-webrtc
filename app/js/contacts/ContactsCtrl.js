@@ -52,6 +52,8 @@ angular.module('f9-webrtc')
                         console.log('ContactsCtrl::handleUpdate | name: ', name);
                         // if the code is 1 we have a new call!
                         $state.go('app.call', {contactName: name});
+                    } else if(data.code === -1){
+                        CTIService.clear();
                     }
                 }
             };

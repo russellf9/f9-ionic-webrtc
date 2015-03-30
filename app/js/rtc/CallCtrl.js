@@ -32,11 +32,11 @@ angular.module('f9-webrtc')
 
         // answer a call if the user is the callee
         $scope.answer = function() {
-            console.log('CallCtrl::answer | _phoneRTC: ', _phoneRTC);
-            //CTIService.answer();
+            console.log('A CallCtrl::answer | _phoneRTC: ', _phoneRTC);
             if (_session) {
                 console.log('session: ', _session);
                 _session.call();
+                _phoneRTC.sendMessage({type:'offer', sdp:{audio: true, video: true}});
             }
         };
 
@@ -53,7 +53,7 @@ angular.module('f9-webrtc')
 
 
         var addSession = function(data) {
-            console.log('\n12:35 || A CallCtrl::addSession() | data: ', data);
+            console.log('\n14:25 || A CallCtrl::addSession() | data: ', data);
 
             // add to the session?
             var session = CTIService.getSession();
@@ -61,9 +61,9 @@ angular.module('f9-webrtc')
             var isInitiator = (session.direction === 'outgoing');
             _phoneRTC = CTIService.getPhoneRTC(isInitiator);
 
-            console.log('B CallCtrl::addSession() | session: ', session);
-            console.log('C CallCtrl::addSession() | direction: ', session.direction);
-            console.log('D CallCtrl::addSession() | phoneRTCSession: ', _phoneRTC);
+            //console.log('B CallCtrl::addSession() | session: ', session);
+            //console.log('C CallCtrl::addSession() | direction: ', session.direction);
+            //console.log('D CallCtrl::addSession() | phoneRTC: ', _phoneRTC);
 
 
             if (data.code === 0) {
@@ -94,15 +94,9 @@ angular.module('f9-webrtc')
             console.log('CallCtrl::Offer Success: ');
             _session = session;
             addEvents();
-
-            console.log('Session: ', session);
-
-            console.log('Streams: ', session.streams); // {audio: true, video: true}
+            // console.log('Streams: ', session.streams); // just {audio: true, video: true}
 
             session.call();
-
-            console.log('_phoneRTC: ', _phoneRTC);
-
         };
 
         //
