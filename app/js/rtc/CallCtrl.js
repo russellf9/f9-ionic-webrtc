@@ -36,9 +36,9 @@ angular.module('f9-webrtc')
             if (_session) {
                 console.log('session: ', _session);
 
-                _phoneRTC.sendMessage({type:'offer', sdp:{audio: true, video: true}});
 
-                callSession();
+
+                testSession();
             }
         };
 
@@ -53,7 +53,9 @@ angular.module('f9-webrtc')
 
         };
 
-
+        // will always be called
+        // {status: true, code: 0, reason: "ring", number: "205", party: null}
+        // {status: true, code: 0, reason: "ring", number: "205", party: "callee"}
         var addSession = function(data) {
             console.log('\n14:25 || A CallCtrl::addSession() | data: ', data);
 
@@ -90,9 +92,13 @@ angular.module('f9-webrtc')
 
             _session = session;
 
+            _phoneRTC.sendMessage({type:'offer', sdp:{audio: true, video: true}});
+
             addEvents();
 
-            callSession();
+            $timeout(testSession, 1000);
+
+
         };
 
         // for caller
@@ -102,18 +108,32 @@ angular.module('f9-webrtc')
             _session = session;
             addEvents();
             // console.log('Streams: ', session.streams); // just {audio: true, video: true}
-            _phoneRTC.addStream(true, onMediaSuccess, onMediaFailure);
-
             //console.log('CallCtrl::Offer Success', session);
-            callSession();
+
+            _session.call(); // necessary to fire the JsSIPCordovaRTCEngine `sendMessage` event
+
+            testSession();
 
 
 
         };
 
-        var callSession = function(){
+        var testSession = function(){
             _phoneRTC.addStream(true, onMediaSuccess, onMediaFailure);
-            _session.call();
+
+
+            // test the various connections
+
+            var jsSip = CTIService.getJsSip();
+
+            console.log('~~~~ TESTING: jsSip: ', jsSip);
+            console.log('~~~~ TESTING: jsSip connected: ', jsSip.isConnected());
+            console.log('~~~~ TESTING: jsSip registered: ', jsSip.isRegistered());
+            console.log('~~~~ TESTING: JsSIPCordova/_phoneRTC is Ready: ', _phoneRTC.isReady());
+            console.log('~~~~ TESTING: JsSIPCordova/_phoneRTC remote description: ', _phoneRTC.getRemoteDescription());
+
+
+
             //attachStream();
             $timeout($scope.updateVideoPosition, 1000);
         };
@@ -132,6 +152,11 @@ angular.module('f9-webrtc')
         var addEvents = function() {
             _session.on('sendMessage', function(data) {
                 console.log('sendMessage: ', data);
+
+                if(data.type === 'candidate') {
+                    console.log('sendMessage | candidate: ', data.candidate);
+                    console.log('~~~~ TESTING: JsSIPCordova/_phoneRTC is Ready: ', _phoneRTC.isReady());
+                }
             });
             _session.on('disconnect', function() {
                 console.log('disconnect');

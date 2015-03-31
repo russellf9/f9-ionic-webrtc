@@ -29,7 +29,7 @@ angular.module('f9-webrtc')
                 }
             }
 
-            // semi-duplicate of the function within the api
+            // near-duplicate of the function within the api
             // if the user is the callee at this point the _phoneRTC instance has not yet been created
             // @param session the RTCSession instance
             function tryingCB(object) {
@@ -114,6 +114,9 @@ angular.module('f9-webrtc')
                 online: function() {
                     return true;
                 },
+                getJsSip: function() {
+                    return _jsSip;
+                },
                 // simply returns the current session
                 getSession: function() {
                     console.log('CTIService::getSession: ', _currentSession);
@@ -132,6 +135,10 @@ angular.module('f9-webrtc')
                     return _phoneRTC;
                 },
                 clear: function() {
+                    if (!_phoneRTC) {
+                        return;
+                    }
+                    _phoneRTC.close();
                     _phoneRTC = null;
                 },
                 // login function ( currently just checking if name is in the user base )
