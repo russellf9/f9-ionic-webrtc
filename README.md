@@ -44,7 +44,7 @@ A Ionic Test using WebRTC
 
 The current version of the app is:
 
-**0.5.6**
+**0.5.7**
 
 
 ## Project Objectives

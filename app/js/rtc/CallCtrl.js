@@ -32,11 +32,13 @@ angular.module('f9-webrtc')
 
         // answer a call if the user is the callee
         $scope.answer = function() {
-            console.log('A CallCtrl::answer | _phoneRTC: ', _phoneRTC);
+            console.log('17:36 A CallCtrl::answer | _phoneRTC: ', _phoneRTC);
             if (_session) {
                 console.log('session: ', _session);
-                _session.call();
+
                 _phoneRTC.sendMessage({type:'offer', sdp:{audio: true, video: true}});
+
+                callSession();
             }
         };
 
@@ -89,10 +91,8 @@ angular.module('f9-webrtc')
             _session = session;
 
             addEvents();
-            _session.call();
-            _phoneRTC.addStream(true, onMediaSuccess, onMediaFailure);
-            console.log('PhoneRTC Offer Success Ready ', _phoneRTC.isReady());
-            $timeout($scope.updateVideoPosition, 1000);
+
+            callSession();
         };
 
         // for caller
@@ -103,7 +103,19 @@ angular.module('f9-webrtc')
             addEvents();
             // console.log('Streams: ', session.streams); // just {audio: true, video: true}
             _phoneRTC.addStream(true, onMediaSuccess, onMediaFailure);
-            session.call();
+
+            //console.log('CallCtrl::Offer Success', session);
+            callSession();
+
+
+
+        };
+
+        var callSession = function(){
+            _phoneRTC.addStream(true, onMediaSuccess, onMediaFailure);
+            _session.call();
+            //attachStream();
+            $timeout($scope.updateVideoPosition, 1000);
         };
 
         // handlers for the media stream
@@ -142,8 +154,9 @@ angular.module('f9-webrtc')
             if ($scope.currentSession) {
 
                 try {
-                    var stream = $scope.currentSession.getRemoteStreams()[0];
-                    attachMediaStream($document[0].getElementById('audio'), stream);
+                    //var stream = $scope.currentSession.getRemoteStreams()[0];
+                    var streams = $scope.currentSession.get('remoteStreams');
+                    attachMediaStream($document[0].getElementById('audio'), streams);
                 }
                 catch (error) {
                     console.log('CallCtrl::attachStream -> Error', error);

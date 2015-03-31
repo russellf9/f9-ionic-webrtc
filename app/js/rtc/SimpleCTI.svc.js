@@ -7,7 +7,6 @@ angular.module('f9-webrtc')
             var _password = 'Stat1onX!',
                 _simpleCTI,
                 _currentSession,
-                _phonertcSession,
                 _config,
                 _phoneRTC,
                 _jsSip,
@@ -54,7 +53,6 @@ angular.module('f9-webrtc')
 
                 _currentSession = call.get('session') || line.attr.session || {};
 
-                _phonertcSession = line.attr.phonertcSession || {};
                 _config = line.attr.config;
                 _jsSip = line.attr.jssip;
                 // _jsSip.on('newRTCSession', trying);
@@ -87,7 +85,6 @@ angular.module('f9-webrtc')
                         catch (error) {
                             console.log('Error ', error);
                         }
-
                         // TODO Add a clause for there being no session?
                         break;
                     case 'dead':
@@ -121,10 +118,6 @@ angular.module('f9-webrtc')
                 getSession: function() {
                     console.log('CTIService::getSession: ', _currentSession);
                     return _currentSession;
-                },
-                // simply returns the PhoneRTCSession
-                getPhonertcSession: function() {
-                    return _phonertcSession;
                 },
                 // requires the config
                 getPhoneRTC: function(isInitiator) {

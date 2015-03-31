@@ -6018,39 +6018,15 @@ console.log('merge FAIL ', this.attr.type, ' into ', msg.data.type);
                         };
 
 
-                        console.log('api::dial() | config: ',this.attr.config);
+                        console.log('A api::dial() | config: ',_config.turn_servers);
 
-                        //can we make a separate JsSIPCordovaRTCEngine object?
+                        this.attr.config = _config;
 
-
-                        // the config is not exactly the same
-                        var config = {
-                            isInitiator: true,
-                            turn: {
-                                host: 'turn:ec2-54-68-238-149.us-west-2.compute.amazonaws.com:3478',
-                                username: 'test',
-                                password: 'test'
-                            },
-                            turn_servers: {
-                                host: '',
-                                username: 'test',
-                                password: 'test'
-                            },
-                            streams: {
-                                audio: true,
-                                video: true
-                            }
-                        };
+                        console.log('B api::dial() | config: ',this.attr.config);
 
 
-                        var _phonertcSession = new JsSIPCordovaRTCEngine(_session, config);
-
-                        console.log('api::dial() | _phonertcSession  ',_phonertcSession);
 
 
-                        this.attr.config = config;
-
-                        this.attr.phonertcSession = _phonertcSession;
 
 
 					} else {
