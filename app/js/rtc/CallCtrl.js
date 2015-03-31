@@ -112,6 +112,10 @@ angular.module('f9-webrtc')
 
             _session.call(); // necessary to fire the JsSIPCordovaRTCEngine `sendMessage` event
 
+            _phoneRTC.call();  // this call as well, for the `internal` call function
+
+            // but how do we add the stream to the peer connection?
+
             testSession();
 
 
