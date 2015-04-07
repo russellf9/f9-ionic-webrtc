@@ -57,12 +57,41 @@ angular.module('f9-webrtc')
         // {status: true, code: 0, reason: "ring", number: "205", party: "callee"}
         // @param data the object constructed by the event callback
         var addSession = function(data) {
-            console.log('\n14:25 || A CallCtrl::addSession() | data: ', data);
+            // do I need to wait for the confirmed call back?
+
+            console.log('\n14:43 || A CallCtrl::addSession() | data: ', data);
 
             // add to the session?
             var session = CTIService.getSession();
 
-            console.log('\n14:25 || B CallCtrl::addSession() | session: ', session.id);
+            console.log('\n14:43 || B CallCtrl::addSession() | session: ', session.id);
+
+            // is there a stream?
+            var stream = CTIService.getStream();
+
+            console.log('\n14:43 || C CallCtrl::addSession() | stream: ', stream);
+
+
+            // HACK into video-test??
+            var element = $document[0].getElementById('video-test');
+            var selfView = $document[0].getElementById('local-video');
+
+
+            console.log('\n14:43 || D CallCtrl::addSession() | selfView: ', selfView);
+
+
+            // Attach remote stream to remoteView
+            element.src = window.URL.createObjectURL(stream);
+
+
+            console.log('\n14:43 || E CallCtrl::addSession() |  src: ',  element.src);
+
+
+            console.log('\n14:43 || F CallCtrl::addSession() | local stream: ', session.connection.getLocalStreams()[0]);
+
+            // local-video
+            // Attach local stream to selfView
+            selfView.src = window.URL.createObjectURL(session.connection.getLocalStreams()[0]);
 
 
             return;

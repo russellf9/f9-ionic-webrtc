@@ -7,6 +7,7 @@ angular.module('f9-webrtc')
             var _password = 'Stat1onX!',
                 _simpleCTI,
                 _currentSession,
+                _stream,
                 _config,
                 _phoneRTC,
                 _jsSip,
@@ -65,7 +66,9 @@ angular.module('f9-webrtc')
 
                 var streams = call.get('remoteStreams');
 
-                // console.log('CTIService::eventCB | streams: ', streams);
+                console.log('CTIService::eventCB | streams: ', streams);
+                _stream = Array.isArray(streams) && streams.length ? streams[0] : null;
+
 
                 // console.log('CTIService::eventCB | got session: ', _currentSession );
 
@@ -125,6 +128,10 @@ angular.module('f9-webrtc')
                 getSession: function() {
                     console.log('CTIService::getSession: ', _currentSession);
                     return _currentSession;
+                },
+                // simply returns the stream object
+                getStream: function() {
+                    return _stream;
                 },
                 // requires the config
                 getPhoneRTC: function(isInitiator) {
