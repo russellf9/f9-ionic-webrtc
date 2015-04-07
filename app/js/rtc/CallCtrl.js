@@ -78,7 +78,6 @@ angular.module('f9-webrtc')
             //console.log('C CallCtrl::addSession() | direction: ', session.direction);
             //console.log('D CallCtrl::addSession() | phoneRTC: ', _phoneRTC);
 
-
             if (data.code === 0) {
             }
 
@@ -122,7 +121,7 @@ angular.module('f9-webrtc')
             _session.call(); // necessary to fire the JsSIPCordovaRTCEngine `sendMessage` event
 
             // _phoneRTC.call();  // this call as well, for the `internal` call function
-            // will also cause an error in l
+            // will also cause an error in
             // `video - updatePosition`
 
             // but how do we add the stream to the peer connection?
