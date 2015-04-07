@@ -35,6 +35,8 @@ angular.module('f9-webrtc')
             function tryingCB(object) {
                 console.log('\n-------------');
                 console.log('A CTIService::trying() | session: ', object.session);
+                console.log('AA CTIService::trying() | session id: ', object.session.id);
+                console.log('AAA CTIService::trying() | connection: ', object.session.connection);
                 console.log('B CTIService::trying() | headers: ', object.request.headers);
                 console.log('C CTIService::trying() | originator: ', object.originator);
                 var _xIpcId = object.request.headers['X-Ipc-Id'];
@@ -59,6 +61,7 @@ angular.module('f9-webrtc')
 
                 console.log('\n-------------');
                 console.log('CTIService::eventCB | call: ', call);
+                console.log('CTIService::eventCB | current session id: ',_currentSession.id);
 
                 var streams = call.get('remoteStreams');
 
@@ -67,7 +70,6 @@ angular.module('f9-webrtc')
                 // console.log('CTIService::eventCB | got session: ', _currentSession );
 
                 // console.log('CTIService::eventCB | line: ', line);
-                console.log('\n-------------');
 
                 console.log('CTIService::eventCB | got ' + state + ' event to number ' + number + ' we are the ' + party);
                 switch (state) {
@@ -103,6 +105,8 @@ angular.module('f9-webrtc')
                 if (state == 'ring' && party == 'callee') {
                     description += ' answer';
                 }
+
+                console.log('\n-------------');
             }
 
             return {

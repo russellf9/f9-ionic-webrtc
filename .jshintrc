@@ -34,6 +34,7 @@
     "process": true,
     "window" : true,
     "SimpleCTI" : true,
-    "attachMediaStream": true
+    "attachMediaStream": true,
+    "IPCortex": true
   }
 }

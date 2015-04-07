@@ -37,7 +37,6 @@ angular.module('f9-webrtc')
                 console.log('session: ', _session);
 
 
-
                 testSession();
             }
         };
@@ -56,11 +55,17 @@ angular.module('f9-webrtc')
         // will always be called
         // {status: true, code: 0, reason: "ring", number: "205", party: null}
         // {status: true, code: 0, reason: "ring", number: "205", party: "callee"}
+        // @param data the object constructed by the event callback
         var addSession = function(data) {
             console.log('\n14:25 || A CallCtrl::addSession() | data: ', data);
 
             // add to the session?
             var session = CTIService.getSession();
+
+            console.log('\n14:25 || B CallCtrl::addSession() | session: ', session.id);
+
+
+            return;
 
             var isInitiator = (session.direction === 'outgoing');
             _phoneRTC = CTIService.getPhoneRTC(isInitiator);
@@ -92,7 +97,7 @@ angular.module('f9-webrtc')
 
             _session = session;
 
-            _phoneRTC.sendMessage({type:'offer', sdp:{audio: true, video: true}});
+            _phoneRTC.sendMessage({type: 'offer', sdp: {audio: true, video: true}});
 
             addEvents();
 
@@ -112,17 +117,18 @@ angular.module('f9-webrtc')
 
             _session.call(); // necessary to fire the JsSIPCordovaRTCEngine `sendMessage` event
 
-            _phoneRTC.call();  // this call as well, for the `internal` call function
+            // _phoneRTC.call();  // this call as well, for the `internal` call function
+            // will also cause an error in l
+            // `video - updatePosition`
 
             // but how do we add the stream to the peer connection?
 
             testSession();
 
 
-
         };
 
-        var testSession = function(){
+        var testSession = function() {
             _phoneRTC.addStream(true, onMediaSuccess, onMediaFailure);
 
 
@@ -135,7 +141,6 @@ angular.module('f9-webrtc')
             console.log('~~~~ TESTING: jsSip registered: ', jsSip.isRegistered());
             console.log('~~~~ TESTING: JsSIPCordova/_phoneRTC is Ready: ', _phoneRTC.isReady());
             console.log('~~~~ TESTING: JsSIPCordova/_phoneRTC remote description: ', _phoneRTC.getRemoteDescription());
-
 
 
             //attachStream();
@@ -157,7 +162,7 @@ angular.module('f9-webrtc')
             _session.on('sendMessage', function(data) {
                 console.log('sendMessage: ', data);
 
-                if(data.type === 'candidate') {
+                if (data.type === 'candidate') {
                     console.log('sendMessage | candidate: ', data.candidate);
                     console.log('~~~~ TESTING: JsSIPCordova/_phoneRTC is Ready: ', _phoneRTC.isReady());
                 }

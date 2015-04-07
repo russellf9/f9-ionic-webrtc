@@ -2298,16 +2298,11 @@ IPCortex.PBX = (function() {
 	 */
 	function haveJsSIP() {
 
-        console.log('haveJsSIP 14:07 - plugins: ',window.cordova.plugins);
-
-        console.log('14:07 - new api - RTCPeerConnection: ',typeof RTCPeerConnection );
-
-        console.log('14:07 - new api -  PeerConnection: ', typeof PeerConnection ); // not visible
-console.log('new api - haveJsSIP', (typeof JsSIP == 'object' ? 'found JsSIP' : 'NO JsSIP'), 'uri = ', live.origURI.substr(0,8), 'RTCPeerConnection', (typeof RTCPeerConnection == 'function' ? 'found' : 'absent'));
-
-
-        return true;
-
+        //console.log('\n^^^^ api::haveJsSIP() - plugins: ',window.cordova.plugins);
+        //console.log('^^^^ api::haveJsSIP() -  PeerConnection: ', typeof PeerConnection ); // not visible
+        //console.log('^^^^ api::haveJsSIP() - RTCPeerConnection: ',typeof RTCPeerConnection );
+       // console.log('^^^^ api::haveJsSIP() A ', (typeof JsSIP == 'object' ? 'found JsSIP' : 'NO JsSIP'), 'uri = ', live.origURI.substr(0,8), 'RTCPeerConnection', (typeof - RTCPeerConnection == 'function' ? 'found' : 'absent'));
+        console.log('\n^^^^ api::haveJsSIP() ', (typeof JsSIP == 'object' && live.origURI.substr(0,8) == 'https://' && typeof  RTCPeerConnection== 'function' ));
 
 		return (typeof JsSIP == 'object' && live.origURI.substr(0,8) == 'https://' && typeof  RTCPeerConnection== 'function' );
 	}
@@ -5901,7 +5896,7 @@ console.log('merge FAIL ', this.attr.type, ' into ', msg.data.type);
 			 */
 			trying:
 				function(session, headers) {
-                    console.log('10:18 - trying:: ',session, headers);
+                    console.log('\napi::trying:: ',session, headers);
 					var _xIpcId = headers['X-Ipc-Id'];
 					var _sessions = this.attr.sessions;
 					if ( _xIpcId && _xIpcId.length == 1 && ! _sessions[_xIpcId[0].raw] )
@@ -5941,7 +5936,7 @@ console.log('merge FAIL ', this.attr.type, ' into ', msg.data.type);
 			 * @instance
 			 */
 			dial:	function(number, autohold, autoanswer, callback) {
-					console.log('19:16 | api::dial || attr: ',this.attr.jssip);
+					console.log('\n^^^^ api::dial || attr: ',this.attr.jssip);
 					var _this = this;
 					function result(txt) {
 						_this._result(callback, txt || '')
@@ -5949,8 +5944,7 @@ console.log('merge FAIL ', this.attr.type, ' into ', msg.data.type);
 					function trying(e) {
 						_this.trying(this, e.response.headers);
 
-
-                        console.log('api:dial:trying() | e: ', e)
+                        console.log('^^^^ api:dial:trying() | e: ', e);
 
 						/* This should always happen, so use
 						 * it as a signal to put all other calls
@@ -5973,9 +5967,8 @@ console.log('merge FAIL ', this.attr.type, ' into ', msg.data.type);
 					if ( number == null || number == '' ) {
 						setTimeout(result, 10);
 					} else if ( haveJsSIP() && this.attr.jssip ) {
-                        console.log('api::dial to call jssip | sip:' + number);
-                        console.log('api::dial to call jssip | host:' + live.origHost);
-                        console.log('api::dial | callback: ', callback);
+                        console.log('^^^^ api::dial to call jssip | sip:' + number);
+                        console.log('^^^^ api::dial to call jssip | host:' + live.origHost);
 						var _sessionOptions = {
 							eventHandlers: {
 								trying:		trying,
@@ -5997,15 +5990,13 @@ console.log('merge FAIL ', this.attr.type, ' into ', msg.data.type);
 						}
 						if ( typeof(_options.microphone) == 'string' && _options.microphone != 'default' )
 							_sessionOptions.mediaConstraints.audio = {optional: [{sourceId: _options.microphone}]};
-                        console.log('api::dial() | jssip  ',this.attr.jssip);
+                        console.log('^^^^ api::dial() | jssip  ',this.attr.jssip);
 
 
 
 						var _session = this.attr.jssip.call('sip:' + number + '@' + live.origHost, _sessionOptions);
 
-                        console.log('api::dial() | session  ',_session);
-
-
+                        console.log('^^^^ api::dial() | session  ',_session);
 
                         this.attr.session = _session;
 
@@ -6017,16 +6008,7 @@ console.log('merge FAIL ', this.attr.type, ' into ', msg.data.type);
                             password:		this.attr.rtcpwd
                         };
 
-
-                        console.log('A api::dial() | config: ',_config.turn_servers);
-
                         this.attr.config = _config;
-
-                        console.log('B api::dial() | config: ',this.attr.config);
-
-
-
-
 
 
 					} else {

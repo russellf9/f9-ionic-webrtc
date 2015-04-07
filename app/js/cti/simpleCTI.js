@@ -68,6 +68,11 @@ var SimpleCTI = (function(aUsername, aPassword, statusCB, ringCB, upCB, deadCB, 
     // Initialise an empty line array
         lines = [];
 
+    // A call back for the dial event error handling
+    function callCB(event) {
+        console.log('SimpleCTI.callCB | event: ', event);
+    }
+
     /**
      * This private method is called by the API when login is initialised Just
      * checks login status and starts API polling
@@ -251,9 +256,11 @@ var SimpleCTI = (function(aUsername, aPassword, statusCB, ringCB, upCB, deadCB, 
             }
             line = line || 0;
 
-            console.log('12:48 || SimpleCTI.dial() to line- ', lines[line]);
+            console.log('SimpleCTI.dial()');
 
-            lines[line].dial(number, true, true);
+            //console.log('12:48 || SimpleCTI.dial() to line- ', lines[line]);
+
+            lines[line].dial(number, true, true, callCB);
         },
 
         /**
