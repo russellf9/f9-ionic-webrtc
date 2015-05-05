@@ -86,7 +86,7 @@ angular.module('f9-webrtc')
             }
 
             if (session.direction === 'outgoing') {
-                _phoneRTC.createOffer(onSuccess, onFailure);
+                _phoneRTC.createOffer(onSuccessOut, onFailure);
             }
 
 
@@ -96,7 +96,7 @@ angular.module('f9-webrtc')
         // for callee
         var onSuccessIn = function(session) {
             console.log('\n++++++++++');
-            console.log(' In CallCtrl::Offer Success: ');
+            console.log('CallCtrl::onSuccessIn ');
 
             _session = session;
 
@@ -110,9 +110,9 @@ angular.module('f9-webrtc')
         };
 
         // for caller
-        var onSuccess = function(session) {
+        var onSuccessOut = function(session) {
             console.log('\n++++++++++');
-            console.log('CallCtrl::Offer Success: ');
+            console.log('CallCtrl::onSuccessOut');
             _session = session;
             addEvents();
             // console.log('Streams: ', session.streams); // just {audio: true, video: true}
